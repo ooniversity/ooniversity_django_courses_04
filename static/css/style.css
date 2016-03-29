@@ -1,5 +1,7 @@
-﻿.title {color:blue}
-#ind_kurs_descr, #ind_t1, #ind_lnk1, #ind_lnk2, #ind_lnk3, #ind_descr, #ind_text_cont, #ind_tab_kont, tr#ind_tab_head, h2#ind_tab_name { margin: 0;
+h2.title {color:blue}
+#ind_kurs_descr, #ind_t1, #ind_lnk1, #ind_lnk2, #ind_lnk3, #ind_descr, #ind_text_cont, #ind_tab_kont, tr#ind_tab_head { margin: 0;
  padding: 0;}
-.tab_head_col {color:green}
-.number_cell {color:red}
+h2.ind_tab_name { margin: 0;
+ padding: 0;}
+th.tab_head_col {color:green}
+td.number_cell {color:red}
