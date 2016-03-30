@@ -1,7 +1,7 @@
 /*
 need 10 classes
 */
-h1.head {
+h1.head, h2{
 	padding-left: 70px;
 }
 
@@ -23,6 +23,18 @@ body {
 .theme-showcase .navbar .container {
       width: auto;
 }
+
+.table {
+    display: table;
+}
+.table-row {
+    display: table-row;
+}
+.table-cell {
+    display: table-cell;
+}
+
+
 
 
 
