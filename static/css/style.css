@@ -2,7 +2,23 @@
   border-radius: 50%;
   height: 150px;
   width: 150px;
+
+
+
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 .caption{
-    position: center;
+  position: center;
 }
+.navbar-brand{
+  font-family: Impact, Charcoal, sans-serif;
+}
+.caption{
+   font-family: "Comic Sans MS", cursive, sans-serif;
+   background-color: lightblue;
+}
+.row {
+	text-align: center;
+} 
