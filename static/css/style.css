@@ -1,0 +1,27 @@
+.cl_h1{
+	color: #8B8B83;
+	margin-left: 40px;
+}
+
+.cl_h2{
+	color: #4A708B;
+}
+
+.cl_h3{
+	color: #4A708B;
+	margin-left: 50px;
+}
+
+.p_text{
+	margin-left: 70px;
+	margin-right: 80px;
+}
+
+.footer{
+	position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+	text-align: center;
+}
