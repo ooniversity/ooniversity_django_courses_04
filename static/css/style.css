@@ -71,10 +71,11 @@ h1.course_name, h2.Description_title,.Description, .ul_course_items{
   text-align: center;
 }
 
-.btn{
+.label{
   right: 50px;
   bottom: 80px;
   position: fixed;
+  background-color:#2189B0;
 }
 
 /*-------------------------Contacts--------------------------------*/
