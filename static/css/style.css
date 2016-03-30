@@ -76,6 +76,7 @@ h1.course_name, h2.Description_title,.Description, .ul_course_items{
   bottom: 80px;
   position: fixed;
   background-color:#2189B0;
+  color: #FFF;
 }
 
 /*-------------------------Contacts--------------------------------*/
