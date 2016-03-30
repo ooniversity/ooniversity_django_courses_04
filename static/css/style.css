@@ -2,15 +2,12 @@
   border-radius: 50%;
   height: 150px;
   width: 150px;
-
-
-
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-.caption{
-  position: center;
+.email_c{
+  color: red;
 }
 .navbar-brand{
   font-family: Impact, Charcoal, sans-serif;
@@ -22,3 +19,18 @@
 .row {
 	text-align: center;
 } 
+.btn{
+	background: black;
+}
+h3{
+	font-family: Impact, Charcoal, sans-serif;
+}
+.lead{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+h1{
+	font-family: Impact, Charcoal, sans-serif;
+}
+p{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
