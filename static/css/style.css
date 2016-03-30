@@ -1,6 +1,10 @@
 /*
 need 10 classes
 */
+h1.head {
+	padding-left: 70px;
+}
+
 body {
       padding-top: 70px;
         padding-bottom: 30px;
