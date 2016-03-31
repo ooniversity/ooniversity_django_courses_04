@@ -174,10 +174,11 @@ a:hover {
 /*tr:hover {background-color: #417D93}*/
 
 
-th.marker::selection, td.marker::selection {
+/*th.marker::selection, td.marker::selection {
   background: #00C0BA;
 
 }
 th.marker::-moz-selection, td.marker::selection {
   background: #00C0BA;
 }
+*/
