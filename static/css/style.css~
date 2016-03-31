@@ -62,7 +62,7 @@ background-color:#DCDCDC;}
 .panel-info .panel-body{
 background-color: #696969;}
 
-#footer_header{
+footer{
 color: #20B2AA;}
 
 .dropdown-menu li, .dropdown ul {
