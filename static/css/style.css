@@ -124,3 +124,60 @@ h1.course_name, h2.Description_title,.Description, .ul_course_items{
   color: #FFF;
   text-align: center;
 }
+
+/*-------------------------student_list--------------------------------*/
+
+.list_name_page {
+  padding-top: 20px;
+  padding-left: 7%;
+  padding-bottom: 1%;
+  text-align: left;
+}
+
+.list_info{
+  padding-left: 6%;
+}
+.list_name_page, .list_info, .table{
+  color: #FFF;
+}
+
+.table{
+  background-color:#2F5765;
+  width: 90%;
+}
+.table_links{
+    color: #FFF;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #176A8D;
+}
+/*-------------------------student_detail--------------------------------*/
+.student_info{
+  color: #FFF;
+
+  /*height: 200px;*/
+}
+
+.table-reflow{
+  color: #FFF;
+  background-color:#2F5765;
+  margin-bottom: 5%;
+}
+
+#statistics{
+  width: 800px;
+}
+
+*/
+/*tr:hover {background-color: #417D93}*/
+
+
+th.marker::selection, td.marker::selection {
+  background: #00C0BA;
+
+}
+th.marker::-moz-selection, td.marker::selection {
+  background: #00C0BA;
+}
