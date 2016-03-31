@@ -44,7 +44,7 @@ width: 300px;
 .organized{
 margin-top: 20px;
 }
-h3, h2, h1, .jumbotron h1{
+h3, h2, h1, .jumbotron h1, td, th{
 text-align: center;
 }
 p label{
@@ -57,3 +57,13 @@ margin: auto;
 a{
 margin-left: 10px;
 }
+.name-student{
+font-size: 125%;
+}
+h1.student-name, td.student-name{
+text-align: left;
+}
+.small{
+width: 400px;
+}
+
