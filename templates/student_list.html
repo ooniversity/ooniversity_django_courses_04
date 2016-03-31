@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Список студентов курса</title>
+
+    <!-- Bootstrap -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+    
+
+    
+  </head>
+  <body>
+    <div class="common">
+    
+    <nav class="navbar navbar-default">
+        <a href="index.html">Main</a>
+        <a href="contact.html">Contacts</a>
+        <a href="student_list.html">Students</a>
+    </nav>
+    
+  <div class="container">     
+    <div class="jumbotron">
+        <h1>Студенты курсов PyBursa</h1>
+        <h2>Список студентов выпуска 2016 года</h2>
+    </div>
+  
+<table class="table" >
+    <thead>
+        <tr class="success">
+            <th>No</th>
+            <th>Surname</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Skype</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="info">
+            <td><a href='student_detail.html'>1</a></td>
+            <td>Иванов</td>
+            <td class="name-student">Иван</td>
+            <td>Республика Чад, г. Харьков, ул. 1 Января, д.1б</td>
+            <td>ivanov.ivan</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Щербаков</td>
+            <td class="name-student">Петр</td>
+            <td>Гонконг, г. Гонконг, ул. Синь-Пинь-Пунь, д.1</td>
+            <td>petr.pin</td>
+        </tr>
+        <tr class="warning">
+            <td>3</td>
+            <td>Хлеборезов</td>
+            <td class="name-student">Вагтанг</td>
+            <td>Украина, г. Киев, ул. Киевская, д.55</td>
+            <td>varik.ara</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Хренов</td>
+            <td class="name-student">Игорь</td>
+            <td>Украина, г. Херсон, ул. Громкая, д.22</td>
+            <td>her.son</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Авакян</td>
+            <td class="name-student">Петр</td>
+            <td>Украина, г. Харьков, ул. Тихая, д.23</td>
+            <td>avik.cok</td>
+        </tr>
+    </tbody>
+</table>    
+    
+    
+  
+  </div>
+  
+  <div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary">
+          <input type="checkbox"> Желтая карточка
+        </label>
+  <label class="btn btn-primary">
+          <input type="checkbox"> Красная карточка
+        </label>
+  <label class="btn btn-primary">
+          <input type="checkbox"> Синяя карточка
+        </label>
+</div>
+  
+  <nav>
+    <ul class="pager">
+      <li class="previous"><a href="contact.html"><span aria-hidden="true">&larr;</span> Previous</a></li>
+    </ul>
+  </nav>
+   
+  </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../static/js/bootstrap.min.js"></script>
+  </body>
+</html>

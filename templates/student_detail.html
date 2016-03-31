@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Состояние студента</title>
+
+    <!-- Bootstrap -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+    
+
+    
+  </head>
+  <body>
+    <div class="common">
+    
+    <nav class="navbar navbar-default">
+        <a href="index.html">Main</a>
+        <a href="contact.html">Contacts</a>
+        <a href="student_list.html">Students</a>
+    </nav>
+    
+  <div class="container">     
+    <div class="jumbotron small">
+        <h1 class="student-name">Иванов Иван</h1>
+    </div>
+   <p>Карточка студента</p>
+<table class="table small table-bordered" >
+    <tbody>
+        <tr class="info">
+            <td>Surname</td>
+            <td class="student-name">Иванов</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td class="student-name">Иван</td>
+        </tr>
+        <tr class="warning">
+            <td>Patronymic</td>
+            <td class="student-name">Иванович</td>
+        </tr>
+        <tr>
+            <td>Birth Date</td>
+            <td class="student-name">11/10/1985</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td class="student-name">Республика Чад, г. Харьков, ул. 1 Января, д.1б</td>
+        </tr>
+        <tr class="info">
+            <td>E-mail</td>
+            <td class="student-name">ivanov@gmail.com</td>
+        </tr>
+        <tr>
+            <td>Skype</td>
+            <td class="student-name">ivanov.ivan</td>
+        </tr>
+        <tr class="warning">
+            <td>Average Grade</td>
+            <td class="student-name">99.9</td>
+        </tr>
+        <tr>
+            <td>Rating</td>
+            <td class="student-name">22</td>
+        </tr>
+    </tbody>
+</table>    
+    
+ <table class="table table-bordered" >
+ <thead>
+        <tr class="success">
+            <th>Курс</th>
+            <th>Неделя</th>
+            <th>Тип задания</th>
+            <th>Оценка</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="5" class="vert-align">Введение в питон</td>
+            <td rowspan="3" class="vert-align">Week 1</td>
+            <td>Tests</td>
+            <td>99%</td>
+        </tr>
+        <tr>
+            <td>Problem Task №1</td>
+            <td>100%</td>
+        </tr>
+        <tr>
+            <td>Problem Task №2</td>
+            <td>100%</td>
+        </tr>
+        <tr>
+            <td rowspan="2" >Week 2</td>
+            <td>Tests</td>
+            <td>100%</td>
+        </tr>
+        <tr>
+            <td>Problem Task №1</td>
+            <td>100%</td>
+        </tr>
+    </tbody>
+</table>   
+  
+  </div>
+  
+  <div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary">
+          <input type="checkbox"> Желтая карточка
+        </label>
+  <label class="btn btn-primary">
+          <input type="checkbox"> Красная карточка
+        </label>
+  <label class="btn btn-primary">
+          <input type="checkbox"> Синяя карточка
+        </label>
+</div>
+  
+  <nav>
+    <ul class="pager">
+      <li class="previous"><a href="student_list.html"><span aria-hidden="true">&larr;</span> Previous</a></li>
+    </ul>
+  </nav>
+   
+  </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../static/js/bootstrap.min.js"></script>
+  </body>
+</html>
