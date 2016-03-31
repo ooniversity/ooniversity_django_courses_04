@@ -50,7 +50,6 @@
 .thumb-text
 {
     text-align: center;
-
 }
 .program-text
 {
@@ -70,5 +69,25 @@ table
 }
 td
 {
-
+    text-align: center;
+}
+.container-fluid
+{
+    text-align: center;
+}
+.table-size
+{
+    width: 50% ;
+}
+.table-body
+{
+    text-align: center;
+}
+.table-width
+{
+    width: 500px;
+}
+p
+{
+    text-align: left;
 }
