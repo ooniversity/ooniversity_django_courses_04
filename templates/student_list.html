@@ -9,7 +9,7 @@
     <!-- Favicons -->
     <link rel="icon" sizes="192x192" href="../static/images/django-icon.png">
 
-    <title>DjBursa - Contacts</title>
+    <title>DjBursa - Students</title>
 
     <!-- Bootstrap -->
     <link href="../static/css/bootstrap.css" rel="stylesheet">
@@ -42,8 +42,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="index.html">Main</a></li>
-            <li class="active"><a href="contact.html">Contacts</a></li>
-            <li><a href="student_list.html">Students</a></li>
+            <li><a href="contact.html">Contacts</a></li>
+            <li class="active"><a href="student_list.html">Students</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -51,50 +51,57 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="page-header text-center">Our Team</h1>
+          <h1 class="page-header text-center">Студенты курса DjBursa</h1>
+          <p>Список студентов 4-го потока:</p>
         </div>
-        <div class="col-md-4 text-center">
-          <div class="thumbnail">
-            <img alt="" src="../static/images/team/face_1.png" class="img-responsive">
-            <div class="caption">
-              <h3>Director</h3>
-              <ul class="list-group">
-                <li class="list-group-item"><strong>Name: </strong>John Smith</li>
-                <li class="list-group-item"><strong>Skype: </strong>john.smith</li>
-                <li class="list-group-item"><strong>Email: </strong>john.smith@gmail.com</li>
-                <li class="list-group-item"><strong>Phone: </strong>+38(095)0000001</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 text-center">
-          <div class="thumbnail">
-            <img alt="" src="../static/images/team/face_2.png" class="img-responsive">
-            <div class="caption">
-              <h3>Manager</h3>
-              <ul class="list-group">
-                <li class="list-group-item"><strong>Name: </strong>Silly Sally</li>
-                <li class="list-group-item"><strong>Skype: </strong>silly.sally </li>
-                <li class="list-group-item"><strong>Email: </strong>silly.sally@gmail.com</li>
-                <li class="list-group-item"><strong>Phone: </strong>+38(095)0000002</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 text-center">
-          <div class="thumbnail">
-            <img alt="" src="../static/images/team/face_3.png" class="img-responsive">
-            <div class="caption">
-              <h3>Founder</h3>
-              <ul class="list-group">
-                <li class="list-group-item"><strong>Name: </strong>Chris John</li>
-                <li class="list-group-item"><strong>Skype: </strong>chris.john</li>
-                <li class="list-group-item"><strong>Email: </strong>chris.john@gmail.com</li>
-                <li class="list-group-item"><strong>Phone: </strong>+38(095)0000003</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <table class="table table-hover">
+          <thead class="thead-inverse">
+            <tr>
+              <th>No</th>
+              <th>Surname</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Skype</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="active">
+              <th scope="row"><a href="student_detail.html">1</a></th>
+              <td>Махно</td>
+              <td>Юрий</td>
+              <td>г. Харьков, ул. Петровского, 15</td>
+              <td>makhnoy</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Гагаро</td>
+              <td>Денис</td>
+              <td>г. Харьков, ул. Иванова, 21</td>
+              <td>wer1171</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Поважнюк</td>
+              <td>Сергей</td>
+              <td>г. Харьков, ул. Сумская, 5</td>
+              <td>sergant_ua</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Токарь</td>
+              <td>Руслан</td>
+              <td>г. Харьков, ул. Пушкинская, 87</td>
+              <td>dj_rexxx</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Волынский</td>
+              <td>Богдан</td>
+              <td>г. Харьков, ул. Мироносицкая, 52</td>
+              <td>bogdan.volynsky</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <footer class="footer">
         <div class="row">
