@@ -12,20 +12,15 @@
 }
 .media-object
 {
-    border: 10px;
-    border-color: black;
     width: 160px;
-    height: 160px;
 }
 .media-heading
 {
     text-align: center;
-
 }
 .media-text
 {
-    text-align: justify
-
+    text-align: justify;
 }
 .size-img
 {
@@ -52,9 +47,10 @@
 {
     text-align: center;
 }
-.thumbnail-text
+.thumb-text
 {
-    text-align: left;
+    text-align: center;
+
 }
 .program-text
 {
@@ -63,4 +59,16 @@
 .pybursa-logo
 {
     text-align: center;
+}
+tr
+{
+    text-align: center;
+}
+table
+{
+    text-align: center;
+}
+td
+{
+
 }
