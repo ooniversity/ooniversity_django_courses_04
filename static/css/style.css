@@ -93,7 +93,6 @@ footer p {
 .table td, .table th {
     border: 1px solid #eceeef;
     line-height: 1.5;
-    padding: 0.75rem;
 }
 
 .table-hover tbody tr:hover {
