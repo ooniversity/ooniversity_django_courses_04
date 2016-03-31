@@ -1,8 +1,11 @@
 h2.title {color:blue}
 #ind_kurs_descr, #ind_t1, #ind_lnk1, #ind_lnk2, #ind_lnk3, #ind_descr, #ind_text_cont, #ind_tab_kont, tr#ind_tab_head { margin: 0;
  padding: 0;}
-h2.ind_tab_name st_tab_head { margin: 0;
+h2.ind_tab_name  { margin: 0;
  padding: 0;}
 th.tab_head_col {color:green}
 td.number_cell {color:red}
-st_name_head {color:blue}
+H1.st_name_head {color:blue}
+H1.st_head {color:blue}
+tr.st_tab_head { margin: 0;
+ padding: 0;}
