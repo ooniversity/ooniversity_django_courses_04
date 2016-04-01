@@ -10,25 +10,27 @@
   <script src="../static/js/bootstrap.js"></script>
 </head>
 <body>
-<nav>
-  <ul class="list-unstyled">
-    <li class="menu-item">
-      <a href="index.html">Main</a>
-    </li>
-    <li class="menu-item">
-      <a href="contact.html">Contacts</a>
-    </li>
-    <li class="menu-item active">
-      <a href="student_list.html">Students</a>
-    </li>
-  </ul>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="menu-item">
+        <a href="index.html">Main</a>
+      </li>
+      <li class="menu-item">
+        <a href="contact.html">Contacts</a>
+      </li>
+      <li class="menu-item active">
+        <a href="student_list.html">Students</a>
+      </li>
+    </ul>
+  </div>
 </nav>
 <div class="container">
   <div class="main-container text-center">
     <h4>PyBursa Students</h4>
     <h5>We Appreciate All of You! Join the Team Today</h5>
     <div class="table-wrapper">
-      <table class="table table-hover table-responsive text-left">
+      <table class="table table-hover table-responsive">
         <thead>
           <tr>
             <th>No</th>
@@ -37,10 +39,10 @@
             <th>Address</th>
             <th>Skype</th>
             <th>Status</th>
-            <th>Leadership</th>
+            <th>More</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="text-left">
           <tr>
             <td><a href="student_detail.html">1</a></td>
             <td>Doe</td>
@@ -133,6 +135,13 @@
           </tr>
         </tbody>
       </table>
+      <ul class="pagination pagination-lg">
+        <li><a href="index.html">«</a></li>
+        <li><a href="index.html">1</a></li>
+        <li><a href="contact.html">2</a></li>
+        <li class="active"><a href="student_list.html">3</a></li>
+        <li class="disabled"><a href="student_list.html">»</a></li>
+      </ul>
     </div>
   </div>
 </div>
