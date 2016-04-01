@@ -5,6 +5,11 @@ h1.head, h2{
 	padding-left: 70px;
 }
 
+.text {	
+    text-align: center;    
+   }
+
+
 body {
       padding-top: 70px;
         padding-bottom: 30px;
