@@ -19,9 +19,7 @@
 .row {
 	text-align: center;
 } 
-.btn{
-	background: black;
-}
+
 h3{
 	font-family: Impact, Charcoal, sans-serif;
 }
@@ -75,7 +73,4 @@ p{
   padding: 0 8px;
   border-radius: 4px;
   cursor: pointer;
-}
-.mrg{
-  margin-right: -50px;
 }
