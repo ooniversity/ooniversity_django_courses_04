@@ -15,17 +15,18 @@
 }
 
 h4 {
-text-align: center;
+ text-align: center;
 }
 
 li {
     list-style-type: none; /* Убираем маркеры */
-    align: center
+    
 }
+
 .imgCenter {
-display:block; 
-margin:0 auto;
-align: center
+ display:block; 
+ margin:0 auto;
+ align: center;
 }
 
 
