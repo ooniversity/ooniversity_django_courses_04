@@ -3,13 +3,32 @@
   margin-bottom: 30px;
   color: inherit;
 }
+.jumbotron h1, h1{
+ font-size: 30px;
+}
+.jumbotron h2, h2{
+ font-size: 26px;
+}
+.jumbotron p{
+ font-size: 18px;
+ text-indent: 27px;
+}
+
+h4 {
+text-align: center;
+}
 
 li {
     list-style-type: none; /* Убираем маркеры */
+    align: center
 }
 .imgCenter {
 display:block; 
 margin:0 auto;
+align: center
 }
+
+
+
 
 
