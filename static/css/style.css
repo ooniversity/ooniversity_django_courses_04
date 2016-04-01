@@ -78,3 +78,10 @@ margin-top: 20px;
 .foto{
 width: 250px;
 }
+
+.footer {
+height: 2.5em;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
