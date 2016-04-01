@@ -1,0 +1,10 @@
+.header {color:green;text-align:center;}
+img {height: 150px; font-weight: 100px;vertical-align: middle;}
+h3.center_blue {color: blue;text-align: center}
+p {margin: 20px}
+.director {font-style: italic;color: gray}
+.manager {color: blue;}
+.founder {font-style: italic;}
+div.block_double {border-style: double;}
+div.block_single {border-style: solid; border-color: red}
+div.block_dotted {border-style: dotted; border-color: green}
