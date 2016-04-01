@@ -24,9 +24,9 @@ div>h1{
     font-weight: 900;
     color: gray;
 }
-/*h1,p{
+h1,p{
     border-left: 2px solid gray;
-}*/
+}
 #shadow{
     text-shadow: 1px 1px black;
 }
