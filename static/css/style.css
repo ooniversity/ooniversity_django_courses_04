@@ -1,49 +1,35 @@
-.unpoint{
+.col-xs-3>ul{
     list-style-type: none;
 }
-.left-unmarge{
-    margin-left: 0;
-    padding-left: 0;
-}
-.centralize{
+h2 {
     text-align: center;
 }
-.underline{
+ul li span{
     text-decoration: underline;
 }
 .abs{
     left: 0;
 }
-.img-size{
+img{
     width: 250px;
-}
-.img-format{
     border: 3px solid black;
 }
-.img-radius{
-    border-radius: 20px;
-}
-.background{
+body{
     background-color: seashell;
 }
-.gradient {
+nav.navbar{
     background-color: #acdabb;
 }
-.marker{
+img.img-circle{
+    padding-left: 10px;
+}
+div>h1{
     font-weight: 900;
+    color: gray;
 }
 .bord-left{
     border-left: 2px solid gray;
 }
-.bord-right{
-    border-right: 2px dashed gray;
-}
-.line-through{
-    text-decoration: line-through;
-}
 .text-al-r{
     text-align: right;
-}
-.fn-grey{
-    color: gray;
 }
