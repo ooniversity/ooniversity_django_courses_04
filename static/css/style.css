@@ -46,3 +46,10 @@ span.glyphicon{
 div img{
     background-color: #e6ffe6;
 }
+td{
+    border-collapse: collapse;
+    border:2px solid gray;
+}
+table{
+    text-align: center;
+}
