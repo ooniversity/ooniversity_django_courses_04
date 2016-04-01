@@ -5,12 +5,19 @@
   background-color: #FFFFFF
 }
 
-.jumbotron  h1{
+.Course{
  font-size: 30px;
+ text-align: center
 }
 
-.jumbotron  h3{
+.Desription {
  font-size: 26px;
+ text-align: center
+}
+
+.Program {
+ font-size: 25px;
+ text-align: center
 }
 
 .jumbotron p{
