@@ -1,0 +1,32 @@
+.unpoint{
+    list-style-type: none;
+}
+.left-unmarge{
+    margin-left: 0;
+    padding-left: 0;
+}
+.centralize{
+    text-align: center;
+}
+.underline{
+    text-decoration: underline;
+}
+.abs{
+    left: 0;
+}
+.img-size{
+    width: 18vw;
+}
+.img-format{
+    border: 3px solid black;
+    border-radius: 20px;
+}
+.background{
+    background-color: seashell;
+}
+.gradient {
+    background: linear-gradient(to top, #e6f3e9, #acdabb);
+}
+.marker{
+    font-weight: 900;
+}
