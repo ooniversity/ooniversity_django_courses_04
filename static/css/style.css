@@ -27,9 +27,6 @@ div>h1{
 h1,p{
     border-left: 2px solid gray;
 }
-.text-al-r{
-    text-align: right;
-}
 #shadow{
     text-shadow: 1px 1px black;
 }
@@ -38,4 +35,14 @@ div>h2{
 }
 h4{
     cursor: pointer;
+}
+h2 span{
+    color: gray;
+}
+span.glyphicon{
+    position: relative;
+    right: 40px;
+}
+div img{
+    background-color: #e6ffe6;
 }
