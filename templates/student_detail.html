@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<title>Main PyBursa</title>
+	<title>Student details</title>
 	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
@@ -25,10 +25,12 @@
 	<div class="row"></div>
 		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
 		<div class="lead col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			<h1>Makhno Yuriy</h1>
-			<img class="img-thumbnai" src="../static/images/smile.jpg">
-			<button type="button" class="btn btn-primary">Studend about myself</button>
-			<p>Students card</p>
+			<div class="jumbotron page-header">
+				<h1>Makhno Yuriy</h1>
+				<img class="img-thumbnai" src="../static/images/smile.jpg">
+				<button type="button" class="btn btn-primary">Studend about myself</button>
+			</div>
+			<p class="bg-warning">Students card</p>		
 			<table class="table table-hover">
 				<tbody>
 					<tr>
@@ -71,9 +73,13 @@
 						<td>Skype</td>
 						<td>makho</td>
 					</tr>
+					<tr>
+						<td>E-mail.</td>
+						<td>makho@gmail.com</td>
+					</tr>
 				</tbody>
 			</table>
-			<p>Perfomance</p>
+			<p class="bg-warning">Perfomance</p>
 			<table class="table table-hover">
 				<tbody>
 					<tr>
@@ -82,19 +88,19 @@
 						<th>Control Type</th>
 						<th>Grade</th>
 					</tr>
-					<tr>
+					<tr class="alert alert-danger">
 						<td>Py101 Python Introduction</td>
 						<td>Week 1</td>
 						<td>Tests</td>
 						<td>99%</td>
 					</tr>
-					<tr>
+					<tr class="success">
 						<td></td>
 						<td></td>
 						<td>Problem Task №1</td>
 						<td>100%</td>
 					</tr>
-					<tr>
+					<tr class="success">
 						<td></td>
 						<td></td>
 						<td>Problem Task №2</td>
@@ -104,13 +110,13 @@
 						<td></td>
 						<td>Week 2</td>
 						<td>Tests</td>
-						<td>100%</td>
+						<td class="success">100%</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
 						<td>Problem Task №1</td>
-						<td>100%</td>
+						<td class="success">100%</td>
 					</tr>
 					<tr>
 						<td></td>
