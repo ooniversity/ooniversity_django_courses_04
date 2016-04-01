@@ -15,18 +15,35 @@
     left: 0;
 }
 .img-size{
-    width: 18vw;
+    width: 250px;
 }
 .img-format{
     border: 3px solid black;
+}
+.img-radius{
     border-radius: 20px;
 }
 .background{
     background-color: seashell;
 }
 .gradient {
-    background: linear-gradient(to top, #e6f3e9, #acdabb);
+    background-color: #acdabb;
 }
 .marker{
     font-weight: 900;
+}
+.bord-left{
+    border-left: 2px solid gray;
+}
+.bord-right{
+    border-right: 2px dashed gray;
+}
+.line-through{
+    text-decoration: line-through;
+}
+.text-al-r{
+    text-align: right;
+}
+.fn-grey{
+    color: gray;
 }
