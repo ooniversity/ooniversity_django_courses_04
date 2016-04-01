@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Our Contacts</title>
+    <title>Student details</title>
     <!-- Bootstrap core CSS -->
     <link href="../static/css/bootstrap.css" rel="stylesheet">
     <link href="../static/css/style.css" rel="stylesheet">
@@ -37,31 +37,40 @@
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
-		<div class="nav nav-list pull-right">
-      <span href="#" class="list-group-item active">
-        О Python (оригинальный сайт)
-      	<span class="pull-right" id="slide-submenu">
-       		<i class="fa fa-times"></i>
-        </span>
-      </span>
-      <a href="#" class="list-group-item">
-        <i class="fa fa-comment-o"></i> Организация
-      </a>
-      <a href="#" class="list-group-item">
-        <i class="fa fa-search"></i> Программа
-      </a>
-      <a href="#" class="list-group-item">
-        <i class="fa fa-user"></i> Цена
-      </a>
-      <a href="#" class="list-group-item">
-        <i class="fa fa-user"></i> Тренеры
-      </a>
-    </div>  
-
 		<div class="container">
       <h2>Persianova Olena</h2>
       <p> <img src="../static/images/Persianova.jpg" alt="..." class="img-circle"></p>
-      <p><span class="sname label label-default">Студент о себе</span></p>
+      
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Студент о себе
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">О себе</h4>
+      </div>
+      <div class="modal-body">
+        Более полутора лет в веб-разработке, имеет опыт проведения тренингов, занимается изучением и развитием образовательных онлайн-платформ. Убеждена, что залог успешного старта в профессиональной разработке - это удачно структурированная практика, поддержка опытного тренера и соревновательный эффект! 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
       <p>Student's card</p>
       <table class="twidth table">
         <tbody>
@@ -108,18 +117,22 @@
         <tbody>
           <tr>
 						<td rowspan="4">PY101 Введение в Python</td>
-						<td rowspan="3">Week1</td>
+						<td rowspan="4">Week1</td>
 						<td>Tests</td>
 						<td>99%</td>
 					</tr>
 					<tr>
-						<td>Proplem Task №1</td>
+						<td>Problem Task №1</td>
 						<td>100%</td>
 					</tr>
 					<tr>
-						<td>Proplem Task №2</td>
-						<td>100%</td>
-					</tr>     
+						<td>Average Grade</td>
+						<td>99</td>
+					</tr>
+					<tr>
+						<td>Rating</td>
+						<td>18</td>
+					</tr>      
 				</tbody>
       </table>
     </div>
