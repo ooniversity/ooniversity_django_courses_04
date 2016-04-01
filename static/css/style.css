@@ -11,3 +11,5 @@ div.block_dotted {border-style: dotted; border-color: green}
 .back {background: yellow}
 .inside {text-shadow: 0 0 3px #FF0000;}
 .new {text-decoration: underline; text-decoration-style: double;}
+table.tab {background: pink;}
+.body {background: gray;}
