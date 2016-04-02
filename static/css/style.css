@@ -4,10 +4,25 @@ body {
 .style {
   padding: 40px 15px;
   text-align: left;
+}
 
+#foto {
+  height: 150px;
+  width: 100px;
+}
 
-.bord {
-  border-style: solid;
-  border-color: green
+img {
+  height: 150px;
+  width: 100px;
+}
+
+p {
+  color:red;
+}
+
+h1 {
+  text-decoration:overline;
+}
+
 
 
