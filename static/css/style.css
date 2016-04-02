@@ -45,8 +45,23 @@
 
 .my_table tr:hover td{
 	background: #DFE9FF;
+	font-weight: bold;
+	color: #296787;
 }
 
 .jumbotron > h2 {
   color: #296685;
+}
+
+.my_contacttable td:hover{
+	font-weight: bold;
+	font-stretch: ultra-expanded;
+	color: #296787;
+
+}
+
+.my_contacttable tr:hover th{
+	vertical-align: top;
+	font-weight: bold;
+	color: #296787;
 }
