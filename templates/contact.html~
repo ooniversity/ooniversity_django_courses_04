@@ -18,7 +18,7 @@
     <link href="../static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/starter-template.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -56,12 +56,12 @@
     <div class="container">
 
       <div class="starter-template">        
-        <h3>Director</h3>
-        <p class="lead">Name:<br/>Skype:<br/>Email:<br/>Phone:<br/></p>
-        <h3>Manager</h3>
-        <p class="lead">Name:<br/>Skype:<br/>Email:<br/>Phone:<br/></p>
-        <h3>Founder</h3>
-        <p class="lead">Name:<br/>Skype:<br/>Email:<br/>Phone:<br/></p>
+        <h2>Director</h2>
+        <p>Name:<br/>Skype:<br/>Email:<br/>Phone:<br/></p>
+        <h2>Manager</h2>
+        <p>Name:<br/>Skype:<br/>Email:<br/>Phone:<br/></p>
+        <h2>Founder</h2>
+        <p>Name:<br/>Skype:<br/>Email:<br/>Phone:<br/></p>
       </div>
 
     </div><!-- /.container -->
