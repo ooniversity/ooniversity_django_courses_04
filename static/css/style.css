@@ -1,0 +1,25 @@
+body { padding-top: 50px; }
+.starter-template { padding: 40px 15px; text-align: center; }
+.lirRefactF { font-size: 10; }
+.lirRefactC { color: #ccc; }
+.lirRefactB { font-weight: bold; }
+.lirRefactU { text-transform: uppercase; }
+.lirRefactL { text-transform: lowercase; }
+.lirRefactS { list-style-type: circle; }
+.lirRefactP { list-style-position: inside; }
+.lirRefactPad { padding: 5px }
+.lirRefactMargin { margin: 5px }
+.lirRefactBackgr { background: #ccc; }
+ul.ulMain {float: left; width: 100%; border:1px solid #ccc; padding: 10px 0 30px 10px; }
+ul.ulMain li { float: left; text-align: left; list-style-type: none; margin: 0 10px 0 0; }
+
+.mainDescription{float: left;width: 100%;margin: 20px 0 0 0;border-bottom:2px solid #ccc;}
+.mainDescriptionImg{float: left;width: 40%;}
+.mainDescriptionText{float: left;width: 50%;}
+.mainDescriptionTitle{float: left;width: 100%; text-align: left;}
+.mainDescriptionOpis{float: left;width: 100%; text-align: left;}
+.mainDescriptionData{font-weight: bold;}
+h4.titleM {float: left;text-align: left;text-decoration: underline;}
+.news {float: left;width: 100%; border-top:2px solid #ccc;}
+.dir{color:#000;}
+.director{color:#ccc;}
