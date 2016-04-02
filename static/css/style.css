@@ -1,13 +1,47 @@
 body {
   padding-top: 50px;
 }
-.ptxt1{}
-.ptxt2{}
-.ptxt3{}
-.ptxt4{}
-.ptxt5{}
-.ptxt6{}
-.ptxt7{}
-.ptxt8{}
-.ptxt9{}
-.ptxt10{}
+
+a {
+  text-decoration: none;
+}
+
+.address {
+  color: #111;
+}
+
+span.email {
+  font-style: italic;
+  font-family: Verdana, Helvetica;
+}
+
+span.name {
+  color: #222;
+  font-family: Verdana, Helvetica;
+}
+
+span.skype {
+  color: #111;
+  font-family: Verdana, Helvetica;
+}
+
+span.phone {
+  font-family: Verdana, Helvetica;
+}
+
+.py_main_header {
+  font-size: 30px;
+  font-family: Verdana, Helvetica;
+}
+
+p span.block_text {
+  text-align: justify;
+}
+
+h3.block_header {
+  font-size: 20px;
+}
+
+.container_name {
+  font-weight: bold;
+}
