@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Py">
     <title>Core Page</title>
 
     <!-- Bootstrap -->
@@ -16,50 +17,59 @@
   <body>
  
     <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">Main</a>
-    </div>
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+          <!--
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          </button>  
+         <a class="navbar-brand" href="index.html">Main</a>
+        </div>
+        -->
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="contact.html">Contact<span class="sr-only">(current)</span></a></li>
-      </ul>
-      
-      
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+          <ul class="nav navbar-nav menu_large_font_my">
+            <li class="active "> <a  href="index.html" >Main</a> <span class="sr-only">(current)</span></li>
+            <li class="divider-vertical"></li>
+            <li class="active "> <a href="contact.html"  >Contacts</a> <span class="sr-only">(current)</span></li>
+            <li class="divider-vertical"></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
 
- <div class="container">
-   <div class="jumbotron">
-     <h1>Hello, Bursapeople!</h1>
-     <h2>Description PyBursa course</h02>
-     <p> Welcome!</p>
-   </div>
- </div>  
+        </div><!-- /.container-fluid -->
+      </nav>
+
+	<div class="container">
+     <div class="jumbotron">
+       <h1>Hello, Bursapeople! <p><h2>Description:</p><h2> </h1>
+       <h2>PyBursa course</h02>
+       <p>Welcome!</p>
+      </div>
+    </div>  
+
+	<div class="container">
+	  <div class="jumbotron">
+	    <h2>Program</h2>
+	    <p> Курс посвящен основам Python/Django</p>    
+	  </div>
+	</div>
 
 <div class="container">
-   <div class="jumbotron">
-     <h2>Program</h2>
-     <p> Курс посвящен основам Python/Django</p>    
-   </div>
- </div>
-
-    <div class="container">
-      <footer class="footer">
-        <p>&copy; 2016 </p>
-      </footer> 
-    </div>
-
+  <div class="row ">
+    <footer class="footer">
+        <div class="footer_div">
+          <p>
+          <img src="../static/images/python.png" alt="footer image" class= "img_resized" >
+          &copy; 2016 
+          <img src="../static/images/slowpk.png" alt="footer image" class= "img_resized"> 
+          </p>
+        <div>
+      </footer>
+  </div>
+</div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
