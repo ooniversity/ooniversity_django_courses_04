@@ -73,3 +73,13 @@ display:inline;
     border-right: 1px solid #F5F5F5;
     border-left: 1px solid #F5F5F5;
     }
+
+.center_div {
+width: 600px;
+margin: auto;
+}
+
+.right_div{
+width: 100%;
+margin-left: auto;	
+}
