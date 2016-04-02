@@ -1,0 +1,72 @@
+.my_jumbotron {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-color: #C2F2F3;
+  text-align: center;
+}
+
+.my_navbar-default {
+  background-color: #C2F2F3;
+  border-color: #e7e7e7;
+}
+
+.my_table {
+	border-spacing:0;
+}
+
+.my_table td {
+	padding: 4px;
+	align: right;
+	border-spacing:100 px 100px;
+}
+
+.my_table th{
+	padding: 4px;
+	text-align: center;
+	color:re#296686d;
+	background-color: #E5AF36;
+}
+
+.my_table tr td{
+	vertical-align: top;
+	border-spacing:100 px 100px;
+}
+
+.my_firstcolsize {
+	width: 10%;
+}
+
+.my_secondcolsize {
+	width: 40%;
+}
+
+.my_thirdcolsize {
+	width: 50%;
+}
+
+.my_table tr:hover td{
+	background: #DFE9FF;
+}
+
+.my_navbar-nav {
+  margin: 7.5px -15px;
+}
+
+.my_nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.jumbotron > h2 {
+  color: #296685;
+}
+
+.divcontacts > h2{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: inherit;
+}
