@@ -6,27 +6,42 @@ a {
   text-decoration: none;
 }
 
+#person_manager {
+  background-color: #ccc;
+}
+
 .address {
   color: #111;
 }
 
-span.email {
+.person_description {
+  background-color: #cecece;
+}
+
+.address_block {
+  width: 100%;
+}
+
+.first-word {
+  font-weight: bold;
+}
+
+.email {
   font-style: italic;
   font-family: Verdana, Helvetica;
 }
 
-span.name {
+.name {
   color: #222;
-  font-family: Verdana, Helvetica;
 }
 
-span.skype {
+.skype {
   color: #111;
   font-family: Verdana, Helvetica;
 }
 
-span.phone {
-  font-family: Verdana, Helvetica;
+.phone {
+
 }
 
 .py_main_header {
@@ -34,14 +49,20 @@ span.phone {
   font-family: Verdana, Helvetica;
 }
 
-p span.block_text {
+.block_text {
   text-align: justify;
 }
 
-h3.block_header {
+.block_header {
   font-size: 20px;
 }
 
 .container_name {
   font-weight: bold;
+}
+
+.copyright {
+  display: block;
+  height: 50px;
+  width: 100%;
 }
