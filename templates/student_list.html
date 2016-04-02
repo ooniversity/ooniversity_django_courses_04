@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="Description" content="Py">
-    <title>Core Page</title>
+    <title>Students table</title>
 
     <!-- Bootstrap -->
     <link href="../static/css/bootstrap.css" rel="stylesheet">
     <link  href="../static/css/style.css" rel="stylesheet">
 
- 
   </head>
   <body>
  
@@ -31,7 +30,7 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-         <ul class="nav navbar-nav menu_large_font_my">
+          <ul class="nav navbar-nav menu_large_font_my">
             <li class="active "> <a  href="index.html" >Main</a> <span class="sr-only">(current)</span></li>
             <li class="divider-vertical">|</li>
             <li class="active "> <a href="contact.html"  >Contacts</a> <span class="sr-only">(current)</span></li>
@@ -46,19 +45,67 @@
 
 	<div class="container">
      <div class="jumbotron">
-       <h1>PyBursa course</h1>
-       <h2>Hello, Bursapeople!</h2>
-       <h2>Description<h2>
-       <p>Welcome!</p>
-      </div>
-    </div>  
+       <h1>Студенты PyBursa </h1>
+       <p>Таблица студентов курса Python Bursa. Выпуск #n+1 2016:</p>
+       </div>
+  </div>  
 
-	<div class="container">
-	  <div class="jumbotron">
-	    <h2>Program</h2>
-	    <p> Курс посвящен основам Python/Django</p>    
-	  </div>
-	</div>
+  <div class="container">
+    <h2>Striped Rows</h2>
+    <p>The .table-striped class adds zebra-stripes to a table:</p>            
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Surname</th>
+          <th>Name</th>
+          <th>Adress</th>
+          <th>Skype</th>  
+        </tr>
+      </thead>
+      <tbody>
+         <tr onclick="getElementById('launch_first_profile').click()" style="cursor: pointer">
+          <td>#1<a href="student_detail.html" id="launch_first_profile"></a></td>   
+          <td>Kachur</td>
+          <td>Oleg</td>
+          <td>Sweet home av.</td>
+          <td>sqadiqw</td>
+        </tr>          
+        <tr>
+          <td>#2</td>
+          <td>John</td>
+          <td>Doe</td>
+          <td>Kharkov</td>
+          <td>john.skype</td>
+        </tr>
+        <tr>
+          <td>#3</td>
+          <td>Ivan</td>
+          <td>Babaev</td>
+          <td>Kharkov</td>
+          <td>Babaev.skype</td>
+        </tr>
+        <tr>
+          <td>#4</td>
+          <td>Valentina</td>
+          <td>Pikalova</td>
+          <td>Kharkov</td>
+          <td>Pikalova.skype</td>
+        </tr>
+        <tr>
+          <td>#5</td>
+          <td>Yuriy</td>
+          <td>Makhno</td>
+          <td>Kharkov</td>
+          <td>Makhno.skype</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
+
 
 	<div class="container">
 	  <div class="row ">
@@ -73,6 +120,8 @@
 	    </footer>
 	  </div>
 	</div>
+
+
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
