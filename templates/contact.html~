@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>PyBursa</title>
+    <title>PyBursa Contacts</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../static/css/bootstrap.css" rel="stylesheet">
@@ -45,8 +45,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
+            <li><a href="index.html">Main</a></li>
             <li class="active"><a href="#">Contacts</a></li>
-            <li><a href="index.html">Main</a></li>            
+                      
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -54,12 +55,13 @@
 
     <div class="container">
 
-      <div class="starter-template">
-        <h1>C</h1>
-        <h3>Description</h3>
-        <p class="lead">Курсы ItBursa начали работу в 2014 году. Мы специализируемся на «модных» языках программирования.<br/> Принципиальное наше отличие от других курсов – максимум практики и жесткая система обязательных домашних заданий. <br/>Преподаватели – опытные практикующие разработчики, они помогают участникам в ходе курсов создать реальные проекты и получить практические навыки, применимые к работе.<br/> Домашние задания на наших курсах обязательны и их невыполнение приводит к исключению с курсов. <br/>Таким образом, мы готовим не просто «слушателей» курсов, а настоящих специалистов, способных создавать пусть простые, но рабочие проекты.</p>
-        <h3>Program</h3>
-        <p class="lead">Основы Python<br/>Строки и итераторы<br/>Функции и модульность<br/>Библиотеки и пакетный менеджер<br/>Классы и ООП, основы<br/>Классы и ООП, возможности Python<br/>Работа с файлами<br/>Работа с датами<br/>Основы html/css<br/>Основы JavaScript<br/>Основы Web, HTTP<br/>Django first steps<br/>Структура Web приложения<br/>Работа с базами данных, ORM<br/>Кастомизация админки<br/>Язык шаблонов<br/>Forms<br/>Class-based (Generic) Views<br/>Реализация стандартных задач<br/>Средства отладки и тестирование</p>
+      <div class="starter-template">        
+        <h3>Director</h3>
+        <p class="lead">Name:<br/>Skype:<br/>Email:<br/>Phone:<br/></p>
+        <h3>Manager</h3>
+        <p class="lead">Name:<br/>Skype:<br/>Email:<br/>Phone:<br/></p>
+        <h3>Founder</h3>
+        <p class="lead">Name:<br/>Skype:<br/>Email:<br/>Phone:<br/></p>
       </div>
 
     </div><!-- /.container -->
