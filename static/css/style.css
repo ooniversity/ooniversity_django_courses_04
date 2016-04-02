@@ -1,10 +1,56 @@
 .my_jumbotron {
+
+  color: inherit;
+  background-color: #C2F2F3;
+  text-align: center;
+}
+
+.my_jumbotron_main {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
   color: inherit;
-  background-color: #C2F2F3;
-  text-align: center;
+  background-color: #1446F2;
+  background: url("../images/big_logo.png") no-repeat right;
+  background-size: contain;
+
+}
+
+.my_jumbotron_main h1,
+.my_jumbotron_main .h1 {
+  color: #296686;
+}
+.my_jumbotron_main p {
+  margin-bottom: 15px;
+  font-size: 21px;
+  font-weight: 200;
+}
+.my_jumbotron_main > hr {
+  border-top-color: #d5d5d5;
+}
+.container .my_jumbotron_main,
+.container-fluid .my_jumbotron_main {
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 6px;
+}
+.my_jumbotron_main .container {
+  max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .my_jumbotron_main {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .container .my_jumbotron_main,
+  .container-fluid .my_jumbotron_main {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  .my_jumbotron_main h1,
+  .my_jumbotron_main .h1 {
+    font-size: 63px;
+  }
 }
 
 .my_navbar-default {
@@ -64,4 +110,13 @@
 	vertical-align: top;
 	font-weight: bold;
 	color: #296787;
+}
+
+.my_textcolor {
+	font-weight: bold;
+	color: #296787;
+}
+
+.my_transparensy {
+	opacity: 0.5;
 }
