@@ -13,25 +13,22 @@
 }
 
 .my_table {
-	border-spacing:0;
+	border-spacing: 100px 100px;
 }
 
 .my_table td {
 	padding: 4px;
-	align: right;
-	border-spacing:100 px 100px;
 }
 
 .my_table th{
 	padding: 4px;
 	text-align: center;
-	color:re#296686d;
+	color:#296686;
 	background-color: #E5AF36;
 }
 
 .my_table tr td{
 	vertical-align: top;
-	border-spacing:100 px 100px;
 }
 
 .my_firstcolsize {
@@ -48,16 +45,6 @@
 
 .my_table tr:hover td{
 	background: #DFE9FF;
-}
-
-.my_navbar-nav {
-  margin: 7.5px -15px;
-}
-
-.my_nav {
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
 }
 
 .jumbotron > h2 {
