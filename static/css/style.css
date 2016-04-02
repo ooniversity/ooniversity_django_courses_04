@@ -15,8 +15,8 @@ div.skype{color: dodgerblue }
 div.phone{color: red}
 div.email{color: red}
 #Margin {margin-top: 15px}
-.student_info{font-size: 16px;}
-.student_rating{font-size: 16px; font-weight: 600}
-.student_grade{font-size: 16px; font-weight:400}
-.student_skype{font-style: italic; font-size: 18px}
+td.student_info{font-size: 16px;}
+td.student_rating{font-size: 16px; font-weight: 600}
+td.student_grade{font-size: 16px; font-weight:400}
+td.student_skype{font-style: italic; font-size: 18px}
 body{font-family: inherit; font-size: 14px}
