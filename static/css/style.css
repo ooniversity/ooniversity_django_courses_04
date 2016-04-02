@@ -1,3 +1,4 @@
+body{font-family: inherit; font-size: 14px}
 div.container {background:#DCDCDC ; width: auto}
 div.dir {background:#DCDCDC}
 h1.desc {background:#DCDCDC; border-radius:15px; padding-left: 15px}
@@ -19,4 +20,6 @@ td.student_info{font-size: 16px;}
 td.student_rating{font-size: 16px; font-weight: 600}
 td.student_grade{font-size: 16px; font-weight:400}
 td.student_skype{font-style: italic; font-size: 18px}
-body{font-family: inherit; font-size: 14px}
+td.student_name{font-style: oblique; font-size:14px; text-align: center}
+th.hd_table{text-align: center}
+td.table_number{text-align: center}
