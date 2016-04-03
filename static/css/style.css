@@ -1,5 +1,5 @@
 
-div{
+@font-face{
 	font-family: Comic Sans, Comic Sans MS, cursive;
 }
 nav{
@@ -126,4 +126,10 @@ div.info{
 }
 .panel-body{
 	background-color: #ffffc7;
+}
+.badge{
+	background-color: #99cce9;
+}
+.btn-default{
+	background-color: #99cce9;
 }
