@@ -26,3 +26,13 @@ img {
 ul.list {list-style-type:circle}
 
 ul.list_result{list-style-type: square}
+
+#navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+
+#stud.active
+
