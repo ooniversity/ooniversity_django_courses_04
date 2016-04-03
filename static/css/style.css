@@ -121,3 +121,37 @@
 .my_transparensy07 {
 	opacity: 0.7;
 }
+
+.my_firstcolsize_st {
+	width: 5%;
+}
+
+.my_secondcolsize_st {
+	width: 20%;
+}
+
+.my_thirdcolsize_st {
+	width: 30%;
+}
+
+.my_fourscosize_st {
+	width: 50%;
+}
+
+.my_fifthcolsize_st {
+	width: 50%;
+}
+
+.my_table_stperf {
+	border-spacing: 100px 100px;
+	background-color: #E5AF36;
+}
+
+.my_table_stperf tr th {
+	background-color: #296787;
+	color:white;
+}
+
+.my_table_stperf td {
+	vertical-align: top;
+}
