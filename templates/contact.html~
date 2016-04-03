@@ -9,7 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+		<link href="../static/css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,60 +19,57 @@
     <![endif]-->
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        
-        <img class="logo" src="../static/images/py_logo.png" />
-        
-      </div>
-      <div class="container">
-          <ul class="nav navbar-nav">
-            <li><a class="top_bar" href="index.html">Main</a></li>
-            <li class="active"><a class="top_bar" href="contact.html">Contacts</a></li>
-          </ul>
-        </div>
-    </div>
-    </nav>
-    <div class="container">
-      <div class="page-header">
-        <h1 class="conts">Contacts</h1>
-        <div class="jumbotron">
-          <h2>Director:</h2>
-            <p>
-            <span class="spa">Name:</span> Алексей Радченко</br>
-            <span class="spa">Skype:</span> dixon.che</br>
-            <span class="spa">Email:</span> dixon.che@gmail.com</br>
-            <span class="spa">Phone:</span> 8-800-555-35-35</br>
-            </p>
-            
-          <h2>Manager:</h2>
-            <p>
-            <span class="spa">Name:</span> Дария Михалевич</br>
-            <span class="spa">Skype:</span> darka.darka.darka.darka.</br>
-            <span class="spa">Email:</span> daria.mykhalevych@gmail.com</br>
-            <span class="spa">Phone:</span> 8 096 469 15 57</br>
-            </p>
-          <h2>Founder:</h2>
-            <p>
-            <span class="spa">Name:</span> Павел Обод</br>
-            <span class="spa">Skype:</span> azaless</br>
-            <span class="spa">Email:</span> itbursa100@gmail.com</br>
-            <span class="spa">Phone:</span> 8-800-555-35-36</br>
-            </p>
-        </div>
-      </div>
-    </div>
-    <nav class="container">
-    <ul class="pager">
-      <li class="previous"><a href="index.html"><span aria-hidden="true">&larr;</span>Main</a></li>
-      
-    </ul>
-    </nav>
+		<nav class="navbar navbar-default navbar-static-top">
+  		<div class="container">
+				<ul class="nav navbar-nav">
+        <li><a href="index.html">Main</a></li>
+        <li class="active"><a href="#">Contacts</a></li>
+      </ul>
+  		</div>
+		</nav>
+		<div class ='container'>
+			<div class='jumbotron'><h2 class='text-uppercase'>Contacts</h1></div>
+			<div class="alert alert-success" role="alert">You can contact us!</div>
+			<div class='proffesion'>
+				<hr>
+				<h2 class='possition'>Director</h2>
+				<table class='table'>
+					<tr><td><img src='../static/images/manager.png'></td>
+					<td><p class='name'>Name: Anton Chehov</p>
+					<p class='name'>Skype: anton.chehov</p>
+					<p class='name'>Email: anton.chehov@gmail.com</p>
+					<p class='name'>Phone: (050) 485 74 15</p></td>
+				</table>
+			</div>
+			<div>
+				<h2 class='possition'>Manager</h2>
+				<table class='table'>
+					<tr><td><img src='../static/images/pic.jpg'></td>
+					<td><p class='name'>Name: Taras Bulba</p>
+					<p class='name'>Skype: taras.bulba</p>
+					<p class='name'>Email: taras.bulba@gmail.com</p>
+					<p class='name'>Phone: (050) 455 44 15</p></td>
+				</table>
+			</div>
+			<div>
+				<h2 class='possition'>Founder</h2>
+				<table class='table'>
+					<tr><td><img src='../static/images/image.jpg'></td>
+					<td><p class='name'>Name: Lev Tolstoy</p>
+					<p class='name'>Skype: lev.tolstoy</p>
+					<p class='name'>Email: lev.tolstoy@gmail.com</p>
+					<p class='name'>Phone: (050) 285 34 17</p></td>
+				</table>
+			</div>
+			<p><span class="label label-info">Info</span>More information here</p>
+		</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
+
+
+
+

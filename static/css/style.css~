@@ -50,36 +50,4 @@ background-color: #CAC0FC;
 text-transform: uppercase;
 text-align: center;
 background-color: #CB91F7;
-padding-left: 50px;
-}
-
-.pybursa{
-height: 200px;
-width: 300px;
-}
-
-.text-uppercase{
-text-align: center;
-}
-
-.alert-success{
-float: left;
-}
-
-.img-responsive{
-height: 250px;
-width: 180px;
-}
-
-.col-sm-4{
-padding-bottom: 25px;
-}
-
-.course{
-text-align: center;
-}
-
-.silka{
-padding-top: 30px;
-padding-bottom: 20px;
 }
