@@ -141,3 +141,9 @@ form{
 h3{
 	margin:0;
 }
+.profile-info img{
+	margin-bottom: 20px;
+}
+.profile-info{
+	padding-bottom: 0;
+}
