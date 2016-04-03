@@ -55,19 +55,28 @@
 
     <div class="container">
 
-      <div class="style">        
-        <h2>Director</h2>
-        <img src="../static/images/pasha.jpg"
-        <p><br/>Name: Павел Обод<br/>Skype:azaless<br/>Email: itbursa100@gmail.com<br/>Phone:<br/></p>
-        <h2>Manager</h2>
-        <img id="foto" src="../static/images/dasha.jpg"
-        <p><br/>Name:Дария Михалевич <br/>Skype: darka.darka.darka.darka.<br/>Email: daria.mykhalevych@gmail.com<br/>Phone: +38 096 469 15 57<br/></p>
-        <h2>Founder</h2>
-        <img src="../static/images/pasha.jpg"
-        <p><br/>Name: Павел Обод<br/>Skype: azaless<br/>Email: itbursa100@gmail.com<br/>Phone:<br/></p>
-      </div>
-
-    </div><!-- /.container -->
+      <div class="main_font">
+        <h1>Contacts PyBursa</h1>        
+        
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+              <img src="../static/images/pasha.jpg"/>
+                <h2>Director</h2>
+                <p><br/>Name: Павел Обод<br/>Skype:azaless<br/>Email: itbursa100@gmail.com<br/>Phone:<br/></p>
+          </div>             
+          <div class="col-sm-6 col-md-4">                 
+              <img src="../static/images/dasha.jpg"/>
+              <h2>Manager</h2>
+                <p><br/>Name:Дария Михалевич <br/>Skype: darka.darka.darka.darka.<br/>Email: daria.mykhalevych@gmail.com<br/>Phone: +38 096 469 15 57<br/></p>   
+          </div>             
+          <div class="col-sm-6 col-md-4"> 
+              <img src="../static/images/pasha.jpg"/>
+                <h2>Founder</h2>
+                <p><br/>Name: Павел Обод<br/>Skype: azaless<br/>Email: itbursa100@gmail.com<br/>Phone:<br/></p>
+          </div>
+        </div>
+      </div>   
+    </div><!-- /.container --> 
 
 
     <!-- Bootstrap core JavaScript
