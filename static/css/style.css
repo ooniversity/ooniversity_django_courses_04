@@ -1,5 +1,40 @@
 #brand-image {width:50px; height:50px;margin -5px}
+#geek-girl {width:100px; height:100px}
 div.test {color:black;background:green;width:200;height:200}
+
+div.jumbotron{
+padding: 30px 15px;
+margin-bottom: 30px;
+color: inherit;
+background-color: #FFFFFF;
+
+}
+
+body{
+background:#cccccc;
+}
+div.table-responsive{
+background-color: #eccd4a;
+}
+
+div.table-performance{
+background-color:  #aed6f1;
+align:left;
+}
+
+
+div.table-student-info{
+background-color: #eccd4a;
+margin-left: auto;
+margin-right: auto;
+}
+
+h2.text-center{
+text-align: left;
+}
+h5.text-center{
+text-align: left;
+}
 
 p.lead {
 font-size: 120%;
