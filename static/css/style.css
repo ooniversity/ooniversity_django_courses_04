@@ -1,5 +1,6 @@
 body {
   padding-top: 50px;
+  background: #e6ffff
 }
 .style {
   padding: 40px 15px;
@@ -7,22 +8,21 @@ body {
 }
 
 #foto {
-  height: 150px;
-  width: 100px;
+  height: 137px;
+  width: 110px;
 }
 
 img {
-  height: 150px;
-  width: 100px;
+  height: 137px;
+  width: 130px;
 }
 
-p {
-  color:red;
-}
-
-h1 {
-  text-decoration:overline;
+.main_font {
+  font-family:"Times New Roman", Times, serif;
+  font-size:200%;
 }
 
 
+ul.list {list-style-type:circle}
 
+ul.list_result{list-style-type: square}
