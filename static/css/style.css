@@ -49,6 +49,10 @@ a {
   font-family: Verdana, Helvetica;
 }
 
+.table_block_header {
+  font-size: 28px;
+}
+
 .block_text {
   text-align: justify;
 }
