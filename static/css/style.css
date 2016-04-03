@@ -13,3 +13,5 @@ div.block_dotted {border-style: dotted; border-color: green}
 .new {text-decoration: underline}
 table.tab {background: pink;}
 .body {background: gray;}
+.head {text-align: left; font-style: oblique;}
+.table_results {border-style: double;}
