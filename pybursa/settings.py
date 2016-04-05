@@ -83,7 +83,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
