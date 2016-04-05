@@ -38,7 +38,10 @@
 .caption
 {
     font-size: small;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c3750f92816e84fc668628b72d460c839645996f
 }
 .btn-center
 {
@@ -51,12 +54,19 @@
 .thumb-text
 {
     text-align: center;
+<<<<<<< HEAD
     font-size: 120%;
 }
 .program-text
 {
     text-align: center;
     font-size: 130%;
+=======
+}
+.program-text
+{
+    text-align: left;
+>>>>>>> c3750f92816e84fc668628b72d460c839645996f
 }
 .pybursa-logo
 {
@@ -93,6 +103,7 @@ td
 p
 {
     text-align: left;
+<<<<<<< HEAD
     font-size: 100%;
 }
 .navbar-default
@@ -156,3 +167,7 @@ caption
     font-size: 120%;
     font-weight: bold;
 }
+=======
+}
+.nav{}
+>>>>>>> c3750f92816e84fc668628b72d460c839645996f
