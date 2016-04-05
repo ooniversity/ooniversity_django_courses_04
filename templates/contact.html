@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 
 <html lang="en">
@@ -8,74 +9,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Contacts</title>
-    <link href="../static/css/style.css" rel="stylesheet">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="article container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">Main</a></li>
-            <li class="active"><a href="contact.html">Contacts</a></li>
-            <li><a href="student_list.html">Students</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-    <div class="container-fluid">
-      <div class="jumbotron">
-        <div class="media">
-          <div class="row-fluid">
-            <div class="col-sm-9 col-md-6">
-              <div class="thumbnail">
-                <h3 class="title"><b>Founder</b></h3>
-                <div class="caption">
-                  <div class="img-center">
-                    <img class="size-img" src="../static/images/pavel_obod.png" alt="Pavel Obod">
-                  </div>
-                  <div class="thumb-text"><br>
-                    <p>Name: Pavel Obod</p>
-                    <p>Skype: azaless</p>
-                    <p>Email: itbursa100@gmail.com</p>
-                    <p>Phone: +38 (096) 469-15-56</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-9 col-md-6">
-              <div class="thumbnail">
-                <h3 class="title"><b>Director</b></h3>
-                <div class="caption">
-                  <div class="img-center">
-                    <img class="size-img" src="../static/images/aleksej_radchenko.png" alt="Aleksej Radchenko">
-                  </div>
-                  <div class="thumb-text"><br>
-                    <p>Name: Aleksej Radchenko</p>
-                    <p>Skype: dixon.che</p>
-                    <p>Email: dixon-che@gmail.com</p>
-                    <p>Phone: +38 (096) 469-15-58</p>
+            <ul class="nav navbar-nav">
+              <li><a href="{% url 'main' %}">
+                <span class="glyphicon glyphicon-home"></span>  Main</a></li>
+              <li class="active"><a href="{% url 'contact' %}">
+                <span class="glyphicon glyphicon-envelope"></span>  Contacts</a></li>
+              <li><a href="{% url 'student_list' %}">
+                <span class="glyphicon glyphicon-user"></span>  Students</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="brand"><a href="http://www.itbursa.com/pybursa.com" target="_blank">
+                <span class="glyphicon glyphicon-education"></span>  PyBursa</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+      <div class="container-fluid">
+        <div class="jumbotron">
+          <div class="media">
+            <div class="row-fluid">
+              <div class="col-sm-9 col-md-6">
+                <div class="thumbnail">
+                  <h3 class="title">Founder</h3>
+                  <div class="caption">
+                    <div class="img-center">
+                      <img class="size-img" src="{% static 'images/pavel_obod.png' %}" alt="Pavel Obod">
+                    </div>
+                    <div class="thumb-text"><br>
+                      Name: Pavel Obod<br>
+                      Skype: azaless<br>
+                      Email: itbursa100@gmail.com<br>
+                      Phone: +38 (096) 469-15-56
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-sm-9 col-md-6">
-              <div class="thumbnail">
-                <h3 class="title"><b>Manager</b></h3>
-                <div class="caption">
-                  <div class="img-center">
-                    <img class="size-img" src="../static/images/daria_mykhalevych.png" alt="Daria Mykhalevych">
+              <div class="col-sm-9 col-md-6">
+                <div class="thumbnail">
+                  <h3 class="title">Director</h3>
+                  <div class="caption">
+                    <div class="img-center">
+                      <img class="size-img" src="{% static 'images/aleksej_radchenko.png' %}" alt="Aleksej Radchenko">
+                    </div>
+                    <div class="thumb-text"><br>
+                      Name: Aleksej Radchenko<br>
+                      Skype: dixon.che<br>
+                      Email: dixon-che@gmail.com<br>
+                      Phone: +38 (096) 469-15-58
+                    </div>
                   </div>
-                  <div class="thumb-text"><br>
-                    <p>Name: Daria Mykhalevych</p>
-                    <p>Skype: darka.darka.darka.darka.</p>
-                    <p>Email: daria.mykhalevych@gmail.com</p>
-                    <p>Phone: +38 (096) 469-15-57</p>
+                </div>
+              </div>
+              <div class="col-sm-9 col-md-6">
+                <div class="thumbnail">
+                  <h3 class="title">Manager</h3>
+                  <div class="caption">
+                    <div class="img-center">
+                      <img class="size-img" src="{% static 'images/daria_mykhalevych.png' %}" alt="Daria Mykhalevych">
+                    </div>
+                    <div class="thumb-text"><br>
+                      Name: Daria Mykhalevych<br>
+                      Skype: darka.darka.darka.darka.<br>
+                      Email: daria.mykhalevych@gmail.com<br>
+                      Phone: +38 (096) 469-15-57
+                    </div>
                   </div>
                 </div>
               </div>
@@ -83,10 +94,17 @@
           </div>
         </div>
       </div>
+      <div class="pybursa-logo">
+        <h6>@ 2016 PyBursa</h6>
+      </div>
     </div>
-    <div class="pybursa-logo">
-      <h6>@ 2016 PyBursa</h6>
-    </div>
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/jquery-1.12.2.min.js' %}"></script>
+    <script src="{% static 'js/jquery.backstretch.min.js' %}"></script>
+    <script>
+      // Устанавливаем изображение, которое будет являться фоном веб-страницы
+    $.backstretch("{% static 'images/2.jpg' %}");
+    </script>
+
   </body>
 </html>
