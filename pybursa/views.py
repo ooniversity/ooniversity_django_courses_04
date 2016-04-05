@@ -27,3 +27,5 @@ def student_detail(request):
     Call student_detail.html
     """
     return render(request, 'student_detail.html')
+
+
