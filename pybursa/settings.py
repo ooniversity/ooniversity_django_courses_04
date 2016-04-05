@@ -85,4 +85,4 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/bootstrap'), )
 
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), 'templates/admin',)
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
