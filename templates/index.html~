@@ -37,10 +37,12 @@
     <div class="container">
 
       <!-- Static navbar -->
+<<<<<<< HEAD
       <div class="navbar-wrapper">
       <div class="container">
       <!-- Static navbar -->
-
+=======
+>>>>>>> 33af9ee1e57e605dec54e9ee9d5fbb958b77332a
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -54,11 +56,15 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-
+<<<<<<< HEAD
               <li  class="active"><a href="index.html">Main</a></li>
               <li><a href ="contact.html">Contacts</a></li>
               <li><a href="student_list.html">Students</a></li>
-
+=======
+              <li class="active"><a href="index.html">Main</a></li>
+              <li><a href="contact.html">Contacts</a></li>
+               <li><a href="student_list.html">Students</a></li>
+>>>>>>> 33af9ee1e57e605dec54e9ee9d5fbb958b77332a
             </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -72,7 +78,10 @@
           <h1>Description</h1>
           <p>лучшие курсы Python</p>
         <img src="../static/images/itburs.png">
-
+<<<<<<< HEAD
+=======
+             
+>>>>>>> 33af9ee1e57e605dec54e9ee9d5fbb958b77332a
           </div>
           </div>
           <div class="panel-body">
@@ -84,12 +93,17 @@
           Многие начинающие сдаются на полпути, так как устают, им надоедает 
           бесконечное блуждание по сети в поисках крупиц информации, из которых
           трудно собрать общую картину.</p>
-
+<<<<<<< HEAD
             
             <p class="btn btn-lg btn-primary" role="button">Посмотреть наши контакты &raquo;</p>
           </div>
         </div>
-
+=======
+           
+              <p class="btn btn-lg btn-primary" role="button">Посмотреть наши контакты &raquo;</p>
+               </div>
+                  </div>
+>>>>>>> 33af9ee1e57e605dec54e9ee9d5fbb958b77332a
         </div>
 
     <div class="panel panel-success">
@@ -97,7 +111,7 @@
     <div class="panel-heading"><h3>Program</h3></div>
     <div class="panel-body">
       <!-- List group -->
-
+<<<<<<< HEAD
       <ol class="text-success">
           <li class="list-group-item" id = "list_prog">Основы Python</li>  
           <li class="list-group-item">Строки и итераторы</li>
