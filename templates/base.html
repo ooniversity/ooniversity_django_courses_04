@@ -12,14 +12,34 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 <body>
-  <div class="wrapper">
-    <div class="container">
+
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'index' %}">
+              <span class="glyphicon glyphicon-home"></span> Main</a></li>
+            <li><a href="{% url 'contact' %}">
+              <span class="glyphicon glyphicon-envelope"></span> Contacts</a></li>
+            <li><a href="{% url 'student_list' %}">
+              <span class="glyphicon glyphicon-user"></span> Students</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-nav"><a href="http://www.itbursa.com/pybursa.com" target="_blank">
+              <span class="glyphicon glyphicon-education"></span>  PyBursa</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+      </nav>
+
+    <div class="container-fluid">
       <div class="jumbotron">
         {% block content %}
         {% endblock content %}
       </div>
     </div>
-  </div>
+
   <div class="pybursa-logo">
     <h6>@ 2016 PyBursa</h6>
   </div>
@@ -28,8 +48,7 @@
   <script src="{% static 'js/jquery-1.12.2.min.js' %}"></script>
   <script src="{% static 'js/jquery.backstretch.min.js' %}"></script>
   <script>
-    // Устанавливаем изображение, которое будет являться фоном веб-страницы
-  $.backstretch("{% static 'images/2.jpg' %}");
+  $.backstretch("{% static 'images/fon.jpg' %}");
   </script>
 
 </body>

@@ -1,39 +1,16 @@
 {% extends "base.html" %}
-{% load staticfiles %}
 {% block title %}Main{% endblock title %}
-{% block nav_class_index %}active{% endblock nav_class_index %}
 
 {% block content %}
-    <div class="article container">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">
-              <span class="glyphicon glyphicon-home"></span>  Main</a></li>
-            <li><a href="{% url 'contact' %}">
-              <span class="glyphicon glyphicon-envelope"></span>  Contacts</a></li>
-            <li><a href="{% url 'student_list' %}">
-              <span class="glyphicon glyphicon-user"></span>  Students</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="navbar-nav"><a href="http://www.itbursa.com/pybursa.com" target="_blank">
-              <span class="glyphicon glyphicon-education"></span>  PyBursa</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-      </nav>
-
       <div class="container-fluid">
         <div class="page-header">
-          <h1>Профессиональные курсы <b>"PyBursa"</b></h1>
-          <h2><b>Description</b></h2>
+          <h2>Профессиональные курсы <b>"PyBursa"</b></h2>
+          <h3><b>Description</b></h3>
         </div>
       </div>
 
       <div class="container-fluid">
-        <div class="jumbotron">
+
           <div class="program-text">
               Если ты стремишься получить профессию, которая позволит путешествовать, воплощать невероятные
               идеи в жизнь, получать достойную заработную плату и работать в комфортном офисе - добро
@@ -44,14 +21,14 @@
                   target="_blank" role="button">Learn more</a>
           </div>
         </div>
-      </div>
+
 
       <div class="media-heading">
-        <h2><b>Program</b></h2>
+        <h3><b>Program</b></h3>
       </div>
 
       <div class="container-fluid">
-        <div class="jumbotron">
+
           <div class="program-text">
           <table class="table table-striped table-bordered" border="1" cellpadding="4">
             <thead>
@@ -415,6 +392,4 @@
                     target="_blank" role="button">Learn more</a>
             </div>
           </div>
-        </div>
-    </div>
 {% endblock content %}
