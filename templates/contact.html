@@ -8,12 +8,12 @@
     <meta name="author" content="">
 
     <title>Контактная информация</title>
-    <link href="../static/css/style.css" rel="stylesheet">
+    <script src="{%static '/js/jquery-2.2.2.js'%}"></script>
+    <script src="{%static '/js/bootstrap.js'%}"></script>
 
-    <script src="../static/js/jquery-2.2.2.js"></script>
-    <script src="../static/js/bootstrap.js"></script>
+    <link href="{%static '/css/style.css'%}" rel="stylesheet">
 
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="{%static '/css/bootstrap.css'%}" rel="stylesheet">
    </head>
 
   <body>
@@ -21,10 +21,10 @@
 
     <div class="container">
       <ul class="nav nav-tabs">
-  	<li role="presentation" ><a href="index.html">ItBursa</a></li>
-  	<li role="presentation" ><a href="index.html">Main</a></li>
-  	<li role="presentation" class="active"><a href="contact.html">Contacts</a></li>
- 	<li role="presentation" ><a href="student_list.html">Students</a></li>
+  	<li role="presentation" ><a href="{%url 'index'%}">ItBursa</a></li>
+  	<li role="presentation" ><a href="{%url 'index'%}">Main</a></li>
+  	<li role="presentation" class="active"><a href="{%url 'contact' %}">Contacts</a></li>
+ 	<li role="presentation" ><a href="{%url'student_list'%}">Students</a></li>
       </ul>
     </div>
 
