@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load staticfiles %}<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,11 +7,11 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Student details</title>
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-   
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -30,17 +30,17 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="/">Main</a></li>
-		        <li><a href="/contact/">Contacts</a></li>
-            <li><a href="/student_list/">Students</a></li>
+		        <li><a href="{% url 'main_page' %}">Main</a></li>
+		        <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'student_list' %}'">Students</a></li>
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
 		<div class="container">
       <h2>Persianova Olena</h2>
-      <p> <img src="../static/images/Persianova.jpg" alt="..." class="img-circle"></p>
-      
+      <p> <img src="{% static 'images/Persianova.jpg' %}" alt="..." class="img-circle"></p>
+
 
 
 
@@ -58,7 +58,7 @@
         <h4 class="modal-title" id="myModalLabel">О себе</h4>
       </div>
       <div class="modal-body">
-        Более полутора лет в веб-разработке, имеет опыт проведения тренингов, занимается изучением и развитием образовательных онлайн-платформ. Убеждена, что залог успешного старта в профессиональной разработке - это удачно структурированная практика, поддержка опытного тренера и соревновательный эффект! 
+        Более полутора лет в веб-разработке, имеет опыт проведения тренингов, занимается изучением и развитием образовательных онлайн-платформ. Убеждена, что залог успешного старта в профессиональной разработке - это удачно структурированная практика, поддержка опытного тренера и соревновательный эффект!
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -89,22 +89,22 @@
 					<tr class="success">
             <td class="email_c">Birth Date</td>
             <td>11/02/1989</td>
-          </tr> 
+          </tr>
 					<tr class="success">
             <td class="email_c">Address</td>
             <td>Украина, г.Харькоов, ул.Иванова, д.36, кв.3</td>
-          </tr>           
+          </tr>
           <tr class="success">
             <td class="email_c">E-mail</td>
             <td><a href="mailto:#">olena.persianova@example.com</a></td>
-          </tr>          
+          </tr>
           <tr class="success">
             <td class="email_c">Skype</td>
             <td>olena.persianova</td>
           </tr>
         </tbody>
       </table>
-      <p>Perfomace</p>     
+      <p>Perfomace</p>
       <table class="table">
         <thead>
           <tr>
@@ -132,12 +132,12 @@
 					<tr>
 						<td>Rating</td>
 						<td>18</td>
-					</tr>      
+					</tr>
 				</tbody>
       </table>
     </div>
 
-		
+
 
 
 
@@ -145,7 +145,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
-    <script src="../static/js/own.js"></script>
+    <script src="{% static 'static/js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/own.js' %}"></script>
   </body>
-</html>      
+</html>
