@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Python Django</title>
-
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-		<link href="../static/css/style.css" rel="stylesheet">
-		<link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
+{% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+		<link href="{% static 'css/style.css' %}" rel="stylesheet">
+		<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
 		<style>
 			body { background: url(../static/images/Fon.png); }
 		</style>
@@ -18,9 +18,9 @@
 <body>
 	<div class="page">    
 		<nav class="navbar navbar-inverse">
-			<a href="index.html" class="button8">Main</a>
-			<a href="contact.html" class="button9">Contacts</a>
-			<a href="student_list.html" class="button9">Students</a>
+			<a href="{% url 'index' %}" class="button8">Main</a>
+			<a href="{% url 'contact' %}" class="button9">Contacts</a>
+			<a href="{% url 'student_list' %}" class="button9">Students</a>
 		</nav>
 		<nav class="ramka">
 			<h1>Курсы PyBursa</h1>
