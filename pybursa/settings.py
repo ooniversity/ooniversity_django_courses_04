@@ -52,6 +52,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'pybursa.urls'
 
 WSGI_APPLICATION = 'pybursa.wsgi.application'
+
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 # Database
