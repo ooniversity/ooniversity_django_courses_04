@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 
@@ -5,9 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student info</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
@@ -27,7 +28,7 @@
         </nav>
     <div class="container">
         <div class="jumbotron">
-            <h1>Морозов Николай</h1><img src="../static/images/20.jpg">
+            <h1>Морозов Николай</h1><img src="{% static 'images/20.jpg' %}">
         </div>
     </div>
     </div>
@@ -155,8 +156,8 @@
             <p>Copyright @ 20016 Sergpo</p>
         </footer>
     </div>
-    <script src="../static/js/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 
 </html>
