@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +8,6 @@
     <title>PyBursa</title>
 
     <!-- Bootstrap -->
-    {% load staticfiles %}
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -48,9 +48,9 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="{% url 'views.index' %}">Main</a></li>
-              <li><a href="{% url 'views.contact' %}">Contacts</a></li>
-			  <li><a href="{% url 'views.student_list' %}">Students</a></li>
+              <li class="active"><a href="{% url 'index' %}">Main</a></li>
+              <li><a href="{% url 'contact' %}">Contacts</a></li>
+			  <li><a href="{% url 'student_list' %}">Students</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -353,11 +353,11 @@ Sumo malorum labores nec ad. Congue nonumes detraxit sit id, has ut saperet elec
             <div class="panel-body">
               <div class="list-group">
 			  <!--<a href="#" class="list-group-item active">-->
-                <a href="{% url 'views.index' %}" class="list-group-item">Lorem ipsum dolor</a>
-                <a href="{% url 'views.index' %}" class="list-group-item">Lorem ipsum dolor</a>
-                <a href="{% url 'views.index' %}" class="list-group-item">Lorem ipsum dolor</a>
-                <a href="{% url 'views.index' %}" class="list-group-item">Lorem ipsum dolor</a>
-			    <a href="{% url 'views.index' %}" class="list-group-item">Lorem ipsum dolor</a>
+                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
+                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
+                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
+                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
+			    <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
               </div>
 		    </div>
 		</div>
