@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Student List</title>
+    <!-- Bootstrap -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">    
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">        
+        <li><a href="index.html">Main</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li class="active">
+	  <a href="student_list.html">Students<span class="sr-only">(current)</span>
+	  </a>
+	</li>    
+      </ul>            
+    </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="container" id="id2"> 
+    <h1>Студенты курса PyBursa</h1>
+       <p>Ниже представлен список студентов, выпуск - апрель 2015. </p>         
+    <table class="table" id="id1">
+      <thead>
+        <td>No</td>
+        <td>Surname</td>
+        <td>Name</td>
+        <td>Address</td>
+        <td>Skype</td>    
+      </thead>      
+      <tr class="success">
+        <td><a href="student_detail.html"><b>1</b></a></td>
+        <td>Persianova</td>
+        <td>Olena</td>
+        <td>Украина, г.Харьков, ул.Иванова, д.36, кв.3</td>
+        <td>olena.persianova</td>       
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Shulga</td>
+        <td>Maryna</td>
+        <td>Украина, г.Харьков, ул.Иванова, д.5, кв.6</td>
+        <td>M.Shulga</td>       
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Polishchuk</td>
+        <td>Volodymyr</td>
+        <td>Украина, г.Харьков, ул.Межлаука, д.8, кв.3</td>
+        <td>V.Polishchuk</td>       
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Zhlobinskyi</td>
+        <td>Pavel</td>
+        <td>РФ, г.Москва, ул.Петрова, д.5, кв.7</td>
+        <td>P.Zhlobinskyi</td>       
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Zhuvanov</td>
+        <td>Yaroslav</td>
+        <td>Украина, г.Харьков, ул.Петренко, д.6, кв.9</td>
+        <td>Y.Zhuvanov</td>       
+      </tr>
+    </table>
+   </div>
+   <nav>
+     <ul class="pager">
+       <li><a href="student_detail.html">Next</a></li>
+     </ul>
+   </nav>   
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../static/js/bootstrap.js"></script>
+  </body>
+</html>
