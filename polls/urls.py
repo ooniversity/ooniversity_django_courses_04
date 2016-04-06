@@ -1,16 +1,10 @@
-from django.conf.urls import patterns, include, url
-from django.contrib import admin
+from django.conf.urls import patterns, url
 
+from polls import views
 
-
-urlpatterns = patterns(
-    '',
-    # Examples:
-    #url(r'^$', index, name='main'),
-    #url(r'^contact/$', contact, name='contact'),
-    #url(r'^student_list/$', student_list, name='student_list'),
-    #url(r'^student_detail/$', student_detail, name='student_detail'),
-    # url(r'^blog/', include('blog.urls')),
-
+urlpatterns = patterns('',
+    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^(?P<pk>\d+)/$', views.DetailView.as_view(), name='detail'),
+    url(r'^(?P<pk>\d+)/results/$', views.ResultsView.as_view(), name='results'),
+    url(r'^(?P<question_id>\d+)/vote/$', views.vote, name='vote'),
 )
-
