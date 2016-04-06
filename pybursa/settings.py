@@ -25,7 +25,7 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
-
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 
 # Application definition
 
@@ -48,6 +48,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
 
 ROOT_URLCONF = 'pybursa.urls'
 
@@ -85,4 +86,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+
