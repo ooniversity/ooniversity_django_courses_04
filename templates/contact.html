@@ -9,8 +9,8 @@
     <meta name="author" content="">
 
     <title>Контактная информация</title>
-    <script src="{%static 'js/jquery-2.2.2.js'%}"></script>
-    <script src="{%static 'js/bootstrap.js'%}"></script>
+    <script src="{%static 'js/jquery-2.2.2.js' %}"></script>
+    <script src="{%static 'js/bootstrap.js' %}"></script>
 
     <link href="{%static 'css/style.css'%}" rel="stylesheet">
 
@@ -22,10 +22,10 @@
 
     <div class="container">
       <ul class="nav nav-tabs">
-  	<li role="presentation" ><a href="{%url 'index'%}">ItBursa</a></li>
-  	<li role="presentation" ><a href="{%url 'index'%}">Main</a></li>
-  	<li role="presentation" class="active"><a href="{%url 'contact' %}">Contacts</a></li>
- 	<li role="presentation" ><a href="{%url'student_list'%}">Students</a></li>
+  	<li role="presentation" ><a href="{% url 'index' %}">ItBursa</a></li>
+  	<li role="presentation" ><a href="{% url 'index' %}">Main</a></li>
+  	<li role="presentation" class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+ 	<li role="presentation" ><a href="{% url 'student_list' %}">Students</a></li>
       </ul>
     </div>
 
