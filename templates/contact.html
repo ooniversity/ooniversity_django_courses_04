@@ -10,16 +10,19 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Contacts</title>
-
+    {% load staticfiles %}
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <!--link href="../static/css/bootstrap.min.css" rel="stylesheet"-->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
     <!-- Bootstrap theme -->
     <!--link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet"-->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"-->
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/style.css" rel="stylesheet">
+    <!--link href="../static/css/style.css" rel="stylesheet"-->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -44,13 +47,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">PYBURSA</a>
+          <a class="navbar-brand" href="{% url 'pybursa.views.index' %}">PYBURSA</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li> <a href="index.html">Main</a></li>            
-            <li class="active"><a href="contact.html">Contacts</a></li>
-            <li><a href="student_list.html">Students</a></li>
+            <li> <a href="{% url 'pybursa.views.index' %}">Main</a></li>            
+            <li class="active"><a href="{% url 'pybursa.views.contact' %}">Contacts</a></li>
+            <li><a href="{% url 'pybursa.views.student_list' %}">Students</a></li>
             
           </ul>
         </div><!--/.nav-collapse -->
@@ -158,8 +161,10 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../static/js/bootstrap.min.js"></script>
-    <script src="../static/js/docs.min.js"></script>
+    <!--script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/docs.min.js"></script-->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/docs.min.js' %}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--script src="../../assets/js/ie10-viewport-bug-workaround.js"></script-->
   </body>
