@@ -108,7 +108,7 @@ body
 /* Прозрачный фон для основного содержимого */
 .article
 {
-    background:rgba(255,255,255,0.3);
+    background:rgba(255,255,255,0.83);
     padding-top: 20px;
     margin-bottom: 10px;
 }
@@ -116,7 +116,7 @@ body
 /* Стили для подвала страницы */
 footer
 {
-    background:rgba(255,255,255,0.7);
+    background:rgba(255,255,255,0.3);
     line-height: 30px;
     padding: 0 15px 0 15px;
 }
