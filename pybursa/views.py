@@ -1,14 +1,14 @@
 from django.shortcuts import render
 
 
-def main_page (request):
+def index (request):
 	return render(request, 'index.html')
 
 def contact (request):
 	return render(request, 'contact.html')
 
-def studlist (request):
+def student_list (request):
 	return render(request, 'student_list.html')
 
-def studdetail (request):
+def student_detail (request):
 	return render(request, 'student_detail.html')
