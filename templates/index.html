@@ -5,92 +5,376 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>PyBursa04</title>
+    <title>PyBursa</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	<!-- Userdefined styles begin -->
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<!-- Userdefined styles end -->
+	
   </head>
   <body>
-    <div class="container">
-      <div class="page-header">
-        <h1><span id="PythonLetter">PYT</span><span id="PythonOther">HON</span> <small><span id="PyDes">Web Development</span></small></h1>
-      </div>
-    </div>
-    <div class="container">
-      <nav class="navbar navbar-default">
+  
+	<!-- Header begin -->
+	<div class="container" id="PageHeader">
+	  <div class="page-header">
+	    <h1 id="TitleHeader">PYTHON <small>the best courses ever...</small></h1>
+	  </div>
+	</div>
+	<!-- Header end -->
+	
+    <!-- Navigation menu begin -->
+	<div class="container" id="Navigation">
+      <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <!--<a class="navbar-brand" href="#">Brand</a>-->
           </div>
-
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
               <li class="active"><a href="{% url 'index' %}">Main</a></li>
               <li><a href="{% url 'contact' %}">Contacts</a></li>
-              <li><a href="{% url 'student_list' %}">Students</a></li>
+			  <li><a href="{% url 'student_list' %}">Students</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
-    </div>
-
-    <div class="container">
-      <div class="well">
-        <h1>PyBursa</h1>
-        <h2>Description</h2>
-        <p id="PyBursaText"><span id="Lor">Lorem ipsum</span> dolor sit amet, eu populo vituperata has. Id eos porro aeque disputationi, no est nisl scribentur consequuntur, nominati posidonium sed id. Vidisse eripuit pri eu, laoreet moderatius ad eam. Sed an quando viderer scripserit.
-
-Sea cu altera intellegat accommodare, in sed mundi inermis moderatius. Accusam hendrerit at ius, nullam suscipit theophrastus an duo, cum ei postea bonorum dissentiet. Et iudico altera vivendo nec. Et qui melius inimicus. Eum illum persecuti cu.
-
-Ad vim dico definitiones. Ius stet ancillae tincidunt ne, appareat appetere gloriatur in est. Fugit menandri reprimique ut eam. Te nullam adipisci mea, his fugit oportere et. Ei eam dicunt aeterno delectus, dico malorum vim at.
-
-Ut justo malis vocent mel, graecis dissentiet concludaturque ut sea. Nam nemore honestatis contentiones in. Per ne dicta placerat torquatos. No nam decore regione antiopam, recusabo mediocrem prodesset nam ut. Lorem docendi at cum.
-
-Nam ne copiosae delicata, id latine ornatus inciderint vel, eam ad modus inani necessitatibus. Ius tota adipisci inimicus ne, te utinam ponderum mea. Nec ex porro sanctus, ne duo minim utroque. Duo inani aliquam ne. Ut has audiam principes, purto utamur ea est.</p>
-        <h1><span id="Prg">Program</span></h1>
-        <p id="ProgramText"><span id="Lor">Lorem ipsum</span> dolor sit amet, eu populo vituperata has. Id eos porro aeque disputationi, no est nisl scribentur consequuntur, nominati posidonium sed id. Vidisse eripuit pri eu, laoreet moderatius ad eam. Sed an quando viderer scripserit.
-
-Sea cu altera intellegat accommodare, in sed mundi inermis moderatius. Accusam hendrerit at ius, nullam suscipit theophrastus an duo, cum ei postea bonorum dissentiet. Et iudico altera vivendo nec. Et qui melius inimicus. Eum illum persecuti cu.
-
-Ad vim dico definitiones. Ius stet ancillae tincidunt ne, appareat appetere gloriatur in est. Fugit menandri reprimique ut eam. Te nullam adipisci mea, his fugit oportere et. Ei eam dicunt aeterno delectus, dico malorum vim at.
-
-Ut justo malis vocent mel, graecis dissentiet concludaturque ut sea. Nam nemore honestatis contentiones in. Per ne dicta placerat torquatos. No nam decore regione antiopam, recusabo mediocrem prodesset nam ut. Lorem docendi at cum.
-
-Nam ne copiosae delicata, id latine ornatus inciderint vel, eam ad modus inani necessitatibus. Ius tota adipisci inimicus ne, te utinam ponderum mea. Nec ex porro sanctus, ne duo minim utroque. Duo inani aliquam ne. Ut has audiam principes, purto utamur ea est.</p>
-     <ul>
-        <li id='n1'>Lorem ipsum1</li>
-        <li id='n2'>Lorem ipsum2</li>
-        <li id='n3'>Lorem ipsum3</li>
-        <li id='n4'>Lorem ipsum4</li>
-        <li id='n5'>Lorem ipsum5</li>
-        <li id='n6'>Lorem ipsum6</li>
-        <li id='n7'>Lorem ipsum7</li>
-        <li id='n8'>Lorem ipsum8</li>
-        <li id='n9'>Lorem ipsum9</li>
-        <li id='n10'>Lorem ipsum10</li>
-    </ul>
-      </div>
-    </div>
-
+	</div>
+    <!-- Navigation menu end -->
+	
+	<!-- Content begin -->
+	<div class="container" id="Content">
+	  <div class="col-md-8">
+	      <h1>PyBursa</h1>
+	      <h2>Description</h2>
+			<p>Lorem ipsum dolor sit amet, ne etiam intellegat eum, usu ut aeque oportere. Debet congue oratio ei eos. Ei tantas graecis eos, ei constituam ullamcorper usu. Per te aeque dicam. Ne viderer deserunt delicatissimi eum, intellegam necessitatibus eam in, vel ridens iuvaret ne.
+Cum at semper platonem, duo et bonorum adipisci incorrupte. Ea eos viris adipisci hendrerit, pro populo dictas facilis cu, no autem invidunt appellantur eum. Summo option vix et. Pri ut petentium definitiones, etiam omnesque pericula mea at, meis omnesque vix in.
+Has id quis agam. Cu impetus invidunt consectetuer sea. Mei no senserit percipitur, in iudico menandri euripidis cum, error ponderum deterruisset at vel. Qui magna similique ea, dico volumus eam in.
+Ex mei partiendo incorrupte, aeque paulo persius cu eam, ius soluta facilis vituperata an. Erat scripserit at mei, eius paulo elaboraret cum id, fierent copiosae usu an. Duo vide petentium sadipscing ut, iusto iracundia neglegentur sed id. Laudem ullamcorper ad has, labore quaerendum in sit. Te pri reque intellegat, at exerci appetere definitiones sed.
+Sumo malorum labores nec ad. Congue nonumes detraxit sit id, has ut saperet electram facilisis. Ius assum verear mandamus in, prima aeque eu eum, pri enim ullamcorper ea. Urbanitas consequuntur ius eu. Sit ut postea nominati.</p>
+	      <h2>Program</h2>
+			<p>Lorem ipsum dolor sit amet, ne etiam intellegat eum, usu ut aeque oportere. Debet congue oratio ei eos. Ei tantas graecis eos, ei constituam ullamcorper usu. Per te aeque dicam. Ne viderer deserunt delicatissimi eum, intellegam necessitatibus eam in, vel ridens iuvaret ne.
+Cum at semper platonem, duo et bonorum adipisci incorrupte. Ea eos viris adipisci hendrerit, pro populo dictas facilis cu, no autem invidunt appellantur eum. Summo option vix et. Pri ut petentium definitiones, etiam omnesque pericula mea at, meis omnesque vix in.
+Has id quis agam. Cu impetus invidunt consectetuer sea. Mei no senserit percipitur, in iudico menandri euripidis cum, error ponderum deterruisset at vel. Qui magna similique ea, dico volumus eam in.
+Ex mei partiendo incorrupte, aeque paulo persius cu eam, ius soluta facilis vituperata an. Erat scripserit at mei, eius paulo elaboraret cum id, fierent copiosae usu an. Duo vide petentium sadipscing ut, iusto iracundia neglegentur sed id. Laudem ullamcorper ad has, labore quaerendum in sit. Te pri reque intellegat, at exerci appetere definitiones sed.
+Sumo malorum labores nec ad. Congue nonumes detraxit sit id, has ut saperet electram facilisis. Ius assum verear mandamus in, prima aeque eu eum, pri enim ullamcorper ea. Urbanitas consequuntur ius eu. Sit ut postea nominati.</p>
+	  </div>
+	  <div class="col-md-8">
+	    <div class="table-responsive">
+		  <table class="table table-bordered">
+		    <thead>
+			  <th>Class</th>
+			  <th>Subject</th>
+			  <th>Content</th>
+			</thead>
+			<tbody>
+			  <tr>
+			    <td>1</td>
+				<td>Python basics</td>
+				<td>
+				  <ul>
+				    <li id="No1">zen, pep8, pylint, tools, IDE</li>
+					<li id="No2">console, data types, operators</li>
+					<li id="No3">control structures (if, for ...) syntax</li>
+					<li id="No4">exceptions and analysis</li>
+					<li id="No5">coding in Python</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>2</td>
+				<td>Strings and iterators</td>
+				<td>
+				  <ul>
+				    <li id="No6">working with strings and types iterables</li>
+					<li id="No7">run the script and parameters</li>
+					<li id="No8">git http://try.github.com/levels/</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>3</td>
+				<td>Functions and modularity</td>
+				<td>
+				  <ul>
+				    <li id="No9">function (def, lambda)</li>
+					<li id="No10">list comprehensions</li>
+					<li id="No11">modules, structure</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>4</td>
+				<td>Libraries and the package manager</td>
+				<td>
+				  <ul>
+				    <li id="No12">built-in http://docs.python.org/ library</li>
+					<li id="No13">third-party libraries (package manager) PYPI</li>
+					<li id="No14">PYTHONPATH and virtual environment</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>5</td>
+				<td>Classes and OOP basics</td>
+				<td>
+				  <ul>
+				    <li id="No15">syntax, attributes, methods, instantiation</li>
+					<li id="No16">All objects utility methods</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>6</td>
+				<td>Classes and OOP, Python opportunities</td>
+				<td>
+				  <ul>
+				    <li id="No17">encapsulation, inheritance, polymorphism</li>
+					<li id="No18">overriding methods</li>
+					<li id="No19">super</li>
+                    <li id="No20">abstract classes</li>
+					<li>static methods</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>7</td>
+				<td>Working with Files</td>
+				<td>
+				  <ul>
+				    <li>read and write files</li>
+					<li>methods of file objects</li>
+					<li>csv, json</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>8</td>
+				<td>Working with Dates</td>
+				<td>
+				  <ul>
+				    <li>datetime module</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>9</td>
+				<td>Basics of html / css</td>
+				<td>
+				  <ul>
+				    <li>html - tags and properties</li>
+					<li>css - properties and selectors</li>
+					<li>cascading override properties</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>10</td>
+				<td>JavaScript Basics</td>
+				<td>
+				  <ul>
+				    <li>Why backend developer need to know js?</li>
+					<li>DOM</li>
+					<li>JS, jQuery, Ajax</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>11</td>
+				<td>Basics of Web, HTTP</td>
+				<td>
+				  <ul>
+				    <li>Django. "Hello world!"</li>
+					<li>HTTP (GET, POST), (200, 404, 500), headers, cookies</li>
+					<li>Browser debugging tools (Firebug, Web Developer)</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>12</td>
+				<td>Django first steps</td>
+				<td>
+				  <ul>
+				    <li>why django?</li>
+					<li>introduction and description framework</li>
+					<li>project Launch</li>
+                    <li>command manage.py</li>
+					<li>django.contrib</li>
+					<li>authorization, django.contrib.auth</li>
+                    <li>Admin</li>
+					<li>statics</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>13</td>
+				<td>The structure of the Web application</td>
+				<td>
+				  <ul>
+				    <li>MVC</li>
+					<li>Views</li>
+					<li>routing URLs, transmission parameters</li>
+                    <li>request object</li>
+					<li>response object</li>
+					<li>request processing, the formation of response</li>
+                    <li>processing and modifying headers</li>
+					<li>middleware</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>14</td>
+				<td>Working with databases, ORM</td>
+				<td>
+				  <ul>
+				    <li>model and fields, field types and attributes</li>
+					<li>relationships between tables, and database design</li>
+					<li>migration</li>
+                    <li>fixtures</li>
+					<li>QuerySet</li>
+					<li>Raw-sql</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>15</td>
+				<td>Customization admin</td>
+				<td>
+				  <ul>
+				    <li>class admin</li>
+					<li>setting display widgets</li>
+					<li>customization ItemView, ListView, editing in ListView</li>
+                    <li>Sort, filter, search admin actions, edit fields in ListView</li>
+					<li>admin actions, edit fields in ListView</li>
+					<li>Admin dashboard</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>16</td>
+				<td>template Language</td>
+				<td>
+				  <ul>
+				    <li>Syntax, logical structure</li>
+					<li>inheritance and includes</li>
+					<li>The notion of context, processor context</li>
+                    <li>tags and filters</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>17</td>
+				<td>Forms</td>
+				<td>
+				  <ul>
+				    <li>shape</li>
+					<li>The types of fields</li>
+					<li>Widgets</li>
+                    <li>Attributes</li>
+                    <li>Validation</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>18</td>
+				<td>Class-based (Generic) Views</td>
+				<td>
+				  <ul>
+				    <li>Built-in class-based views (Template View, ListView, ItemView)</li>
+					<li>Using forms with class-based views</li>
+					<li>Mixin</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>19</td>
+				<td>Implementation of standard tasks</td>
+				<td>
+				  <ul>
+				    <li>Sending an email</li>
+					<li>Caching</li>
+					<li>Internationalization</li>
+                    <li>Signup / Login</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>20</td>
+				<td>debugging and testing tools</td>
+				<td>
+				  <ul>
+				    <li>logging</li>
+					<li>pdb</li>
+					<li>debug toolbar</li>
+                    <li>extensions</li>
+                    <li>unit-tests</li>
+                    <li>selenium</li>
+				  </ul>
+				</td>
+			  </tr>
+			  <tr>
+			    <td>21</td>
+				<td>deployment</td>
+				<td>
+				  <ul>
+				    <li>nginx</li>
+					<li>statics Management</li>
+					<li>deployment</li>
+				  </ul>
+				</td>
+			  </tr>
+			</tbody>
+		  </table>
+        </div>
+	  </div>
+	<!-- Content end -->
+	
+	<!-- Panel Menu begin -->
+	  <div class="col-md-offset-8">
+        <div class="panel panel-primary">
+          <!-- Default panel contents -->
+          <div class="panel-heading">Lorem ipsum dolor sit amet</div>
+            <div class="panel-body">
+              <div class="list-group">
+			  <!--<a href="#" class="list-group-item active">-->
+                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
+                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
+                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
+                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
+			    <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
+              </div>
+		    </div>
+		</div>
+	  </div>
+	</div>
+	<!-- Panel Menu end -->
+	
+	<!-- Footer begin -->
+	<div class="container" id="PageFooter">
+	  <div class="well well-sm">
+		<h5>Python courses 2016. Valery Perepelitsa</h5>
+	  </div>
+	</div>
+	<!-- Footer end -->
+	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
