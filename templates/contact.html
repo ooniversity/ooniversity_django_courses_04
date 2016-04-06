@@ -1,80 +1,56 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}Main{% endblock title %}
-{% block nav_class_index %}active{% endblock nav_class_index %}
+{% block title %}Contact{% endblock title %}
 
 {% block content %}
-    <div class="article container">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-            <ul class="nav navbar-nav">
-              <li><a href="{% url 'index' %}">
-                <span class="glyphicon glyphicon-home"></span>  Main</a></li>
-              <li class="active"><a href="{% url 'contact' %}">
-                <span class="glyphicon glyphicon-envelope"></span>  Contacts</a></li>
-              <li><a href="{% url 'student_list' %}">
-                <span class="glyphicon glyphicon-user"></span>  Students</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="brand"><a href="http://www.itbursa.com/pybursa.com" target="_blank">
-                <span class="glyphicon glyphicon-education"></span>  PyBursa</a></li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-      <div class="container-fluid">
-        <div class="jumbotron">
-          <div class="media">
-            <div class="row-fluid">
-              <div class="col-sm-9 col-md-6">
-                <div class="thumbnail">
-                  <h3 class="title">Founder</h3>
-                  <div class="caption">
-                    <div class="img-center">
-                      <img class="size-img" src="{% static 'images/pavel_obod.png' %}" alt="Pavel Obod">
-                    </div>
-                    <div class="thumb-text"><br>
-                      Name: Pavel Obod<br>
-                      Skype: azaless<br>
-                      Email: itbursa100@gmail.com<br>
-                      Phone: +38 (096) 469-15-56
-                    </div>
-                  </div>
+  <div class="container-fluid">
+    <div class="jumbotron">
+      <div class="media">
+        <div class="row-fluid">
+          <div class="col-sm-9 col-md-6">
+            <div class="thumbnail">
+              <h3 class="title">Founder</h3>
+              <div class="caption">
+                <div class="img-center">
+                  <img class="size-img" src="{% static 'images/pavel_obod.png' %}" alt="Pavel Obod">
+                </div>
+                <div class="thumb-text"><br>
+                  Name: Pavel Obod<br>
+                  Skype: azaless<br>
+                  Email: itbursa100@gmail.com<br>
+                  Phone: +38 (096) 469-15-56
                 </div>
               </div>
-              <div class="col-sm-9 col-md-6">
-                <div class="thumbnail">
-                  <h3 class="title">Director</h3>
-                  <div class="caption">
-                    <div class="img-center">
-                      <img class="size-img" src="{% static 'images/aleksej_radchenko.png' %}" alt="Aleksej Radchenko">
-                    </div>
-                    <div class="thumb-text"><br>
-                      Name: Aleksej Radchenko<br>
-                      Skype: dixon.che<br>
-                      Email: dixon-che@gmail.com<br>
-                      Phone: +38 (096) 469-15-58
-                    </div>
-                  </div>
+            </div>
+          </div>
+          <div class="col-sm-9 col-md-6">
+            <div class="thumbnail">
+              <h3 class="title">Director</h3>
+              <div class="caption">
+                <div class="img-center">
+                  <img class="size-img" src="{% static 'images/aleksej_radchenko.png' %}" alt="Aleksej Radchenko">
+                </div>
+                <div class="thumb-text"><br>
+                  Name: Aleksej Radchenko<br>
+                  Skype: dixon.che<br>
+                  Email: dixon-che@gmail.com<br>
+                  Phone: +38 (096) 469-15-58
                 </div>
               </div>
-              <div class="col-sm-9 col-md-6">
-                <div class="thumbnail">
-                  <h3 class="title">Manager</h3>
-                  <div class="caption">
-                    <div class="img-center">
-                      <img class="size-img" src="{% static 'images/daria_mykhalevych.png' %}" alt="Daria Mykhalevych">
-                    </div>
-                    <div class="thumb-text"><br>
-                      Name: Daria Mykhalevych<br>
-                      Skype: darka.darka.darka.darka.<br>
-                      Email: daria.mykhalevych@gmail.com<br>
-                      Phone: +38 (096) 469-15-57
-                    </div>
-                  </div>
+            </div>
+          </div>
+          <div class="col-sm-9 col-md-6">
+            <div class="thumbnail">
+              <h3 class="title">Manager</h3>
+              <div class="caption">
+                <div class="img-center">
+                  <img class="size-img" src="{% static 'images/daria_mykhalevych.png' %}" alt="Daria Mykhalevych">
+                </div>
+                <div class="thumb-text"><br>
+                  Name: Daria Mykhalevych<br>
+                  Skype: darka.darka.darka.darka.<br>
+                  Email: daria.mykhalevych@gmail.com<br>
+                  Phone: +38 (096) 469-15-57
                 </div>
               </div>
             </div>
@@ -82,4 +58,5 @@
         </div>
       </div>
     </div>
+  </div>
 {% endblock content %}

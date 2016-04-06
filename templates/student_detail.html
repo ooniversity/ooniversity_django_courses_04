@@ -1,141 +1,115 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}Main{% endblock title %}
-{% block nav_class_index %}active{% endblock nav_class_index %}
+{% block title %}Student_Detail{% endblock title %}
 
 {% block content %}
-    <div class="article container">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li><a href="{% url 'index' %}">
-                  <span class="glyphicon glyphicon-home"></span>  Main</a></li>
-                <li><a href="{% url 'contact' %}">
-                  <span class="glyphicon glyphicon-envelope"></span>  Contacts</a></li>
-                <li class="active"><a href="{% url 'student_list' %}">
-                  <span class="glyphicon glyphicon-user"></span>  Students</a></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                <li class="brand"><a href="http://www.itbursa.com/pybursa.com" target="_blank">
-                  <span class="glyphicon glyphicon-education"></span>  PyBursa</a></li>
-              </ul>
-            </div><!-- /.navbar-collapse -->
-          </div><!-- /.container-fluid -->
-      </nav>
-
-      <div class="container-fluid">
-        <div class="page-header">
-          <div class="media-heading">
-            <h3>Persianova Olena</h3>
-          </div>
-        </div>
+  <div class="container-fluid">
+    <div class="page-header">
+      <div class="media-heading">
+        <h3>Persianova Olena</h3>
       </div>
-
-      <div class="navbar">
-        <div class="navbar-inner">
-          <div class="container-fluid">
-            <div class="caption">
-              <div>
-              <img class="size-img" src="{% static 'images/olena_persianova.png' %}" alt="Olena Persianova">
-              </div><br>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    </div>
+  </div>
+  <div class="navbar">
+    <div class="navbar-inner">
       <div class="container-fluid">
-        <div class="jumbotron">
-          <div class="media">
-            <div class="caption">
-              <table class="table table-striped table-bordered" border="1" cellpadding="4">
-                <caption>Student`s card<br></caption>
-                <tr>
-                  <td>Surname</td>
-                  <td>Persianova</td>
-                </tr>
-                <tr>
-                  <td>Name</td>
-                  <td>Olena</td>
-                </tr>
-                <tr>
-                  <td>Patronymic</td>
-                  <td>Yuriivna</td>
-                </tr>
-                <tr>
-                  <td>Rating</td>
-                  <td>20</td>
-                </tr>
-                <tr>
-                  <td>Average Grade</td>
-                  <td>99.9</td>
-                </tr>
-                <tr>
-                  <td>Birth Date</td>
-                  <td>08.03.1992</td>
-                </tr>
-                <tr>
-                  <td>Address</td>
-                  <td>Украина, г. Харьков, ул. Иванова, д.36, кв.1</td>
-                </tr>
-                <tr>
-                  <td>Post</td>
-                  <td>61005</td>
-                </tr>
-                <tr>
-                  <td>E-mail</td>
-                  <td>olena.persianova@gmail.com</td>
-                </tr>
-                <tr>
-                  <td>Skype</td>
-                  <td>olena.persianova</td>
-                </tr>
-              </table>
-              <table class="table table-bordered" border="1" cellpadding="4">
-              <caption>Performance<br></caption>
-                 <thead>
-                  <tr>
-                    <td>Course</td>
-                    <td>Week</td>
-                    <td>Control Type</td>
-                    <td>Grade</td>
-                  </tr>
-                </thead>
-                <tbody class="table">
-                  <tr>
-                    <td colspan="1" rowspan="6">PY101 Введение в Python</td>
-                    <td colspan="1" rowspan="3">Week 1</td>
-                    <td>Tests</td>
-                    <td>99.9%</td>
-                  </tr>
-                  <tr>
-                    <td>Problem Task № 1</td>
-                    <td>100%</td>
-                  </tr>
-                  <tr>
-                    <td>Problem Task № 2</td>
-                    <td>100%</td>
-                  </tr>
-                  <tr>
-                    <td colspan="1" rowspan="3">Week 2</td>
-                    <td>Tests</td>
-                    <td>100%</td>
-                  </tr>
-                  <tr>
-                    <td>Problem Task № 1</td>
-                    <td>100%</td>
-                  </tr>
-                  <tr>
-                    <td>Problem Task № 2</td>
-                    <td>100%</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+        <div class="caption">
+          <div>
+          <img class="size-img" src="{% static 'images/olena_persianova.png' %}" alt="Olena Persianova">
+          </div><br>
         </div>
       </div>
     </div>
+  </div>
+  <div class="container-fluid">
+    <div class="jumbotron">
+      <div class="media">
+        <div class="caption">
+          <table class="table table-striped table-bordered" border="1" cellpadding="4">
+            <caption>Student`s card<br></caption>
+            <tr>
+              <td>Surname</td>
+              <td>Persianova</td>
+            </tr>
+            <tr>
+              <td>Name</td>
+              <td>Olena</td>
+            </tr>
+            <tr>
+              <td>Patronymic</td>
+              <td>Yuriivna</td>
+            </tr>
+            <tr>
+              <td>Rating</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>Average Grade</td>
+              <td>99.9</td>
+            </tr>
+            <tr>
+              <td>Birth Date</td>
+              <td>08.03.1992</td>
+            </tr>
+            <tr>
+              <td>Address</td>
+              <td>Украина, г. Харьков, ул. Иванова, д.36, кв.1</td>
+            </tr>
+            <tr>
+              <td>Post</td>
+              <td>61005</td>
+            </tr>
+            <tr>
+              <td>E-mail</td>
+              <td>olena.persianova@gmail.com</td>
+            </tr>
+            <tr>
+              <td>Skype</td>
+              <td>olena.persianova</td>
+            </tr>
+          </table>
+          <table class="table table-bordered" border="1" cellpadding="4">
+          <caption>Performance<br></caption>
+             <thead>
+              <tr>
+                <td>Course</td>
+                <td>Week</td>
+                <td>Control Type</td>
+                <td>Grade</td>
+              </tr>
+            </thead>
+            <tbody class="table">
+              <tr>
+                <td colspan="1" rowspan="6">PY101 Введение в Python</td>
+                <td colspan="1" rowspan="3">Week 1</td>
+                <td>Tests</td>
+                <td>99.9%</td>
+              </tr>
+              <tr>
+                <td>Problem Task № 1</td>
+                <td>100%</td>
+              </tr>
+              <tr>
+                <td>Problem Task № 2</td>
+                <td>100%</td>
+              </tr>
+              <tr>
+                <td colspan="1" rowspan="3">Week 2</td>
+                <td>Tests</td>
+                <td>100%</td>
+              </tr>
+              <tr>
+                <td>Problem Task № 1</td>
+                <td>100%</td>
+              </tr>
+              <tr>
+                <td>Problem Task № 2</td>
+                <td>100%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock content %}

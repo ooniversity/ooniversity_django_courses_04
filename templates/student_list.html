@@ -1,98 +1,74 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block title %}Main{% endblock title %}
-{% block nav_class_index %}active{% endblock nav_class_index %}
 
 {% block content %}
-    <div class="article container">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li><a href="{% url 'index' %}">
-                <span class="glyphicon glyphicon-home"></span>  Main</a></li>
-              <li><a href="{% url 'contact' %}">
-                <span class="glyphicon glyphicon-envelope"></span>  Contacts</a></li>
-              <li class="active"><a href="{% url 'student_list' %}">
-                <span class="glyphicon glyphicon-user"></span>  Students</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="brand"><a href="http://www.itbursa.com/pybursa.com" target="_blank">
-                <span class="glyphicon glyphicon-education"></span>  PyBursa</a></li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-
-      <div class="container-fluid">
-        <div class="caption">
-          <div class="media-heading">
-            <div class="page-header">
-              <h1>Студенты курса <b>"PyBursa"</b></h1>
-              <p>Список студентов: выпуск - апрель 2015 </p>
-            </div>
-          </div>
+  <div class="container-fluid">
+    <div class="caption">
+      <div class="media-heading">
+        <div class="page-header">
+          <h1>Студенты курса <b>"PyBursa"</b></h1>
+          <p>Список студентов: выпуск - апрель 2015 </p>
         </div>
       </div>
-
-      <div class="navbar">
-        <div class="navbar-inner">
-          <div class="container-fluid">
-            <div class="jumbotron">
-              <div class="media">
-                <table class="table table-striped table-bordered" border="1" cellpadding="4">
-                  <thead>
-                    <tr>
-                      <td>No</td>
-                      <td>Surname</td>
-                      <td>Name</td>
-                      <td>Address</td>
-                      <td>Skype</td>
-                    </tr>
-                  </thead>
-                  <tbody class="table-body">
-                    <tr>
-                      <td><a href="{% url 'student_detail' %}">1</a></td>
-                      <td>Persianova</td>
-                      <td>Olena</td>
-                      <td>Украина, г. Харьков, ул. Иванова, д.36, кв.1</td>
-                      <td>olena.persianova</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Shulga</td>
-                      <td>Marina</td>
-                      <td>Украина, г. Харьков, ул. Иванова, д.35, кв.2</td>
-                      <td>M.Sulga</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Polishchuk</td>
-                      <td>Volodymyr</td>
-                      <td>Украина, г. Харьков, ул. Иванова, д.33, кв.4</td>
-                      <td>V.Polishchuk</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>Symeiko</td>
-                      <td>Ivan</td>
-                      <td>Украина, г. Харьков, ул. Иванова, д.34, кв.3</td>
-                      <td>I.Symeiko</td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>Kozlov</td>
-                      <td>Pavel</td>
-                      <td>Украина, г. Харьков, ул. Иванова, д.32, кв.5</td>
-                      <td>P.Kozlov</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+    </div>
+  </div>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <div class="jumbotron">
+          <div class="media">
+            <table class="table table-striped table-bordered" border="1" cellpadding="4">
+              <thead>
+                <tr>
+                  <td>No</td>
+                  <td>Surname</td>
+                  <td>Name</td>
+                  <td>Address</td>
+                  <td>Skype</td>
+                </tr>
+              </thead>
+              <tbody class="table-body">
+                <tr>
+                  <td><a href="{% url 'student_detail' %}">1</a></td>
+                  <td>Persianova</td>
+                  <td>Olena</td>
+                  <td>Украина, г. Харьков, ул. Иванова, д.36, кв.1</td>
+                  <td>olena.persianova</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Shulga</td>
+                  <td>Marina</td>
+                  <td>Украина, г. Харьков, ул. Иванова, д.35, кв.2</td>
+                  <td>M.Sulga</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Polishchuk</td>
+                  <td>Volodymyr</td>
+                  <td>Украина, г. Харьков, ул. Иванова, д.33, кв.4</td>
+                  <td>V.Polishchuk</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Symeiko</td>
+                  <td>Ivan</td>
+                  <td>Украина, г. Харьков, ул. Иванова, д.34, кв.3</td>
+                  <td>I.Symeiko</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Kozlov</td>
+                  <td>Pavel</td>
+                  <td>Украина, г. Харьков, ул. Иванова, д.32, кв.5</td>
+                  <td>P.Kozlov</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
+  </div>
 {% endblock content %}
