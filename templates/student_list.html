@@ -18,9 +18,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.html">Main</a></li>
-                        <li><a href="contact.html">Contacts</a></li>
-                        <li><a href="student_list.html">Students</a></li>
+                        <li><a href="{% url 'index' %}">Main</a></li>
+                        <li><a href="{% url 'contact' %}">Contacts</a></li>
+                        <li><a href="{% url 'student_list' %}">Students</a></li>
                     </ul>
                 </div>
             </div>
@@ -46,7 +46,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><a href="student_detail.html" title="1">1</a></td>
+                    <td><a href="{% url 'student_detail' %}" title="1">1</a></td>
                     <td>Морозов</td>
                     <td>Павел</td>
                     <td>г.Харьков, ул. Данилевского 32, кв. 23</td>
