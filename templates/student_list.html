@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
+    {% load staticfiles %}
     <!-- Favicons -->
-    <link rel="icon" sizes="192x192" href="../static/images/django-icon.png">
+    <link rel="icon" sizes="192x192" href="{% static 'images/django-icon.png' %}">
 
     <title>DjBursa - Students</title>
 
-    <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
+  <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 
     <!-- DjangoBursa -->
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,15 +35,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">DjBursa</a>
+          <a class="navbar-brand" href="{% url 'index' %}">DjBursa</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.html">Main</a></li>
-            <li><a href="contact.html">Contacts</a></li>
-            <li class="active"><a href="student_list.html">Students</a></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -66,7 +66,7 @@
           </thead>
           <tbody>
             <tr class="active">
-              <th scope="row"><a href="student_detail.html">1</a></th>
+              <th scope="row"><a href="{% url 'student_detail' %}">1</a></th>
               <td>Махно</td>
               <td>Юрий</td>
               <td>г. Харьков, ул. Петровского, 15</td>
@@ -106,15 +106,15 @@
       <footer class="footer">
         <div class="row">
           <div class="col-lg-12">
-            <p class="text-center">Copyright &copy; 2016 <a class="anchorjs-link" href="index.html">DjBursa</a></p>
+            <p class="text-center">Copyright &copy; 2016 <a class="anchorjs-link" href="{% url 'index' %}">DjBursa</a></p>
           </div>
         </div>
       </footer>
     </div>
     <a class="back-to-top" href="#" style="display: inline;"><i>Top</i></a>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="../static/js/jquery.js"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
