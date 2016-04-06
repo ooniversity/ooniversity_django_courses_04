@@ -1,22 +1,9 @@
+{% extends "base.html" %}
 {% load staticfiles %}
-<!DOCTYPE html>
+{% block title %}Main{% endblock title %}
+{% block nav_class_index %}active{% endblock nav_class_index %}
 
-<html lang="en">
-
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Contacts</title>
-
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-
-  </head>
-
-  <body>
+{% block content %}
     <div class="article container">
       <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -94,17 +81,5 @@
           </div>
         </div>
       </div>
-      <div class="pybursa-logo">
-        <h6>@ 2016 PyBursa</h6>
-      </div>
     </div>
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-    <script src="{% static 'js/jquery-1.12.2.min.js' %}"></script>
-    <script src="{% static 'js/jquery.backstretch.min.js' %}"></script>
-    <script>
-      // Устанавливаем изображение, которое будет являться фоном веб-страницы
-    $.backstretch("{% static 'images/2.jpg' %}");
-    </script>
-
-  </body>
-</html>
+{% endblock content %}
