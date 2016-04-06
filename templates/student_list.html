@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Студенты</title>
-
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-		<link href="../static/css/style.css" rel="stylesheet">
-		<link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
+{% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+		<link href="{% static 'css/style.css' %}" rel="stylesheet">
+		<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
 		<style>
 			body { background: url(../static/images/Fon.png); }
 		</style>
@@ -17,9 +17,9 @@
 <body>
 	<div class="page">    
 		<nav class="navbar navbar-inverse">
-			<a href="index.html" class="button9">Main</a>
-			<a href="contact.html" class="button9">Contacts</a>
-			<a href="student_list.html" class="button8">Students</a>
+			<a href="{% url 'index' %}" class="button9">Main</a>
+			<a href="{% url 'contact' %}" class="button9">Contacts</a>
+			<a href="{% url 'student_list' %}" class="button8">Students</a>
 		</nav>
 	</div>
 	
@@ -41,7 +41,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<th scope="row"><a href="student_detail.html">1</a></th>
+						<th scope="row"><a href="{% url 'student_detail' %}">1</a></th>
 						<td>One</td>
 						<td>One</td>
 						<td>г. Харьков, ул. One, 1</td>
