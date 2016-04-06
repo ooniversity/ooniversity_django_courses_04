@@ -4,103 +4,130 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>PyBursa04-Contacts</title>
+    <title>PyBursa-Contacts</title>
 
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	<!-- Userdefined styles begin -->
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<!-- Userdefined styles end -->
+	
   </head>
   <body>
-    <div class="container">
-      <div class="page-header">
-        <h1><span id="PythonLetter">PYT</span><span id="PythonOther">HON</span> <small><span id="PyDes">Web Development</span></small></h1>
-      </div>
-    </div>
-    <div class="container">
-      <nav class="navbar navbar-default">
+  
+	<!-- Header begin -->
+	<div class="container">
+	  <div class="page-header">
+	    <h1>PYTHON <small>the best courses ever...</small></h1>
+	  </div>
+	</div>
+	<!-- Header end -->
+	
+    <!-- Navigation menu begin -->
+	<div class="container">
+      <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <!--<a class="navbar-brand" href="#">Brand</a>-->
           </div>
-
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="index.html">Main</a></li>
-              <li class="active"><a href="contact.html">Contacts</a></li>
-							<li><a href="student_list.html">Students</a></li>
+              <li><a href="{% url 'views.index' %}">Main</a></li>
+              <li class="active"><a href="{% url 'views.contact' %}">Contacts</a></li>
+			  <li><a href="{% url 'views.student_list' %}">Students</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
-    </div>
-
-    <div class="container">
-      <div class="panel panel-default">
-        <div class="panel-heading"><h3><span id="Title">Director</span></h3></div>
-        <div class="panel-body">
-          <p id="Name">Name: <span id="NameDes">Lorem Ipsum</span></p>
-          <p id="Skype">Skype: <span id="SkypeDes">SkypeTestLogin</span></p>
-          <p id="Email">Email: <span id="EmailDes">Lorem@ipsum.com</span></p>
-          <p id="Phone">Phone: <span id="PhoneDes">+380999999999</span></p>
+	</div>
+    <!-- Navigation menu end -->
+	
+	<!-- Content begin -->
+	<div class="container">
+	  <div class="col-md-8">
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Director</h3>
+		  </div>
+		  <div class="panel-body">
+			<p>Name:</p>
+			<p>Skype:</p>
+			<p>Email:</p>
+			<p>Phone:</p>
+		  </div>
         </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"><h3><span id="Title">Manager</span></h3></h3>
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Manager</h3>
+		  </div>
+		  <div class="panel-body">
+			<p>Name:</p>
+			<p>Skype:</p>
+			<p>Email:</p>
+			<p>Phone:</p>
+		  </div>
         </div>
-        <div class="panel-body">
-          <p id="Name">Name: <span id="NameDes">Lorem Ipsum</span></p>
-          <p id="Skype">Skype: <span id="SkypeDes">SkypeTestLogin</span></p>
-          <p id="Email">Email: <span id="EmailDes">Lorem@ipsum.com</span></p>
-          <p id="Phone">Phone: <span id="PhoneDes">+380999999999</span></p>
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Founder</h3>
+		  </div>
+		  <div class="panel-body">
+			<p>Name:</p>
+			<p>Skype:</p>
+			<p>Email:</p>
+			<p>Phone:</p>
+		  </div>
         </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"><h3><span id="Title">Founder</span></h3></h3>
-        </div>
-        <div class="panel-body">
-          <p id="Name">Name: <span id="NameDes">Lorem Ipsum</span></p>
-          <p id="Skype">Skype: <span id="SkypeDes">SkypeTestLogin</span></p>
-          <p id="Email">Email: <span id="EmailDes">Lorem@ipsum.com</span></p>
-          <p id="Phone">Phone: <span id="PhoneDes">+380999999999</span></p>
-        </div>
-        <ul>
-          <li id='n11'>Lorem ipsum11</li>
-          <li id='n12'>Lorem ipsum12</li>
-          <li id='n13'>Lorem ipsum13</li>
-          <li id='n14'>Lorem ipsum14</li>
-          <li id='n15'>Lorem ipsum15</li>
-          <li id='n16'>Lorem ipsum16</li>
-          <li id='n17'>Lorem ipsum17</li>
-          <li id='n18'>Lorem ipsum18</li>
-          <li id='n19'>Lorem ipsum19</li>
-          <li id='n20'>Lorem ipsum20</li>
-        </ul>
-      </div>
-    </div>
-
+	  </div>
+	<!-- Content end -->
+	
+	<!-- Panel Menu begin -->
+	  <div class="col-md-offset-8">
+        <div class="panel panel-primary">
+          <!-- Default panel contents -->
+          <div class="panel-heading">Lorem ipsum dolor sit amet</div>
+            <div class="panel-body">
+              <div class="list-group">
+			  <!--<a href="#" class="list-group-item active">-->
+                <a href="{% url 'views.index' %}" class="list-group-item">Lorem ipsum dolor</a>
+                <a href="{% url 'views.index' %}" class="list-group-item">Lorem ipsum dolor</a>
+                <a href="{% url 'views.index' %}" class="list-group-item">Lorem ipsum dolor</a>
+                <a href="{% url 'views.index' %}" class="list-group-item">Lorem ipsum dolor</a>
+			    <a href="{% url 'views.index' %}" class="list-group-item">Lorem ipsum dolor</a>
+              </div>
+		    </div>
+		</div>
+	  </div>
+	</div>
+	<!-- Panel Menu end -->
+	
+	<!-- Footer begin -->
+	<div class="container">
+	  <div class="well well-sm">
+		<h5>Python courses 2016. Valery Perepelitsa</h5>
+	  </div>
+	</div>
+	<!-- Footer end -->
+	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
