@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -8,22 +8,22 @@
     <meta name="author" content="">
 
     <title>Список студентов курса 2016</title>
-    <link href="../static/css/style.css" rel="stylesheet">
+    <script src="{%static '/js/jquery-2.2.2.js'%}"></script>
+    <script src="{%static '/js/bootstrap.js'%}"></script>
 
-    <script src="../static/js/jquery-2.2.2.js"></script>
-    <script src="../static/js/bootstrap.js"></script>
+    <link href="{%static '/css/style.css'%}" rel="stylesheet">
 
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="{%static '/css/bootstrap.css'%}" rel="stylesheet">
    </head>
 
   <body class="bg-info">
     <div class="container">
 
        <ul class="nav nav-tabs">
-  	<li role="presentation" ><a href="index.html">ItBursa</a></li>
-  	<li role="presentation" ><a href="index.html">Main</a></li>
-  	<li role="presentation" ><a href="contact.html">Contacts</a></li>
- 	<li role="presentation" class="active"><a href="student_list.html">Students</a></li>
+  	<li role="presentation" ><a href="{%url 'index' %}">ItBursa</a></li>
+  	<li role="presentation" ><a href="{%url 'index' %}">Main</a></li>
+  	<li role="presentation" ><a href="{%url 'contact' %}">Contacts</a></li>
+ 	<li role="presentation" class="active"><a href="{%url 'student_list' %}">Students</a></li>
       </ul>
     </div>
     <div class="container center-block">
@@ -59,7 +59,7 @@
           </tr>
          <tr id="st_tab_row" class="success">
             <td >
-             <a href="student_detail.html" class="text-success">1</a>
+             <a href="{% url 'student_detail' %}" class="text-success">1</a>
             </td>
             <td>
               Ivanov
@@ -76,7 +76,7 @@
           </tr>
         <tr id="st_tab_row" class="default">
             <td >
-             <a href="student_detail.html" class="text-danger">2</a>
+             <a href="{% url 'student_detail'%}" class="text-danger">2</a>
             </td>
             <td>
               Chuvashin
@@ -93,7 +93,7 @@
           </tr>
         <tr id="st_tab_row" class="success">
             <td >
-             <a href="student_detail.html" class="text-warning">3</a>
+             <a href="{% url 'student_detail' %}" class="text-warning">3</a>
             </td>
             <td>
               Zubkov
@@ -110,7 +110,7 @@
           </tr>
         <tr id="st_tab_row" class="default">
             <td >
-             <a href="student_detail.html">4</a>
+             <a href="{% url 'student_detail'%}">4</a>
             </td>
             <td>
               Zachepin
@@ -127,7 +127,7 @@
           </tr>
         <tr id="st_tab_row" class="success">
             <td >
-             <a href="student_detail.html">5</a>
+             <a href="{% url 'student_detail'%}">5</a>
             </td>
             <td>
               Panchenko
