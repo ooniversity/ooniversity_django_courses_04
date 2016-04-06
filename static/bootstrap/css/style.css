@@ -29,6 +29,7 @@
 }
 .jambotron
 {
+    background:rgba(255,255,255,0.3);
     text-align: center;
 }
 .title
@@ -97,7 +98,7 @@ p
 }
 .navbar-default
 {
-    border-color: #E7E7E7;
+    background:rgba(255,255,255,0.5);
 }
 /* Отступ сверху для содержимого body */
 body
