@@ -1,9 +1,7 @@
 """
 Django settings for pybursa project.
-
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
-
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
@@ -17,7 +15,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!p6dc46_p75&^y#uxm3uo3zbmh^1e$in+z_81v1lk=^wxn(+!p'
+SECRET_KEY = 'xt13ltqg&cq=a5dked7(6_5i*oyld74bsklh6#vqg9hpye7ub7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,7 +34,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'polls',
+    'polls',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -53,7 +51,6 @@ ROOT_URLCONF = 'pybursa.urls'
 
 WSGI_APPLICATION = 'pybursa.wsgi.application'
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -84,3 +81,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
