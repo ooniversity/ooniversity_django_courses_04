@@ -8,8 +8,9 @@
     <title>PyBursa student_list</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-     <link rel="stylesheet" href="../static/css/style.css">
+     {% load staticfiles %}
+    <link href="{% static '/static/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static '/static/css/style.css' %}" rel="stylesheet">
 
   </head>
 <body>
@@ -32,9 +33,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Main</a></li>
-        <li class="active"><a href="contact.html">Contacts</a></li>
-        <li class="active"><a href="student_list.html">Students</a></li>
+        <li class="active"><a href="{% url 'index' %}">Main</a></li>
+        <li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+        <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -57,11 +58,11 @@
     <th>Skype</th>
   </tr>
   <tr>
-    <td><a href="student_detail.html">1</a></td>
-    <td><a href="student_detail.html">Юрий</a></td>
-    <td><a href="student_detail.html">Махно</a></td>
-    <td><a href="student_detail.html">Украина, г.Харьков ул.Петренко д5, кв1</a></td>
-    <td><a href="student_detail.html">makhnoy</a></td>
+    <td><a href="{% url 'student_detail' %}">1</a></td>
+    <td><a href="{% url 'student_detail' %}">Юрий</a></td>
+    <td><a href="{% url 'student_detail' %}">Махно</a></td>
+    <td><a href="{% url 'student_detail' %}">Украина, г.Харьков ул.Петренко д5, кв1</a></td>
+    <td><a href="{% url 'student_detail' %}">makhnoy</a></td>
   </tr>
    <tr>
     <td>2</td>
