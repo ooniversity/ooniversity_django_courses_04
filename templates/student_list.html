@@ -1,110 +1,103 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Список студентов курса</title>
-
-    <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
-    
-
-    
+    <title>Students List</title>
+    {% load staticfiles %}
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
-  <body>
-    <div class="common">
-    
-    <nav class="navbar navbar-default">
-        <a href="index.html">Main</a>
-        <a href="contact.html">Contacts</a>
-        <a href="student_list.html">Students</a>
-    </nav>
-    
-  <div class="container">     
-    <div class="jumbotron">
-        <h1>Студенты курсов PyBursa</h1>
-        <h2>Список студентов выпуска 2016 года</h2>
-    </div>
-  
-<table class="table" >
-    <thead>
-        <tr class="success">
-            <th>No</th>
-            <th>Surname</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Skype</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="info">
-            <td><a href='student_detail.html'>1</a></td>
-            <td>Иванов</td>
-            <td class="name-student">Иван</td>
-            <td>Республика Чад, г. Харьков, ул. 1 Января, д.1б</td>
-            <td>ivanov.ivan</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Щербаков</td>
-            <td class="name-student">Петр</td>
-            <td>Гонконг, г. Гонконг, ул. Синь-Пинь-Пунь, д.1</td>
-            <td>petr.pin</td>
-        </tr>
-        <tr class="warning">
-            <td>3</td>
-            <td>Хлеборезов</td>
-            <td class="name-student">Вагтанг</td>
-            <td>Украина, г. Киев, ул. Киевская, д.55</td>
-            <td>varik.ara</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Хренов</td>
-            <td class="name-student">Игорь</td>
-            <td>Украина, г. Херсон, ул. Громкая, д.22</td>
-            <td>her.son</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>Авакян</td>
-            <td class="name-student">Петр</td>
-            <td>Украина, г. Харьков, ул. Тихая, д.23</td>
-            <td>avik.cok</td>
-        </tr>
-    </tbody>
-</table>    
-    
-    
-  
-  </div>
-  
-  <div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary">
-          <input type="checkbox"> Желтая карточка
-        </label>
-  <label class="btn btn-primary">
-          <input type="checkbox"> Красная карточка
-        </label>
-  <label class="btn btn-primary">
-          <input type="checkbox"> Синяя карточка
-        </label>
-</div>
-  
-  <nav>
-    <ul class="pager">
-      <li class="previous"><a href="contact.html"><span aria-hidden="true">&larr;</span> Previous</a></li>
-    </ul>
-  </nav>
-   
-  </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.min.js"></script>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+    <h1 class="list_name_page">Студенты курса PyBursa</h1>
+    <h5 class="list_info">Список студентов, выпуск-2016.</h5>
+
+    <div class="container">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th><span class="text-muted">No</span></th>
+            <th><span class="text-muted">Surname</span></th>
+            <th><span class="text-muted">Name</span></th>
+            <th style="width:45%"><span class="text-muted">Address</span></th>
+            <th><span class="text-muted">Skype</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a class="table_links" href="{% url 'student_detail' %}">1</a></td>
+            <td>Ivanidze</td>
+            <td>Nickolay</td>
+            <td>Украина, г. Днепропетровск, ул. Маргелова, д.83</td>
+            <td>I.Nick</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Petrova</td>
+            <td>Anna</td>
+            <td>Украина, г. Киев, ул. Труда, д.13</td>
+            <td>P.Anna</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Sergeev</td>
+            <td>Alexander</td>
+            <td>Украина, г. Львов, ул. Добра, д.23</td>
+            <td>S.Alex</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Girin</td>
+            <td>Miroslav</td>
+            <td>Украина, г. Чернигов, ул. Иванова, д.33</td>
+            <td>G.Mir</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Getman</td>
+            <td>Bogdan</td>
+            <td>Украина, г. Хмельницкий, ул. Петрова, д.43</td>
+            <td>Zh.Vodi</td>
+          </tr>
+        </tbody>
+      </table>
+    </div><!-- /.container -->
+    <ul class="pager">
+      <li><a href="{% url 'contact' %}">Предыдущая</a></li>
+      <li><a href="{% url 'student_detail' %}">Следующая</a></li>
+    </ul>
+    <div class="cont_border_line">
+    </div>
+    <div class="cont_footer">
+      <div class="cont_footer_text">
+        <h5><span class="glyphicon glyphicon-globe"></span> some footer info</h5>
+      </div>
+    </div>
+    <script src="{% static 'bootstrap/googleapis/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
   </body>
 </html>
