@@ -23,7 +23,7 @@ SECRET_KEY = '8jp8e^o7@$4@0^b7p20*xouze#n$kz10y*(ggm0bwf(d!((bc0'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
-
+TEMPLATE_DIR = ('/templates', '/polls/templates')
 ALLOWED_HOSTS = []
 
 
