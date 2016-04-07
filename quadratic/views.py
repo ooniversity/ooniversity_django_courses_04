@@ -24,8 +24,8 @@ def quadratic_results(request):
                 x1 = (-b + d ** (1/2.0)) / (2 * a)
                 x2 = (-b - d ** (1/2.0)) / (2 * a)
                 result = "Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f" % (x1, x2)
-            context.update({'d': d, 'result': result})
+            context.update({'d': str(int(d)), 'result': str(result)})
     else:
         form = QuadraticForm()
     context.update({'form': form})
-    return render(request, "results.html",  context)
+    return render(request, "results.html", context)

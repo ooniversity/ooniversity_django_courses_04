@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from math import sqrt
+from django import forms
 
 
 class QuadraticCalc(object):
