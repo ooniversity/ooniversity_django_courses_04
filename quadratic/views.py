@@ -49,11 +49,11 @@ def quadratic_results(request):
 			text_result = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
 		elif disc == 0:
 			x1 = (-b + disc ** (1/2.0)) / 2*a
-			text_result = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.2f" % x1
+			text_result = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f" % x1
 		else:
 			x1 = (-b + disc ** (1/2.0)) / 2*a
 			x2 = (-b - disc ** (1/2.0)) / 2*a
-			text_result = "Квадратное уравнение имеет два действительных корня: x1 = %.2f, x2 = %.2f" % (x1, x2)
+			text_result = "Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f" % (x1, x2)
 
 
 	return render(request,'results.html', {"text_a":text_a, "text_b":text_b, "text_c":text_c, "text_disc":text_disc, "text_result":text_result, "a" : a, "b" : b, "c" : c})
