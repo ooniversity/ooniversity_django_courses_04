@@ -22,29 +22,29 @@
         <a href="{% url 'index' %}">Main</a>
         <a href="{% url 'contact' %}">Contacts</a>
         <a href="{% url 'student_list' %}">Students</a>
-        <a href="{% url 'results' %}">Уравнение</a>
+        <a href="{% url 'results' %}">Equation</a>
     </nav>   
   </div>
   <div class="container">
   <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 
   <ul>
-  <li>a= {{a}}
+  <li>a &nbsp=&nbsp {{a}}
   {% if text_a %}
     <br>
-    {{text_a}}
+  <i> {{text_a}} </i>
   {% endif %}
   </li>
-    <li>b= {{b}}
+    <li>b &nbsp=&nbsp {{b}}
   {% if text_b %}
     <br>
-    {{text_b}}
+  <i>  {{text_b}} </i>
   {% endif %}
   </li>
-    <li>c= {{c}}
+    <li>c &nbsp=&nbsp {{c}}
   {% if text_c %}
     <br>
-    {{text_c}}
+  <i>  {{text_c}} </i>
   {% endif %}
   </li>
   </ul>
