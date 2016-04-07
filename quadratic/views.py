@@ -4,34 +4,35 @@ from django.utils.datastructures import MultiValueDictKeyError
 
 
 def decision(request):
-    d = ''
-    xx = ''
-    marker = ''
-    aknd = ''
-    akng = ''
-    bknd = ''
-    bkng = ''
-    cknd = ''
-    ckng = ''
+    aknd, bknd, cknd, d, marker, xx = '', '', '', '', '', ''
     try:
+        a = int(request.GET['a'])
+    except ValueError:
         a = request.GET['a']
+        aknd = 'коэффициент не целое число'
     except MultiValueDictKeyError:
         a = ''
+        aknd = 'коэффициент не определен'
 
     try:
+        b = int(request.GET['b'])
+    except ValueError:
         b = request.GET['b']
+        bknd = 'коэффициент не целое число'
     except MultiValueDictKeyError:
-        b = ''
+        b = None
+        bknd = 'коэффициент не определен'
 
     try:
+        c = int(request.GET['c'])
+    except ValueError:
         c = request.GET['c']
+        cknd = 'коэффициент не целое число'
     except MultiValueDictKeyError:
         c = ''
+        cknd = 'коэффициент не определен'
 
-    try:
-        a = int(a)
-        b = int(b)
-        c = int(c)
+    if type(a) == int and type(b) == int and type(c) == int:
         d = b ** 2 - 4 * a * c
         if a == 0:
             marker = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
@@ -44,18 +45,6 @@ def decision(request):
             x1 = (-b + d ** (1/2.0)) / (2*a)
             x2 = (-b - d ** (1/2.0)) / (2*a)
             xx = 'Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s' % (x1, x2)
-    except:
-        if a == '':
-            aknd = 'коэффициент не определен'
-        else:
-            akng = 'коэффициент не целое число'
-        if b == '':
-            bknd = 'коэффициент не определен'
-        else:
-            bkng = 'коэффициент не целое число'
-        if c == '':
-            cknd = 'коэффициент не определен'
-        else:
-            ckng = 'коэффициент не целое число'
-    s = {'a': a, 'b': b, 'c': c, 'd': d, 'xx': xx, 'mk': marker, 'aknd': aknd, 'akng': akng, 'bknd': bknd, 'bkng': bkng, 'cknd': cknd, 'ckng': ckng}
+
+    s = {'a': a, 'b': b, 'c': c, 'd': d, 'xx': xx, 'mk': marker, 'aknd': aknd, 'bknd': bknd, 'cknd': cknd}
     return render(request, 'quadratic/results.html', s)
