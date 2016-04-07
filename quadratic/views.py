@@ -47,5 +47,6 @@ def quadratic_results(request):
         d = 'Дискриминант: %s' %d
     if a == 0:
         d = ''
+        marker = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
     s = {'a': a, 'b': b, 'c': c, 'd': d, 'xx': xx, 'mk': marker, 'aknd': aknd, 'bknd': bknd, 'cknd': cknd}
     return render(request, 'quadratic/results.html', s)
