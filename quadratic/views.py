@@ -11,26 +11,37 @@ def quadratic_results(request):
 	try:
 		a = int(request.GET['a'])
 	except ValueError:
-		text_a = "коэффициент не целое число"
-	except IndexError:
-		text_a = "коэффициент не определен"
+		if request.GET['a'].isalpha():
+			text_a = "коэффициент не целое число"
+			a = request.GET['a']
+		else:
+			text_a = "коэффициент не определен"
+			a = ""
+
 	try:
 		b = int(request.GET['b'])
 	except ValueError:
-		text_b = "коэффициент не целое число"
-	except IndexError:
-		text_b = "коэффициент не определен"
+		if request.GET['b'].isalpha():
+			text_b = "коэффициент не целое число"
+			b = request.GET['b']
+		else:
+			text_b = "коэффициент не определен"
+			b = ""
+
 	try:
 		c = int(request.GET['c'])
 	except ValueError:
-		text_c = "коэффициент не целое число"
-	except IndexError:
-		text_c = "коэффициент не определен"
+		if request.GET['c'].isalpha():
+			text_c = "коэффициент не целое число"
+			c = request.GET['c']
+		else:
+			text_c = "коэффициент не определен"
+			c = ""
 
-	if a == 0 and text_a == "":
+	if a == 0:
 		text_a = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
 
-	if text_a and text_b and text_c :
+	if not text_a and not text_b and not text_c :
 		disc = b**2 - 4*a*c
 		text_disc = "Дискриминант: %d" % disc
 
