@@ -8,8 +8,9 @@
     <title>PyBursa</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-     <link rel="stylesheet" href="../static/css/style.css">
+    {% load staticfiles %}
+    <link href="{% static '/static/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static '/static/css/style.css' %}" rel="stylesheet">
 
   </head>
 <body>
@@ -32,9 +33,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Main</a></li>
-        <li class="active"><a href="contact.html">Contacts</a></li>
-        <li class="active"><a href="student_list.html">Students</a></li>
+        <li class="active"><a href="{% url 'index' %}">Main</a></li>
+        <li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+        <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -83,7 +84,7 @@
 
 </div>
 </div>
-  <script src="../static/js/bootstrap.js"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
 <br><br>
 <div class="foot">
   <p class="footer">© 2016 Nikolzp </p>
