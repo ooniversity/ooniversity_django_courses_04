@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -23,7 +24,8 @@ SECRET_KEY = '8jp8e^o7@$4@0^b7p20*xouze#n$kz10y*(ggm0bwf(d!((bc0'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
-TEMPLATE_DIR = ('/templates', '/polls/templates')
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates', '/polls/templates/polls'),)
 ALLOWED_HOSTS = []
 
 
