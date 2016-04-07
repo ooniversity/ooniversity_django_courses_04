@@ -16,13 +16,15 @@
       <div class="container-fluid">
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav" >
           <li><a href="{% url 'index' %}">
             <span class="glyphicon glyphicon-home"></span> Main</a></li>
           <li><a href="{% url 'contact' %}">
             <span class="glyphicon glyphicon-envelope"></span> Contacts</a></li>
           <li><a href="{% url 'student_list' %}">
             <span class="glyphicon glyphicon-user"></span> Students</a></li>
+          <li><a href="{% url 'quadratic:results' %}">
+            <span class="glyphicon glyphicon-superscript"></span> Quadratic</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="navbar-nav"><a href="http://www.itbursa.com/pybursa.com" target="_blank">
@@ -44,7 +46,8 @@
     <script src="{% static 'js/jquery-1.12.2.min.js' %}"></script>
     <script src="{% static 'js/jquery.backstretch.min.js' %}"></script>
     <script>
-    $.backstretch("{% static 'images/fon.jpg' %}");
+      {#fon for site#}
+      $.backstretch("{% static 'images/fon.jpg' %}");
     </script>
   </body>
 </html>
