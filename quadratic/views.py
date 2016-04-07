@@ -17,11 +17,11 @@ def quadratic_results(request):
         if  koef[i]=='': 
             dont_solve_flag=True
             message.append(u'коэффициент не определен')
-        elif  not koef[i].replace('-','0').isdigit(): 
+        elif  not koef[i].replace('.','').replace('-','').isdigit(): 
             dont_solve_flag=True
             message.append(u'коэффициент не целое число')
         else:
-            koef[i]=int(koef[i])
+            koef[i]=int(float(koef[i]))
         if koef[i]==0 and i==0:
             dont_solve_flag=True
             message.append(u'коэффициент при первом слагаемом уравнения не может быть равным нулю')
@@ -36,11 +36,12 @@ def quadratic_results(request):
             #answer+= u"Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f<br>" % (x1,x2)
         elif discr1 == 0:
             x1 = -b / (2 * a)
+            x2=x1;
             #answer += u'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f<br>' % x1
         
 	        #print("Корней нет")
             #answer += u"Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.<br>"
-    return render(request,'quadratic/results.html',{'koef':zip(koef_names,koef), 'discr':discr1, 'x1':x1, 'x2':x2}) 
+    return render(request,'quadratic/results.html',{'koef':zip(koef_names,koef), 'd':discr1, 'x1':x1, 'x2':x2}) 
 
  
 
