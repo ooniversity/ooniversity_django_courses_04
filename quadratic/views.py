@@ -12,6 +12,9 @@ def quadratic_results(request):
     message=[]
     discr1=x1=x2=''
     #return HttpResponse(request.GET['a'])
+    if not request.GET:
+        return render(request,'quadratic/results.html') 
+        
     for i in range(0,3):
         koef[i]=request.GET[koef_names[i]]
         if  koef[i]=='': 
@@ -28,14 +31,14 @@ def quadratic_results(request):
 
     if not dont_solve_flag:
         a,b,c = koef
-        discr1= b*b - 4 * a * c
+        discr1= b ** 2 - 4 * a * c
         message.append(u"Дескриминант: %d<br>" % int(discr1))
         if discr1 > 0:
-            x1 = (-b + math.sqrt(discr1)) / (2 * a)
-            x2 = (-b - math.sqrt(discr1)) / (2 * a)
+            x1 = (-b + math.sqrt(discr1)) / (2.0 * a)
+            x2 = (-b - math.sqrt(discr1)) / (2.0 * a)
             #answer+= u"Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f<br>" % (x1,x2)
         elif discr1 == 0:
-            x1 = -b / (2 * a)
+            x1 = -b / (2.0 * a)
             x2=x1;
             #answer += u'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f<br>' % x1
         
