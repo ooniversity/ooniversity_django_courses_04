@@ -1,1 +1,15 @@
-{{responce}}
+{%FOR k in koef%}
+       {{}}
+       {%IF  k==''%} 
+            a = {{a}}u'коэффициент не определен<br>'
+        {%ELIF  not koef[i].replace('-','0').isdigit(): 
+            answer+= u'коэффициент не целое число<br>'
+            dont_solve_flag=True
+        else:
+            koef[i]=int(koef[i])
+        if koef[i]==0 and i==0:
+            dont_solve_flag=True
+            answer+= u'коэффициент при первом слагаемом уравнения не может быть равным нулю<br>'
+{%ENDFOR%}
+
+
