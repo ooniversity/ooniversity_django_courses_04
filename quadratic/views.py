@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
-from django.utils.datastructures import MultiValueDictKeyError
 
 
-def decision(request):
+def quadratic_results(request):
     aknd, bknd, cknd, d, marker, xx = '', '', '', '', '', ''
     try:
         a = int(request.GET['a'])
@@ -45,7 +44,7 @@ def decision(request):
             x1 = (-b + d ** (1/2.0)) / (2*a)
             x2 = (-b - d ** (1/2.0)) / (2*a)
             xx = 'Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s' % (x1, x2)
-    d = 'Дискриминант: %s' %d
+        d = 'Дискриминант: %s' %d
     if a == 0:
         d = ''
     s = {'a': a, 'b': b, 'c': c, 'd': d, 'xx': xx, 'mk': marker, 'aknd': aknd, 'bknd': bknd, 'cknd': cknd}
