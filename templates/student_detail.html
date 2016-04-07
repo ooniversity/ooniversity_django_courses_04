@@ -1,144 +1,120 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Состояние студента</title>
-
-    <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
-    
-
-    
+    <title>Detail</title>
+    {% load staticfiles %}
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
-  <body>
-    <div class="common">
-    
-    <nav class="navbar navbar-default">
-        <a href="index.html">Main</a>
-        <a href="contact.html">Contacts</a>
-        <a href="student_list.html">Students</a>
-    </nav>
-    
-  <div class="container">     
-    <div class="jumbotron small">
-        <h1 class="student-name">Иванов Иван</h1>
-    
-        <div class="thumbnail">
-        <img  src="../static/images/python.jpg">
-        </div> 
-       
 
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'student_list' %}">Students</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </div>
 
+    <h1 class="list_name_page">Ivanidze Nickolay</h1>
 
- 
-   <div class="well">Карточка студента</div>
-<table class="table small table-bordered" >
-    <tbody>
-        <tr class="info">
-            <td>Surname</td>
-            <td class="student-name">Иванов</td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td class="student-name">Иван</td>
-        </tr>
-        <tr class="warning">
-            <td>Patronymic</td>
-            <td class="student-name">Иванович</td>
-        </tr>
-        <tr>
-            <td>Birth Date</td>
-            <td class="student-name">11/10/1985</td>
-        </tr>
-        <tr>
-            <td>Address</td>
-            <td class="student-name">Республика Чад, г. Харьков, ул. 1 Января, д.1б</td>
-        </tr>
-        <tr class="info">
-            <td>E-mail</td>
-            <td class="student-name">ivanov@gmail.com</td>
-        </tr>
-        <tr>
-            <td>Skype</td>
-            <td class="student-name">ivanov.ivan</td>
-        </tr>
-        <tr class="warning">
-            <td>Average Grade</td>
-            <td class="student-name">99.9</td>
-        </tr>
-        <tr>
-            <td>Rating</td>
-            <td class="student-name">22</td>
-        </tr>
-    </tbody>
-</table>    
-    
- <table class="table table-bordered" >
- <thead>
-        <tr class="success">
-            <th>Курс</th>
-            <th>Неделя</th>
-            <th>Тип задания</th>
-            <th>Оценка</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan="5" class="vert-align">Введение в питон</td>
-            <td rowspan="3" class="vert-align">Week 1</td>
-            <td>Tests</td>
-            <td>99%</td>
-        </tr>
-        <tr>
-            <td>Problem Task №1</td>
-            <td>100%</td>
-        </tr>
-        <tr>
-            <td>Problem Task №2</td>
-            <td>100%</td>
-        </tr>
-        <tr>
-            <td rowspan="2" >Week 2</td>
-            <td>Tests</td>
-            <td>100%</td>
-        </tr>
-        <tr>
-            <td>Problem Task №1</td>
-            <td>100%</td>
-        </tr>
-    </tbody>
-</table>   
-  
-  </div>
-  
-  <div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary">
-          <input type="checkbox"> Желтая карточка
-        </label>
-  <label class="btn btn-primary">
-          <input type="checkbox"> Красная карточка
-        </label>
-  <label class="btn btn-primary">
-          <input type="checkbox"> Синяя карточка
-        </label>
-</div>
-  
-  <nav>
+    <div class="container">
+      <div class="row">
+        <div class="student_info">
+          <div class="col-sm-6">
+            <p>Информация о студенте</p>
+            <table class="table table-reflow">
+              <tbody>
+                <tr>
+                  <td>Surname</td>
+                  <td>Ivanidze</td>
+                </tr>
+                <tr>
+                  <td>Name</td>
+                  <td>Nickolay</td>
+                </tr>
+                <tr>
+                  <td>Patronymic</td>
+                  <td>Ivanovich</td>
+                </tr>
+                <tr>
+                  <td>Birth Date</td>
+                  <td>02/01/2000</td>
+                </tr>
+                <tr>
+                  <td>Address</td>
+                  <td>Украина, г. Днепропетровск, ул. Маргелова, д.83</td>
+                </tr>
+                <tr>
+                  <td>E-mail</td>
+                  <td>margel@gmail.com</td>
+                </tr>
+                <tr>
+                  <td>Skype</td>
+                  <td>I.Nick</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>Статистика</p>
+            <table id="statistics" class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><span class="text-muted">Course</span></th>
+                  <th><span class="text-muted">Week</span></th>
+                  <th><span class="text-muted">Control Type</span></th>
+                  <th><span class="text-muted">Average Grade</span></th>
+                  <th><span class="text-muted">Rating</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Py101 Введение в Python</td>
+                  <td>Week 1</td>
+                  <td>Tests</td>
+                  <td>95%</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>Some Course</td>
+                  <td>Week 2</td>
+                  <td>Problem Task</td>
+                  <td>100%</td>
+                  <td>2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <ul class="pager">
-      <li class="previous"><a href="student_list.html"><span aria-hidden="true">&larr;</span> Previous</a></li>
+      <li><a href="{% url 'student_list' %}">Предыдущая</a></li>
     </ul>
-  </nav>
-   
-  </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.min.js"></script>
+    <div class="cont_border_line">
+    </div>
+    <div class="cont_footer">
+      <div class="cont_footer_text">
+        <h5><span class="glyphicon glyphicon-globe"></span> some footer info</h5>
+      </div>
+    </div>
+    <script src="{% static 'bootstrap/googleapis/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
   </body>
 </html>

@@ -1,104 +1,71 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Курсы программирования на Python</title>
-
-    <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
-    
-
-    
+    <!-- <meta name="description" content="">
+    <meta name="author" content=""> -->
+    <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.ico"> -->
+    <title>Main</title>
+    {% load staticfiles %}
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
   <body>
-    <div class="common">
-    
-    <nav class="navbar navbar-default">
-        <a href="index.html">Main</a>
-        <a href="contact.html">Contacts</a>
-        <a href="student_list.html">Students</a>
-    </nav>
-    
-  <div class="container">     
-    <div class="jumbotron">
-      <div class="parent">
-        <h1>Курсы PyBursa</h1>
-        <h2>Description</h2>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- <a class="navbar-brand" href="#">Project name</a> -->
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'student_list' %}">Students</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
-      <img class="blog" src="../static/images/python.jpg">
-      <p>Разнообразный и богатый опыт сложившаяся структура организации позволяет выполнять важные задания
-       по разработке дальнейших направлений развития. Таким образом реализация намеченных плановых заданий 
-       представляет собой интересный эксперимент проверки модели развития. Значимость этих проблем настолько 
-       очевидна, что новая модель организационной деятельности играет важную роль в формировании системы обучения
-       кадров, соответствует насущным потребностям. Разнообразный и богатый опыт постоянное информационно-пропагандистское
-       обеспечение нашей деятельности представляет собой интересный эксперимент проверки модели развития.</p>
-    </div>
-  
-    
-  <div class="jumbotron">
-    <h2 data-toggle="tooltip" data-placement="bottom" title="Техники максимального дзена">Program</h2>
-    <p>В нашем курсе вы можете овладеть следующими техниками и узнать такие полезные вещи, как:</p>
-    <ul>
-      <li>Разведение кактусов в условиях крайнего севера.</li>
-      <li>Техники глажения шнурков различных расцветок.</li>
-      <li>Мужчина или огурец? Что полезнее на кухне?</li>
-      <li>Народные методики увеличения груди с помощью капусты: компрессы, отвары, спиртовые настойки.</li>
-      <li>Пивная диета - правда или враки?</li>
-      <li>и многое другое...</li>
-    </ul>
-  </div>
-  
-  <div class="jumbotron">
-    <h2>Темы занятий и количество часов</h2>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <span class="badge">14</span>
-         Как бежать вперед.
-      </li>
-      <li class="list-group-item">
-        <span class="badge">20</span>
-         Как бежать назад.
-      </li>
-      <li class="list-group-item">
-        <span class="badge">22</span>
-         Как бежать боком.
-      </li>
-      <li class="list-group-item">
-        <span class="badge">1</span>
-         Как вообще не бегать.
-      </li>
-    </ul>
-  </div>
-  
-  </div>
-  
-  <div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary">
-          <input type="checkbox"> Желтая карточка
-        </label>
-  <label class="btn btn-primary">
-          <input type="checkbox"> Красная карточка
-        </label>
-  <label class="btn btn-primary">
-          <input type="checkbox"> Синяя карточка
-        </label>
-</div>
-  
-  <nav>
-    <ul class="pager">
-      <li class="next"><a href="contact.html">Next <span aria-hidden="true">&rarr;</span></a></li>
-    </ul>
-  </nav>
-   
-  </div>
+    </div> <!-- end menu div -->
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.min.js"></script>
+    <div class="container">
+      <h1 class="course_name">Курс по WEB-разработке от PyBursa</h1>
+      <h2 class="Description">Description</h2>
+      <h3 class="well well-sm"><em>Курс подразумевает, что студенты уже освоили базовый python.
+В рамках курса даются азы html/css, достаточные для формирования html страниц браузеру, но не достаточные для профессиональной верстки.
+Глубина освоения django будет достаточной для самостоятельного написания web-проектов, которые содержат редактируемые страницы, структуру специфических данных, отображение их на фронтенде и создание-редактирование этих данных.</em></h3>
+
+      <h2 class="Description_title">Program</h2>
+        <ul id="ul_program_items" class="well well-sm">
+          <li><h4><span class="glyphicon glyphicon-chevron-right"> Основы html/css и bootstrap</span></h4></li>
+          <li><h4><span class="glyphicon glyphicon-chevron-right"> Система контроля версий GIT</span></h4></li>
+          <li><h4><span class="glyphicon glyphicon-chevron-right"> Django Basics</span></h4></li>
+        </ul>
+        <!-- <p class="lead">Man</p> -->
+
+    </div><!-- /.container -->
+
+    <div id="panel_1" class="panel panel-primary">@morozov_n</div>
+    <h3><span class="label label-default"><span class="glyphicon glyphicon-chevron-up">Up</span></span></h3>
+
+    <ul class="pager">
+      <!-- <li><a href="index.html">Предыдущая</a></li> -->
+      <li><a href="{% url 'contact' %}">Следующая</a></li>
+    </ul>
+
+    <div class="index_border_line">
+    </div>
+    <div class="index_footer">
+      <div class="index_footer_text">
+          <h5><span class="glyphicon glyphicon-globe"></span> some footer info</h5>
+      </div>
+    </div>
+    <script src="{% static 'bootstrap/googleapis/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
   </body>
 </html>
