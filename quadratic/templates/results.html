@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Quadratic{% endblock title %}
+
+{% block content %}
+  <div class="row marketing">
+    <h3 style="text-align: center">Решить квадратное уравнение вида Ax**2 + Bx + C = 0</h3><br>
+    <div class="container">
+      <form method="get">
+        {{ form.as_p }}
+        <br><input type="submit" value="Решить уравнение"/>
+      </form>
+      {% if result %}
+        <p>Дискриминант уравнения: {{ d }}</p>
+        <p>{{ result }}</p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock content %}
