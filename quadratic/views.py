@@ -19,7 +19,7 @@ class Equation(object):
             x = (-self.b - self.d ** (1/2.0)) / 2*self.a
         return x
 
-def calc_equation(request):
+def quadratic_results(request):
     if str(request.GET.get('a')).isdigit():
         argument_a = int(request.GET.get('a'))
     else:
