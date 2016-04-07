@@ -1,13 +1,5 @@
-
-from django.shortcuts import render
-from polls.models import Question
-
-from django.http import Http404
-
-from django.shortcuts import get_object_or_404, render
 from polls.models import Choice, Question
-
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, Http404
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 
