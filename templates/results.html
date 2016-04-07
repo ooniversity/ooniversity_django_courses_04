@@ -30,29 +30,18 @@
 
   <ul>
   <li>a &nbsp=&nbsp {{a}}
-  {% if text_a %}
   <p> {{text_a}} </p>
-  {% endif %}
   </li>
-    <li>b &nbsp=&nbsp {{b}}
-  {% if text_b %}
+  <li>b &nbsp=&nbsp {{b}}
   <p>  {{text_b}} </p>
-  {% endif %}
   </li>
-    <li>c &nbsp=&nbsp {{c}}
-  {% if text_c %}
+  <li>c &nbsp=&nbsp {{c}}
   <p>  {{text_c}} </p>
-  {% endif %}
   </li>
   </ul>
-
-  {% if text_disc %}
-  <p>{{text_disc}}</p>
-  {% endif %}
-
-  {% if text_result %}
-  <p>{{text_result}}</p>
-  {% endif %}
+  <p>{{disc.message}}{{disc.value}}</p>
+  <p>{{text_result.message}}{{text_result.value}}</p>
+ 
   </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
