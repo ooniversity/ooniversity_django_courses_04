@@ -1,9 +1,11 @@
-﻿{% load quadratic_filter %}
+﻿{% extends "base.html" %}
+{% load quadratic_filter %}
+{%block content%}
 Квадратное уравнение a*x*x+b*x+c=0
 <div>
 <ul>
 {%for k,value in koef%}
-   <li>{{k}}={{value}}</li>
+   <li>{{k}} = {{value}}</li>
    {%if value == ''  %}
       коэффициент не определен
    {%elif not value|isdig %}
@@ -20,14 +22,14 @@
 <div>
 {%if d != ''  %}
  
-  Дискриминант={{d}}<br>
+  Дискриминант: {{d}}<br>
   {%if d > 0  %}
-      Квадратное уравнение имеет два действительных корня: x1 = {{x1|floatformat}}, x2 = {{x2|floatformat}}<br>
+      Квадратное уравнение имеет два действительных корня: x1 = {{x1|floatformat:1}}, x2 = {{x2|floatformat:1}}<br>
   {%elif d == 0 %}
-      Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{x1|floatformat}}<br>
+      Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{x1|floatformat:1}}<br>
   {%else%}
        Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.<br>
   {%endif%}
 {%endif%}
 </div>
-
+{%endblock content%}
