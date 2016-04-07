@@ -36,7 +36,7 @@ def quadratic_results(request):
 			c = request.GET['c']
 		else:
 			text_c = "коэффициент не определен"
-			c = ""
+			#c = ""
 
 	if a == 0:
 		text_a = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
@@ -55,5 +55,11 @@ def quadratic_results(request):
 			x2 = (-b - disc ** (1/2.0)) / 2*a
 			text_result = "Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f" % (x1, x2)
 
-
-	return render(request,'results.html', {"text_a":text_a, "text_b":text_b, "text_c":text_c, "text_disc":text_disc, "text_result":text_result, "a" : a, "b" : b, "c" : c})
+	context = {"text_a":text_a, "text_b":text_b, "text_c":text_c, "text_disc":text_disc, "text_result":text_result}
+	if 'a' in locals():
+		context['a'] = a
+	if 'b' in locals():
+		context['b'] = b 
+	if 'c' in locals():
+		context['c'] = c
+	return render(request,'results.html', context)
