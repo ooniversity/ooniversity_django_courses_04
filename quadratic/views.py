@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
-
+from django.utils.datastructures import MultiValueDictKeyError
 
 def quadratic_results(request):
     aknd, bknd, cknd, d, marker, xx = '', '', '', '', '', ''
@@ -12,6 +12,11 @@ def quadratic_results(request):
             aknd = 'коэффициент не определен'
         else:
             aknd = 'коэффициент не целое число'
+    except MultiValueDictKeyError:
+        a = ''
+        if a == '':
+            aknd = 'коэффициент не определен'
+
 
     try:
         b = int(request.GET['b'])
@@ -21,6 +26,10 @@ def quadratic_results(request):
             bknd = 'коэффициент не определен'
         else:
             bknd = 'коэффициент не целое число'
+    except MultiValueDictKeyError:
+        b = ''
+        if b == '':
+            bknd = 'коэффициент не определен'
 
     try:
         c = int(request.GET['c'])
@@ -30,6 +39,10 @@ def quadratic_results(request):
             cknd = 'коэффициент не определен'
         else:
             cknd = 'коэффициент не целое число'
+    except MultiValueDictKeyError:
+        c = ''
+        if c == '':
+            cknd = 'коэффициент не определен'
 
     if type(a) == int and type(b) == int and type(c) == int:
         d = b ** 2 - 4 * a * c
