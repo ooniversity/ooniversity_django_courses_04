@@ -33,8 +33,9 @@ def quadratic_results(request):
 		else:
 			text_c = u"коэффициент не определен"
 
-	if a == 0:
-		text_a = u"коэффициент при первом слагаемом уравнения не может быть равным нулю"
+	if 'a' in locals():
+		if a == 0:
+			text_a = u"коэффициент при первом слагаемом уравнения не может быть равным нулю"
 
 	if not text_a and not text_b and not text_c :
 		disc['message'] = "Дискриминант: "
@@ -44,7 +45,7 @@ def quadratic_results(request):
 			text_result['message'] = u"Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
 		elif disc['value'] == 0:
 			x = (-b + disc['value'] ** (1/2.0)) / 2*a
-			text_result['message'] = u"Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = " % x
+			text_result['message'] = u"Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = "
 			text_result['value'] = x
 		else:
 			x1 = (-b + disc['value'] ** (1/2.0)) / 2*a
