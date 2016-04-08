@@ -11,7 +11,7 @@ def quadratic_results(request):
     # 'warning_'+'a'
     dic = {'a': a, 'b': b, 'c': c}
     res = {}
-
+"""
     for i in dic:
         
         if dic[i] == '':
@@ -22,7 +22,7 @@ def quadratic_results(request):
                 res[i] = 'коэффициент не целое число'
             else:
                 if dic['a'] == 0:
-                    res['a'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю 1'
+                    res['a'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю 11111'
                 else:
                     res[i] = ''
                     if a == 0:
@@ -33,47 +33,52 @@ def quadratic_results(request):
                     else:
                         res['a'] = ''
                         #############
-                        
-                        if a == '':
-                            a = ''
-                            res['a'] = 'коэффициент не определен'
-                            b = int(b)
-                            c = int(c)
-                            des = ''
-                            des_warn = ''
-                            x1 = ''
-                            x2 = ''
-                            root_mes = ''
-                            x = ''
-                            same_root = ''
-                             ###################
+"""
+    for i in dic:
+        if dic[i] == '':
+            res[i] = 'коэффициент не определен'
+        else:
 
-                        else:
-                            a = int(a)
-                            #a = int(a)
-                            b = int(b)
-                            c = int(c)
-                            des = b**2-4*a*c
+            if a == '':
+                a = ''
+                res['a'] = 'коэффициент не определен 222'
+                b = int(b)
+                c = int(c)
+                des = ''
+                des_warn = ''
+                x1 = ''
+                x2 = ''
+                root_mes = ''
+                x = ''
+                same_root = ''
+                 ###################
 
-                            if des < 0:
-                                des_warn = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
-                                x1 = ''
-                                x2 = ''
-                                root_mes = ''
-                                x = ''
-                                same_root = ''
-                            elif des == 0:
-                                des_warn = ''
-                                x1 = ''
-                                x2 = ''
-                                root_mes = ''
-                                x = (-b+math.sqrt(b**2-4*a*c))/2*a
-                                same_root = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 ='
-                            else:
-                                des_warn = ''
-                                root_mes = 'Квадратное уравнение имеет два действительных корня: '
-                                x1 = (-b+math.sqrt(b**2-4*a*c))/2*a
-                                x2 = (-b-math.sqrt(b**2-4*a*c))/2*a
+            else:
+                a = int(a)
+                #a = int(a)
+                b = int(b)
+                c = int(c)
+                des = b**2-4*a*c
+
+                if des < 0:
+                    des_warn = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
+                    x1 = ''
+                    x2 = ''
+                    root_mes = ''
+                    x = ''
+                    same_root = ''
+                elif des == 0:
+                    des_warn = ''
+                    x1 = ''
+                    x2 = ''
+                    root_mes = ''
+                    x = (-b+math.sqrt(b**2-4*a*c))/2*a
+                    same_root = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 ='
+                else:
+                    des_warn = ''
+                    root_mes = 'Квадратное уравнение имеет два действительных корня: '
+                    x1 = (-b+math.sqrt(b**2-4*a*c))/2*a
+                    x2 = (-b-math.sqrt(b**2-4*a*c))/2*a
 
 
 
