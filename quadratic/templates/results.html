@@ -6,31 +6,17 @@
 {% block content %}
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 
-      <ul>
-          <li>a =
-        {{ a }}
-        {% if er_a %}
-         <br /><i>{{er_a}}</i>
-        {% endif %}
-          </li>
-
-          <li>b =
-           {{ b }}
-        {% if er_b %}
-         <br /><i>{{er_b}}</i>
-        {% endif %}
-           </li>
-
-          <li>c =
-           {{ c }}
-           {% if er_c %}
-            <br /><i>{{er_c}}</i>
-           {% endif %}
-           </li>
-      </ul>
-  
-       {% if d or d == 0 %}
-         <p>Дискриминант: {{d}}</p>
-         <p>{{st_d}}</p>
-       {% endif %}   
+  <ul>
+  <li>{{a.message}}{{a.value}}
+  <p> {{text_a}} </p>
+  </li>
+  <li>{{b.message}}{{b.value}}
+  <p>  {{text_b}} </p>
+  </li>
+  <li>{{c.message}}{{c.value}}
+  <p>  {{text_c}} </p>
+  </li>
+  </ul>
+  <p>{{disc.message}}{{disc.value}}</p>
+  <p>{{text_result.message}}{{text_result.value}}</p>
 {% endblock content %}
