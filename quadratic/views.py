@@ -31,10 +31,10 @@ def quadratic_results(request, a=None, b=None, c=None):
     if not a and a != 0:
         er_a = 'коэффициент не определен'
 
-    if not b:
+    if not b and b !=0:
         er_b = 'коэффициент не определен'
 
-    if  not c:
+    if  not c and c !=0:
         er_c = 'коэффициент не определен'
 
     if isinstance(a, int) and isinstance(b, int) and isinstance(c, int) and a != 0:
@@ -42,10 +42,9 @@ def quadratic_results(request, a=None, b=None, c=None):
 
     if d and d < 0:
         er_d = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
-    if d and d == 0:
+    if d == 0:
         x = korni(d, a, b)
-        er_d = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %0.1f' % float(x)
-        d = int(d)
+        er_d = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %0.1f' % x
     if d and d > 0:
         x = korni(d, a, b)
         er_d =  'Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f' % (float(x[0]), float(x[1]))
