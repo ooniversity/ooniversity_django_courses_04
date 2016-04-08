@@ -75,7 +75,7 @@ h4 + p {
 div.info{
 	margin-bottom: 25px;
 }
-.info .btn{ 
+.info .btn, .calc{
 	background-color: #F9F1B5;
 	width: 60%;
 	text-transform: uppercase;
@@ -146,4 +146,15 @@ h3{
 }
 .profile-info{
 	padding-bottom: 0;
+}
+.form-wrapper{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding: 30px;
+}
+.calc{
+    width: 100%;
+    margin-top: 30px;
 }
