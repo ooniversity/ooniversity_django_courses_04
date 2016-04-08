@@ -9,7 +9,7 @@
     <!-- Favicons -->
     <link rel="icon" sizes="192x192" href="{% static 'images/django-icon.png' %}">
 
-    <title>DjBursa - Contacts</title>
+    <title>DjBursa - Quadratic</title>
 
   <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -42,9 +42,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{% url 'index' %}">Main</a></li>
-            <li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
             <li><a href="{% url 'student_list' %}">Students</a></li>
-            <li><a href="{% url 'results' %}">Quadratic</a></li>
+            <li class="active"><a href="{% url 'results' %}">Quadratic</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -52,49 +52,14 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="page-header text-center">Our Team</h1>
-        </div>
-        <div class="col-md-4 text-center">
-          <div class="thumbnail">
-            <img alt="" src="{% static 'images/team/face_1.png' %}" class="img-responsive">
-            <div class="caption">
-              <h3>Director</h3>
-              <ul class="list-group">
-                <li class="list-group-item"><strong>Name: </strong>John Smith</li>
-                <li class="list-group-item"><strong>Skype: </strong>john.smith</li>
-                <li class="list-group-item"><strong>Email: </strong>john.smith@gmail.com</li>
-                <li class="list-group-item"><strong>Phone: </strong>+38(095)0000001</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 text-center">
-          <div class="thumbnail">
-            <img alt="" src="{% static 'images/team/face_2.png' %}" class="img-responsive">
-            <div class="caption">
-              <h3>Manager</h3>
-              <ul class="list-group">
-                <li class="list-group-item"><strong>Name: </strong>Silly Sally</li>
-                <li class="list-group-item"><strong>Skype: </strong>silly.sally </li>
-                <li class="list-group-item"><strong>Email: </strong>silly.sally@gmail.com</li>
-                <li class="list-group-item"><strong>Phone: </strong>+38(095)0000002</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 text-center">
-          <div class="thumbnail">
-            <img alt="" src="{% static 'images/team/face_3.png' %}" class="img-responsive">
-            <div class="caption">
-              <h3>Founder</h3>
-              <ul class="list-group">
-                <li class="list-group-item"><strong>Name: </strong>Chris John</li>
-                <li class="list-group-item"><strong>Skype: </strong>chris.john</li>
-                <li class="list-group-item"><strong>Email: </strong>chris.john@gmail.com</li>
-                <li class="list-group-item"><strong>Phone: </strong>+38(095)0000003</li>
-              </ul>
-            </div>
-          </div>
+          <p>Квадратное уравнение ax<sup>2</sup> + bx + c = 0</p>
+          <ul>
+          {% for item in results_dict %}
+            <li> {{ item.arg }} <br />{{ item.mess }}</li>
+          {% endfor %}
+          </ul>
+          <p>{{discriminant}}</p>
+          <p>{{result_answer}}</p>
         </div>
       </div>
       <footer class="footer">
