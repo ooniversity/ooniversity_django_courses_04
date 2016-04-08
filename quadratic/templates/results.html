@@ -1,5 +1,9 @@
 
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Quadratic{% endblock title %}
 
+{% block content %}
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 
       <ul>
@@ -29,4 +33,4 @@
          <p>Дискриминант: {{d}}</p>
          <p>{{st_d}}</p>
        {% endif %}   
-
+{% endblock content %}
