@@ -1,8 +1,7 @@
 # -- coding: utf-8 --
 from django.shortcuts import render
-from django.utils.datastructures import MultiValueDictKeyError
 
-def quadratic_results(request):
+def quadratic_results(request, a=None, b=None, c=None):
     er_a = ''
     er_b = ''
     er_c = ''
@@ -13,23 +12,16 @@ def quadratic_results(request):
     except ValueError:
         a = request.GET['a']
         er_a = u'коэффициент не целое число'
-    except MultiValueDictKeyError:
-        a = ''
-
     try:
         b = int(request.GET['b'])
     except ValueError:
         b = request.GET['b']
         er_b = u'коэффициент не целое число'
-    except MultiValueDictKeyError:
-        b = ''
     try:
         c = int(request.GET['c'])
     except ValueError:
         c = request.GET['c']
         er_c = u'коэффициент не целое число'
-    except MultiValueDictKeyError:
-        c = ''
 
     d = None
 
