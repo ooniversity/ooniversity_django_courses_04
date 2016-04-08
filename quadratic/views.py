@@ -10,75 +10,69 @@ def quadratic_results(request):
     
     # 'warning_'+'a'
     dic = {'a': a, 'b': b, 'c': c}
-    res = {}
-"""
-    for i in dic:
-        
-        if dic[i] == '':
-            res[i] = 'коэффициент не определен'
+    war_a = '' 
+    war_b = ''
+    war_c = ''       
+    x = ''
+    same_root = '' 
+    des = ''
+    des_warn = ''
+    x1 = ''
+    x2 = ''
+    root_mes = ''
+    x = ''
+    same_root = '' 
+    
+    if a == '':
+        a = ''
+        war_a = 'коэффициент не определен'     
+    
 
+    elif a == '0':
+        war_a = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'    
+                
+    elif not a.isdigit():
+        war_a = 'коэффициент не целое число'
+    
+    if b == '':
+        b = ''
+        war_b = 'коэффициент не определен'
+    
+    elif not b.isdigit():
+        war_b = 'коэффициент не целое число'
+
+    if c == '':
+        c = ''
+        war_c = 'коэффициент не определен'
+
+    elif not c.isdigit():
+        war_c = 'коэффициент не целое число'
+
+    else:
+        a = int(a)
+        b = int(b)
+        c = int(c)
+        des = b**2-4*a*c
+
+        if des < 0:
+            des_warn = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
+            x1 = ''
+            x2 = ''
+            root_mes = ''
+            x = ''
+            same_root = ''
+        elif des == 0:
+            des_warn = ''
+            x1 = ''
+            x2 = ''
+            root_mes = ''
+            x = (-b+math.sqrt(b**2-4*a*c))/2*a
+            same_root = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 ='
         else:
-            if not dic[i].isdigit():
-                res[i] = 'коэффициент не целое число'
-            else:
-                if dic['a'] == 0:
-                    res['a'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю 11111'
-                else:
-                    res[i] = ''
-                    if a == 0:
-                        res['a'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
-                        x = ''
-                        same_root = ''
-                        continue
-                    else:
-                        res['a'] = ''
-                        #############
-"""
-    for i in dic:
-        if dic[i] == '':
-            res[i] = 'коэффициент не определен'
-        else:
-
-            if a == '':
-                a = ''
-                res['a'] = 'коэффициент не определен 222'
-                b = int(b)
-                c = int(c)
-                des = ''
-                des_warn = ''
-                x1 = ''
-                x2 = ''
-                root_mes = ''
-                x = ''
-                same_root = ''
-                 ###################
-
-            else:
-                a = int(a)
-                #a = int(a)
-                b = int(b)
-                c = int(c)
-                des = b**2-4*a*c
-
-                if des < 0:
-                    des_warn = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
-                    x1 = ''
-                    x2 = ''
-                    root_mes = ''
-                    x = ''
-                    same_root = ''
-                elif des == 0:
-                    des_warn = ''
-                    x1 = ''
-                    x2 = ''
-                    root_mes = ''
-                    x = (-b+math.sqrt(b**2-4*a*c))/2*a
-                    same_root = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 ='
-                else:
-                    des_warn = ''
-                    root_mes = 'Квадратное уравнение имеет два действительных корня: '
-                    x1 = (-b+math.sqrt(b**2-4*a*c))/2*a
-                    x2 = (-b-math.sqrt(b**2-4*a*c))/2*a
+            des_warn = ''
+            root_mes = 'Квадратное уравнение имеет два действительных корня: '
+            x1 = (-b+math.sqrt(b**2-4*a*c))/2*a
+            x2 = (-b-math.sqrt(b**2-4*a*c))/2*a
 
 
 
@@ -86,9 +80,9 @@ def quadratic_results(request):
         'a': a,
         'b': b, 
         'c': c, 
-        'warning_a': res['a'], 
-        'warning_b': res['b'], 
-        'warning_c': res['c'],
+        'warning_a': war_a, 
+        'warning_b': war_b, 
+        'warning_c': war_c,
         'des': des,
         'des_warn': des_warn,
         'x1': x1,
