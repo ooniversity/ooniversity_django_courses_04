@@ -9,9 +9,9 @@ def quadratic_results(request):
 		if not request.GET['a'].isdigit():
 			if request.GET['a'] <> '':
 				a = request.GET['a']
-				str_a = 'Коэффициент не целое число'
+				str_a = 'коэффициент не целое число'
 			else:
-				str_a = 'Коэффициент не определен'
+				str_a = 'коэффициент не определен'
 	
 	try:	
 		b = int(request.GET['b'])
@@ -19,22 +19,22 @@ def quadratic_results(request):
 		if not request.GET['b'].isdigit():
 			if request.GET['b'] <> '':
 				b = request.GET['b']
-				str_b = 'Коэффициент не целое число'
+				str_b = 'коэффициент не целое число'
 			else:
-				str_b = 'Коэффициент не определен'
+				str_b = 'коэффициент не определен'
 	try:	
 		c = int(request.GET['c'])
 	except ValueError:
 		if not request.GET['c'].isdigit():
 			if request.GET['c'] <> '':
 				c = request.GET['c']
-				str_c = 'Коэффициент не целое число'
+				str_c = 'коэффициент не целое число'
 			else:
-				str_c = 'Коэффициент не определен'
+				str_c = 'коэффициент не определен'
 
 	if str_a == str_b == str_c == '': 
 		if a == 0:
-			str_a = 'Коэффициент при первом слагаемом уравнения не может быть равным нулю'
+			str_a = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
 		else:
 			d = b ** 2 - 4 * a * c
 			if d > 0:
