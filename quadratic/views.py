@@ -31,21 +31,21 @@ def quadratic_results(request):
     elif a == '0':
         war_a = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'    
                 
-    elif not a.isdigit():
+    elif not a.replace('-', '').isdigit():
         war_a = 'коэффициент не целое число'
     
     if b == '':
         b = ''
         war_b = 'коэффициент не определен'
     
-    elif not b.isdigit():
+    elif not b.replace('-', '').isdigit():
         war_b = 'коэффициент не целое число'
 
     if c == '':
         c = ''
         war_c = 'коэффициент не определен'
 
-    elif not c.isdigit():
+    elif not c.replace('-', '').isdigit():
         war_c = 'коэффициент не целое число'
 
     else:
