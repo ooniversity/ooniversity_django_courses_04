@@ -26,7 +26,7 @@ def quadratic_results(request):
                 x1 = (-b + d ** (1/2.0)) / (2 * a)
                 x2 = (-b - d ** (1/2.0)) / (2 * a)
                 result = "Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f" % (x1, x2)
-            text.update({ 'd' : d, 'result' : result })
+            text.update(dict(d=str(int(d)), result=str(result)))
     else:
         form = QuadraticForm()
     text.update({ 'form' : form })
