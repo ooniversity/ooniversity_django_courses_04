@@ -1,8 +1,22 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 from quadratic.forms import QuadraticForm
-from django import forms
 
+
+def form_input(request):
+    context_form = {}
+    if request.GET:
+        form = QuadraticForm(request.GET)
+        if form.is_valid():
+            a = form.cleaned_data['a']
+            b = form.cleaned_data['b']
+            c = form.cleaned_data['c']
+            d = b ** 2 - 4 * a * c
+    else:
+        form = QuadraticForm()
+    context_form.update({'form': form})
+
+    return render(request, "results.html", context_form)
 
 
 class Validation(object):
@@ -34,43 +48,31 @@ def quadratic_results(request):
     discriminant check
     calculation of the square root of the equation
     """
-    context = {'error': False}
-    if request.GET:
-        form = QuadraticForm(request.GET)
-        if form.is_valid():
-            a = form.cleaned_data['a']
-            b = form.cleaned_data['b']
-            c = form.cleaned_data['c']
-        else:
-            form = QuadraticForm()
-            context.update({ 'form' : form })
-
+    text = {'error': False}
     for name_value in ['a', 'b', 'c']:
         valid = Validation(name_value, request.GET.get(name_value, ''))
         if valid.valid_quadratic():
-            context[name_value] = valid.value_int
+            text[name_value] = valid.value_int
         else:
-            context['error'] = True
-            context[name_value + '_error'] = valid.error_msg
-            context[name_value] = valid.value
-    if not context['error']:
-        a = context['a']
-        b = context['b']
-        c = context['c']
+            text['error'] = True
+            text[name_value + '_error'] = valid.error_msg
+            text[name_value] = valid.value
+    if not text['error']:
+        a = text['a']
+        b = text['b']
+        c = text['c']
         d = b ** 2 - 4 * a * c
-
         if d < 0:
             result = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
         elif d == 0:
-            x1 = x2 = (-b + d ** (1/2.0))/ (2 * a)
-            result = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %0.1f" % (x1)
+            x1 = x2 = (-b + d ** (1/2.0)) / (2 * a)
+            result = "Дискриминант равен нулю, квадратное уравнение имеет один действительный" \
+                     " корень: x1 = x2 = %0.1f" % (x1 or x2)
         else:
             x1 = (-b + d ** (1/2.0)) / (2 * a)
             x2 = (-b - d ** (1/2.0)) / (2 * a)
             result = "Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f" % (x1, x2)
-        context.update({'d': str(int(d)), 'result': str(result)})
 
+        text.update(dict(d=str(int(d)), result=str(result)))
 
-        #context.update({'form': form})
-    return render(request, "results.html", context)
-
+    return render(request, "results.html", text)
