@@ -6,14 +6,14 @@
           <li>a =
         {{ a }}
         {% if er_a %}
-         <p><i>{{er_a}}</i></p>
+         <p style= ' margin-top: 0px; margin-bottom: 0px'><i>{{er_a}}</i></p>
         {% endif %}
           </li>
 
           <li>b =
            {{ b }}
         {% if er_b %}
-         <p><i>{{er_b}}</i></p>
+         <p style= ' margin-top: 0px; margin-bottom: 0px'><i>{{er_b}}</i></p>
         {% endif %}
            </li>
 
