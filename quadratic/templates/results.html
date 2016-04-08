@@ -6,17 +6,27 @@
 {% block content %}
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 
-  <ul>
+ <ul>
+
   <li>{{a.message}}{{a.value}}
-  <p> {{text_a}} </p>
+    {% if error_a %}
+  	<br /><i>  {{error_a}} </i>
+    {% endif %}
   </li>
   <li>{{b.message}}{{b.value}}
-  <p>  {{text_b}} </p>
+    {% if error_b %}
+  	<br /><i>  {{error_b}} </i>
+    {% endif %}
   </li>
   <li>{{c.message}}{{c.value}}
-  <p>  {{text_c}} </p>
+    {% if error_c %}
+  	<br /><i>  {{error_c}} </i>
+    {% endif %}
   </li>
-  </ul>
+
+ </ul>
+
   <p>{{disc.message}}{{disc.value}}</p>
   <p>{{text_result.message}}{{text_result.value}}</p>
+
 {% endblock content %}
