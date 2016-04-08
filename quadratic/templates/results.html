@@ -1,0 +1,30 @@
+<p>Квадратное уравнение a*x*x+b*x+c=0</p>
+
+      <ul>
+          <li>a =
+        {{ a }}
+        {% if er_a %}
+         <p><i>{{er_a}}</i></p>
+        {% endif %}
+          </li>
+
+          <li>b =
+           {{ b }}
+        {% if er_b %}
+         <p><i>{{er_b}}</i></p>
+        {% endif %}
+           </li>
+
+          <li>c =
+           {{ c }}
+           {% if er_c %}
+            <p><i>{{er_c}}</i></p>
+           {% endif %}
+           </li>
+      </ul>
+  
+       {% if d %}
+         <p>Дискриминант: {{d}}</p>
+         <p>{{st_d}}</p>
+       {% endif %}   
+
