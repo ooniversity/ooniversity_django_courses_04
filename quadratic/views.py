@@ -33,8 +33,9 @@ def quadratic_results(request):
 		else:
 			text_c = u"коэффициент не определен"
 
-	if a == 0:
-		text_a = u"коэффициент при первом слагаемом уравнения не может быть равным нулю"
+	if 'a' in locals():
+		if a == 0:
+			text_a = u"коэффициент при первом слагаемом уравнения не может быть равным нулю"
 
 	if not text_a and not text_b and not text_c :
 		disc['message'] = "Дискриминант: "
@@ -43,8 +44,8 @@ def quadratic_results(request):
 		if disc['value'] < 0:
 			text_result['message'] = u"Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
 		elif disc['value'] == 0:
-			x = (-b + disc ** (1/2.0)) / 2*a
-			text_result['message'] = u"Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = " % x
+			x = (-b + disc['value'] ** (1/2.0)) / 2*a
+			text_result['message'] = u"Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = "
 			text_result['value'] = x
 		else:
 			x1 = (-b + disc['value'] ** (1/2.0)) / 2*a
@@ -53,11 +54,14 @@ def quadratic_results(request):
 			text_result['value'] = u"x1 = %.1f, x2 = %.1f" % (x1, x2)
 
 
-	context = {"text_a":text_a, "text_b":text_b, "text_c":text_c, "disc":disc, "text_result":text_result}
+	context = {"text_a":text_a, "text_b":text_b, "text_c":text_c, "disc":disc, \
+			"text_result":text_result, 'a':{'message':'a = '}, 'b':{'message':'b = '}, \
+			'c':{'message':'c = '}}
+	
 	if 'a' in locals():
-		context['a'] = a
+		context['a']['value'] = a
 	if 'b' in locals():
-		context['b'] = b 
+		context['b']['value'] = b
 	if 'c' in locals():
-		context['c'] = c
+		context['c']['value'] = c
 	return render(request,'results.html', context)
