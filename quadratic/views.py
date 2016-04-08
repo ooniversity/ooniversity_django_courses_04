@@ -18,8 +18,8 @@ def quadratic_results(request):
         if d == 0:
             x1 = x2 = -data['b'] / 2.0 * data['a']
         elif d > 0:
-            x1 = (-data['b'] + d ** (1 / 2.0)) / (2.0 * data['a'])
-            x2 = (-data['b'] - d ** (1 / 2.0)) / (2.0 * data['a'])
+            x1 = (-data['b'] + d ** (1 / 2.0)) / (2 * data['a'])
+            x2 = (-data['b'] - d ** (1 / 2.0)) / (2 * data['a'])
 
     sorted_data = sorted(data.items(), key=lambda x: x[0])
     return render(request, 'results.html', {'data': sorted_data, 'd': d, 'x1': x1, 'x2': x2})
