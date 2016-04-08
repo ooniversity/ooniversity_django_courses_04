@@ -6,28 +6,32 @@ def quadratic_results(request):
 	try:	
 		a = int(request.GET['a'])
 	except ValueError:
-		if request.GET['a'].isalpha():
-			a = request.GET['a']
-			str_a = 'Коэффициент не целое число'
-		else:
-			str_a = 'Коэффициент не определен'
+		if not request.GET['a'].isdigit():
+			if request.GET['a'] <> '':
+				a = request.GET['a']
+				str_a = 'Коэффициент не целое число'
+			else:
+				str_a = 'Коэффициент не определен'
 	
 	try:	
 		b = int(request.GET['b'])
 	except ValueError:
-		if request.GET['b'].isalpha():
-			b = request.GET['b']
-			str_b = 'Коэффициент не целое число'
-		else:
-			str_b = 'Коэффициент не определен'
+		if not request.GET['b'].isdigit():
+			if request.GET['b'] <> '':
+				b = request.GET['b']
+				str_b = 'Коэффициент не целое число'
+			else:
+				str_b = 'Коэффициент не определен'
 	try:	
 		c = int(request.GET['c'])
 	except ValueError:
-		if request.GET['c'].isalpha():
-			c = request.GET['c']
-			str_c = 'Коэффициент не целое число'
-		else:
-			str_c = 'Коэффициент не определен'
+		if not request.GET['c'].isdigit():
+			if request.GET['c'] <> '':
+				c = request.GET['c']
+				str_c = 'Коэффициент не целое число'
+			else:
+				str_c = 'Коэффициент не определен'
+
 	if str_a == str_b == str_c == '': 
 		if a == 0:
 			str_a = 'Коэффициент при первом слагаемом уравнения не может быть равным нулю'
