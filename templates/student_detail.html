@@ -8,8 +8,9 @@
     <title>Stud_det</title>
 
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     
   </head>
@@ -31,9 +32,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
   
-        <li><a href="index.html">Main</a></li>
-        <li><a href="contact.html">Contacts</a></li>
-        <li><a href="student_list.html">Students</a></li>
+        <li><a href="{% url 'index' %}">Main</a></li>
+        <li><a href="{% url 'contact' %}">Contacts</a></li>
+        <li><a href="{% url 'student_list' %}">Students</a></li>
       </ul>   
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -98,6 +99,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
