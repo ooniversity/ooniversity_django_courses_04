@@ -16,12 +16,13 @@
 	{% if a != 0 and a != '' %}
 	  <p> Дискриминант: {{ des }} </p>
 	{% endif %}
+	
 	<p> {{ des_warn }} <p>
 	{% if x1 and x2 %}
-	  <p>{{root_mes}}x1={{ x1 }},x2={{ x2}}</p>
+	  <p>{{root_mes}}x1 = {{ x1 }}, x2 = {{ x2}}</p>
 	{% endif %}
 	{% if x  %}
-	  <p>{{same_root}}{{ x }}</p>
+	  <p>{{same_root}} {{ x }}</p>
 	{% endif %}
 
 </body>
