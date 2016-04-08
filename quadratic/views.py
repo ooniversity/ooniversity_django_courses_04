@@ -44,10 +44,13 @@ def quadratic_results(request, a=None, b=None, c=None):
         er_d = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
     if d and d == 0:
         x = korni(d, a, b)
-        er_d = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s' % x
+        er_d = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s' % float(x)
+        d = int(d)
     if d and d > 0:
         x = korni(d, a, b)
-        er_d = 'Квадратное уравнение имеет два действительных корня: x1 = %d, x2 = %d' % (x[0], x[1])
+        er_d = 'Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s' % (float(x[0]), float(x[1]))
+        d = int(d)
+
 
     return render(request, 'results.html', {'a': a, 'b':b, 'c': c, 'er_a': er_a, 'er_b': er_b, 'er_c': er_c, 'd':d, 'st_d': er_d})
 
@@ -56,6 +59,6 @@ def discr(a, b, c):
 
 def korni(d, a, b):
     if d == 0:
-        return -b/2*a
+        return (-b/2*a)
     else:
         return [(-b+d)/2*a, (-b-d)/2*a]
