@@ -11,43 +11,49 @@
   <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
+
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav" >
-          <li><a href="{% url 'index' %}">
-            <span class="glyphicon glyphicon-home"></span> Main</a></li>
-          <li><a href="{% url 'contact' %}">
-            <span class="glyphicon glyphicon-envelope"></span> Contacts</a></li>
-          <li><a href="{% url 'student_list' %}">
-            <span class="glyphicon glyphicon-user"></span> Students</a></li>
-          <li><a href="{% url 'results' %}">
-            <span class="glyphicon glyphicon-superscript"></span> Quadratic</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="navbar-nav"><a href="http://www.itbursa.com/pybursa.com" target="_blank">
-            <span class="glyphicon glyphicon-education"></span>  PyBursa</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-    </nav>
+    <div class="navbar-wrapper">
+      <div class="container">
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <img ></img>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="{% url 'index' %}">Main</a></li>
+              <li  class="active"><a href ="{% url 'contact' %}">Contacts</a></li>
+              <li><a href="{% url 'student_list' %}">Students</a></li>
+              <li><a href= "{% url 'results' %}">Уравнение</a></li>
+            </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
     <div class="container-fluid">
-      <div class="jumbotron" style="background:rgba(255,255,255,0.5);">
+     
         {% block content %}
         {% endblock content %}
-      </div>
+      
     </div>
-    <div class="pybursa-logo">
-      <h6>@ 2016 PyBursa</h6>
-    </div>
+
+
+
+      <!-- FOOTER -->
+      <footer id = "footer_header">
+        <p>&copy; 2016 Bursa, Inc. &middot; </p>
+      </footer>
+
     <script src="{% static 'js/bootstrap.js' %}"></script>
     <script src="{% static 'js/jquery-1.12.2.min.js' %}"></script>
     <script src="{% static 'js/jquery.backstretch.min.js' %}"></script>
-    <script>
-      {#fon for site#}
-      $.backstretch("{% static 'images/fon.jpg' %}");
-    </script>
+
   </body>
 </html>
