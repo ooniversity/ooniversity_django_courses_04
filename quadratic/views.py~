@@ -29,7 +29,7 @@ def results(request):
 		else:
 			str_c = 'Коэффициент не определен'
 	if str_a == str_b == str_c == '': 
-		if a == 1:
+		if a == 0:
 			str_a = 'Коэффициент при первом слагаемом уравнения не может быть равным нулю'
 		else:
 			d = b ** 2 - 4 * a * c
@@ -46,4 +46,4 @@ def results(request):
 				x = -b / 2*a
 				results = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f' % x
  
-	return render(request, 'results.html',{'a':a, 'b':b,'c':c, 'd':d, 'str_a':str_a, 'str_b':str_b, 'str_c':str_c, 'str_d':str_d, 'results':results})
+	return render(request, 'results.html',{'a':a, 'b':b,'c':c, 'str_a':str_a, 'str_b':str_b, 'str_c':str_c, 'str_d':str_d, 'results':results})

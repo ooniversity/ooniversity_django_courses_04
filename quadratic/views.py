@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 from django.shortcuts import render
 
-def results(request):
+def quadratic_results(request):
 	str_a = str_b = str_c = str_d = a = b = c = d = results = ''
 	try:	
 		a = int(request.GET['a'])
@@ -46,4 +46,4 @@ def results(request):
 				x = -b / 2*a
 				results = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f' % x
  
-	return render(request, 'results.html',{'a':a, 'b':b,'c':c, 'd':d, 'str_a':str_a, 'str_b':str_b, 'str_c':str_c, 'str_d':str_d, 'results':results})
+	return render(request, 'results.html',{'a':a, 'b':b,'c':c, 'str_a':str_a, 'str_b':str_b, 'str_c':str_c, 'str_d':str_d, 'results':results})
