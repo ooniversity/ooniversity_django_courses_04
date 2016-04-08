@@ -1,6 +1,5 @@
 # -- coding: utf-8 --
 from django.shortcuts import render
-from math import sqrt
 
 def quadratic_results(request, a=None, b=None, c=None):
     er_a = ''
@@ -29,7 +28,7 @@ def quadratic_results(request, a=None, b=None, c=None):
         er_c = 'коэффициент не определен'
 
     if q['c'].isdigit() and q['b'].isdigit() and q['a'].isdigit() and int(q['a']) != 0:
-        d = discr(int(q['a']), int(q['b']), int(q['c']))
+        round(d) = discr(int(q['a']), int(q['b']), int(q['c']))
 
 
     if d and d < 0:
@@ -44,7 +43,7 @@ def quadratic_results(request, a=None, b=None, c=None):
     return render(request, 'results.html', {'a': q['a'], 'b':q['b'], 'c': q['c'], 'er_a': er_a, 'er_b': er_b, 'er_c': er_c, 'd':d, 'st_d': er_d})
 
 def discr(a,b,c):
-    return sqrt(b*b-4*a*c)
+    return (b*b-4*a*c)^(1/2)
 
 def korni(d, a, b):
     if d == 0:
