@@ -1,72 +1,69 @@
-# -- coding: utf-8 --
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
-from django.utils.datastructures import MultiValueDictKeyError
+
 
 def quadratic_results(request):
-    er_a = ''
-    er_b = ''
-    er_c = ''
-    er_d = ''
+	text_a = text_b = text_c = str()
+	disc = {}
+	text_result = {}
 
-    try:
-        a = int(request.GET['a'])
-    except ValueError:
-        a = request.GET['a']
-        er_a = u'коэффициент не целое число'
-    except MultiValueDictKeyError:
-        a = ''
+	try:
+		a = int(request.GET['a'])
+	except ValueError:
+		if request.GET['a'].isalpha():
+			text_a = u"коэффициент не целое число"
+			a = request.GET['a']
+		else:
+			text_a = u"коэффициент не определен"
 
-    try:
-        b = int(request.GET['b'])
-    except ValueError:
-        b = request.GET['b']
-        er_b = u'коэффициент не целое число'
-    except MultiValueDictKeyError:
-        b = ''
-    try:
-        c = int(request.GET['c'])
-    except ValueError:
-        c = request.GET['c']
-        er_c = u'коэффициент не целое число'
-    except MultiValueDictKeyError:
-        c = ''
+	try:
+		b = int(request.GET['b'])
+	except ValueError:
+		if request.GET['b'].isalpha():
+			text_b = u"коэффициент не целое число"
+			b = request.GET['b']
+		else:
+			text_b = u"коэффициент не определен"
 
-    d = None
+	try:
+		c = int(request.GET['c'])
+	except ValueError:
+		if request.GET['c'].isalpha():
+			text_c = u"коэффициент не целое число"
+			c = request.GET['c']
+		else:
+			text_c = u"коэффициент не определен"
 
-    if a == 0:
-        er_a = u'коэффициент при первом слагаемом уравнения не может быть равным нулю'
+	if 'a' in locals():
+		if a == 0:
+			text_a = u"коэффициент при первом слагаемом уравнения не может быть равным нулю"
 
-    if not a and a != 0:
-        er_a = u'коэффициент не определен'
+	if not text_a and not text_b and not text_c :
+		disc['message'] = "Дискриминант: "
+		disc['value'] = b**2 - 4*a*c
 
-    if not b and b !=0:
-        er_b = u'коэффициент не определен'
-
-    if  not c and c !=0:
-        er_c = u'коэффициент не определен'
-
-    if isinstance(a, int) and isinstance(b, int) and isinstance(c, int) and a != 0:
-        d = discr(a, b, c)
-
-    if d and d < 0:
-        er_d = u'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
-    if d == 0:
-        x = korni(d, a, b)
-        er_d = u'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %0.1f' % x
-    if d and d > 0:
-        x = korni(d, a, b)
-        er_d =  u'Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f' % (float(x[0]), float(x[1]))
-        d = int(d)
+		if disc['value'] < 0:
+			text_result['message'] = u"Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
+		elif disc['value'] == 0:
+			x = (-b + disc['value'] ** (1/2.0)) / 2*a
+			text_result['message'] = u"Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = "
+			text_result['value'] = x
+		else:
+			x1 = (-b + disc['value'] ** (1/2.0)) / 2*a
+			x2 = (-b - disc['value'] ** (1/2.0)) / 2*a
+			text_result['message'] = u"Квадратное уравнение имеет два действительных корня: "
+			text_result['value'] = u"x1 = %.1f, x2 = %.1f" % (x1, x2)
 
 
-    return render(request, 'results.html', {'a': a, 'b':b, 'c': c, 'er_a': er_a, 'er_b': er_b, 'er_c': er_c, 'd':d, 'st_d': er_d})
+	context = {"text_a":text_a, "text_b":text_b, "text_c":text_c, "disc":disc, \
+			"text_result":text_result, 'a':{'message':'a = '}, 'b':{'message':'b = '}, \
+			'c':{'message':'c = '}}
+	
+	if 'a' in locals():
+		context['a']['value'] = a
+	if 'b' in locals():
+		context['b']['value'] = b
+	if 'c' in locals():
+		context['c']['value'] = c
+	return render(request,'results.html', context)
 
-def discr(a, b, c):
-    return (b*b-4*a*c)
-
-def korni(d, a, b):
-    if d == 0:
-        return (-b/2*a)
-    else:
-        d = d**(1/2.0)
-        return [(-b+d)/2*a, (-b-d)/2*a]
