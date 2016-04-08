@@ -39,14 +39,14 @@
     <nav>
   <ul class="pagination">
     <li class="disabled">
-      <a href="{% url 'index' %}" aria-label="Previous">
+      <a href="index.html" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li class="active"><a href="{% url 'index' %}">1</a></li>
-    <li><a href="{% url 'contact' %}">2</a></li>    
+    <li class="active"><a href="index.html">1</a></li>
+    <li><a href="contact.html">2</a></li>    
     <li>
-      <a href="{% url 'contact' %}" aria-label="Next">
+      <a href="contact.html" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
