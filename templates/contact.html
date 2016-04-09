@@ -8,26 +8,26 @@
   <meta name="description" content="">
   <meta name="author" content="">
   {% load staticfiles %}
-  <link rel="icon" href="{% static "images/favicon.ico" %}">
+  <link rel="icon" href="{% static 'images/favicon.ico' %}">
 
-  <title>PyBursa - Main</title>
+  <title>PyBursa - Contacts</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <link href="{% static "css/ie10-viewport-bug-workaround.css" %}" rel="stylesheet" >
+  <link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet" >
 
   <!-- Custom styles for this template -->
-  <link href="{% static "css/navbar.css" %}" rel="stylesheet">
+  <link href="{% static 'css/navbar.css' %}" rel="stylesheet">
   <!-- Personal styles for this project -->
-  <link href="{% static "css/style.css" %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
   <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
   <!--[if lt IE 9]>
-  <script src="{% static "js/ie8-responsive-file-warning.js" %}"></script>
+  <script src="{% static 'js/ie8-responsive-file-warning.js' %}"></script>
   <![endif]-->
-  <script src="{% static "js/ie-emulation-modes-warning.js" %}"></script>
+  <script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -37,7 +37,6 @@
 </head>
 
 <body>
-
   <div class="container">
 
     <!-- Static navbar -->
@@ -69,295 +68,101 @@
 
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <h1>PyBursa</h1>
-      <h2>Description</h2>
-      <p>
-        Programming course at the Python language for those who really want to start creating!
-      </p>
+      <h1>Contacts</h1>
+      <h2>Enjoy!</h2>
+      <p>We are always glad to see you!</p>
     </div>
 
-    <div class="my_jumbotron my_transparensy07" title="The material that will be taught on the course">
-      <h2>Program</h2>
+    <div>
+      <table class="my_contacttable">
+        <tr>
+          <th>
+            <h2>
+              <span class="my_transparensy">Director</span>
+            </h2>
+          </th>
+          <td>
+            <p>
+              <span class="my_textcolor">Name:</span>
+              Tatyana Oriekhova
+            </p>
+            <p>
+              <span class="my_textcolor">skype:</span>
+              Tatyana_Oriekhova
+            </p>
+            <p>
+              <span class="my_textcolor">e-mail:</span>
+              to096540848@gmail.com
+            </p>
+            <p>
+              <span class="my_textcolor">phone:</span>
+              +38(099)1866475
+            </p>
+          </td>
+
+          <th>
+            <h2>
+              <span class="my_transparensy">Manager</span>
+            </h2>
+          </th>
+          <td>
+            <p>
+              <span class="my_textcolor">Name:</span>
+              Daria Mykhalevych
+            </p>
+            <p>
+              <span class="my_textcolor">skype:</span>
+              darka.darka.darka.darka
+            </p>
+            <p>
+              <span class="my_textcolor">e-mail:</span>
+              daria.mykhalevych@gmail.com
+            </p>
+            <p>
+              <span class="my_textcolor">phone:</span>
+              +38(096)4691557
+            </p>
+          </td>
+
+          <th>
+            <h2>
+              <span class="my_transparensy">Founder</span>
+            </h2>
+          </th>
+          <td>
+            <p>
+              <span class="my_textcolor">Name:</span>
+              Pavel Obod
+            </p>
+            <p>
+              <span class="my_textcolor">skype:</span>
+              azaless
+            </p>
+            <p>
+              <span class="my_textcolor">e-mail:</span>
+              itbursa100@gmail.com
+            </p>
+            <p>
+              <span class="my_textcolor">phone:</span>
+              +38(096)4691557
+            </p>
+
+          </td>
+        </tr>
+      </table>
     </div>
 
-    <table class="my_table">
-      <tr>
-        <th class="my_fistcolsize my_transparensy07">Occupation</th>
-        <th class="my_secondcolsize my_transparensy07">Subject</th>
-        <th class="my_thirdcolsize my_transparensy07">Content</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Python Fundamentals</td>
-        <td>
-          <ul>
-            <li>zen, pep8, pylint, tools, IDE</li>
-            <li>console, data types, operators</li>
-            <li>control structures (if, for ...) syntax</li>
-            <li>exceptions and stacktrace analysis</li>
-            <li>coding in Python</li>
-          </ul>
-
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Lines and iterators</td>
-        <td>
-          <ul>
-            <li>Working with rows and types iterables</li>
-            <li>Run the script and parameters</li>
-            <li>git http://try.github.com/levels/</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Functions and modularity</td>
-        <td>
-          <ul>
-            <li>function (def, lambda)</li>
-            <li>list comprehensions</li>
-            <li>modules, structure</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>Libraries and the package manager</td>
-        <td>
-          <ul>
-            <li>built http://docs.python.org/ library</li>
-            <li>third-party libraries (package manager) PYPI</li>
-            <li>PYTHONPATH and virtual environment</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>Classes and OOP basics</td>
-        <td>
-          <ul>
-            <li>syntax, attributes, methods, instantiation</li>
-            <li>All objects utility methods</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>Classes and OOP, Python opportunities</td>
-        <td>
-          <ul>
-            <li>encapsulation, inheritance, polymorphism</li>
-            <li>overriding methods</li>
-            <li>abstract classes</li>
-            <li>static methods</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>Working with Files</td>
-        <td>
-          <ul>
-            <li>read and write files</li>
-            <li>methods of file objects</li>
-            <li>csv, json</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>Working with Dates</td>
-        <td>
-          <ul>
-            <li>datetime module</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>Basics of html / css</td>
-        <td>
-          <ul>
-            <li>html - tags and properties</li>
-            <li>css - properties and selectors</li>
-            <li>cascading override properties</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>JavaScript Basics</td>
-        <td>
-          <ul>
-            <li>Why backend developer need to know js?</li>
-            <li>DOM</li>
-            <li>JS, jQuery, Ajax</li>
-
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>11</td>
-        <td>Basics of Web, HTTP</td>
-        <td>
-          <ul>
-            <li>Django. "Hello world!"</li>
-            <li>HTTP (GET, POST), (200, 404, 500), headers, cookies</li>
-            <li>Browser debugging tools (Firebug, Web Developer)</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td>Django first steps</td>
-        <td>
-          <ul>
-            <li>why Django?</li>
-            <li>introduction and description framework</li>
-            <li>project Launch</li>
-            <li>command manage.py</li>
-            <li>django.contrib</li>
-            <li>authorization, django.contrib.auth</li>
-            <li>admin</li>
-            <li>statics</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>13</td>
-        <td>The structure of the Web application</td>
-        <td>
-          <ul>
-            <li>MVC</li>
-            <li>views</li>
-            <li>routing URLs, transmission parameters</li>
-            <li>the response object</li>
-            <li>rekvest processing, the formation of responsa</li>
-            <li>processing and modifying headers</li>
-            <li>midlvar</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>14</td>
-        <td>Working with databases</td>
-        <td>
-          <ul>
-            <li>
-              ORM model and fields, field types and attributes
-                  relationships between tables and database design
-            </li>
-            <li>migration</li>
-            <li>fixtures</li>
-            <li>QuerySet</li>
-            <li>raw-sql</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>Customization admin</td>
-        <td>
-          <ul>
-            <li>class admin</li>
-            <li>setting display widgets</li>
-            <li>customization ItemView, ListView, editing in ListView</li>
-            <li>sort, filter, search admin actions, edit fields in ListView</li>
-            <li>admin actions, edit fields in ListView</li>
-            <li>admin dashboard</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>16</td>
-        <td>Template language</td>
-        <td>
-          <ul>
-            <li>syntax, logical structure</li>
-            <li>inheritance and includes</li>
-            <li>the notion of context, processor context</li>
-            <li>tags and filters</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>17</td>
-        <td>Forms</td>
-        <td>
-          <ul>
-            <li>shape</li>
-            <li>the types of fields</li>
-            <li>widgets</li>
-            <li>attributes</li>
-            <li>validation</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>18</td>
-        <td>Class-based (Generic) Views</td>
-        <td>
-          <ul>
-            <li>
-              built-in class-based views (TemplateView, ListView, ItemView)
-            </li>
-            <li>using forms with class-based views</li>
-            <li>agfish</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>19</td>
-        <td>Implementation of standard tasks</td>
-        <td>
-          <ul>
-            <li>sending an email</li>
-            <li>caching</li>
-            <li>internationalization</li>
-            <li>signup / login</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>20</td>
-        <td>Debugging and testing tools</td>
-        <td>
-          <ul>
-            <li>logging</li>
-            <li>pdb</li>
-            <li>debug toolbar</li>
-            <li>extensions</li>
-            <li>unit-tests</li>
-            <li>selenium</li>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>21</td>
-        <td>Deployment</td>
-        <td>
-          <ul>
-            <li>nginx</li>
-            <li>statics Management</li>
-            <li>deploymenta</li>
-          </ul>
-        </td>
-      </tr>
-
-    </table>
   </div>
 
-  <!-- /container -->
+   <!-- /container -->
 
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
-  <script>window.jQuery || document.write('<script src="{% static "js/vendor/jqueryjs" %}"><\/script>')</script>
-<script src="{% static "js/bootstrap.js" %}"></script>
+  <script>window.jQuery || document.write('<script src="{% static 'js/vendor/jqueryjs' %}"><\/script>')</script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>
+<script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
 </body>
 </html>
