@@ -10,30 +10,30 @@ def quadratic_results(request):
 	diskr_less_0, dva_kornya, odin_koren, diskrimin = '','','',''
 	
 	try:
-	    a = int(request.GET['a'])
+	   a = int(request.GET['a'])
 	except ValueError:
-		if (request.GET['a']) == '':
-			no_koef_a = 'коэффициент не определен'
-		else:
+		if (request.GET['a']).isalpha():
 			koef_not_int_a = 'коэффициент не целое число'
+		else:
+			no_koef_a = 'коэффициент не определен'
 		a = (request.GET['a'])
 
 	try:
 	    b = int(request.GET['b'])
 	except ValueError:
-		if (request.GET['b']) == '':
-			no_koef_b = 'коэффициент не определен'
-		else:
+		if (request.GET['b']).isalpha():
 			koef_not_int_b = 'коэффициент не целое число'
+		else:
+			no_koef_b = 'коэффициент не определен'
 		b = (request.GET['b'])
 
 	try:
 	    c = int(request.GET['c'])
 	except ValueError:
-		if (request.GET['c']) == '':
-			no_koef_c = 'коэффициент не определен'
-		else:
+		if (request.GET['c']).isalpha():
 			koef_not_int_c = 'коэффициент не целое число'
+		else:
+			no_koef_c = 'коэффициент не определен'
 		c = (request.GET['c'])
 	
 	if type(a)==int and type(b)==int and type(c)==int:
