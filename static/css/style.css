@@ -2,10 +2,53 @@
   padding: 30px 15px;
   margin-bottom: 30px;
   color: inherit;
+  background-color: #FFFFFF
+}
+
+.Course{
+ font-size: 30px;
+ text-align: center
+}
+
+.Desription {
+ font-size: 26px;
+ text-align: center
+}
+
+.Program {
+ font-size: 25px;
+ text-align: center
+}
+
+.jumbotron p{
+ font-size: 18px;
+ text-indent: 27px;
+}
+
+h4 {
+ text-align: center;
 }
 
 li {
     list-style-type: none; /* Убираем маркеры */
 }
+
+.imgCenter {
+ display:block; 
+ margin:0 auto;
+}
+
+.footer {
+    height: 100px;
+    margin: 0;
+    padding: 0;
+}
+
+.boss {
+font-size: 24px;
+font-weight: bold;
+}
+
+
 
 
