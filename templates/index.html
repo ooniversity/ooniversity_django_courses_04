@@ -2,22 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PyBursa - Main</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../static/css/style.css"/>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <title>PyBursa - Student (Bolotyuh Timur)</title>
+    {% load staticfiles %}
+    <link href="{% static '/static/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '/static/css/style.css' %}" rel="stylesheet">
+    <link href="{% static '/static/js/bootstrap.min.js' %}" rel="stylesheet">
 </head>
 <body>
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Main</a></li>
-            <li><a href="contact.html">Contacts</a></li>
-            <li><a href="student_list.html">Students</a></li>
+            <li class="active"><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'student_list' %}">Students</a></li>
         </ul>
     </div>
 </nav>
+
 <div class="container main-container">
     <div class="alert alert-success" role="alert">Запишись на следующий курс: PyBursa_05</div>
     <div class="row">
@@ -47,7 +49,7 @@
                             <li>кодировка в Python</li>
                         </ul>
                     </td>
-                    <td><a class="btn btn-default" href="./index.html" role="button">Details</a></td>
+                    <td><a class="btn btn-default" href="{% url 'index' %}" role="button">Details</a></td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -59,7 +61,7 @@
                             <li>git http://try.github.com/levels/</li>
                         </ul>
                     </td>
-                    <td><a class="btn btn-default" href="./index.html" role="button">Details</a></td>
+                    <td><a class="btn btn-default" href="{% url 'index' %}" role="button">Details</a></td>
                 </tr>
                 </tbody>
             </table>
