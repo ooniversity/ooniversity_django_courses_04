@@ -17,11 +17,11 @@ def type_parametrs(item):
 
 
 def get_discr(a, b, c):
-    if type(a) and type(b) and type(c) is int:
-        if a != 0: 
+    if type(a) and type(b) and type(c) is type(int):
+        if a !=0:
             d = b ** 2 - 4 * a * c
-        else:
-            d=''    
+    else:
+        d=''    
     return d
 
 
