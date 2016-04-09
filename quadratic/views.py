@@ -49,13 +49,13 @@ def quadratic_results(request):
 		    answer = u"""Дискриминант равен нулю,
 		              квадратное уравнение имеет один 
 		              действительный корень: 
-		              x1 = x2 = %.2f""" % x
+		              x1 = x2 = %.1f""" % x
 		else:
 		    x1 = float((-b + d ** (1/2.0)) / (2*a))              
 		    x2 = float((-b - d ** (1/2.0)) / (2*a))  
 		    answer = u"""Квадратное уравнение имеет два 
 		              действительных корня: 
-		              x1 = %.2f, x2 = %.2f""" % (x1, x2)
+		              x1 = %.1f, x2 = %.1f""" % (x1, x2)
 
 
 	return render(request, 'quadratic/results.html', {
