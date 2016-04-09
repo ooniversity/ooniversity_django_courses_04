@@ -1,0 +1,31 @@
+from django.shortcuts import render
+from utils import input_parameter, get_discr
+
+
+a = input_parameter(request.GET['a'])
+b = input_parameter(request.GET['b'])
+c = input_parameter(request.GET['c'])
+
+d = get_discr(a, b, c)
+
+if d < 0:
+    print 'Дискриминант: %g' %d, 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
+
+    exit()
+if d==0:
+    x = -b / 2*a
+    print 'Дискриминант: 0' , 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %g' %x
+
+else:
+    x1 = (-b + d ** (1/2.0)) / (2*a)
+    x2 = (-b + d ** (1/2.0)) / (2*a)
+    print 'Дискриминант: %g' %d , 'Квадратное уравнение имеет два действительных корня: x1 = %g, x2 = %g' % (x1, x2)
+
+
+def quadratic_results(request):
+    #print request.GET
+    #print request.GET['a']
+    #b=int(request.GET['a'])
+    #print type(b) 
+    
+    return render (request, 'results.html')
