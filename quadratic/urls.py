@@ -3,6 +3,6 @@ from django.contrib import admin, staticfiles
 from quadratic import views
 
 urlpatterns = patterns('',
-	url(r'^$', views.quadratic_results, name='results'),
+	url(r'^results/', views.quadratic_results, name='results'),
 
 )
