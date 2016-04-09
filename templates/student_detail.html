@@ -5,15 +5,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Student detail</title>
-        <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../static/css/style.css" rel="stylesheet">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
     </head>
     <body>
         <nav class="navbar navbar-default">
       <ul class="nav navbar-nav">        
-        <li><a href="index.html">Main</a></li>
-        <li><a href="contact.html">Contacts</a></li>
-        <li><a href="student_list.html">Students</a></li>
+        <li><a href="{% url 'index' %}">Main</a></li>
+        <li><a href="{% url 'contact' %}">Contacts</a></li>
+        <li><a href="{% url 'student_list' %}">Students</a></li>
       </ul>            
     </nav>
         <div class = "container">
@@ -97,14 +97,14 @@
 </table> 
             <nav>
       <ul class="pager">
-        <li><a href="student_list.html">Previous</a></li>
+        <li><a href="{% url 'student_list' %}">Previous</a></li>
       </ul>
     </nav>
          <div class="alert alert-success" role="alert">Please contact us <strong><a href="http://pybursa.com">PyBursa.com</a></strong></div>
     <p class="navbar-text navbar-right">
 Website development <a href="https://www.google.com/intl/ru/mail/help/about.html" class="navbar-link">Constantin</a></p>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
   
   </div>
     </body>
