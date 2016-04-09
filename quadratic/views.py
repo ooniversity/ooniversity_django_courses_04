@@ -45,10 +45,12 @@ def quadratic_results(request):
         c = ''
         war_c = 'коэффициент не определен'
 
-    elif not c.replace('-', '').isdigit():
+    elif not c.replace('-', '').isdigit(): #last check if c=digit add check war_a and war_b
         war_c = 'коэффициент не целое число'
 
-    else:
+
+
+    if war_a == '' and war_b == '' and war_c == '':
         a = int(a)
         b = int(b)
         c = int(c)
