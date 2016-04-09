@@ -31,8 +31,9 @@ def quadratic_results(request):
 			errors[key] = u'коэффициент не определен'
 			need_answer = False
 			continue
-		if not isinstance( data[key], ( int, long ) ):
-			errors[key] = u'коэффициент не целое число'	 	
+		if not isinstance( data[key], ( int ) ):
+			errors[key] = u'коэффициент не целое число'	 
+			need_answer = False	
 		
 		
 		if a == 0:
