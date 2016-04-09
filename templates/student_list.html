@@ -2,9 +2,8 @@
 <html lang="ru">
 <head>
 	<title>PyBursa Students</title>
-	{% load staticfiles %}
-	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
 <body class="background">
 	<div class="header-menu">
@@ -15,9 +14,9 @@
 			</div>
 			<div class="navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-				<li><a href="{% url 'index' %}">Main</a></li>
-				<li><a href="{% url 'contact' %}">Contacts</a></li>
-				<li class="active"><a href="{% url 'student_list' %}">Students</a></li>
+				<li><a href="index.html">Main</a></li>
+				<li><a href="contact.html">Contacts</a></li>
+				<li class="active"><a href="student_list.html">Students</a></li>
 				</ul>
 			</div>
 			</div>
@@ -40,7 +39,7 @@
 						<th>Skype</th>
 					</tr>
 					<tr>
-						<td><a href="{% url 'student_detail' %}">1</a></td>
+						<td><a href="student_detail.html">1</a></td>
 						<td class="text-success">Makhno</td>
 						<td class="text-success">Yuriy</td>
 						<td>Pirogova str. 24</td>
@@ -77,6 +76,6 @@
 				</tbody>
 			</table>
 		</div>
-	<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+	<script type="text/javascript" src="../static/js/bootstrap.js"></script>
 </body>
 </html>

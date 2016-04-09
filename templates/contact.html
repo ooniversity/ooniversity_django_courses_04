@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
 		<title>Contacts PyBursa</title>
-		{% load staticfiles %}
-		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
-		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
 <body>
 		<div class="header-menu">
@@ -15,9 +14,9 @@
 					</div>
 					<div class="navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
-							<li><a href="{% url 'index' %}">Main</a></li>
-							<li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
-							<li><a href="{% url 'student_list' %}">Students</a></li>
+							<li><a href="index.html">Main</a></li>
+							<li class="active"><a href="contact.html">Contacts</a></li>
+							<li><a href="student_list.html">Students</a></li>
 						</ul>
 					</div>
 				</div>
@@ -26,7 +25,7 @@
 		<div class="row"></div>
 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<img class="img-rounded" src="{% static 'images/director.png' %}">
+				<img class="img-rounded" src="../static/images/director.png">
 				<h2><span class="glyphicon glyphicon-king"></span>Director</h2>
 				<ul>
 					<li><h4><span>Name</span>: Radchenko Alecksei</h4></li>
@@ -36,7 +35,7 @@
 				</ul>
 			</div>
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<img class="img-circle" src="{% static 'images/manager.png' %}">
+				<img class="img-circle" src="../static/images/manager.png">
 				<h2><span class="glyphicon glyphicon-bishop"></span>Manager</h2>
 				<ul>
 					<li><h4><span>Name</span>: Daria Mikhalevich</h4></li>
@@ -46,7 +45,7 @@
 				</ul>
 			</div>
 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-				<img class="img-thumbnai" src="{% static 'images/founder.png' %}">
+				<img class="img-thumbnai" src="../static/images/founder.png">
 				<h2><span class="glyphicon glyphicon-queen"></span>Founder</h2>
 				<ul>
 					<li><h4><span>Name</span>: Pavel Obod</h4></li>
@@ -55,6 +54,6 @@
 					<li><h4><span>Phone</span>: +38 934 935 34 34</h4></li>
 				</ul>
 			</div>
-		<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+		<script type="text/javascript" src="../static/js/bootstrap.js"></script>
 </body>
 </html>
