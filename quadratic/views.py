@@ -54,7 +54,7 @@ def quadratic_results(request):
 			text_result['value'] = u"x1 = %.1f, x2 = %.1f" % (x1, x2)
 
 
-    content = {"a_err":a_err, "b_err":b_err, "c_err":c_err, "disc":disc, "text_result":text_result, 'a':{'text':'a = ','value': a}, 'b':{'text':'b = ', 'value':b}, 'c':{'text':'c = ', 'value':c}}
+	content = {"a_err":a_err, "b_err":b_err, "c_err":c_err, "disc":disc, "text_result":text_result, 'a':{'text':'a = ','value': a}, 'b':{'text':'b = ', 'value':b}, 'c':{'text':'c = ', 'value':c}}
 
 	
 	return render(request,'results.html', context)
