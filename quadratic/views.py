@@ -32,9 +32,9 @@ def quadratic_results(request):
             x = ''
             s = Solution(discr = d)
         elif d==0:
-            x = -b / 2*a
+            x = -b / 2.0*a
             s = Solution(discr = d, root1 = x)
     s.save()
-  
+    
 
     return render (request, 'results.html', {'parametr':p, 'solution':s, 'charact':t})

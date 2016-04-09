@@ -64,7 +64,6 @@
         </p>
         {% if not parametr.param_a %}
         <i>коэффициент не определен</i>
-
         {% else %}
              {% if not charact.char_a %}
              <i>коэффициент не целое число</i>
@@ -79,9 +78,10 @@
         </p>
         {% if not parametr.param_b %}
         <i>коэффициент не определен</i>
-        {% endif %}
-        {% if not charact.char_b %}
-        <i>коэффициент не целое число</i>
+        {% else %}
+             {% if not charact.char_b %}
+             <i>коэффициент не целое число</i>
+             {% endif %}
         {% endif %}
 
         <p>
@@ -89,9 +89,10 @@
         </p>
         {% if not parametr.param_c %}
         <i>коэффициент не определен</i>
-        {% endif %}
-        {% if not charact.char_c %}
-        <i>коэффициент не целое число</i>
+        {% else %}
+             {% if not charact.char_a %}
+             <i>коэффициент не целое число</i>
+             {% endif %}
         {% endif %}
 
         {% if solution.discr %}
@@ -107,7 +108,7 @@
 
         {% ifequal solution.discr 0 %}
         <p>Дискриминант: {{solution.discr}}</p> 
-        <p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{solution.root1}}</p>
+        <p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{solution.root}}</p>
         {% endifequal %}
 
       </div>
