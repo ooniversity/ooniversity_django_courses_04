@@ -2,11 +2,11 @@
 from django.shortcuts import render
 
 def quadratic_results(request):
-	x,x1,x2,diskrimin = 0, 0, 0, 0
+	x,x1,x2 = 0, 0, 0
 	no_koef_a, no_koef_b, no_koef_c= '','',''
 	koef_not_int_a, koef_not_int_b, koef_not_int_c= '','',''
 	if_a_0 = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
-	diskr_less_0, dva_kornya, odin_koren = '','',''
+	diskr_less_0, dva_kornya, odin_koren, diskrimin = '','','',''
 	
 	dic = request.GET
 	try:
@@ -39,19 +39,19 @@ def quadratic_results(request):
 	if type(a)==int and type(b)==int and type(c)==int:
 		diskriminant = b**2 - 4*a*c
 		if diskriminant < 0:
-			diskrimin = 'Дискриминант: %s' % diskriminant
+			diskrimin = 'Дискриминант: %d' % diskriminant
 			diskr_less_0 = 'Дискриминант мненьше нуля, квадратное уровнение не имеет действительных корней'
 			
 		elif diskriminant == 0:
 			x = -b/2.0*a
-			diskrimin = 'Дискриминант: %s' % diskriminant
+			diskrimin = 'Дискриминант: %d' % diskriminant
 			odin_koren = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень x1 = x2 = %.1f' %x
 		
 		elif diskriminant > 0:
 			try:
 				x1 = (-b + diskriminant ** (1/2.0))/(2*a)
 				x2 = (-b - diskriminant ** (1/2.0))/(2*a)
-				diskrimin = 'Дискриминант: %s' % diskriminant
+				diskrimin = 'Дискриминант: %d' % diskriminant
 				dva_kornya = 'Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' % (x1, x2)
 
 			except ZeroDivisionError:
