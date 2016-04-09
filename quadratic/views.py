@@ -44,12 +44,12 @@ def quadratic_results(request):
 		
 		elif diskriminant < 0:
 			diskrimin = 'Дискриминант: %d' % diskriminant
-			diskr_less_0 = 'Дискриминант мненьше нуля, квадратное уровнение не имеет действительных корней'
+			diskr_less_0 = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
 			
 		elif diskriminant == 0:
 			x = -b/2.0*a
 			diskrimin = 'Дискриминант: %d' % diskriminant
-			odin_koren = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень x1 = x2 = %.1f' %x
+			odin_koren = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f' %x
 		
 		elif diskriminant > 0:
 			x1 = (-b + diskriminant ** (1/2.0))/(2*a)
