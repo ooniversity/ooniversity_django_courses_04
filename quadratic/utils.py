@@ -17,9 +17,8 @@ def type_parametrs(item):
 
 
 def get_discr(a, b, c):
-    if type(a) and type(b) and type(c) is type(int):
-        if a !=0:
-            d = b ** 2 - 4 * a * c
+    if a and b and c:
+        d = b ** 2 - 4 * a * c
     else:
         d=''    
     return d
