@@ -13,12 +13,6 @@ def quadratic_results(request):
 
     t = TypeParametr.objects.all()
 
-    a1=type_parametrs(a)
-    b1=type_parametrs(b)
-    c1=type_parametrs(c)
-
-
-
     t = TypeParametr(char_a = type_parametrs(a), char_b = type_parametrs(b), char_c = type_parametrs(c))
     t.save()
 

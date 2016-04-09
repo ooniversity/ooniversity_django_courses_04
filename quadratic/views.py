@@ -16,15 +16,12 @@ def quadratic_results(request):
     t = TypeParametr(char_a = type_parametrs(a), char_b = type_parametrs(b), char_c = type_parametrs(c))
     t.save()
 
-    print t.char_a
-    print t.char_b
-    print t.char_c
 
     d = get_discr(a, b, c)
     s = Solution.objects.all()
     s = Solution(discr = d)
 
-    print d
+
 
     if type(d) is int:
         if d > 0:
@@ -38,9 +35,6 @@ def quadratic_results(request):
             x = -b / 2*a
             s = Solution(discr = d, root1 = x)
     s.save()
-    
+  
 
-    print s.discr
-    print s.root1
-    print s.root2    
     return render (request, 'results.html', {'parametr':p, 'solution':s, 'charact':t})
