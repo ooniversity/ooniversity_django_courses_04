@@ -9,33 +9,32 @@ def quadratic_results(request):
 	if_a_0 = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
 	diskr_less_0, dva_kornya, odin_koren, diskrimin = '','','',''
 	
-	dic = request.GET
 	try:
-	    a = int(dic.get('a'))
+	    a = int(request.GET['a'])
 	except ValueError:
-		if (dic.get('a')) == '':
+		if (request.GET['a']) == '':
 			no_koef_a = 'коэффициент не определен'
 		else:
 			koef_not_int_a = 'коэффициент не целое число'
-		a = (dic.get('a'))
+		a = (request.GET['a'])
 
 	try:
-	    b = int(dic.get('b'))
+	    b = int(request.GET['b'])
 	except ValueError:
-		if (dic.get('b')) == '':
+		if (request.GET['b']) == '':
 			no_koef_b = 'коэффициент не определен'
 		else:
 			koef_not_int_b = 'коэффициент не целое число'
-		b = (dic.get('b'))
+		b = (request.GET['b'])
 
 	try:
-	    c = int(dic.get('c'))
+	    c = int(request.GET['c'])
 	except ValueError:
-		if (dic.get('c')) == "''":
+		if (request.GET['c']) == '':
 			no_koef_c = 'коэффициент не определен'
 		else:
 			koef_not_int_c = 'коэффициент не целое число'
-		c = (dic.get('c'))
+		c = (request.GET['c'])
 	
 	if type(a)==int and type(b)==int and type(c)==int:
 		diskriminant = b**2 - 4*a*c
