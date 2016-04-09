@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detail</title>
+    {% load staticfiles %}
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'student_list' %}">Students</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <h1 class="list_name_page">Ivanidze Nickolay</h1>
+
+    <div class="container">
+      <div class="row">
+        <div class="student_info">
+          <div class="col-sm-6">
+            <p>Информация о студенте</p>
+            <table class="table table-reflow">
+              <tbody>
+                <tr>
+                  <td>Surname</td>
+                  <td>Ivanidze</td>
+                </tr>
+                <tr>
+                  <td>Name</td>
+                  <td>Nickolay</td>
+                </tr>
+                <tr>
+                  <td>Patronymic</td>
+                  <td>Ivanovich</td>
+                </tr>
+                <tr>
+                  <td>Birth Date</td>
+                  <td>02/01/2000</td>
+                </tr>
+                <tr>
+                  <td>Address</td>
+                  <td>Украина, г. Днепропетровск, ул. Маргелова, д.83</td>
+                </tr>
+                <tr>
+                  <td>E-mail</td>
+                  <td>margel@gmail.com</td>
+                </tr>
+                <tr>
+                  <td>Skype</td>
+                  <td>I.Nick</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>Статистика</p>
+            <table id="statistics" class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><span class="text-muted">Course</span></th>
+                  <th><span class="text-muted">Week</span></th>
+                  <th><span class="text-muted">Control Type</span></th>
+                  <th><span class="text-muted">Average Grade</span></th>
+                  <th><span class="text-muted">Rating</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Py101 Введение в Python</td>
+                  <td>Week 1</td>
+                  <td>Tests</td>
+                  <td>95%</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>Some Course</td>
+                  <td>Week 2</td>
+                  <td>Problem Task</td>
+                  <td>100%</td>
+                  <td>2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="pager">
+      <li><a href="{% url 'student_list' %}">Предыдущая</a></li>
+    </ul>
+    <div class="cont_border_line">
+    </div>
+    <div class="cont_footer">
+      <div class="cont_footer_text">
+        <h5><span class="glyphicon glyphicon-globe"></span> some footer info</h5>
+      </div>
+    </div>
+    <script src="{% static 'bootstrap/googleapis/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+  </body>
+</html>

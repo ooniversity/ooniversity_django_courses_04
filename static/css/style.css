@@ -1,0 +1,184 @@
+/*-------------------------Main--------------------------------*/
+body {
+  padding-top: 20px;
+  background-color:#282828;
+}
+
+
+h1.course_name, h2.Description_title,.Description, .ul_course_items{
+  color:#FFFFFF;
+}
+
+.course_name {
+  padding: 20px 15px;
+  text-align: center;
+}
+
+.Description{
+  padding-left: 2%;
+}
+
+.Description_title{
+  padding-left: 2%;
+  padding-right: 20%;
+
+}
+
+.ul_course_items {
+  list-style-type:none;
+}
+#ul_program_items{
+  list-style-type:none;
+}
+
+
+.pager{
+  bottom: 3%;
+  left: 40%;
+  position: fixed;
+}
+
+.index_footer{
+  width: 100%;
+  height: 29px;
+  color: #FFFFFF;
+  background-color: #1D4859;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+
+.index_border_line{
+    width: 100%;
+    height: 5px;
+    background-color: #B2CFEE;
+    bottom: 25px;
+    position: fixed;
+}
+
+.index_footer_text{
+  color: #FFF;
+  text-align: center;
+}
+
+#panel_1{
+  width: 10%;
+  left: 70px;
+  bottom: 80px;
+  position: fixed;
+  background-color: #1D4859;
+  color: #FFF;
+  text-align: center;
+}
+
+.label{
+  right: 50px;
+  bottom: 80px;
+  position: fixed;
+  background-color:#2189B0;
+  color: #FFF;
+}
+
+/*-------------------------Contacts--------------------------------*/
+.organizers {
+  padding: 20px 15px;
+  text-align: center;
+}
+
+.person_level{
+  margin-left: 13%;
+  color: #FFFFFF;
+}
+
+.ul_org_items{
+  list-style-type:none;
+  text-align: left;
+}
+
+.well{
+  width: 90%;
+  background-color:#2F5765;
+  color: #FFFFFF;
+}
+
+
+.cont_footer{
+  width: 100%;
+  height: 29px;
+  color: #FFFFFF;
+  background-color: #1D4859;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+
+.cont_border_line{
+    width: 100%;
+    height: 5px;
+    background-color: #B2CFEE;
+    bottom: 25px;
+    position: fixed;
+}
+
+.cont_footer_text{
+  color: #FFF;
+  text-align: center;
+}
+
+/*-------------------------student_list--------------------------------*/
+
+.list_name_page {
+  padding-top: 20px;
+  padding-left: 7%;
+  padding-bottom: 1%;
+  text-align: left;
+}
+
+.list_info{
+  padding-left: 6%;
+}
+.list_name_page, .list_info, .table{
+  color: #FFF;
+}
+
+.table{
+  background-color:#2F5765;
+  width: 90%;
+}
+.table_links{
+    color: #FFF;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #176A8D;
+}
+/*-------------------------student_detail--------------------------------*/
+.student_info{
+  color: #FFF;
+
+  /*height: 200px;*/
+}
+
+.table-reflow{
+  color: #FFF;
+  background-color:#2F5765;
+  margin-bottom: 5%;
+}
+
+#statistics{
+  width: 800px;
+}
+
+
+/*tr:hover {background-color: #417D93}*/
+
+
+/*th.marker::selection, td.marker::selection {
+  background: #00C0BA;
+
+}
+th.marker::-moz-selection, td.marker::selection {
+  background: #00C0BA;
+}
+*/
