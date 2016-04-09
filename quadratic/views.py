@@ -40,7 +40,7 @@ def quadratic_results(request):
         ER['a'] = 'коэффициент при первом слагаемом не может быть равен нулю'
 
     if len(ER)==0:
-        quad = QT(int(a), int(b), int(c))
+        quad = QT(float(a), float(b), float(c))
         quad.calc_discrim()
         d = quad.get_discrim()
         V.update(d=d)
