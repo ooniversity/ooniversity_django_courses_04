@@ -35,12 +35,14 @@ def quadratic_results(request):
             ER[var] = 'коэффициент не определен'
         if V[var].isalpha():
             ER[var] = 'коэффициент не целое число'
+        if '.' in V[var]:
+            ER[var] = 'коэффициент не целое число'
 
     if V['a'].isdigit() and int(V['a']) == 0:
-        ER['a'] = 'коэффициент при первом слагаемом не может быть равен нулю'
+        ER['a'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
 
     if len(ER)==0:
-        quad = QT(float(a), float(b), float(c))
+        quad = QT(int(a), int(b), int(c))
         quad.calc_discrim()
         d = quad.get_discrim()
         V.update(d=d)
