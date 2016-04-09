@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PyBursa - Students</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../static/css/style.css"/>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <title>PyBursa - Student (Bolotyuh Timur)</title>
+    {% load staticfiles %}
+    <link href="{% static '/static/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static '/static/css/style.css' %}" rel="stylesheet">
+    <link href="{% static '/static/js/bootstrap.min.js' %}" rel="stylesheet">
 </head>
 <body>
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <ul class="nav navbar-nav">
-            <li><a href="index.html">Main</a></li>
-            <li><a href="contact.html">Contacts</a></li>
-            <li class="active"><a href="student_list.html">Students</a></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
         </ul>
     </div>
 </nav>
@@ -37,7 +38,7 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td><a href="student_detail.html">1</a></td>
+                    <td><a href="{% url 'student_detail' %}">1</a></td>
                     <td>Bolotyuh <span class="label label-info">1</span></td>
                     <td>Timur</td>
                     <td>Khmelnitsky</td>
