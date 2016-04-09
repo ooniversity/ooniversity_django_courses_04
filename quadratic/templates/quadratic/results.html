@@ -5,26 +5,24 @@
 	<title>Results</title>
 </head>
 <body>
-    <h3>Квадратное уравнение</h3>
-    <p>a*x*x + b*x + c = 0</p>
+	<h3>Квадратное уравнение</h3>
+	<p>a*x*x + b*x + c = 0</p>
 	<p>a= {{ a }}</p>
-	<p> {{ warning_a }}
+	<p>{{ warning_a }}</p>
 	<p>b= {{ b }}</p>
-	<p> {{ warning_b }}
+	<p>{{ warning_b }}</p>
 	<p>c= {{ c }}</p>
-	<p> {{ warning_c }}
+	<p>{{ warning_c }}</p>
 	<!--{#{% if a != 0 and a != '' %}#}-->
 	{% if des != '' and a != 0 and a != '' %}
-	  <p> Дискриминант: {{ des }} </p>
+		<p>Дискриминант: {{ des }}</p>
 	{% endif %}
-	
-	<p> {{ des_warn }} <p>
-	{% if x1 and x2 %}
-	  <p>{{root_mes}}x1 = {{ x1 }}, x2 = {{ x2}}</p>
+	<p>{{ des_warn }}</p>
+	{% if x1 and x2 %}>
+		<p>{{root_mes}}x1 = {{ x1 }}, x2 = {{ x2}}</p>
 	{% endif %}
 	{% if x  %}
-	  <p>{{same_root}} {{ x }}</p>
+		<p>{{same_root}} {{ x }}</p>
 	{% endif %}
-
 </body>
 </html>
