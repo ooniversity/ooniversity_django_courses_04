@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 def quadratic_results(request):
 
+	a_err = b_err = c_err = ''
 	disc = {}
 	text_result = {}
 
@@ -37,7 +38,7 @@ def quadratic_results(request):
 		if a == 0:
 			a_err = u"коэффициент при первом слагаемом уравнения не может быть равным нулю"
 
-	if not text_a and not text_b and not text_c :
+	if not a_err and not b_err and not c_err :
 		disc['message'] = "Дискриминант: "
 		disc['value'] = b**2 - 4*a*c
 
@@ -54,7 +55,7 @@ def quadratic_results(request):
 			text_result['value'] = u"x1 = %.1f, x2 = %.1f" % (x1, x2)
 
 
-	content = {"a_err":a_err, "b_err":b_err, "c_err":c_err, "disc":disc, "text_result":text_result, 'a':{'text':'a = ','value': a}, 'b':{'text':'b = ', 'value':b}, 'c':{'text':'c = ', 'value':c}}
+	outtext = {"a_err":a_err, "b_err":b_err, "c_err":c_err, "disc":disc, "text_result":text_result, 'a':{'text':'a = ','value': a}, 'b':{'text':'b = ', 'value':b}, 'c':{'text':'c = ', 'value':c}}
 
 	
-	return render(request,'results.html', context)
+	return render(request,'results.html', outtext)
