@@ -2,6 +2,7 @@
 from django.shortcuts import render
 
 def quadratic_results(request):
+	'''reshenie kvadratnogo uravneniya'''
 	x,x1,x2 = 0, 0, 0
 	no_koef_a, no_koef_b, no_koef_c= '','',''
 	koef_not_int_a, koef_not_int_b, koef_not_int_c= '','',''
@@ -56,10 +57,7 @@ def quadratic_results(request):
 
 			except ZeroDivisionError:
 				return render(request, 'results.html', {'a':a,'b':b, 'c':c, 'if_a_0':if_a_0})
-    		
-    
+
 	dic = {'a':a, 'b':b, 'c':c, 'x':x, 'x1':x1, 'x2':x2, 'no_koef_a':no_koef_a, 'no_koef_b':no_koef_b, 'no_koef_c':no_koef_c, 'koef_not_int_a':koef_not_int_a, 'koef_not_int_b':koef_not_int_b, 'koef_not_int_c':koef_not_int_c,
-	       'diskr_less_0':diskr_less_0, 'diskrimin':diskrimin, 'dva_kornya':dva_kornya, 'odin_koren':odin_koren}
+			'diskr_less_0':diskr_less_0, 'diskrimin':diskrimin, 'dva_kornya':dva_kornya, 'odin_koren':odin_koren}
 	return render(request, 'results.html', dic)
-	
-    	
