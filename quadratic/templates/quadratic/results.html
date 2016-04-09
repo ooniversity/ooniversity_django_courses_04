@@ -5,14 +5,16 @@
 	<title>Results</title>
 </head>
 <body>
-	<h3>Квадратное уравнение</h3>
-	<p>a*x*x + b*x + c = 0</p>
-	<p>a= {{ a }}</p>
-	<p>{{ warning_a }}</p>
-	<p>b= {{ b }}</p>
-	<p>{{ warning_b }}</p>
-	<p>c= {{ c }}</p>
-	<p>{{ warning_c }}</p>
+	<!--h3>Квадратное уравнение</h3-->
+	<p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+	<ul>
+		<li>a= {{ a }}</li>
+	     {{ warning_a }}
+	    <li>b= {{ b }}</li>
+	     {{ warning_b }}
+	    <li>c= {{ c }}</li>
+	     {{ warning_c }}
+	</ul>
 	<!--{#{% if a != 0 and a != '' %}#}-->
 	{% if des != '' and a != 0 and a != '' %}
 		<p>Дискриминант: {{ des }}</p>
