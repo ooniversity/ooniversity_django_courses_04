@@ -30,7 +30,29 @@
     </div>
     <div class="container">
         <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
- 
+		
+		<ul>
+          <li>{{a.text}}{{a.value}}
+            {% if a_error %}
+        	<br /><i>  {{a_error}} </i>
+           {% endif %}
+         </li>
+         <li>{{b.text}}{{b.value}}
+           {% if b_error %}
+        	<br /><i>  {{b_error}} </i>
+           {% endif %}
+         </li>
+       <li>{{c.text}}{{c.value}}
+          {% if c_error %}
+        	<br /><i>  {{c_error}} </i>
+         {% endif %}
+       </li>
+
+       </ul>
+
+     <p>{{disc.message}}{{disc.value}}</p>
+     <p>{{text_result.message}}{{text_result.value}}</p>
+
         
     </div>
     <hr>
