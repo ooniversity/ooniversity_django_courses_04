@@ -20,3 +20,6 @@ td.student_skype{font-style: italic; font-size: 18px}
 td.student_name{font-style: oblique; font-size:14px; text-align: center}
 th.hd_table{text-align: center}
 td.table_number{text-align: center}
+body{font-family: inherit; font-size: 14px}
+div.container{background:#DCDCDC; width:auto}
+div.dir{background:#DCDCDC}
