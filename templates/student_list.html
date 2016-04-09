@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>PyBursa Students</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body class="background">
+	<div class="header-menu">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="navbar-brand">PyBursa</span>
+			</div>
+			<div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+				<li><a href="{% url 'index' %}">Main</a></li>
+				<li><a href="{% url 'contact' %}">Contacts</a></li>
+				<li class="active"><a href="{% url 'student_list' %}">Students</a></li>
+				</ul>
+			</div>
+			</div>
+		</nav>
+	</div>	
+	<div class="row students"></div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+		<div class="lead col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<div class="alert alert-success page-header">	
+				<h1>Students of PyBursa course</h1>
+				<p>Here is the list of students, May 2016 graduation.</p>
+			</div>
+			<table class="giantablec table table-hover">
+				<tbody>
+					<tr>
+						<th>No</th>
+						<th>Surname</th>
+						<th>Name</th>
+						<th>Address</th>
+						<th>Skype</th>
+					</tr>
+					<tr>
+						<td><a href="{% url 'student_detail' %}">1</a></td>
+						<td class="text-success">Makhno</td>
+						<td class="text-success">Yuriy</td>
+						<td>Pirogova str. 24</td>
+						<td>makho</td>
+					</tr>
+					<tr class="bg-warning">
+						<td>2</td>
+						<td>Haharo</td>
+						<td>Denis</td>
+						<td>Pirogova str. 12</td>
+						<td>haha</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Povajnuk</td>
+						<td>Sergey</td>
+						<td>Pirogova str. 45</td>
+						<td>pova</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>Tokar</td>
+						<td>Ruslan</td>
+						<td>Pirogova str. 56</td>
+						<td>tokr</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>Volinskiy</td>
+						<td>Bogdan</td>
+						<td>Pirogova str. 67</td>
+						<td>volb</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>
