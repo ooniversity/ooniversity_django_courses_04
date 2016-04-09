@@ -9,7 +9,15 @@ class Parametr(models.Model):
 
 class Solution(models.Model):
     discr = models.CharField(max_length=200)
+    root = models.CharField(max_length=200)
     root1 = models.CharField(max_length=200)
     root2 = models.CharField(max_length=200)
+    #def __unicode__(self):          
+     #   return self.param_a
+
+class TypeParametr(models.Model):
+    char_a = models.CharField(max_length=200)
+    char_b = models.CharField(max_length=200)
+    char_c = models.CharField(max_length=200)
     #def __unicode__(self):          
      #   return self.param_a
