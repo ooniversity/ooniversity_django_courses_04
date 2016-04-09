@@ -12,7 +12,7 @@ class QT(object):
         self.d = self.b ** 2 - 4 * self.a * self.c
 
     def get_discrim(self):
-        return self.d
+         return self.d
 
     def get_eq_root(self, order=1):
         if order==1:
