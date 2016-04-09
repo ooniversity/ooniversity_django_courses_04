@@ -1,0 +1,52 @@
+from django.shortcuts import render
+from utils import input_parameter, type_parametrs, get_discr
+from quadratic.models import Parametr, Solution, TypeParametr
+
+def quadratic_results(request):
+    p = Parametr.objects.all()
+    p = Parametr(param_a = request.GET['a'], param_b = request.GET['b'], param_c = request.GET['c'])
+    p.save()
+
+    a = input_parameter(p.param_a)
+    b = input_parameter(p.param_b)
+    c = input_parameter(p.param_c)
+
+    t = TypeParametr.objects.all()
+
+    a1=type_parametrs(a)
+    b1=type_parametrs(b)
+    c1=type_parametrs(c)
+
+
+
+    t = TypeParametr(char_a = type_parametrs(a), char_b = type_parametrs(b), char_c = type_parametrs(c))
+    t.save()
+
+    print t.char_a
+    print t.char_b
+    print t.char_c
+
+    d = get_discr(a, b, c)
+    s = Solution.objects.all()
+    s = Solution(discr = d)
+
+    print d
+
+    if type(d) is int:
+        if d > 0:
+            x1 = (-b + d ** (1/2.0)) / (2*a)
+            x2 = (-b - d ** (1/2.0)) / (2*a)
+            s = Solution(discr = d, root1 = x1, root2 = x2)
+        elif d < 0:
+            x = ''
+            s = Solution(discr = d)
+        elif d==0:
+            x = -b / 2*a
+            s = Solution(discr = d, root1 = x)
+    s.save()
+    
+
+    print s.discr
+    print s.root1
+    print s.root2    
+    return render (request, 'results.html', {'parametr':p, 'solution':s, 'charact':t})

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>Equation</title>
+
+       <!-- Bootstrap core CSS -->
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>          
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'student_list' %}">Students</a></li>
+            <li class='active'><a href="{% url 'student_list' %}">Students</a></li>
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="main_font">
+   
+        <h2>Квадратное уравнение a*x*x+b*x+c=0</h2>
+
+        <p>
+        a = {{parametr.param_a}}
+        </p>
+        {% if not parametr.param_a %}
+        <i>коэффициент не определен</i>
+
+        {% else %}
+             {% if not charact.char_a %}
+             <i>коэффициент не целое число</i>
+             {% endif %}
+        {% endif %}
+        {% ifequal parametr.param_a '0' %}
+        <i>коэффициент при первом слагаемом уравнения не может быть равным нулю</i>
+        {% endifequal %}
+
+        <p>
+        b = {{parametr.param_b}}
+        </p>
+        {% if not parametr.param_b %}
+        <i>коэффициент не определен</i>
+        {% endif %}
+        {% if not charact.char_b %}
+        <i>коэффициент не целое число</i>
+        {% endif %}
+
+        <p>
+        c = {{parametr.param_c}}
+        </p>
+        {% if not parametr.param_c %}
+        <i>коэффициент не определен</i>
+        {% endif %}
+        {% if not charact.char_c %}
+        <i>коэффициент не целое число</i>
+        {% endif %}
+
+        {% if solution.discr %}
+            {% if solution.root1 and solution.root1 %}
+            <p>Дискриминант: {{solution.discr}}</p> 
+            <p>Квадратное уравнение имеет два действительных корня: x1 = {{solution.root1}}, x2 = {{solution.root2}}</p>             
+            {% else %}
+            <p>Дискриминант: {{solution.discr}}</p> 
+            <p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</p>
+            {% endif %}  
+        {% endif %}     
+
+
+        {% ifequal solution.discr 0 %}
+        <p>Дискриминант: {{solution.discr}}</p> 
+        <p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{solution.root1}}</p>
+        {% endifequal %}
+
+      </div>
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script>window.jQuery || document.write('<script src="/../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+  
+
+</body></html>
