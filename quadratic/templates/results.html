@@ -26,6 +26,10 @@
   {% if var.d %}
       Дискриминант: {{ var.d }}
   {% endif %}
+  
+  {% if var.d = 0 %}
+      Дискриминант: 0
+  {% endif %}
   <br />
   <br />
   {% if var.d and var.d > 0 %}
