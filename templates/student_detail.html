@@ -4,9 +4,10 @@
     <title>Pupkin Vasya</title>
     <meta charset="UTF-8" />
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
     <!--Own css-->
-    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
 
 
@@ -15,15 +16,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="container">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">Main</a></li>
-            <li><a href="contact.html">Contacts</a></li> 
-            <li class="active"><a href="student_list.html">Students</a></li> 
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li> 
+            <li class="active"><a href="{% url 'student_list' %}">Students</a></li> 
           </ul>          
         </div>
     </nav>
        
     <table class="jumbotron" align="center">
-      <tr><td><img class="logo" src="../static/images/logo.png" alt="Python" /></td></tr>
+      <tr><td><img class="logo" src="{% static 'images/logo.png' %}" alt="Python" /></td></tr>
     </table>  
     
     <h1 class="header">Pupkin Vasya</h1>
@@ -91,7 +92,7 @@
     <hr />   
 
     <ol class="breadcrumb">
-      <li><a href="student_list.html">Students</a></li>
+      <li><a href="{% url 'student_list' %}">Students</a></li>
       <li class="active">Details</li>
     </ol> 
    
@@ -99,6 +100,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
   </body>
 </html>
