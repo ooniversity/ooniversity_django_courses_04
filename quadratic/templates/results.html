@@ -45,8 +45,27 @@
         </div><!-- /.container-fluid -->
      </nav>
 
-  
-      <div class="panel panel-default">
+
+
+  <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+
+  <ul>
+    <li>{{a.message}}{{a.value}}
+      <p>{{error_a}}
+  </li>
+  <li>{{b.message}}{{b.value}}
+    
+    <p>{{error_b}}
+  </li>
+  <li>{{c.message}}{{c.value}}
+    <p>  {{error_c}}
+  </li>
+ </ul>
+  <p>{{disc.message}}{{disc.value}}</p>
+  <p>{{text_result.message}}{{text_result.value}}</p>
+ 
+
+     <div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading"><h3>Решение квадратного уравнения: </h3></div>
     <div class="panel-body">
@@ -66,7 +85,7 @@
     </li>
 
     <li class="list-group-item">{{c.message}}{{c.value}}
-      <p> {{text_c}} </p>
+      <p> {{error_c}} </p>
     </li>
 
     <li class="list-group-item"><p>{{disc.message}}{{disc.value}}</p>
@@ -76,32 +95,6 @@
        
   </ul>
   </div>
-
-
-  <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
-
-   <ul>
-
-  <li>{{a.message}}{{a.value}}
-    {% if error_a %}
-    <br /><i>  {{error_a}} </i>
-    {% endif %}
-  </li>
-  <li>{{b.message}}{{b.value}}
-    {% if error_b %}
-    <br /><i>  {{error_b}} </i>
-    {% endif %}
-  </li>
-  <li>{{c.message}}{{c.value}}
-    {% if error_c %}
-    <br /><i>  {{error_c}} </i>
-    {% endif %}
-  </li>
-
- </ul>
-  <p>{{disc.message}}{{disc.value}}</p>
-  <p>{{text_result.message}}{{text_result.value}}</p>
- 
 
   <div class="container">
     <div class="row ">
