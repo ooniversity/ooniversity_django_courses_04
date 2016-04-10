@@ -69,8 +69,6 @@ def quadratic_results(request):
             text_result['value'] = u"x1 = %.1f, x2 = %.1f" % (x1, x2)
 
     response_text = {"error_a": error_a, "error_b": error_b, "error_c": error_c, "disc": disc, "text_result":text_result, 'a':{'message':'a = ','value': a}, 'b':{'message':'b = ', 'value':b}, 'c':{'message':'c = ', 'value':c}}
-    print 'dictionary response ', response_text['error_a'], response_text['error_b'], response_text['error_a'],  
-
-
+    
     return render(request, 'results.html', response_text)
  
