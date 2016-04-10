@@ -5,19 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="Description" content="Py">
-    <title>Core Page</title>
+    <title>Quadratic problem</title>
 
-    <!-- Bootstrap -->
+        <!-- Bootstrap -->
     {% load staticfiles %}
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-  
- 
-  </head>
-  <body>
- 
+<body>
+
     <nav class="navbar navbar-default">
       <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,13 +31,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
          <ul class="nav navbar-nav menu_large_font_my">
             <!--<li class="active "> <a  href="/" >Main</a> <span class="sr-only">(current)</span></li> -->
-            <li class="active "> <a  href="{% url 'index' %}" >Main</a> <span class="sr-only">(current)</span></li>
+            <li> <a  href="{% url 'index' %}" >Main</a> <span class="sr-only">(current)</span></li>
             <li class="divider-vertical">|</li>
             <li> <a href="{% url 'contact' %}"  >Contacts</a> <span class="sr-only">(current)</span></li>
             <li class="divider-vertical">|</li>
             <li> <a href="{% url 'student_list' %}">Students</a> <span class="sr-only">(current)</span></li>
             <li class="divider-vertical">|</li>
-            <li> <a href="{% url 'results' %}">Quad results</a> <span class="sr-only">(current)</span></li>
+            <li class="active"> <a href="{% url 'results' %}">Quad results</a> <span class="sr-only">(current)</span></li>
             <li class="divider-vertical">|</li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -49,35 +45,68 @@
         </div><!-- /.container-fluid -->
      </nav>
 
-	<div class="container">
-     <div class="jumbotron">
-       <h1>PyBursa course</h1>
-       <h2>Hello, Bursapeople!</h2>
-       <h2>Description<h2>
-       <p>Welcome!</p>
+  
+      <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><h3>Решение квадратного уравнения: </h3></div>
+    <div class="panel-body">
+      <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+    </div>
+
+    <!-- List group -->
+    <ul class="list-group">
       </div>
-    </div>  
+  <ul class="list-group">
+    <li class="list-group-item"><p>{{a.message}}{{a.value}}</p>
+      <p>{{error_a}}</p>  
+    </li>
 
-	<div class="container">
-	  <div class="jumbotron">
-	    <h2>Program</h2>
-	    <p> Курс посвящен основам Python/Django</p>    
-	  </div>
-	</div>
+    <li class="list-group-item"><p>{{b.message}}{{b.value}}<p>    
+     <p>  {{error_b}} <p>
+    </li>
 
-	<div class="container">
-	  <div class="row ">
-	    <footer class="footer">
-	        <div class="footer_div">
-	          <p>
-	          <img src="{% static 'images/python.png' %}" alt="footer image" class= "img_resized" >
-	          &copy; 2016 
-	          <img src="{% static 'images/slowpk.png' %}" alt="footer image" class= "img_resized"> 
-	          </p>
-	        </div>
-	    </footer>
-	  </div>
-	</div>
+    <li class="list-group-item">{{c.message}}{{c.value}}
+      <p>  {{text_c}} </p>
+  </ul>
+  </div>
+
+<!--
+  <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+
+ <ul>
+
+  <li>{{a.message}}{{a.value}}
+    {% if error_a %}
+    <br /><i>  {{error_a}} </i>
+    {% endif %}
+  </li>
+  <li>{{b.message}}{{b.value}}
+    {% if error_b %}
+    <br /><i>  {{error_b}} </i>
+    {% endif %}
+  </li>
+  <li>{{c.message}}{{c.value}}
+    {% if error_c %}
+    <br /><i>  {{error_c}} </i>
+    {% endif %}
+  </li>
+
+ </ul>
+ 
+ -->
+  <div class="container">
+    <div class="row ">
+      <footer class="footer">
+          <div class="footer_div">
+            <p>
+            <img src="{% static 'images/python.png' %}" alt="footer image" class= "img_resized" >
+            &copy; 2016 
+            <img src="{% static 'images/slowpk.png' %}" alt="footer image" class= "img_resized"> 
+            </p>
+          </div>
+      </footer>
+    </div>
+  </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
