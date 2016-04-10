@@ -3,9 +3,7 @@
 <ul>
     {% for k in args %}
     <li>{{ k.0.var_name}} = {{ k.1.value }} </li>
-    {% if not k.1.value %}
         {{k.1.er_type}}
-    {% endif %}
     {% endfor %}
 </ul>
 

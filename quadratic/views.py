@@ -14,7 +14,7 @@ def get_parameter(request,params):
 
             if inp_request and '.' in inp_request and len(inp_request)>0:
                 e = u"коэффициент не целое число"
-                value = ''
+                value = inp_request
             elif not inp_request:
 
                 value = ''
@@ -29,7 +29,7 @@ def get_parameter(request,params):
                     value = int(inp_request)
             else:
                 e = u"коэффициент не целое число"
-                value = ''
+                value = inp_request
 
         except MultiValueDictKeyError:
             e = u"коэффициент не определен"
@@ -54,6 +54,7 @@ def quadratic_results(request):
     args_errors = [args[1]["er_type"] for args in args_mess]
     errors_in_args = True in [bool(i) for i in args_errors] or a == 0
     correct_args = [bool(i) for i in (a, b, c) if i != ""]
+
 
     result=[None,None]
 
