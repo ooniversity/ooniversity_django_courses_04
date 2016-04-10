@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import math
-from django.template import loader, Context
 from django.shortcuts import render
 
 def quadratic_results(request):
@@ -78,8 +77,7 @@ def quadratic_results(request):
             root_mes = 'Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s' % (x1, x2)
 
 
-
-    return render(request, 'quadratic/results.html', {
+    s = {
         'a': a,
         'b': b, 
         'c': c, 
@@ -93,7 +91,8 @@ def quadratic_results(request):
         'root_mes': root_mes,
         'x': x,
         'same_root': same_root
-        })
+        }
+    return render(request, 'quadratic/results.html', s)
 
 
 

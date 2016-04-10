@@ -1,30 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Results</title>
-</head>
-<body>
-	<!--h3>Квадратное уравнение</h3-->
-	<p>Квадратное уравнение a*x*x + b*x + c = 0</p>
-	<ul>
-		<li>a= {{ a }}</li>
-	     {{ warning_a }}
-	    <li>b= {{ b }}</li>
-	     {{ warning_b }}
-	    <li>c= {{ c }}</li>
-	     {{ warning_c }}
-	</ul>
-	<!--{#{% if a != 0 and a != '' %}#}-->
-	{% if des != '' and a != 0 and a != '' %}
-		<p>Дискриминант: {{ des }}</p>
-	{% endif %}
-	<p>{{ des_warn }}</p>
-	{% if x1 and x2 %}
-		<p>{{root_mes}}</p>
-	{% endif %}
-	{% if x  %}
-		<p>{{same_root}}</p>
-	{% endif %}
-</body>
-</html>
+<!--h3>Квадратное уравнение</h3-->
+<p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+<ul>
+	<li>a = {{ a }}</li>
+     {{ warning_a }}
+    <li>b = {{ b }}</li>
+     {{ warning_b }}
+    <li>c = {{ c }}</li>
+     {{ warning_c }}
+</ul>
+<!--{#{% if a != 0 and a != '' %}#}-->
+{% if des != '' and a != 0 and a != '' %}
+	<p>Дискриминант: {{ des }}</p>
+{% endif %}
+<p>{{ des_warn }}</p>
+{% if x1 and x2 %}
+	<p>{{root_mes}}</p>
+{% endif %}
+{% if x  %}
+	<p>{{same_root}}</p>
+{% endif %}
