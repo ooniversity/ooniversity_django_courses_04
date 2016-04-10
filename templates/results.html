@@ -1,32 +1,20 @@
 {% load staticfiles %}
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>PyBursa</title>
+    <title>Equation</title>
 
     <!-- Bootstrap -->
-    
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <!-- Custom styles for this template -->
     <link href="{% static 'css/starter-template.css' %}" rel="stylesheet">
     
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
   <body>
-    
-    
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -51,26 +39,30 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+  <div class="container">
+  <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 
-    <div class="container">
-
-      <div class="starter-template">
-        <h1>Курсы Python от PyBursa</h1>
-        <h2>Description</h2>
-        <p class="lead">Python is a widely used high-level, general-purpose, interpreted, dynamic programming language. Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than would be possible in languages such as C++ or Java. The language provides constructs intended to enable clear programs on both a small and large scale.
-		Python supports multiple programming paradigms, including object-oriented, imperative and functional programming or procedural styles. It features a dynamic type system and automatic memory management and has a large and comprehensive standard library</p>
-		<h2>Program</h2>
-		<p class="lead"> This course is designed to help students with very little or no computing background learn the basics of building simple interactive applications. Our language of choice, Python, is an easy-to learn, high-level computer language that is used in many of the computational courses offered on Coursera. To make learning Python easy, we have developed a new browser-based programming environment that makes developing interactive applications in Python simple. These applications will involve windows whose contents are graphical and respond to buttons, the keyboard and the mouse.</p>
-		
-      </div>
-
-    </div><!-- /.container -->
-    <footer class="footer">
+  <ul>
+  <li>{{a.message}}{{a.value}}
+  <p> {{text_a}} </p>
+  </li>
+  <li>{{b.message}}{{b.value}}
+  <p>  {{text_b}} </p>
+  </li>
+  <li>{{c.message}}{{c.value}}
+  <p>  {{text_c}} </p>
+  </li>
+  </ul>
+  <p>{{disc.message}}{{disc.value}}</p>
+  <p>{{text_result.message}}{{text_result.value}}</p>
+ 
+  </div>
+  
+  <footer class="footer">
       <div class="container">
         <p class="text-muted">&copy; 2016 PyBursa Company, Inc.</p>
       </div>
     </footer>
-
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -78,7 +70,3 @@
     <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
-
-
-
-
