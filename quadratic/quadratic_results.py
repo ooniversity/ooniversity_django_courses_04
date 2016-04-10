@@ -18,7 +18,7 @@ def quadratic_results(request):
 		context = RequestContext(request, {'a': a, 'b': b, 'c': c, 'd': '', 'x1': 1, 'x2': 2})
 		return HttpResponse(template.render(context))
 	
-	if a > '0' and b and c:
+	if a != '0' and b and c:
 		d = get_discr(a, b, c)
 	else:
 		d = ''
@@ -44,7 +44,3 @@ def get_results(a, b, d, order=1):
 
 def get_discr(a, b, c):
 	return str(int(b)**2 - 4*int(a)*int(c))
-
-
-def index(request):
-	return HttpResponse("You are on the index page")
