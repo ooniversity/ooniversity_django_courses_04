@@ -9,5 +9,4 @@ register = template.Library()
 def number(n):
 	if n[0] == '-':
 		return n[1:].isdigit()
-	else:
-		return n.isdigit()
+	return n.isdigit()
