@@ -4,7 +4,7 @@ from django.template import loader, RequestContext
 
 
 # Create your views here.
-def results(request):
+def quadratic_results(request):
 	template = loader.get_template('results.html')
 	a = request.GET['a']
 	b = request.GET['b']
@@ -18,7 +18,7 @@ def results(request):
 		context = RequestContext(request, {'a': a, 'b': b, 'c': c, 'd': '', 'x1': 1, 'x2': 2})
 		return HttpResponse(template.render(context))
 	
-	if a and b and c:
+	if a > '0' and b and c:
 		d = get_discr(a, b, c)
 	else:
 		d = ''
