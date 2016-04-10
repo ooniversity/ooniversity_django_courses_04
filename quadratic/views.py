@@ -3,8 +3,12 @@ from django.shortcuts import render
 
 def quadratic_results(request):
 
-	a = b = c = '' 
-	a_err = b_err = c_err = ''
+	a = ''
+	b = '' 
+	c = '' 
+	a_err = ''
+	b_err = ''
+	c_err = ''
 	disc = {}
 	text_result = {}
 
