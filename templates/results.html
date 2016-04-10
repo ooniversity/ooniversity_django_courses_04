@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PyBursa</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+  
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <ul class="nav navbar-nav">        
+        <li><a href="{% url 'index' %}">Main</a></li>
+        <li><a href="{% url 'contact' %}">Contacts</a></li>
+        <li><a href="{% url 'student_list' %}">Students</a></li>
+      	<li><a href="{% url 'results' %}">X+Y</a></li>
+</ul>            
+    </nav>
+    <div class = "container">
+        <div id="Margin"></div>
+    <div class='jumbotron'>
+<p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+		<ul>
+        <li>{{a.text}}{{a.value}}
+           {% if a_err %}
+        	   <br /><i>  {{a_err}} </i>
+           {% endif %}
+        </li>
+        <li>{{b.text}}{{b.value}}
+           {% if b_err %}
+        	   <br /><i>  {{b_err}} </i>
+           {% endif %}
+        </li>
+        <li>{{c.text}}{{c.value}}
+           {% if c_err %}
+        	   <br /><i>  {{c_err}} </i>
+           {% endif %}
+        </li>
+    </ul>
+    <p>{{disc.message}}{{disc.value}}</p>
+    <p>{{text_result.message}}{{text_result.value}}</p>
+            </div>
+        </div>
+      
+          
+          
+
+<div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary"> <input type="checkbox"> Написать нам </label>
+  <label class="btn btn-primary"> <input type="checkbox"> Позвонить нам </label>
+  <label class="btn btn-primary"> <input type="checkbox"> Donate </label>
+</div>
+    
+    <nav>
+      <ul class="pager">
+        <li><a href="{% url 'student_list' %}">Previous</a></li>
+    </nav>
+        <div class="alert alert-success" role="alert">Please go to <strong><a href="{% url 'contact' %}">Contacts page</a></strong></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+  </body>
+</html>
