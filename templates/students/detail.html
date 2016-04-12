@@ -13,27 +13,27 @@
             <table class="table table-striped table-bordered" border="1" cellpadding="4">
               <tbody>
                 <tr>
-                  <td>Дата рождения</td>
+                  <td>дата рождения</td>
                   <td>{{ student.date_of_birth }}</td>
                 </tr>
                 <tr>
-                  <td>Адрес</td>
+                  <td>адрес</td>
                   <td>{{ student.address }}</td>
                 </tr>
                 <tr>
-                  <td>Почта Email</td>
+                  <td>почта</td>
                   <td>{{ student.email }}</td>
                 </tr>
                 <tr>
-                  <td>Логин Skype</td>
+                  <td>логин Skype</td>
                   <td>{{ student.skype }}</td>
                 </tr>
                 <tr>
-                  <td>Телефон</td>
+                  <td>телефон</td>
                   <td>{{ student.phone }}</td>
                 </tr>
                 <tr>
-                  <td>Курсы</td>
+                  <td>курсы</td>
                   <td>
                     {% for course in courses %}
                       <a href={% url 'courses:detail' course.id %}>{{ course.name }}<br></a>
