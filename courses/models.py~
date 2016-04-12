@@ -1,0 +1,16 @@
+from django.db import models
+
+class Course(models.Model):
+    name = models.CharField(max_length=255) # Название
+    short_description = models.CharField(max_length=255) # Краткое описание
+    description = models.TextField() # Полное описание
+    def __unicode__(self):
+        return self.name
+
+class Lesson(models.Model):
+    subject = models.CharField(max_length=255) # Тема
+    description = models.TextField() # Описание
+    course = models.ForeignKey(Course) # Курс
+    order = models.PositiveIntegerField() # Номер по порядку
+    def __unicode__(self):
+        return self.subject

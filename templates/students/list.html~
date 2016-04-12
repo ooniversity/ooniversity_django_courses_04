@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PyBursa</title>
+    <title>PyBursa - Courses - Students</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -48,9 +48,9 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="{% url 'index' %}">Main</a></li>
+              <li><a href="{% url 'index' %}">Main</a></li>
               <li><a href="{% url 'contact' %}">Contacts</a></li>
-			  <li><a href="{% url 'students:stud' %}">Students</a></li>
+			  <li class="active"><a href="{% url 'students:stud' %}">Students</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -61,23 +61,31 @@
 	<!-- Content begin -->
 	<div class="container" id="Content">
 	  <div class="col-md-8">
-	      <h1>OONIVERSITY</h1>
-	      <h4>Мы специализируемся на модных языках програмирования. Принципиальное наше отличие от других курсов - максимум практики и жесткая система обязательных домашних заданий.</h4>
+	      <h1>Список студентов</h1>
 	  </div>
 	  <div class="col-md-8">
 	    <div class="table-responsive">
 		  <table class="table table-bordered">
 		    <thead>
-			  <th>Курс</th>
-			  <th>Описание</th>
+              <th>#</th>
+			  <th>Фамилия Имя</th>
+			  <th>Адрес</th>
+              <th>skype</th>
+              <th>курсы</th>
 			</thead>
 			<tbody>
-              {% for i in cur_course %}
+              {% for i in cur_students %}
 			  <tr>
-				<td><a href="{% url 'courses:course' i.id %}">{{i.name}}</a></td>
-				<td>
-				  {{i.short_description}}
-				</td>
+				<td></td>
+				<td><a href="">{{i.name}} {{i.surname}}</a></td>
+                <td>{{i.address}}</td>
+                <td>{{i.skype}}</td>
+                
+                <td>
+                    {% for i in i.courses.all %}
+                    <a href="{% url 'courses:course' i.id %}"><p>{{i}}</p></a>
+                    {% endfor %}
+                </td>
 			  </tr>
               {% endfor %}
 			</tbody>
