@@ -28,10 +28,7 @@
     
   <div class="container">     
     <div class="jumbotron">
-      <div class="parent">
         <h1>Курсы PyBursa</h1>
-        <h2>Description</h2>
-      </div>
       <img class="blog" src="{% static 'images/python.jpg' %}">
       <p>Разнообразный и богатый опыт сложившаяся структура организации позволяет выполнять важные задания
        по разработке дальнейших направлений развития. Таким образом реализация намеченных плановых заданий 
@@ -39,6 +36,7 @@
        очевидна, что новая модель организационной деятельности играет важную роль в формировании системы обучения
        кадров, соответствует насущным потребностям. Разнообразный и богатый опыт постоянное информационно-пропагандистское
        обеспечение нашей деятельности представляет собой интересный эксперимент проверки модели развития.</p>
+    </div>
     </div>
   
     
@@ -55,42 +53,25 @@
     </ul>
   </div>
   
-  <div class="jumbotron">
-    <h2>Темы занятий и количество часов</h2>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <span class="badge">14</span>
-         Как бежать вперед.
-      </li>
-      <li class="list-group-item">
-        <span class="badge">20</span>
-         Как бежать назад.
-      </li>
-      <li class="list-group-item">
-        <span class="badge">22</span>
-         Как бежать боком.
-      </li>
-      <li class="list-group-item">
-        <span class="badge">1</span>
-         Как вообще не бегать.
-      </li>
-    </ul>
-  </div>
+<table class="table" >
+    <thead>
+        <tr class="success">
+            <th>Курс</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for course_id, course_data in course.items %}
+        <tr class="info">
+            <td><a href="{% url 'courses:detail' course_id %}">{{course_data.0}}</a></td>
+            <td>{{course_data.1}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
   
   </div>
-  
-  <div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary">
-          <input type="checkbox"> Желтая карточка
-        </label>
-  <label class="btn btn-primary">
-          <input type="checkbox"> Красная карточка
-        </label>
-  <label class="btn btn-primary">
-          <input type="checkbox"> Синяя карточка
-        </label>
-</div>
-  
+ 
   <nav>
     <ul class="pager">
       <li class="next"><a href="{% url 'contact' %}">Next <span aria-hidden="true">&rarr;</span></a></li>
