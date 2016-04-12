@@ -1,0 +1,70 @@
+﻿{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="python framework jango обучение">
+    <meta name="author" content="">
+
+    <title>Главная. Описание курса PyBursa</title>
+    <script src="{%static 'js/jquery-2.2.2.js'%}"></script>
+    <script src="{%static 'js/bootstrap.js'%}"></script>
+
+    <link href="{%static 'css/style.css'%}" rel="stylesheet">
+
+    <link href="{%static 'css/bootstrap.css'%}" rel="stylesheet">
+
+   </head>
+
+  <body>
+
+
+    <div class="container">
+      <ul class="nav nav-tabs">
+  	<li role="presentation"><a href="{% url 'index'%}">ItBursa</a></li>
+  	<li role="presentation"><a href="{% url 'index'%}">Главная</a></li>
+  	<li role="presentation"><a href="{% url 'contact'%}">Контакты</a></li>
+    <li role="presentation"><a href="{% url 'students:student_list'%}"> Студенты</a></li>
+  	<li role="presentation"><a href="{% url 'results'%}">Уравнение</a></li>
+      </ul>
+
+        <h3 >Список студентов</h3>
+        <br>
+        <table id="ind_t1" class="table table-striped">
+          <tbody>
+          <tr >
+            <th >#</th>
+            <th >фамилия имя</th>
+            <th >адрес</th>
+            <th>skype</th>
+            <th>курсы</th>
+          </tr>
+       {%for student in student_list%}
+          <tr>
+            <td>{{student.id}} </td>
+            <td>
+              <a href="{%url 'students:student_list'%}{{student.id}}">{{student.surname}} {{student.name}}</a>
+            </td>
+            <td>
+              {{student.address}}
+            </td>
+            <td>
+              {{student.skype}}
+            </td>
+            <td>
+
+             {%for course in student.courses.all%}
+               <a href="{%url 'courses:courses' %}{{course.id}}">{{course.name}}</a><br>
+             {%endfor%}
+           </td>
+
+           </tr> 
+       {%endfor%}
+          </tbody>
+
+        </table>
+      </div>
+</body>
+</html>
