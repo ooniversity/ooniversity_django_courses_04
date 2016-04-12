@@ -4,8 +4,8 @@ from students import views
 
 
 urlpatterns = patterns('',
-    url(r'^$', views.student_list,name='list'),
-    url(r'^(?P<num>\d+)/$', views.student_detail, name='detail'),
+    url(r'^$', views.list_view,name='list_view'),
+    url(r'^(?P<num>\d*)/$', views.detail, name='detail'),
 
 
 )

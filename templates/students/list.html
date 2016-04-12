@@ -23,11 +23,9 @@
 
     <div class="container">
       <ul class="nav nav-tabs">
-  	<li role="presentation"><a href="{% url 'index'%}">ItBursa</a></li>
-  	<li role="presentation"><a href="{% url 'index'%}">Главная</a></li>
-  	<li role="presentation"><a href="{% url 'contact'%}">Контакты</a></li>
-    <li role="presentation"><a href="{% url 'students:list'%}"> Студенты</a></li>
-  	<li role="presentation"><a href="{% url 'results'%}">Уравнение</a></li>
+  	<li role="presentation"><a href="{%url 'index'%}">Главная</a></li>
+  	<li role="presentation"><a href="{%url 'contact'%}">Контакты</a></li>
+    <li role="presentation"><a href="{%url 'students:list_view'%}"> Студенты</a></li>
       </ul>
 
         <h3 >Список студентов</h3>
@@ -35,9 +33,9 @@
         <table id="ind_t1" class="table table-striped">
           <tbody>
           <tr >
-            <th >#</th>
-            <th >фамилия имя</th>
-            <th >адрес</th>
+            <th>#</th>
+            <th>фамилия имя</th>
+            <th>адрес</th>
             <th>skype</th>
             <th>курсы</th>
           </tr>
@@ -56,7 +54,7 @@
             <td>
 
              {%for course in student.courses.all%}
-               <a href="{%url 'courses:details' course.id%}">{{course.name}}</a><br>
+               <a href="{%url 'courses:detail' course.id%}">{{course.name}}</a><br>
              {%endfor%}
            </td>
 

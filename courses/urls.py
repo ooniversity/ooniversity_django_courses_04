@@ -3,8 +3,8 @@ from courses import views
 
 
 urlpatterns = patterns('',
-   url(r'^(?P<num>\d+)/$', views.course_details,name='details'),
-   url(r'^', views.course_details, name='list'),
+   url(r'^(?P<num>\d*)/$', views.detail,name='detail'),
+   #url(r'^', views.detail, name='list'),
 
 )
    
