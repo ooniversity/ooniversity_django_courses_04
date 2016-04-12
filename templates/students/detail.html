@@ -28,7 +28,7 @@
     <li role="presentation" ><a href="{%url 'students:list_view'%}"> Студенты</a></li>
       </ul>
 
-        <h1>{{student.name}} {{student.surname}}</h1><br>
+        <h1>{{student.surname}} {{student.name}}</h1><br>
         <br><br> 
 
         <br>
@@ -38,22 +38,27 @@
 		  <td>дата рождения</td>
 		  <td>{{student.date_of_birth|date:"N. d, Y"}}</td>
           </tr>
-          <tr>
-		  <td>адрес</td>
-		  <td>{{student.address}}</td>
-          </tr>
+
            <tr>
 		  <td>почта</td>
 		  <td>{{student.email}}</td>
           </tr>
-          <tr>
-		  <td>логин skype</td>
-		  <td>{{student.skype}}</td>
-          </tr>
+
           <tr>
 		  <td>телефон</td>
 		  <td>{{student.phone}}</td>
           </tr>
+
+          <tr>
+		  <td>адрес</td>
+		  <td>{{student.address}}</td>
+          </tr>
+
+          <tr>
+		  <td>skype</td>
+		  <td>{{student.skype}}</td>
+          </tr>
+
           <tr>
 		  <td>курсы</td>
 		  <td>
