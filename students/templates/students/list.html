@@ -19,7 +19,7 @@
           <tr>
             <td>{{student.id}} </td>
             <td>
-              <a href="{{student.id}}">{{student.surname}} {{student.name}}</a>
+              <a href="{%url 'students:student_list'%}{{student.id}}">{{student.surname}} {{student.name}}</a>
             </td>
             <td>
               {{student.address}}
