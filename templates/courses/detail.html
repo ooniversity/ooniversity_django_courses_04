@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}{{ course.name }}{% endblock title %}
+{% block course_students %}?course_id={{ object.pk }}{% endblock course_students %}
+
+{% block content %}
+  <div class="jumbotron">
+    <div class="text-center">
+      <h3>{{ course.name }}</h3>
+    </div>
+    <p class="lead">{{ course.description|truncatechars:600 }}</p>
+  </div>
+
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <div class="jumbotron" style="background:rgba(255,255,255,0.3);">
+          <div class="media">
+            <table class="table table-striped table-bordered" border="1" cellpadding="4">
+              <thead>
+                <tr>
+                  <td>#</td>
+                  <td>Тема</td>
+                  <td>Описание</td>
+                </tr>
+              </thead>
+              {% for lesson in course.lesson_set.all %}
+                <tr>
+                  <td>{{ lesson.order }}</td>
+                  <td>{{ lesson.subject }}</td>
+                  <td>{{ lesson.description }}</td>
+                </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
