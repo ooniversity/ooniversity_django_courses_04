@@ -11,7 +11,8 @@ urlpatterns = patterns('',
     url(r'^quadratic/', include('quadratic.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', views.index, name='index'),
+    url(r'^index/', views.index, name='index'),
+    url(r'^$', views.index),
     url(r'^contact/', views.contact, name="contact"),
  
     #url(r'^student_list/', views.student_list, name="student_list"),
