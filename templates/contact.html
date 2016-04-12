@@ -24,11 +24,10 @@
 
     <div class="container">
       <ul class="nav nav-tabs">
-  	<li role="presentation" ><a href="{% url 'index'%}">ItBursa</a></li>
-  	<li role="presentation"><a href="{% url 'index'%}">Главная</a></li>
-  	<li role="presentation" ><a href="{% url 'contact'%}">Контакты</a></li>
-    <li role="presentation" ><a href="{% url 'students:student_list'%}"> Студенты</a></li>
-  	<li role="presentation" ><a href="{% url 'results'%}">Уравнение</a></li>
+  	<li role="presentation"><a href="{%url 'index'%}">Главная</a></li>
+  	<li role="presentation"><a href="{%url 'contact'%}">Контакты</a></li>
+    <li role="presentation"><a href="{%url 'students:list_view'%}"> Студенты</a></li>
+
       </ul>
 
         <h2 class="page-header">Контактная информация</h2>
@@ -38,8 +37,8 @@
 	
 
         <table class='table table-hover' style="width:300px">
-          <tbody >
-	  <tr>  <td>Name:  </td> 
+          <tbody>
+	  <tr>  <td>Name:</td> 
 	    <td>Aleksey Radchenko</td> 
           </tr> 	
 	  <tr>  <td>Skype:</td> 
@@ -100,6 +99,7 @@
 
 
 
-   </div>   </div>
+   </div>   
+</div>
 </body>
 </html>
