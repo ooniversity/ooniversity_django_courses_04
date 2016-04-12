@@ -1,5 +1,5 @@
 ﻿{% extends "base.html" %}
-
+{% load url from future %}
 
    
 {%block content%}
@@ -29,8 +29,8 @@
             </td>
             <td>
 
-             {%for course in student_list.courses%}
-              <a href="">course</a>
+             {%for course in student.courses.all%}
+               <a href="{%url 'courses:courses' %}{{course.id}}">{{course.name}}</a><br>
              {%endfor%}
            </td>
 
