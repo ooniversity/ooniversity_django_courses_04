@@ -4,12 +4,26 @@ from students.models import Student
 from courses.models import Course
 
 def detail(request, student_id):
-    student = get_object_or_404(Student, id = int(student_id))
-    student_date = student.date_of_birth.strftime("%.4B %d, %Y")
-    student_courses_list = Course.objects.filter(id__in[])
-    return render(request, 'students/detail.html', {'student':student, 'student_date':student_date})
+    student = get_object_or_404(Student, id=int(student_id))
+    student_date = student.date_of_birth.strftime("%b. %d, %Y")
+    student_courses_list = student.courses.all()
+    return render(request, 'students/detail.html', {'student':student, 'student_date':student_date, 'students_courses':student_courses_list})
 
 def list_view(request):
-    course_id = int(request.GET['course_id'])
-    list_of_students = Student.objects.filter(courses = course_id)
+    if request.GET:
+        course_id = int(request.GET['course_id'])
+        course = get_object_or_404(Course, id=course_id)
+        list_of_students = course.student_set.all()
+        list_of_students.order_by('id')
+    else:
+        list_of_students = Student.objects.all()
+        list_of_students.order_by('id')
+    
+    student_courses = dict()
+    st_id = list()
+    for stud in list_of_students:
+        student_courses[stud.id] = stud.courses.all()
+        st_id.append(stud.id)
+
+    return render(request, 'students/list.html', {'students_list': list_of_students, 'student_courses':student_courses, 'st_id':st_id})
     

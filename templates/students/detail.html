@@ -5,25 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Информация о курсе</title>
+    <title>Информация о студенте</title>
 
     <!-- Bootstrap -->
     {% load static %}
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    
-
-    
   </head>
   <body>
     <div class="common">
     
     <nav class="navbar navbar-default">
-        <a href="{% url 'index' %}">Main</a>
-        <a href="{% url 'contact' %}">Contacts</a>
-        <a href="{% url 'student_list' %}">Students</a>
-        <a href="{% url 'results' %}">Equation</a>
-       
+        <a href="{% url 'index' %}">Главная</a>
+        <a href="{% url 'contact' %}">Контакты</a>
+        <a href="{% url 'students:list_view' %}">Студенты</a>
     </nav>
 
         <h1>{{student.name}} {{student.surname}}</h1>
@@ -52,8 +47,9 @@
         </tr>
                 <tr class="info">
             <td>курсы</td>
-            {% for course in student.courses %}
-            <td>{{student_date}}</td>
+            <td>{% for course in students_courses %}
+            <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a></p>
+            {% endfor %}</td>
         </tr>
     </tbody>
 </table>
