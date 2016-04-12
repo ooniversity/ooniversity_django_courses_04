@@ -26,7 +26,7 @@
   	<li role="presentation"><a href="{% url 'index'%}">ItBursa</a></li>
   	<li role="presentation"><a href="{% url 'index'%}">Главная</a></li>
   	<li role="presentation"><a href="{% url 'contact'%}">Контакты</a></li>
-    <li role="presentation"><a href="{% url 'students:student_list'%}"> Студенты</a></li>
+    <li role="presentation"><a href="{% url 'students:list'%}"> Студенты</a></li>
   	<li role="presentation"><a href="{% url 'results'%}">Уравнение</a></li>
       </ul>
 
@@ -45,7 +45,7 @@
           <tr>
             <td>{{student.id}} </td>
             <td>
-              <a href="{%url 'students:student_list'%}{{student.id}}">{{student.surname}} {{student.name}}</a>
+              <a href="{%url 'students:detail' student.id%}">{{student.surname}} {{student.name}}</a>
             </td>
             <td>
               {{student.address}}
@@ -56,7 +56,7 @@
             <td>
 
              {%for course in student.courses.all%}
-               <a href="{%url 'courses:courses' %}{{course.id}}">{{course.name}}</a><br>
+               <a href="{%url 'courses:details' course.id%}">{{course.name}}</a><br>
              {%endfor%}
            </td>
 
