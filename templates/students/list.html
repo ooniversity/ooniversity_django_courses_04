@@ -50,7 +50,7 @@
             <ul class="nav navbar-nav">
               <li><a href="{% url 'index' %}">Main</a></li>
               <li><a href="{% url 'contact' %}">Contacts</a></li>
-			  <li class="active"><a href="{% url 'students:stud' %}">Students</a></li>
+			  <li class="active"><a href="{% url 'students:detail' %}">Students</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -83,7 +83,7 @@
                 
                 <td>
                     {% for i in i.courses.all %}
-                    <a href="{% url 'courses:course' i.id %}"><p>{{i}}</p></a>
+                    <a href="{% url 'courses:detail' i.id %}"><p>{{i}}</p></a>
                     {% endfor %}
                 </td>
 			  </tr>

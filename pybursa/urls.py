@@ -1,7 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from pybursa import views
-from students import views as students
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
