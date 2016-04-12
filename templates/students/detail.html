@@ -21,7 +21,7 @@
   <body>
 
 
-    <div class="container-fluid">
+    <div class="container">
       <ul class="nav nav-tabs">
   	<li role="presentation" ><a href="{% url 'index'%}">ItBursa</a></li>
   	<li role="presentation"><a href="{% url 'index'%}">Главная</a></li>
@@ -30,14 +30,11 @@
   	<li role="presentation" ><a href="{% url 'results'%}">Уравнение</a></li>
       </ul>
 
-
-   
-</body>
-        <h1>{{student.name}} {{student.surname}} </h1><br>
+        <h1>{{student.name}} {{student.surname}}</h1><br>
         <br><br> 
-      <div id="ind_tab_kont"class="container">
+
         <br>
-        <table id="ind_t1" class="table table-striped">
+        <table class="table table-striped">
           <tbody>
           <tr >
 		  <td>дата рождения</td>

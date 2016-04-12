@@ -18,10 +18,9 @@
 
    </head>
 
-  <body>
 
-
-    <div class="container-fluid">
+<body>
+    <div class="container">
       <ul class="nav nav-tabs">
   	<li role="presentation" id="ind_lnk1"><a href="{% url 'index'%}">ItBursa</a></li>
   	<li role="presentation" id="ind_lnk2" ><a href="{% url 'index'%}">Главная</a></li>
@@ -30,15 +29,10 @@
   	<li role="presentation" ><a href="{% url 'results'%}">Уравнение</a></li>
       </ul>
 
-
-   
-<body>
-  
-
         <h1 class='title' >{{course.name}}</h1><br>
         <p >{{course.description}} </p>
         <br><br> 
-      <div id="ind_tab_kont"class="container">
+
         <h3 >План курса</h3>
         <br>
         <table id="ind_t1" class="table table-striped">
