@@ -14,9 +14,14 @@ urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^contact/', views.contact, name="contact"),
  
-    url(r'^student_list/', views.student_list, name="student_list"),
+    #url(r'^student_list/', views.student_list, name="student_list"),
     
-    url(r'^student_detail/', views.student_detail, name="student_detail"),
+    #url(r'^student_detail/', views.student_detail, name="student_detail"),
+
+    url(r'^courses/', include('courses.urls',namespace="courses")),
+    #url(r'^courses/$', name='courses_list'),
+ 
+    url(r'^students/', include('students.urls',namespace="students")),
 
 
 )

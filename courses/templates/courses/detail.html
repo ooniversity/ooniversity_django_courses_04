@@ -1,0 +1,34 @@
+﻿{% extends "base.html" %}
+
+
+   
+{%block content%}
+        <h1 class='title' >{{course.name}}</h1><br>
+        <p >{{course.description}} </p>
+        <br><br> 
+      <div id="ind_tab_kont"class="container">
+        <h3 >План курса</h3>
+        <br>
+        <table id="ind_t1" class="table table-striped">
+          <tbody>
+          <tr >
+            <th >#</th>
+            <th >Тема</th>
+            <th>Описание </th>
+          </tr>
+       {%for lesson in lessons_list%}
+          <tr>
+            <td>{{lesson.order}} </td>
+            <td>
+              {{lesson.subject}}
+            </td>
+            <td>
+              {{lesson.description}}
+            </td>
+           </tr> 
+       {%endfor%}
+          </tbody>
+
+        </table>
+      </div>
+{%endblock content%}
