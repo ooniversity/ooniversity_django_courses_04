@@ -1,0 +1,43 @@
+﻿{% extends "base.html" %}
+
+
+   
+{%block content%}
+      <div id="ind_tab_kont"class="container">
+        <h3 >Список студентов</h3>
+        <br>
+        <table id="ind_t1" class="table table-striped">
+          <tbody>
+          <tr >
+            <th >#</th>
+            <th >фамилия имя</th>
+            <th >адрес</th>
+            <th>skype</th>
+            <th>курсы</th>
+          </tr>
+       {%for student in student_list%}
+          <tr>
+            <td>{{student.id}} </td>
+            <td>
+              <a href="{{student.id}}">{{student.surname}} {{student.name}}</a>
+            </td>
+            <td>
+              {{student.address}}
+            </td>
+            <td>
+              {{student.skype}}
+            </td>
+            <td>
+
+             {%for course in student_list.courses%}
+              <a href="">course</a>
+             {%endfor%}
+           </td>
+
+           </tr> 
+       {%endfor%}
+          </tbody>
+
+        </table>
+      </div>
+{%endblock content%}

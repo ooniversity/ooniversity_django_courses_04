@@ -2,11 +2,13 @@
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
+from courses.models import Course
 
 
 def index(request):
     #template = loader.get_template('index.html')
-    return render(request, 'index.html')
+    course=Course.objects.all()
+    return render(request, 'index.html', {"courses_list":course})
 
 
 
