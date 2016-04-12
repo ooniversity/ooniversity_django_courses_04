@@ -1,11 +1,13 @@
 from django.shortcuts import render
+from courses.models import Course
 
 
 def index(request):
     """
     Call index.html
     """
-    return render(request, 'index.html')
+    params = {'courses': Course.objects.all()}
+    return render(request, 'index.html', params)
 
 
 def contact(request):

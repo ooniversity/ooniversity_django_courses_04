@@ -2,7 +2,11 @@
 from django.shortcuts import render
 from quadratic.forms import QuadraticForm
 
+
 def quadratic_results(request):
+    """
+    The solution of the quadratic equation
+    """
     text = {'error': False}
     for name_value in ['a', 'b', 'c']:
         valid = Validation(name_value, request.GET.get(name_value, ''))
@@ -21,7 +25,8 @@ def quadratic_results(request):
             if d < 0:
                 result = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
             elif d == 0:
-                result = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %0.1f" % (-b / 2 * a)
+                result = "Дискриминант равен нулю, квадратное уравнение имеет один" \
+                         " действительный корень: x1 = x2 = %0.1f" % (-b / 2 * a)
             else:
                 x1 = (-b + d ** (1/2.0)) / (2 * a)
                 x2 = (-b - d ** (1/2.0)) / (2 * a)
@@ -29,11 +34,14 @@ def quadratic_results(request):
             text.update(dict(d=str(int(d)), result=str(result)))
     else:
         form = QuadraticForm()
-    text.update({ 'form' : form })
-    return render(request, "results.html",  text )
+    text.update(dict(form=form))
+    return render(request, "results.html",  text)
+
 
 class Validation(object):
-
+    """
+    Validation coefficients
+    """
     def __init__(self, name, value):
         self.name = name
         self.value = value
