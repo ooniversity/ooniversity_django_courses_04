@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PyBursa</title>
+    <title>PyBursa-Detail</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -25,15 +25,15 @@
   <body>
   
 	<!-- Header begin -->
-	<div class="container" id="PageHeader">
+	<div class="container">
 	  <div class="page-header">
-	    <h1 id="TitleHeader">PYTHON <small>the best courses ever...</small></h1>
+	    <h1>PYTHON <small>the best courses ever...</small></h1>
 	  </div>
 	</div>
 	<!-- Header end -->
 	
     <!-- Navigation menu begin -->
-	<div class="container" id="Navigation">
+	<div class="container">
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -48,7 +48,7 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="{% url 'index' %}">Main</a></li>
+              <li><a href="{% url 'index' %}">Main</a></li>
               <li><a href="{% url 'contact' %}">Contacts</a></li>
 			  <li><a href="{% url 'students:stud' %}">Students</a></li>
             </ul>
@@ -59,30 +59,83 @@
     <!-- Navigation menu end -->
 	
 	<!-- Content begin -->
-	<div class="container" id="Content">
+	<div class="container">
 	  <div class="col-md-8">
-	      <h1>OONIVERSITY</h1>
-	      <h4>Мы специализируемся на модных языках програмирования. Принципиальное наше отличие от других курсов - максимум практики и жесткая система обязательных домашних заданий.</h4>
+	      <h1>{{cur_students.name}} {{cur_students.surname}}</h1>
+	    <div class="panel panel-info">
+          <!-- Default panel contents -->
+            <div class="panel-heading">Students card:</div>
+              <div class="panel-body">
+	            <div class="table-responsive">
+		          <table class="table table-bordered">
+		            <thead>
+			        </thead>
+			        <tbody>
+			          <tr>
+			            <td><strong>Дата рождения</strong></td>
+				        <td>{{cur_students.date_of_birth}}</td>
+			          </tr>
+			          <tr>
+			            <td><strong>Адрес</strong></td>
+				        <td>{{cur_students.address}}</td>
+			          </tr>
+			          <tr>
+			            <td><strong>Почта</strong></td>
+				        <td>{{cur_students.email}}</td>
+			          </tr>
+                      <tr>
+			            <td><strong>Логин skype</strong></td>
+				        <td>{{cur_students.skype}}</td>
+			          </tr>
+			          <tr>
+			            <td><strong>Телефон</strong></td>
+				        <td>{{cur_students.phone}}</td>
+			          </tr>
+			          <tr>
+			            <td><strong>Курсы</strong></td>
+				        <td>
+                          {% for i in cur_students.courses.all %}
+                          <p>{{i}}</p>
+                          {% endfor %}
+                        </td>
+			          </tr>
+			        </tbody>
+		          </table>
+		        </div>
+			  </div>
+		</div>
 	  </div>
 	  <div class="col-md-8">
-	    <div class="table-responsive">
-		  <table class="table table-bordered">
-		    <thead>
-			  <th>Курс</th>
-			  <th>Описание</th>
-			</thead>
-			<tbody>
-              {% for i in cur_course %}
-			  <tr>
-				<td><a href="{% url 'courses:course' i.id %}">{{i.name}}</a></td>
-				<td>
-				  {{i.short_description}}
-				</td>
-			  </tr>
-              {% endfor %}
-			</tbody>
-		  </table>
-        </div>
+	    <div class="panel panel-info">
+          <!-- Default panel contents -->
+            <div class="panel-heading">Performens:</div>
+              <div class="panel-body">
+	            <div class="table-responsive">
+		          <table class="table table-bordered">
+		            <thead>
+					  <th>Course</th>
+			          <th>Week</th>
+			          <th>Control type</th>
+			          <th>Grade</th>
+			        </thead>
+			        <tbody>
+			          <tr>
+			            <td>PY101 Introduction to Python</td>
+				        <td>Week 1</td>
+				        <td>
+						  <p>Tests</p>
+						  <p>Problem Task #1</p>
+						</td>
+				        <td>
+						  <p>100%</p>
+						  <p>100%</p>
+						</td>
+					  </tr>
+			        </tbody>
+		          </table>
+		        </div>
+			  </div>
+		</div>
 	  </div>
 	<!-- Content end -->
 	
@@ -107,7 +160,7 @@
 	<!-- Panel Menu end -->
 	
 	<!-- Footer begin -->
-	<div class="container" id="PageFooter">
+	<div class="container">
 	  <div class="well well-sm">
 		<h5>Python courses 2016. Valery Perepelitsa</h5>
 	  </div>

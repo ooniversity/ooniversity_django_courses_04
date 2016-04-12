@@ -1,0 +1,7 @@
+from django.shortcuts import render
+from courses.models import Course, Lesson
+
+def course(request, id_c):
+    lesson = Lesson.objects.filter(course_id=id_c)
+    course = Course.objects.get(id=id_c)
+    return render(request, 'courses/detail.html', {'cur_course': course, 'cur_lesson': lesson})
