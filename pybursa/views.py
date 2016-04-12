@@ -19,13 +19,13 @@ def contact(request):
 
 def student_list(request):
     """
-    Call student_list.html
+    Call list.html
     """
     return render(request, 'student_list.html')
 
 
 def student_detail(request):
     """
-    Call student_detail.html
+    Call detail.html
     """
     return render(request, 'student_detail.html')

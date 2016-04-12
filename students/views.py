@@ -6,7 +6,7 @@ from students.models import Student
 
 class StudentListView(ListView):
     model = Student
-    paginate_by = 5
+    template_name = "students/list.html"
 
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', None)
@@ -19,6 +19,7 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
+    template_name = "students/detail.html"
 
     def get_context_data(self, **kwargs):
         context = super(StudentDetailView, self).get_context_data(**kwargs)
