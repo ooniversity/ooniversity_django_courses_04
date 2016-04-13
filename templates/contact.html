@@ -26,7 +26,7 @@
           <ul class="nav navbar-nav">
             <li><a href="{% url 'index' %}">Main</a></li>
             <li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'student_list' %}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -71,7 +71,7 @@
       </div><!-- /.container -->
     <ul class="pager">
       <li><a href="{% url 'index' %}">Предыдущая</a></li>
-      <li><a href="{% url 'student_list' %}">Следующая</a></li>
+      <li><a href="{% url 'students:list_view' %}">Следующая</a></li>
     </ul>
     <div class="cont_border_line">
     </div>
