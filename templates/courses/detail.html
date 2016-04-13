@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block title %}{{ course.name }}{% endblock title %}
+{% block active_students %}active{% endblock active_students %}
 {% block course_students %}?course_id={{ object.pk }}{% endblock course_students %}
+
 
 {% block content %}
 
