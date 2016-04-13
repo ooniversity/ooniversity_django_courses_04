@@ -5,6 +5,6 @@ from . import views
 
 urlpatterns = patterns('',
     url(r'^(\d+)$', views.detail, name='detail'),
-    url(r'^', views.list_view, name='list_view'),
+    url(r'^', views.list_view, name='students'),
 
 )

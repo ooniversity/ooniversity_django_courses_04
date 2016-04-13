@@ -1,10 +1,23 @@
-<html>
-<head>
-    <title>
-        {{course.0.name}}
-    </title>
-</head>
-<body>
+<!DOCTYPE html>
+<head xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{course.0.name}}</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{% url 'index' %}">Главная</a></li>
+        <li><a href="{% url 'contact' %}">Контакты</a></li>
+        <li><a href="{% url 'students:list_view' %}?course_id={{course.0.id}}">Студенты</a></li>
+      </ul>
+    </div>
+<div class="container"
 <h1>{{course.0.name}}</h1>
 <p>{{course.0.description}}</p>
 
@@ -22,5 +35,6 @@
         </tr>
     {% endfor %}
 </table>
+</div>
 </body>
 </html>
