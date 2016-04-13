@@ -39,11 +39,9 @@
             <td>{{stud.id}}</td>
             <td><a href="{% url 'students:detail' stud.id %}">{{stud.surname}} {{stud.name}}</a></td>
             <td>{{stud.address}}</td>
-            <td>{{stud.skype}}</td>
-            <td>
-            {% for course in student_courses.st_id %}
-            <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a></p>
-            {% endfor %}
+            <td>{{stud.skype}}{{course_list}}</td>
+            <td>{{forloop.counter}}
+            
             </td>
         </tr>
         {% endfor %}

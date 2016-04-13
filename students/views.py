@@ -19,11 +19,14 @@ def list_view(request):
         list_of_students = Student.objects.all()
         list_of_students.order_by('id')
     
-    student_courses = dict()
-    st_id = list()
+    student_courses = list()
+    course_list = list()
     for stud in list_of_students:
-        student_courses[stud.id] = stud.courses.all()
-        st_id.append(stud.id)
+        student_courses.append(stud.courses.all())
+    for course_in_list in student_courses:
+        course_list.append([])
+        for course_in in course_in_list:
+            course_list[-1].append({course_in.id: course_in.name})
 
-    return render(request, 'students/list.html', {'students_list': list_of_students, 'student_courses':student_courses, 'st_id':st_id})
+    return render(request, 'students/list.html', {'students_list': list_of_students, 'course_list': course_list})
     
