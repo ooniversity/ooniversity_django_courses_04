@@ -32,27 +32,27 @@
     <table class="twidth table">
         <tbody>
         <tr class="success">
-            <td class="email_c">Birth Date</td>
+            <td> class="email_c">Birth Date</td>
             <td>{{ student.date_of_birth }}</td>
         </tr>
         <tr class="success">
-            <td class="email_c">Address</td>
+            <td> class="email_c">Address</td>
             <td>{{ student.address }}</td>
         </tr>
         <tr class="success">
-            <td class="email_c">E-mail</td>
+            <td> class="email_c">E-mail</td>
             <td>{{ student.email }}</td>
         </tr>
         <tr class="success">
-            <td class="email_c">Skype login</td>
+            <td> class="email_c">Skype login</td>
             <td>{{ student.skype }}</td>
         </tr>
         <tr class="success">
-            <td class="email_c">Mobile</td>
+            <td> class="email_c">Mobile</td>
             <td>{{ student.phone }}</td>
         </tr>
         <tr class="success">
-            <td class="email_c">Course</td>
+            <td> class="email_c">Course</td>
             {% for item in student.courses.all %}
             <td><a href="{% url 'courses:detail' item.id%}">{{ item.name }}</a></td>
             {% endfor %}
