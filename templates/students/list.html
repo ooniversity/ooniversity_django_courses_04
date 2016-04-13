@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>our students</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="../static/js/bootstrap.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="menu-item">
+        <a href="{% url 'index' %}">Main</a>
+      </li>
+      <li class="menu-item">
+        <a href="{% url 'contact' %}">Contacts</a>
+      </li>
+      <li class="menu-item active">
+        <a href="{% url 'students:list_view' %}">Students</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="main-container text-center">
+      <h4>ItBursa Students</h4>
+      <h5>We Appreciate All of You! Join the Team Today</h5>
+      <div class="course-details">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th class="width-25">фамилия, имя</th>
+              <th class="width-25">адрес</th>
+              <th class="width-25">skype</th>
+              <th>курсы</th>
+            </tr>
+          </thead>
+          <tbody class="text-left">
+            {% block content %}
+                {% for student in students_list %}
+                <tr>
+                    <td>
+                        {{forloop.counter}}
+                    </td>
+                    <td>
+                        <a href="{% url 'students:detail' student.id %}">
+                            {{student.full_name}}
+                        </a>
+                    </td>
+                    <td>
+                        {{student.address}}
+                    </td>
+                    <td>
+                        {{student.skype}}
+                    </td>
+                    <td>
+                        {% for course in student.courses %}
+                        <a href="{% url 'courses:detail' id=course.id %}">
+                            {{course.name}}
+                        </a>
+                        <br>
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+            {% endblock %}
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

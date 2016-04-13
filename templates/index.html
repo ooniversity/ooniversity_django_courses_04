@@ -21,7 +21,7 @@
         <a href="{% url 'contact' %}">Contacts</a>
       </li>
       <li class="menu-item">
-        <a href="{% url 'student_list' %}">Students</a>
+        <a href="{% url 'students:list_view' %}">Students</a>
       </li>
     </ul>
   </div>
@@ -31,51 +31,55 @@
   <div class="row">
     <div class="col-lg-10 col-lg-push-1">
         <div id="mainInfo" class="main-container text-center">
-          <h1>Welcome to PyBursa</h1>
-          <h4>Description</h4>
+          <h1>Welcome to ItBursa</h1>
+          <h4>О нас</h4>
           <p>
-          Labores apeirian neglegentur ne his. Cum et graeci atomorum, an adipisci democritum theophrastus eam. Sit ne alia eros omnes. Et propriae patrioque evertitur nam, vitae prompta te sea, cu per congue delenit cotidieque. Mel summo malorum gloriatur no, vis quod signiferumque no. Sint porro ludus mel at, at eam dico voluptatum, an qui quis equidem. Modo docendi has id, debet causae labitur eu mea, ea duo eirmod hendrerit.
+            Курсы ItBursa начали работу в 2014 году. Мы специализируемся на «модных» языках программирования.
+            Принципиальное наше отличие от других курсов – максимум практики и жесткая система обязательных
+            домашних заданий. Преподаватели – опытные практикующие разработчики, они помогают участникам в
+            ходе курсов создать реальные проекты и получить практические навыки, применимые к работе.
+            Домашние задания на наших курсах обязательны и их невыполнение приводит к исключению с курсов.
+            Таким образом, мы готовим не просто «слушателей» курсов, а настоящих специалистов,
+            способных создавать пусть простые, но рабочие проекты.
           </p>
           <hr/>
-          <img src="../static/images/logo1.png" alt="logo">
         </div>
+        <div class="courses-list-wrapper">
+        <h5>
+          <img src="../static/images/logo.png" alt="logo">
+          <span>
+            Мы предлагаем обучение на курсах:
+          </span>
+        </h5>
+          <table>
+          <thead>
+            <tr>
+              <th>Курс</th>
+              <th>Описание</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% block content %}
+            {% for course in courses %}
+            <tr>
+              <td>
+                <a href="{% url 'courses:detail' course.id %}">
+                  {{course.name}}
+                </a>
+              </td>
+              <td>
+                {{course.short_description}}
+              </td>
+            </tr>
+            {% endfor %}
+          {% endblock %}
+          </tbody>
+      </table>
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="text-center">
-      <h5>Program</h5>
-      <div class="col-lg-6">
-        <div class="info">
-          <button type="button" data-toggle="collapse" data-target="#python" class="btn">python fundamentals</button>
-          <div id="python" class="collapse">
-            <ul class="list-unstyled">
-              <li>Основы Python</li>
-              <li>Функции и модульность</li>
-              <li>Библиотеки и пакетный менеджер</li>
-              <li>Классы и ООП, основы</li>
-              <li>Работа с файлами</li>
-              <li>Работа с датами</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="info">
-          <button type="button" data-toggle="collapse" data-target="#django" class="btn">django</button>
-            <div id="django" class="collapse">
-              <ul>
-                <li>Структура Web приложения</li>
-                <li>Основы Web, HTTP</li>
-                <li>Работа с датами</li>
-                <li>Работа с базами данных, ORM</li>
-                <li>Class-based (Generic) Views</li>
-                <li>Средства отладки и тестирование</li>
-                <li>Деплоймент</li>
-              </ul>
-          </div>       
-        </div>
-      </div>
-    </div>
+
   </div>
 </div>
 </body>

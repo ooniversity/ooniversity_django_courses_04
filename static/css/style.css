@@ -2,7 +2,7 @@
 	font-family: "Libre Baskerville";
 	src: url("../fonts/LibreBaskerville-Regular.otf");
 }
-nav{
+nav.navbar{
 	background-color: #1D2F3E;
 	left: 0;
 	position: fixed;
@@ -48,7 +48,7 @@ li.menu-item a:focus{
 	background-color: #152737;
 }
 .main-container{
-	padding: 50px 50px 20px 50px;
+	padding: 150px 50px 20px 50px;
 }
 h1, h4{ font-weight: bold; }
 h1{
@@ -135,6 +135,80 @@ div.info{
 .profile-info .table{
 	margin-top: 30px;
 }
+.courses-list-wrapper h5{
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    margin-top: 40px;
+}
+.courses-list-wrapper span{
+    padding-left: 200px;
+}
+.courses-list-wrapper img{
+    height: 160px;
+    top: -80px;
+    left:18px;
+    position: absolute;
+}
+.courses-list-wrapper table,
+.course-details table{
+    margin: 50px 0;
+    width: 100%;
+}
+.courses-list-wrapper table th,
+.courses-list-wrapper table td,
+.course-details table tr td,
+.course-details table tr th{
+    padding: 25px 20px;
+}
+.courses-list-wrapper table td:first-child{
+    background-color: #1D2F3E;
+    text-align: center;
+}
+.courses-list-wrapper table th:first-child{
+    background-color: #152737;
+    color: white;
+    text-align: center;
+}
+.courses-list-wrapper table td:first-child a{
+    color: white;
+}
+.courses-list-wrapper table td:last-child{
+    background-color: white;
+}
+.courses-list-wrapper table th:last-child,
+.course-details table tr th{
+    background-color: #7F909A;
+    opacity: 0.6;
+}
+.course-details table tr td{
+    background-color: white;
+}
+.course-details table tr th:last-child{
+    width: 65%;
+}
+.course-details div{
+    background-color: white;
+    padding: 25px 20px;
+}
+.width-25{
+    width: 25%;
+}
+.student-details table{
+    background-color:white;
+    width: 100%;
+}
+.student-details table tr:first-child{
+    background-color: #7F909A;
+    opacity: 0.6;
+}
+.student-details table td{
+    padding: 25px 20px;
+}
+.student-details table td:first-child{
+    font-weight: bold;
+}
+
 form{
 	margin: 50px 0 20px 0;
 }
