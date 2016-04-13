@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     url(r'^quadratic/results/', include('quadratic.urls', namespace="quadratic")),
     url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^courses/', include('courses.urls', namespace='courses')),
-    url(r'^student/', include('students.urls', namespace='students')),
+    url(r'^students/', include('students.urls', namespace='students')),
     url(r'^admin/', include(admin.site.urls)),
 
 )
