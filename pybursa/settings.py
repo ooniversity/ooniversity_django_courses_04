@@ -1,4 +1,4 @@
-# -*- coding: cp1251 -*-
+# encoding: utf-8
 """
 Django settings for pybursa project.
 
@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'polls',
     'quadratic',
+    'courses',
+    'students',
 )
 
 MIDDLEWARE_CLASSES = (
