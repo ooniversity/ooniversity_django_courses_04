@@ -16,7 +16,7 @@ def quadratic_results(request):
     if is_valid_parameters and not data['a'] == 0:
         d = data['b'] ** 2 - 4 * data['a'] * data['c']
         if d == 0:
-            x1 = x2 = -data['b'] / 2.0 * data['a']
+            x1 = x2 = -data['b'] / 2 * data['a']
         elif d > 0:
             x1 = (-data['b'] + d ** (1 / 2.0)) / (2 * data['a'])
             x2 = (-data['b'] - d ** (1 / 2.0)) / (2 * data['a'])
