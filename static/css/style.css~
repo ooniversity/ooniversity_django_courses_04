@@ -117,7 +117,7 @@ footer {
 }
 
 .table-responsive {
-	background-color:#87CEEB;
+background-color:#87CEEB;
 }
 
 #header_table {
@@ -135,7 +135,7 @@ nav{
 }
 
 .panel .panel-success{
-	margin-left: 20px !important;
+	margin-left: 20px!important;
 	width: 500px !important;
 }
 

@@ -57,9 +57,9 @@
             <ul class="nav navbar-nav">
 
               <li  class="active"><a href="{% url 'index' %}">Main</a></li>
-              <li><a href ="{% url 'contact' %}">Contacts</a></li>
-              <li><a href="{% url 'student_list' %}">Students</a></li>
-              <li><a href= "{% url 'results'  %}">Уравнение</a></li> 
+              <li><a href="{% url 'contact' %}">Contacts</a></li>
+              <li><a href="{% url 'students:list_view' %}">Students</a></li>
+              <li><a href="{% url 'results'  %}">Уравнение</a></li> 
             </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -69,62 +69,39 @@
       <div class="panel panel-primary">
         <div class="panel-heading">
         <div class="container">
-          <h1>PyBursa</h1>
-          <h1>Description</h1>
-          <p>лучшие курсы Python</p>
-        <img src="{% static 'images/itburs.png' %}">
-
-          </div>
-          </div>
+          <h1>ItBursa</h1>
+            <p>Лучшие it курсы</p>
+        </div>
+        </div>
           <div class="panel-body">
-            <p class = "text-info">Наибольшей проблемой всех учебников и статей, по которым начинают
-          изучать Python - это отсутствие практики с освоенным материалом.
-          Можно читать тонны ресурсов по веб-программированию на Python - и
-          не научиться ничему, потому что знания, которые вы не успели применить,
-          очень быстро забываются.
-          Многие начинающие сдаются на полпути, так как устают, им надоедает 
-          бесконечное блуждание по сети в поисках крупиц информации, из которых
-          трудно собрать общую картину.</p>
-
-            
+            <p class = "text-info">Курсы ItBursa начали работу в 2014 году. Мы специализируемся на «модных» языках программирования. Принципиальное наше отличие от других курсов – максимум практики и жесткая система обязательных домашних заданий. Преподаватели – опытные практикующие разработчики, они помогают участникам в ходе курсов создать реальные проекты и получить практические навыки, применимые к работе. Домашние задания на наших курсах обязательны и их невыполнение приводит к исключению с курсов. Таким образом, мы готовим не просто «слушателей» курсов, а настоящих специалистов, способных создавать пусть простые, но рабочие проекты.</p>
             <p class="btn btn-lg btn-primary" role="button">Посмотреть наши контакты &raquo;</p>
           </div>
         </div>
-
         </div>
 
-    <div class="panel panel-success">
+    <div class="panel panel-success" style="margin-left: 20px; width: 1130px;">
   <!-- Default panel contents -->
-    <div class="panel-heading"><h3>Program</h3></div>
+    <div class="panel-heading">
+    	<h2>Выбирай курс на котором будешь учиться!</h2>
+    </div>
     <div class="panel-body">
       <!-- List group -->
-
-      <ol class="text-success">
-          <li class="list-group-item" id = "list_prog">Основы Python</li>  
-          <li class="list-group-item">Строки и итераторы</li>
-          <li class="list-group-item">Функции и модульность</li>  
-          <li class="list-group-item">Библиотеки и пакетный менеджер</li>
-          <li class="list-group-item">Классы и ООП, основы</li>
-          <li class="list-group-item">Классы и ООП, возможности Python</li> 
-          <li class="list-group-item">Работа с файлами</li>
-          <li class="list-group-item">Работа с датами</li>
-          <li class="list-group-item">Основы html/css</li>
-          <li class="list-group-item">Основы JavaScript</li>
-          <li class="list-group-item">Основы Web, HTTP</li> 
-          <li class="list-group-item">Django first steps</li>
-          <li class="list-group-item">Структура Web приложения</li> 
-          <li class="list-group-item">Работа с базами данных, ORM</li>
-          <li class="list-group-item">Кастомизация админки</li>
-          <li class="list-group-item">Язык шаблонов</li>
-          <li class="list-group-item">Forms</li>
-          <li class="list-group-item">Class-based (Generic) Views</li>
-          <li class="list-group-item">Средства отладки и тестирование</li>
-          <li class="list-group-item">Деплоймент</li>
-      </ol>
+      <div class="table-responsive">
+      <table class="table table-striped">
+        <tr>
+        	<th>Курсы</th>
+        	<th>Описание</th>
+        </tr>
+      	{% for i in courses %}
+        <tr>
+			<td><a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a></td>
+			<td>{{ i.short_description }}</td>
+		</tr>	
+		{% endfor %}
+      </table>   
     </div>
     </div>
-
-
     </div> <!-- /container -->
 
 

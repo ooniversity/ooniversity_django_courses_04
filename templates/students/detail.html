@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Students PyBursa</title>
+    <title>{% block title %}{{ student.name }} {{ student.surname }}{% endblock title %}</title>
 
 
     <link href="{% static 'css/style.css'%}" rel="stylesheet">
@@ -53,7 +53,7 @@
             <ul class="nav navbar-nav">
               <li><a href="{% url 'index' %}">Main</a></li>
               <li><a href="{% url 'contact' %}">Contacts</a></li>
-              <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
+              <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
               <li><a href="{% url 'results' %}">Уравнение</a></li>
             </ul>
             </div><!--/.nav-collapse -->
@@ -62,77 +62,42 @@
 
         <!--Table Student -->
 
-        <h2 id = "header_table">Студенты курса PyBursa</h2>
-          <p> В таблице предоставленны данные на 01.04.2016 год</p>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Surname</th>
-                  <th>Name</th>
-                  <th>Address</th>
-                  <th>Skype</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><a href="{% url 'student_detail' %}">1</a></td>
-                  <td>Persianova</td>
-                  <td>Olena</td>
-                  <td>Украина, г.Харьков, ул.Иванова 10</td>
-                  <td>persianova_0</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Bogdanov</td>
-                  <td>Victor</td>
-                  <td>Украина, г.Харьков, ул.Иванова 11</td>
-                  <td>bogdanov_v</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Ivanov</td>
-                  <td>Oleg</td>
-                  <td>Украина, г.Харьков, ул.Иванова 12</td>
-                  <td>ivanov_o</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Stapanenko</td>
-                  <td>Anna</td>
-                  <td>Украина, г.Харьков, ул.Иванова 13</td>
-                  <td>stepanenko_a</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Zhukov</td>
-                  <td>Dima</td>
-                  <td>Украина, г.Харьков, ул.Иванова 14</td>
-                  <td>zhukov_d</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>Vinokurova</td>
-                  <td>Alla</td>
-                  <td>Украина, г.Харьков, ул.Иванова 15</td>
-                  <td>vinokurova_a</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>Leonova</td>
-                  <td>Natalia</td>
-                  <td>Украина, г.Харьков, ул.Иванова 15</td>
-                  <td>leonova_n</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+       
+          
+ <!-- Default panel contents -->
+
+  <h2 id = "header_table">{{ student.name }} {{ student.surname}}</h2>
+     <div class="table-responsive">
+      <table class="table table-striped">
+        <tr>
+            <td>дата рождения</td>
+            <td>{{ student.date_of_birth }}</td>
+        </tr>
+        <tr>
+            <td>адрес</td>
+            <td>{{ student.address }}</td>
+        </tr>
+        <tr>
+            <td>почта</td>
+            <td>{{ student.email }}</td>
+        </tr>
+        <tr>
+            <td>логин Skype</td>
+            <td>{{ student.skype }}</td>
+        </tr>
+        <tr>
+            <td>телефон</td>
+            <td>{{ student.phone }}</td>
+        </tr>
+        <tr>
+            <td>курсы</td>
+            <td> {% for course in student.courses.all %}
+                  <a href={% url 'courses:detail' course.id %}>{{ course.name }}<br></a>
+            {% endfor %}</td>
+        </tr>
+
+      </table>   
     </div>
-
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

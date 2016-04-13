@@ -1,0 +1,34 @@
+{% extends "students_course.html" %}
+{% load staticfiles %}
+{% block title %}Students Course{% endblock title %}
+
+{% block content %}
+
+  <!-- Default panel contents -->
+
+  <h2 id = "header_table">Студенты курса PyBursa</h2>
+     <p> В таблице предоставленны данные на 01.04.2016 год</p>
+      <div class="table-responsive">
+      <table class="table table-striped">
+        <tr>
+            <th>#</th>
+            <th>Фамилия и имя</th>
+            <th>Адрес</th>
+            <th>Skype</th>
+            <th>Курсы</th>
+        </tr>
+      	{% for i in students %}
+        <tr>
+           <td>{{ i.id }}</td>
+           <td><a href="{% url 'students:detail' i.id %}">{{ i.name }} {{i.surname}}</a></td>
+			     <td>{{ i.address }}</td>
+			     <td>{{ i.skype }}</td>
+           <td> {% for course in i.courses.all %}
+                  <a href={% url 'courses:detail' course.id %}>{{ course.name }}<br></a>
+                {% endfor %}</td>
+		</tr>	
+		{% endfor %}
+      </table>   
+    </div>
+
+{% endblock content %}
