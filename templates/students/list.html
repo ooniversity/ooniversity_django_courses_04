@@ -50,7 +50,7 @@
             <ul class="nav navbar-nav">
               <li><a href="{% url 'index' %}">Main</a></li>
               <li><a href="{% url 'contact' %}">Contacts</a></li>
-			  <li class="active"><a href="{% url 'students:detail' %}">Students</a></li>
+			  <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -76,8 +76,8 @@
 			<tbody>
               {% for i in cur_students %}
 			  <tr>
-				<td></td>
-				<td><a href="{% url 'students:list_view' i.id %}">{{i.name}} {{i.surname}}</a></td>
+				<td>{{i.id}}</td>
+				<td><a href="{% url 'students:detail' i.id %}">{{i.name}} {{i.surname}}</a></td>
                 <td>{{i.address}}</td>
                 <td>{{i.skype}}</td>
                 

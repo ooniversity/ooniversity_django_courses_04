@@ -50,7 +50,7 @@
             <ul class="nav navbar-nav">
               <li><a href="{% url 'index' %}">Main</a></li>
               <li><a href="{% url 'contact' %}">Contacts</a></li>
-			  <li><a href="{% url 'students:detail' %}">Students</a></li>
+			  <li><a href="{% url 'students:list_view' %}">Students</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -80,11 +80,11 @@
 				        <td>{{cur_students.address}}</td>
 			          </tr>
 			          <tr>
-			            <td><strong>Почта</strong></td>
+			            <td><strong>email</strong></td>
 				        <td>{{cur_students.email}}</td>
 			          </tr>
                       <tr>
-			            <td><strong>Логин skype</strong></td>
+			            <td><strong>skype</strong></td>
 				        <td>{{cur_students.skype}}</td>
 			          </tr>
 			          <tr>
