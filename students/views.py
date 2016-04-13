@@ -14,5 +14,5 @@ def detail(request, id):
 def list_view(request):
     students_qs = Student.objects.all()
     courses_all = 1
-    return render(request, 'students/list_view.html',
+    return render(request, 'students/list.html',
             {"students":students_qs})
