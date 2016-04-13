@@ -1,6 +1,6 @@
-from courses.models import Course
 from django.contrib import admin
 from students.models import Student
+
 
 class StudentAdmin(admin.ModelAdmin):
     search_fields = ['surname', 'email']
