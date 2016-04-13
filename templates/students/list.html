@@ -31,7 +31,7 @@
 		      <ul class="nav navbar-nav navbar-right">
 		        <li><a href="{% url 'index' %}">Main</a></li>
 		        <li><a href="{% url 'contact' %}">Contacts</a></li>
-                <li><a href="{% url 'students:lists' %}">Contacts</a></li>
+                <li><a href="{% url 'students:list_view' %}">Contacts</a></li>
 
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
@@ -66,7 +66,6 @@
         </tbody>
           {% endfor %}
       </table>
-      <a href="#" class="btn btn-info disabled" role="button">Дополнительно</a>
     </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
