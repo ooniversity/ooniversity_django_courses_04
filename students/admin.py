@@ -1,6 +1,6 @@
+from courses.models import Course
 from django.contrib import admin
 from students.models import Student
-
 
 class StudentAdmin(admin.ModelAdmin):
     search_fields = ['surname', 'email']
@@ -11,7 +11,16 @@ class StudentAdmin(admin.ModelAdmin):
         ('Contact info', {'fields': ['email','phone','address','skype']}),
         (None, {'fields': ['courses']}),
     ]
+    filter_horizontal = ('courses',)
 
+    def formfield_for_manytomany(self, db_field, request, **kwargs):
+        if db_field.name == "courses":
+            qs = kwargs.get('queryset', db_field.rel.to.objects)
+            # Avoid a major performance hit resolving permission names which
+            # triggers a content_type load:
+            kwargs['queryset'] = qs.select_related('content_type')
+        return super(StudentAdmin, self).formfield_for_manytomany(
+            db_field, request=request, **kwargs)
 
 
 admin.site.register(Student, StudentAdmin)
