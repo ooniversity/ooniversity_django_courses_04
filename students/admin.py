@@ -12,7 +12,7 @@ class StudentAdmin(admin.ModelAdmin):
     def fullname(self,obj):
         return " ".join((obj.name,obj.surname))
     fullname.short_description = 'Full name'
-    list_filter = ('courses__name',)
+    list_filter = ('courses',)
     list_display=['fullname','email','skype']
     filter_horizontal=['courses']
     search_fields=['surname','email']
