@@ -2,7 +2,7 @@ from courses.models import Course
 from courses.models import Lesson
 from django.contrib import admin
 
-class LessonInline(admin.StackedInline):
+class LessonInline(admin.TabularInline):
     model = Lesson
     extra = 0
 
