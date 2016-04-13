@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from django.utils.datastructures import MultiValueDictKeyError
 
+
 def quadratic_results(request):
     aknd, bknd, cknd, d, marker, xx = '', '', '', '', '', ''
     try:
@@ -63,3 +64,4 @@ def quadratic_results(request):
         marker = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
     s = {'a': a, 'b': b, 'c': c, 'd': d, 'xx': xx, 'mk': marker, 'aknd': aknd, 'bknd': bknd, 'cknd': cknd}
     return render(request, 'quadratic/results.html', s)
+
