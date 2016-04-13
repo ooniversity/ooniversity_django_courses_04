@@ -2,6 +2,8 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from pybursa import views
 
+admin.site.site_header = 'PyBursa Administration'
+
 
 urlpatterns = patterns('',
     # Examples:
