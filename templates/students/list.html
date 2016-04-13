@@ -26,61 +26,49 @@
           <ul class="nav navbar-nav">
             <li><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
 
-    <h1 class="list_name_page">{{student.name}} {{student.surname}}</h1>
+    <h1 class="list_name_page">Список студентов курса PyBursa</h1>
+    <!-- <h5 class="list_info">Список студентов, выпуск-2016.</h5> -->
 
-        <div class="container">
-      <div class="row">
-        <div class="student_info">
-          <div class="col-sm-6">
-            <table class="table table-reflow">
-              <tbody>
-                <tr>
-                  <td>дата рождения</td>
-                  <td>{{ student.date_of_birth|date:"N d, Y" }}</td>
-                </tr>
-                <tr>
-                  <td>адрес</td>
-                  <td>{{student.address}}</td>
-                </tr>
+    <div class="container">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th style="width:4%"><span class="text-muted">#</span></th>
+            <th style="width:20%"><span class="text-muted">фамилия и имя</span></th>
+            <th style="width:20%"><span class="text-muted">адрес</span></th>
+            <th style="width:10%"><span class="text-muted">skype</span></th>
+            <!-- <th style="width:45%"><span class="text-muted">Address</span></th> -->
+            <th><span class="text-muted">курсы</span></th>
+          </tr>
+        </thead>
+        <tbody>
 
-                <tr>
-                  <td>почта</td>
-                  <td>{{student.email}}</td>
-                </tr>
-                <tr>
-                  <td>логин skype</td>
-                  <td>{{student.skype}}</td>
-                </tr>
-                <tr>
-                  <td>телефон</td>
-                  <td>{{student.phone}}</td>
-                </tr>
-                <tr>
-                  <td>курсы</td>
-                  <td>
-                    {% for courses in student.courses.all %}
-                      {{courses}} <br>
-                    {% endfor %}
-                  </td>
-                </tr>
-
-              </tbody>
-            </table>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
+        {% for student in students %}
+          <tr>
+            <td>{{ student.id }}</td>
+            <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td><!-- убрать класс ссылки потом -->
+            <td>{{ student.address }}</td>
+            <td>{{ student.skype }}</td>
+            <td>
+              {% for courses in student.courses.all %}
+                <p>{{courses}}</p>
+              {% endfor %}
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div><!-- /.container -->
     <ul class="pager">
       <li><a href="{% url 'contact' %}">Предыдущая</a></li>
+      <li><a href="{% url 'student_detail' %}">Следующая</a></li>
     </ul>
     <div class="cont_border_line">
     </div>
