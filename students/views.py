@@ -5,9 +5,8 @@ from courses.models import Course
 
 def detail(request, student_id):
     student = get_object_or_404(Student, id=int(student_id))
-    student_date = student.date_of_birth.strftime("%b. %d, %Y")
     student_courses_list = student.courses.all()
-    return render(request, 'students/detail.html', {'student':student, 'student_date':student_date, 'students_courses':student_courses_list})
+    return render(request, 'students/detail.html', {'student':student, 'students_courses':student_courses_list})
 
 def list_view(request):
     if request.GET:
