@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{% url 'index' %}">Главная</a></li>
+        <li><a href="{% url 'contact' %}">Контакты</a></li>
+        <li><a href="">Студенты</a></li>
+      </ul>
+    </div>
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>фамилия имя</th>
+        <th>аддрес</th>
+        <th>skype</th>
+        <th>курсы</th>
+    </tr>
+    {% for element in students %}
+    <tr>
+        <td>{{element.id}}</td>
+        <td><a href="{% url 'students:list_view' %}{{element.id}}">{{element.name}} {{element.surname}}</a></td>
+        <td>{{element.address}}</td>
+        <td>{{element.skype}}</td>
+        <td>
+           {% for course in element.courses.all %}
+                <p><a href="{% url 'courses:courses' %}{{course.id}}">{{course}}</a></p>
+           {% endfor %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
