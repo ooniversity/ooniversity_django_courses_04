@@ -2,6 +2,7 @@
 {% load staticfiles %}
 {% block title %}Main{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
 
+
 {% block content %}
   {% block branding %}
     <h1 id="site-name"><a href="{% url 'admin:index' %}">PyBursa Administration</a></h1>

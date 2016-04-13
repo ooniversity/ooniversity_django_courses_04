@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block title %}Students {{ course.name }}{% endblock %}
+{% block active_students %}active{% endblock active_students %}
 
 {% block content %}
 
@@ -23,7 +24,7 @@
                   </thead>
                   {% for student in object_list %}
                     <tr>
-                      <td>{{ student.id}}</td>
+                      <td>{{ forloop.counter }}</td>
                       <td><a href={% url 'students:detail' student.id %}>{{ student.surname }} {{ student.name }}</a></td>
                       <td>{{ student.address }}</td>
                       <td>{{ student.skype }}</td>
