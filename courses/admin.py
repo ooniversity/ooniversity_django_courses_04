@@ -5,6 +5,7 @@ class LessonInline(admin.TabularInline):
     model = Lesson
 
 class CourseAdmin(admin.ModelAdmin):
+    search_fields=['name']
     list_display=['name', 'short_description']
     inlines=[LessonInline]  
 
