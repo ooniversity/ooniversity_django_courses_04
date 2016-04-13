@@ -55,30 +55,26 @@
           <h1 class="page-header text-center">DjBursa</h1>
           <h2 id="main-description">Description</h2>
           <p>Lorem ipsum vivamus maecenas integer nulla sit, curabitur ultricies massa porttitor nulla donec. Vitae elementum duis lectus diam sapien elementum lorem orci, sit porttitor eros. Sodales, magna auctor, enim quam vulputate vitae molestie, commodo ultricies urna. Porta ut enim rutrum, fusce: lectus nibh duis leo nam donec duis vitae urna mauris adipiscing sed, cursus eros ut et. Arcu massa sed enim amet gravida tellus risus vulputate in: lectus: duis malesuada fusce sodales. Amet quisque sagittis adipiscing donec metus commodo quisque magna ligula bibendum sed sodales massa mattis, et tempus eu ligula integer non pellentesque maecenas <a class="anchorjs-link" href="#main-program">unic program</a>.</p>
+          <p>List our courses</p>
+          <table class="table table-hover">
+            <thead class="thead-inverse">
+              <tr>
+                <th>Course Name</th>
+                <th>Short Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for course in courses %}
+              <tr>
+                <td><a href="{% url 'courses:detail' course_id=course.id %}">{{course.name}}</a></td>
+                <td>{{course.short_description}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
           <p>Sapien nam maecenas pharetra sed gravida lorem, eu a malesuada ornare mattis ipsum nam duis justo et amet. Lorem commodo quam mauris elementum at eget leo: eget sit lorem maecenas eu elementum. Odio gravida in risus commodo nulla in nibh magna ultricies risus sodales. Mauris pellentesque ultricies adipiscing arcu pellentesque commodo nam sed malesuada sagittis, sit. Fusce, sed quisque lorem, tempus&nbsp;&mdash; gravida ut massa cursus, nam lorem quam cursus sagittis lectus bibendum sagittis sem tellus tempus odio nulla porttitor. Urna enim gravida sed cursus malesuada eros, maecenas rutrum tellus adipiscing. Vivamus morbi donec, metus auctor: gravida&nbsp;&mdash; nulla quam a sagittis proin congue.</p>
-          <p>Nulla porta ipsum tempus elementum magna lorem massa lectus duis risus in adipiscing, proin donec commodo sed, mattis curabitur ipsum arcu magna vivamus cursus. Tellus enim quisque eget fusce massa at lectus eros vitae magna ornare elementum arcu ipsum, lectus, urna metus mattis integer&nbsp;&mdash; eget a duis. Mattis adipiscing duis lorem nulla morbi porta eros bibendum ut a non. Vivamus vitae molestie sapien metus in&nbsp;&mdash; porttitor gravida nibh&nbsp;&mdash; sed eget nec integer urna eros tempus, a adipiscing.</p>
-          <p>Tempus ligula auctor nulla bibendum tempus, eget eu nec, molestie sapien, bibendum sodales eget pellentesque et. Arcu sed sem, adipiscing magna pellentesque morbi sit urna odio, cursus pellentesque vitae mattis ut tempus magna quam elementum.</p>
-          <p>Leo malesuada, enim malesuada lectus sed molestie massa donec nam ornare, cursus, proin rutrum, sapien rutrum non fusce cursus nibh. Sit sed gravida porttitor molestie: sagittis duis nulla tellus, ut, nibh sem sagittis&nbsp;&mdash; amet ligula sagittis eget sit: sem. At commodo sem magna pellentesque ultricies, proin lectus porttitor sem quam diam eros arcu pellentesque diam urna, ut porttitor metus a arcu. Sodales donec sit donec eu et: nulla&nbsp;&mdash; pellentesque ligula vitae pharetra, maecenas tempus nibh sed ut, quam vulputate tellus urna ipsum justo nulla nibh eu. Morbi nibh ultricies sagittis porta lectus et nam sapien lectus justo commodo tempus lorem sed non pellentesque mauris vivamus arcu.</p>
           <h2 id="main-program">Program</h2>
           <p>Lorem ipsum in&nbsp;&mdash; ut maecenas adipiscing nibh elementum mauris sed porta gravida et bibendum gravida. Sit sodales fusce arcu eros: duis a elementum pellentesque maecenas rutrum sed commodo, integer. Congue amet molestie eu at massa lorem enim gravida quam ligula pharetra.</p>
-          <p>Lorem ipsum elementum leo morbi ut, odio congue adipiscing, lectus congue pellentesque pharetra:</p>
-          <ol>
-            <li>Lorem ipsum, auctor sagittis vitae;</li>
-            <li>Vitae morbi diam proin enim sodales ipsum;</li>
-            <li>Ornare amet, nulla rutrum bibendum&nbsp;&mdash; et, gravida;</li>
-            <li>Commodo pharetra lectus amet;</li>
-            <li>Sapien odio in urna orci cursus;</li>
-            <li>Urna fusce congue, metus adipiscing massa amet;</li>
-            <li>Quam in: duis;</li>
-            <li>Magna quam vitae at pellentesque porta;</li>
-            <li>Commodo malesuada ultricies in enim justo, ligula;</li>
-            <li>Massa urna eu sodales eget;</li>
-            <li>Curabitur fusce vivamus amet;</li>
-            <li>Nec lorem odio porta, ultricies nulla;</li>
-            <li>Duis diam pellentesque;</li>
-            <li>Eu quisque eget;</li>
-            <li>Tellus quam maecenas eros ultricies;</li>
-          </ol>
           <p>Lorem ipsum vulputate: ligula justo non sagittis ipsum gravida lectus et cursus non rutrum a molestie. Vitae, nibh sem eget amet leo, mattis bibendum, mauris adipiscing leo, odio nibh vivamus elementum proin sit. Eget pharetra porttitor congue, sed eu tellus nec ipsum ornare, magna porttitor ligula sem mattis odio magna orci ligula: malesuada, porttitor lectus sodales.</p>
         </div>
       </div>
