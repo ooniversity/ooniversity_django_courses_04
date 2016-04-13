@@ -73,7 +73,7 @@
         {% for item in cours_table %}
         <tbody>
           <tr class="success">
-            <td><a name="a" href="{% url 'courses:detail' item.id%}">{{ item.name }}</a></td>
+            <td><a href="{% url 'courses:detail' item.id%}">{{ item.name }}</a></td>
             <td>{{ item.short_description }}</td>
           </tr>
         {% endfor %}
