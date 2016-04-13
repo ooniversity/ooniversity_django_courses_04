@@ -33,7 +33,7 @@
     </div>
 
 
-    <h1 class="list_name_page">Список студентов курса PyBursa</h1>
+    <h1 class="list_name_page">Список студентов</h1>
     <!-- <h5 class="list_info">Список студентов, выпуск-2016.</h5> -->
 
     <div class="container">
@@ -58,7 +58,7 @@
             <td>{{ student.skype }}</td>
             <td>
               {% for courses in student.courses.all %}
-                <p>{{courses}}</p>
+                <p><a href={% url 'courses:detail' courses.id %}>{{courses}}</a></p>
               {% endfor %}
             </td>
           </tr>

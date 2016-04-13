@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Students List</title>
+    <title>Students detail</title>
     {% load staticfiles %}
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -66,7 +66,7 @@
                   <td>курсы</td>
                   <td>
                     {% for courses in student.courses.all %}
-                      {{courses}} <br>
+                      <a href={% url 'courses:detail' courses.id %}>{{courses}}</a><br>
                     {% endfor %}
                   </td>
                 </tr>
