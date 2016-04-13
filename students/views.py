@@ -14,8 +14,6 @@ def list_view(request):
         students = Student.objects.filter(courses=course).order_by('id')
     except MultiValueDictKeyError:
         students = Student.objects.all().order_by('id')
-    except ValueError:
-        students = Student.objects.all().order_by('id')
     context = []
     for student in students:
         context.append({'student': student,
