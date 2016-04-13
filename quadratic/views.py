@@ -9,27 +9,27 @@ def quadratic_results(request):
 	try:
 		a = int(request.GET['a'])
 	except ValueError:
+		a = request.GET['a']
 		if request.GET['a'].isalpha():
 			text_a = u"коэффициент не целое число"
-			a = request.GET['a']
 		else:
 			text_a = u"коэффициент не определен"
 
 	try:
 		b = int(request.GET['b'])
 	except ValueError:
+		b = request.GET['b']
 		if request.GET['b'].isalpha():
 			text_b = u"коэффициент не целое число"
-			b = request.GET['b']
 		else:
 			text_b = u"коэффициент не определен"
 
 	try:
 		c = int(request.GET['c'])
 	except ValueError:
+		c = request.GET['c']
 		if request.GET['c'].isalpha():
 			text_c = u"коэффициент не целое число"
-			c = request.GET['c']
 		else:
 			text_c = u"коэффициент не определен"
 
@@ -55,13 +55,7 @@ def quadratic_results(request):
 
 
 	context = {"text_a":text_a, "text_b":text_b, "text_c":text_c, "disc":disc, \
-			"text_result":text_result, 'a':{'message':'a = '}, 'b':{'message':'b = '}, \
-			'c':{'message':'c = '}}
+			"text_result":text_result, 'a':{'message':'a = ','value':a}, 'b':{'message':'b = ', 'value':b}, \
+			'c':{'message':'c = ', 'value':c}}
 	
-	if 'a' in locals():
-		context['a']['value'] = a
-	if 'b' in locals():
-		context['b']['value'] = b
-	if 'c' in locals():
-		context['c']['value'] = c
 	return render(request,'results.html', context)
