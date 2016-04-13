@@ -1,3 +1,4 @@
+
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>{% block title %}Main{% endblock title %}</title>
+  <title>{% block title %}Course {{ course.name }}{% endblock title %}</title>
   <!-- Bootstrap -->
   <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -30,17 +31,51 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li><a href="{% url 'index' %}">Main</a></li>
-              <li><a href ="{% url 'contact' %}">Contacts</a></li>
-              <li><a href="{% url 'students:list_view' %}">Students</a></li>
-              <li class="active"><a href= "{% url 'results' %}">Уравнение</a></li>
+              <li><a href="{% url 'contact' %}">Contacts</a></li>
+              <li><a href="{% url 'students:list_view' %}{% block course_students %}?course_id={{ course.id }}{% endblock course_students %}">Students</a></li>
+              
+              <li><a href="{% url 'results' %}">Уравнение</a></li>
             </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
     <div class="container-fluid">
      
-        {% block content %}
-        {% endblock content %}
+{% block content %}
+   <!-- Main component  -->
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+        <div class="container">
+			<h1>{{ course.name }}</h1>	
+        </div>
+        </div>
+          <div class="panel-body">
+            <p class = "text-info">{{ course.description }}</p>
+          </div>
+        </div>
+        </div>
+   
+
+  <!-- Default panel contents -->
+   	<h2>План курса</h2>
+      <div class="table-responsive">
+      <table class="table table-striped">
+        <tr>
+        	<th>#</th>
+        	<th>Тема</th>
+        	<th>Описание</th>
+        </tr>
+      	{% for i in lesson %}
+        <tr>
+            <td>{{ i.order }}</td>
+			<td>{{ i.subject }}</td>
+			<td>{{ i.description }}</td>
+		</tr>	
+		{% endfor %}
+      </table>   
+    </div>
+
+{% endblock content %}
       
     </div>
 
@@ -54,3 +89,5 @@
  
   </body>
 </html>
+
+
