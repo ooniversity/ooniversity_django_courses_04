@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block title %}{{ course.name }}{% endblock title %}
 {% block active_students %}active{% endblock active_students %}
-{% block course_students %}?course_id={{ object.pk }}{% endblock course_students %}
+{% block course_students %}?course_id={{ course.id }}{% endblock course_students %}
 
 
 {% block content %}
@@ -13,33 +13,34 @@
       <h4>{{ course.description }}</h4>
     </div>
 
-  <div class="navbar">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <div class="jumbotron" style="background:rgba(255,255,255,0.3);">
-          <div class="media">
-            <table class="table table-striped table-bordered" border="1" cellpadding="4">
-              <caption style="text-align: center"><h3>План курса<br></h3></caption>
-
-              <thead>
-                <tr>
-                  <td>#</td>
-                  <td>Тема</td>
-                  <td>Описание</td>
-                </tr>
-              </thead>
-              {% for lesson in course.lesson_set.all %}
-                <tr>
-                  <td>{{ forloop.counter }}</td>
-                  <td>{{ lesson.subject }}</td>
-                  <td>{{ lesson.description }}</td>
-                </tr>
-              {% endfor %}
-            </table>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <div class="jumbotron" style="background:rgba(255,255,255,0.3);">
+            <div class="media">
+              <table class="table table-striped table-bordered" border="1" cellpadding="4">
+                <caption style="text-align: center"><h3>План курса<br></h3></caption>
+                <thead>
+                  <tr>
+                    <td>#</td>
+                    <td>Тема</td>
+                    <td>Описание</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for lesson in lesson %}
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td>{{ lesson.subject }}</td>
+                      <td>{{ lesson.description }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 {% endblock content %}
