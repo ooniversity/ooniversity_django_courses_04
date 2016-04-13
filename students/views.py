@@ -2,7 +2,7 @@ from django.shortcuts import render
 from students.models import Student
 from django.utils.datastructures import MultiValueDictKeyError
 
-def lists(request):
+def list_view(request):
     try:
         a = request.GET['course_id']
         stud_at_course = Student.objects.filter(courses__id=a)
