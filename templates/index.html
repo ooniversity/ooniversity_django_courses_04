@@ -65,6 +65,7 @@
       <li>Язык шаблонов</li>
     </ol>
     </div>
+
     <h3 class="cl_h3">Надоело собирать знания по крупицам?</h3>
     <p class="p_text">Наибольшей проблемой всех учебников и статей, по которым начинают
 изучать Python - это отсутствие практики с освоенным материалом.
@@ -74,6 +75,31 @@
 Многие начинающие сдаются на полпути, так как устают, им надоедает 
 бесконечное блуждание по сети в поисках крупиц информации, из которых
 трудно собрать общую картину.</p>
+
+
+
+  <table class="table">
+    <tr>
+      <th>Курс</th>
+      <th>Описание</th>
+    </tr>
+    <tr>
+      <td><a href={% url 'courses:detail' 1 %}>{{cours_PyBursa}}</a></td>
+      <td>{{short_description_PyBursa}}</td>
+    </tr>
+     <tr>
+      <td><a href={% url 'courses:detail' 2 %}>{{cours_DjBursa}}</a></td>
+      <td>{{short_description_DjBursa}}</td>
+    </tr>
+     <tr>
+      <td><a href={% url 'courses:detail' 3 %}>{{cours_JsBursa}}</a></td>
+      <td>{{short_description_JsBursa}}</td>
+    </tr>
+
+  </table>
+
+
+
 
     <h3 class="cl_h3">Потяну ли я?</h3>
     <p class="p_text">Волшебной таблетки не будет. Придётся учиться. Научить невозможно,
