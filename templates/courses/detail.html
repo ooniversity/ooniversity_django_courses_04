@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>
+        {{course.0.name}}
+    </title>
+</head>
+<body>
+<h1>{{course.0.name}}</h1>
+<p>{{course.0.description}}</p>
+
+<table>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Description</th>
+        </tr>
+    {% for element in course_detail %}
+        <tr>
+            <td>{{element.order}}</td>
+            <td>{{element.subject}}</td>
+            <td>{{element.description}}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
