@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="{% url 'index' %}">Главная</a></li>
         <li><a href="{% url 'contact' %}">Контакты</a></li>
-        <li><a href="">Студенты</a></li>
+        <li><a href="{% url 'students:students' %}">Студенты</a></li>
       </ul>
     </div>
 <table class="table table-striped">
@@ -28,7 +28,7 @@
     {% for element in students %}
     <tr>
         <td>{{element.id}}</td>
-        <td><a href="{% url 'students:list_view' %}{{element.id}}">{{element.name}} {{element.surname}}</a></td>
+        <td><a href="{% url 'students:students' %}{{element.id}}">{{element.name}} {{element.surname}}</a></td>
         <td>{{element.address}}</td>
         <td>{{element.skype}}</td>
         <td>
