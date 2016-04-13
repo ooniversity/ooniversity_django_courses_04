@@ -45,8 +45,6 @@
                 <li class="active"><a href="{% url 'index' %}">Main<span class="sr-only"></span></a></li>
                 <li><a href="{% url 'contact' %}">Contacts</a></li>
                 <li><a href="{% url 'students:list_view' %}">Students</a></li>
-
-
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -75,8 +73,8 @@
         {% for item in cours_table %}
         <tbody>
           <tr class="success">
-            <td><a name="a" href="{% url 'courses:detail' item.id%}">{{ item.short_description }}</a></td>
-            <td>{{ item.name }}</td>
+            <td><a name="a" href="{% url 'courses:detail' item.id%}">{{ item.name }}</a></td>
+            <td>{{ item.short_description }}</td>
           </tr>
         {% endfor %}
     </table>
