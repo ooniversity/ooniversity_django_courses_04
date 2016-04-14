@@ -11,7 +11,7 @@ class Coach(models.Model):
     phone = models.CharField(verbose_name='Phone',max_length=20)
     address = models.CharField(verbose_name='Address', max_length=100)
     skype = models.CharField(verbose_name='Skype',max_length=50)
-    description = models.TextField(verbose_name='Description',blank=True)
+    description = models.TextField(verbose_name='Description')
 
     def __unicode__(self):
         return self.user.username
