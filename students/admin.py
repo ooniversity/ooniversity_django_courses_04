@@ -2,7 +2,7 @@ from django.contrib import admin
 from students.models import Student
 
 class StudentAdmin(admin.ModelAdmin):
-    search_fields = ['name', 'surname']
+    search_fields = ['surname', 'email']
     list_filter = ['courses']
     list_display = ['full_name', 'email', 'skype']
     list_filter=['courses']
