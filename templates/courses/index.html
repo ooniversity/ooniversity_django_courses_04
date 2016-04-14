@@ -27,6 +27,8 @@
     	<h2 align="center"><b>Norway university</b></h2>
     	<p>"Norway university" is a dummy name of organization that allows people from Ukraine to learn Python programming with Django from Norway.</p>
     </div>
+
+    <h3>Select the course of your dream</h3>
     
     <table class="table">
       <thead>
@@ -38,8 +40,8 @@
   	  {% for item in courses %}
   	  <tbody>
   	  <tr>
-  		<td><a href="{% url 'courses:detail' item.id %}">{{ item.name }}</a></td>
-  		<td>{{ item.short_description }}</td>
+  		  <td><a href="{% url 'courses:detail' item.id %}">{{ item.name }}</a></td>
+  		  <td>{{ item.short_description }}</td>
   	  </tr>
   	  </tbody>
   	  {% endfor %}
