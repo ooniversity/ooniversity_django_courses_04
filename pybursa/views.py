@@ -1,7 +1,13 @@
-from django.shortcuts import  render
+# -*- coding:UTF-8 -*-
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from django.views import generic
+from courses.models import Course
 
-def index(request):
-	return render(request, 'index.html')
+def course_descripts(request):
+    courses = Course.objects.all()
+    return render(request, 'index.html', {'courses': courses})
 
 def contact(request):
 	return render(request, 'contact.html')

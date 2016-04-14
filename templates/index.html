@@ -1,54 +1,35 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ItBursa</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head><a href="{% url 'index' %}
+{% load static from staticfiles %}
+{% block title %}PyBursa: Главная страница{% endblock title%}
 
-<body>
-    <div class="page-header">
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header"><a class="navbar-brand navbar-link" href="http://itbursa.com/">ItBursa </a>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                </div>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{% url 'index' %}">Main </a></li>
-                        <li><a href="{% url 'contact' %}">Contacts</a></li>
-                        <li><a href="{% url 'student_list' %}">Students</a></li>
-                        <li><a href="{% url 'results' %}">Equation</a></li> 
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <div class="container">
-        <div class="jumbotron">
-            <h1 class="Course">Python Bursa</h1>
-            <h3 class="Desription">Description</h3>
-            <p class="text-left">Python – активно развивающийся высокоуровневый язык программирования общего назначения. Python используется в самых разнообразных проектах в качестве основного языка программирования, а также для создания приложений и прототипов программ.
-                </p>
-            <p class="text-left">Популярностью пользуется фреймворк для веб-приложений на языке Python – Django. Фреймворк Django используют такие известные сайты, как Instagram, Pinterest и Mozilla. </p>
+{% block meta_title %}Студенти{% endblock meta_title %}
 
-            <h3 class="Program">Program</h3>
-            <p class="text-left">Курс позволяет глубоко освоить этот язык программирования и получить навыки практического создания программ на языке Python и сайтов с помощью фреймворка Django. </p>
-        </div>
-    </div>
-    <hr>
-    <div class="container">
-        <footer class="footer">
-            <p>Copyright @ 20016 Sergpo </p>
-        </footer>
-    </div>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-</body>
+{% block content %}
 
-</html>
+<div class="page-header">
+    <h1>Pybursa</h1>
+</div>
+<p>Курсы ItBursa начали работу в 2014 году. Мы специализируемся на «модных» языках программирования. Принципиальное наше отличие от других курсов – максимум практики и жесткая система обязательных домашних заданий. Преподаватели – опытные
+                    практикующие разработчики, они помогают участникам в ходе курсов создать реальные проекты и получить практические навыки, применимые к работе. Домашние задания на наших курсах обязательны и их невыполнение приводит к исключению с курсов.
+                    Таким образом, мы готовим не просто «слушателей» курсов, а настоящих специалистов, способных создавать пусть простые, но рабочие проекты. </p>
+ <br>
+   <h2>Выбирай на каком курсе хочешь учиться!</h2>
+ <br>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Курс</th>
+            <th>Описание</th>
+        </tr>
+        </thead>
+        {% for course in courses %}
+        <tr>
+            <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
+            <td>{{ course.short_description|title }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
