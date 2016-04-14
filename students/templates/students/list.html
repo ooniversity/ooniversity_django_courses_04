@@ -51,7 +51,7 @@
         {% for student in students %}
           <tr>
             <td>{{ student.id }}</td>
-            <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td><!-- убрать класс ссылки потом -->
+            <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>
             <td>{{ student.address }}</td>
             <td>{{ student.skype }}</td>
             <td>
@@ -67,9 +67,6 @@
     <div class="cont_border_line">
     </div>
     <div class="cont_footer">
-      <div class="cont_footer_text">
-        <h5><span class="glyphicon glyphicon-globe"></span> some footer info</h5>
-      </div>
     </div>
     <script src="{% static 'bootstrap/googleapis/jquery.min.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>

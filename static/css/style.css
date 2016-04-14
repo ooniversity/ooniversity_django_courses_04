@@ -151,7 +151,12 @@ h1.course_name, h3.course_name, h2.Description_title,.Description, .ul_course_it
 }
 
 a:hover {
-    color: #B2DCEE;
+    color: #58ABCE;
+}
+
+a{
+  color: #FFFFFF;
+  text-decoration: underline;
 }
 /*-------------------------student_detail--------------------------------*/
 .student_info{
