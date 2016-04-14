@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Coach(models.Model):
-    user = models.OneToOneField(User,verbose_name='User')
+    user = models.OneToOneField(User)
     date_of_birth = models.DateField(verbose_name='Date of birth')
     gender = models.CharField(choices=(('M','Male'),('F','Female'),),verbose_name='Sex',max_length=1)
     phone = models.CharField(verbose_name='Phone',max_length=20)
@@ -14,5 +14,5 @@ class Coach(models.Model):
     description = models.TextField(verbose_name='Description')
 
     def __unicode__(self):
-        return self.user.username
+        return self.user.first_name
    
