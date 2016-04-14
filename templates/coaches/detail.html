@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PyBursa - Courses</title>
+    <title>PyBursa-Detail</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -25,15 +25,15 @@
   <body>
   
 	<!-- Header begin -->
-	<div class="container" id="PageHeader">
+	<div class="container">
 	  <div class="page-header">
-	    <h1 id="TitleHeader">PYTHON <small>the best courses ever...</small></h1>
+	    <h1>PYTHON <small>the best courses ever...</small></h1>
 	  </div>
 	</div>
 	<!-- Header end -->
 	
     <!-- Navigation menu begin -->
-	<div class="container" id="Navigation">
+	<div class="container">
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
@@ -48,9 +48,9 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="{% url 'index' %}">Main</a></li>
+              <li><a href="{% url 'index' %}">Main</a></li>
               <li><a href="{% url 'contact' %}">Contacts</a></li>
-			  <li><a href="{% url 'students:list_view' %}?course_id={{cur_course.id}}">Students</a></li>
+			  <li><a href="{% url 'students:list_view' %}">Students</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -59,52 +59,62 @@
     <!-- Navigation menu end -->
 	
 	<!-- Content begin -->
-	<div class="container" id="Content">
+	<div class="container">
 	  <div class="col-md-8">
-	      <h1>{{cur_course.name}}</h1>
-	      <h5>{{cur_course.description}}</h5>
-          <h3>План курса</h3>
-	  </div>
-      <div class="col-md-8">
+	      <h1>{{cur_coach.user.first_name}} {{cur_coach.user.last_name}}</h1>
 	    <div class="panel panel-info">
           <!-- Default panel contents -->
-          <div class="panel-heading">Учитель</div>
-            <div class="panel-body">
-              <a href="{% url 'coaches:detail' cur_course.coach.id %}"><h3>{{cur_course.coach.user.first_name}}</h3></a>
-	          <h5>{{cur_course.coach.description}}</h5>
-		    </div>
-		</div>
-        <div class="panel panel-info">
-          <!-- Default panel contents -->
-          <div class="panel-heading">Ассистент</div>
-            <div class="panel-body">
-              <a href="{% url 'coaches:detail' cur_course.assistant.id %}"><h3>{{cur_course.assistant.user.first_name}}</h3></a>
-	          <h5>{{cur_course.assistant.description}}</h5>
-		    </div>
+            <div class="panel-heading">Staff card:</div>
+              <div class="panel-body">
+	            <div class="table-responsive">
+		          <table class="table table-bordered">
+		            <thead>
+			        </thead>
+			        <tbody>
+			          <tr>
+			            <td><strong>Дата рождения</strong></td>
+				        <td>{{cur_coach.date_of_birth}}</td>
+			          </tr>
+			          <tr>
+			            <td><strong>Адрес</strong></td>
+				        <td>{{cur_coach.address}}</td>
+			          </tr>
+			          <tr>
+			            <td><strong>email</strong></td>
+				        <td>{{cur_coach.user.email}}</td>
+			          </tr>
+                      <tr>
+			            <td><strong>skype</strong></td>
+				        <td>{{cur_coach.skype}}</td>
+			          </tr>
+			          <tr>
+			            <td><strong>Телефон</strong></td>
+				        <td>{{cur_coach.phone}}</td>
+			          </tr>
+			          <tr>
+			            <td><strong>Курсы учитель</strong></td>
+				        <td>
+                          {% for i in cur_cur_coach.all %}
+                          <p><a href="{% url 'courses:detail' i.id %}">{{i}}</a> Студенты курса <a href="{% url 'students:list_view' %}?course_id={{i.id}}"><span class="glyphicon glyphicon-new-window"></span></a></p>
+                          {% endfor %}
+                        </td>
+			          </tr>
+                      <tr>
+			            <td><strong>Курсы ассистент</strong></td>
+				        <td>
+                          {% for i in cur_cur_assistant.all %}
+                          <p><a href="{% url 'courses:detail' i.id %}">{{i}}</a> Студенты курса <a href="{% url 'students:list_view' %}?course_id={{i.id}}"><span class="glyphicon glyphicon-new-window"></span></a></p>
+                          {% endfor %}
+                        </td>
+			          </tr>
+			        </tbody>
+		          </table>
+		        </div>
+			  </div>
 		</div>
 	  </div>
 	  <div class="col-md-8">
-	    <div class="table-responsive">
-		  <table class="table table-bordered">
-		    <thead>
-              <th>#</th>
-			  <th>Тема</th>
-			  <th>Описание</th>
-			</thead>
-			<tbody>
-              {% for i in cur_lesson %}
-			  <tr>
-				<td>{{i.order}}</td>
-				<td>
-				  {{i.subject}}
-				</td>
-                <td>{{i.description}}</td>
-			  </tr>
-              {% endfor %}
-			</tbody>
-		  </table>
-        </div>
-	  </div>
+	</div>
 	<!-- Content end -->
 	
 	<!-- Panel Menu begin -->
@@ -128,7 +138,7 @@
 	<!-- Panel Menu end -->
 	
 	<!-- Footer begin -->
-	<div class="container" id="PageFooter">
+	<div class="container">
 	  <div class="well well-sm">
 		<h5>Python courses 2016. Valery Perepelitsa</h5>
 	  </div>
