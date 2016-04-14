@@ -11,4 +11,4 @@ class Coach(models.Model):
     skype = models.CharField(max_length=255)
     description = models.TextField()
     def __unicode__(self):
-        return self.user.first_name
+        return self.user.username
