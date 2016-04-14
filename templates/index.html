@@ -4,9 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <meta name="description" content="">
-    <meta name="author" content=""> -->
-    <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.ico"> -->
     <title>Main</title>
     {% load staticfiles %}
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -21,7 +18,6 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <!-- <a class="navbar-brand" href="#">Project name</a> -->
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -35,10 +31,9 @@
 
     <div class="container">
       <h1 class="course_name">University</h1>
-      <!-- <h2 class="Description">Description</h2> -->
-<!--       <h3 class="well well-sm"><em>Курс подразумевает, что студенты уже освоили базовый python.
+      <h3 class="well well-sm"><em>Курс подразумевает, что студенты уже освоили базовый python.
 В рамках курса даются азы html/css, достаточные для формирования html страниц браузеру, но не достаточные для профессиональной верстки.
-Глубина освоения django будет достаточной для самостоятельного написания web-проектов, которые содержат редактируемые страницы, структуру специфических данных, отображение их на фронтенде и создание-редактирование этих данных.</em></h3> -->
+Глубина освоения django будет достаточной для самостоятельного написания web-проектов, которые содержат редактируемые страницы, структуру специфических данных, отображение их на фронтенде и создание-редактирование этих данных.</em></h3>
       <h2 class="Description_title">Выбери желаемое направление для изученя</h2>
 
         {% for course in courses %}
@@ -47,17 +42,10 @@
           </ul>
         {% endfor %}
 
-        <!-- <p class="lead">Man</p> -->
-
     </div><!-- /.container -->
 
     <div id="panel_1" class="panel panel-primary">@morozov_n</div>
     <h3><span class="label label-default"><span class="glyphicon glyphicon-chevron-up">Up</span></span></h3>
-
-    <ul class="pager">
-      <!-- <li><a href="index.html">Предыдущая</a></li> -->
-      <li><a href="{% url 'contact' %}">Следующая</a></li>
-    </ul>
 
     <div class="index_border_line">
     </div>
