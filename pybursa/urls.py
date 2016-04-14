@@ -3,7 +3,7 @@ from django.contrib import admin
 from pybursa import views
 
 admin.site.site_header = 'PyBursa Administration'
-
+#admin.site.index_template='admin/index.html'
 
 urlpatterns = patterns('',
     # Examples:
@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     #url(r'^courses/$', name='courses_list'),
  
     url(r'^students/', include('students.urls',namespace="students")),
+    url(r'^coaches/', include('coaches.urls',namespace="coaches")),
 
 
 )
