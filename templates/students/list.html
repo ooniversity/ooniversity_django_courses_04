@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Students list</title>
+    <meta charset="UTF-8" />
+    <!-- Bootstrap -->
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <!--Own css-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{% url 'courses:index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>  
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
+          </ul>          
+        </div>
+    </nav>
+
+   
+    <h3>Students list</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Surname Name</th>          
+          <th>Address</th>
+          <th>Skype</th>
+          <th>Courses</th>
+        </tr>
+        </thead>
+        {% for item in students %}
+        <tbody>
+        <tr>
+          <td>{{ item.id }}</td>
+          <td><a href="{% url 'students:detail' item.id %}">{{ item }}</a></td>
+          <td>{{ item.address }}</td>
+          <td>{{ item.skype }}</td>
+          <td>
+            {% for course in item.courses.all %} 
+              <a href="{% url 'courses:detail' course.id %}">{{ course }}</a> <br/> 
+            {% endfor %}
+          </td>
+        </tr>
+        </tbody>
+        {% endfor %}
+        
+    </table>
+    
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
