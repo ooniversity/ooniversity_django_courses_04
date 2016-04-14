@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     #url(r'^courses/$', name='courses_list'),
  
     url(r'^students/', include('students.urls',namespace="students")),
+    url(r'^coaches/', include('coaches.urls',namespace="coaches")),
 
 
 )
