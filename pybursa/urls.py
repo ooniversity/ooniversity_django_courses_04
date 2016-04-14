@@ -18,6 +18,8 @@ urlpatterns = patterns('',
 
     url(r'^students/', include('students.urls', namespace='students')),
 
+    url(r'^coaches/', include('coaches.urls', namespace='coaches')),
+
 #	url(r'^polls/', include('polls.urls', namespace='polls')),
     url(r'^admin/', include(admin.site.urls)),
 )
