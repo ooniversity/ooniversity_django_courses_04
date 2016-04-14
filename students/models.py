@@ -13,3 +13,8 @@ class Student(models.Model):
     courses = models.ManyToManyField(Course)
     def __unicode__(self):
         return self.name
+
+    def my_property(self):
+        return self.name + ' ' + self.surname
+    full_name = property(my_property)
+
