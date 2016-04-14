@@ -33,34 +33,30 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'index' %}">Main</a></li>
-        <li> <a href="{% url 'contact' %}">Contacts</a></li>
+        <li><a href="{% url 'index' %}">Main</a></li>
+        <li><a href="{% url 'contact' %}">Contacts</a></li>
         <li><a href="{% url 'student_list' %}">Students</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-
-    
+  <h1>{{name}}</h1>
+  <p>{{descript}}</p>
 
   <table class="table">
     <tr>
-      <th>Курс</th>
+      <th>#</th>
+      <th>Тема </th>
       <th>Описание</th>
     </tr>
+{% for a in les%}
     <tr>
-      <td>{{cours_PyBursa}}</td>
-      <td>{{short_description_PyBursa}}</td>
+      <td>{{a.order}}</td>
+      <td>{{a.subject}}</td>
+      <td>{{a.description}}</td>
     </tr>
-     <tr>
-      <td>{{cours_DjBursa}}</td>
-      <td>{{short_description_DjBursa}}</td>
-    </tr>
-     <tr>
-      <td>{{cours_JsBursa}}</td>
-      <td>{{short_description_JsBursa}}</td>
-    </tr>
+{%endfor%}
 
   </table>
 

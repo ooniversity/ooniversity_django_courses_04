@@ -10,8 +10,6 @@ def index(request):
 	s = Course.objects.all()
 	for a in s:
 		y.append(a.short_description)
-	print y
-
 	short_description_PyBursa = y[0]
 	short_description_DjBursa = y[1]
 	short_description_JsBursa = y[2]
