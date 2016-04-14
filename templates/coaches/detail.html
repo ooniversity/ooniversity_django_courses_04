@@ -72,27 +72,27 @@
 			        </thead>
 			        <tbody>
 			          <tr>
-			            <td><strong>Дата рождения</strong></td>
+			            <td>Дата рождения</td>
 				        <td>{{cur_coach.date_of_birth}}</td>
 			          </tr>
 			          <tr>
-			            <td><strong>Адрес</strong></td>
+			            <td>Адрес</td>
 				        <td>{{cur_coach.address}}</td>
 			          </tr>
 			          <tr>
-			            <td><strong>email</strong></td>
+			            <td>почта</td>
 				        <td>{{cur_coach.user.email}}</td>
 			          </tr>
                       <tr>
-			            <td><strong>skype</strong></td>
+			            <td>логин skype</td>
 				        <td>{{cur_coach.skype}}</td>
 			          </tr>
 			          <tr>
-			            <td><strong>Телефон</strong></td>
+			            <td>Телефон</td>
 				        <td>{{cur_coach.phone}}</td>
 			          </tr>
 			          <tr>
-			            <td><strong>Курсы учитель</strong></td>
+			            <td>Курсы учитель</td>
 				        <td>
                           {% for i in cur_cur_coach.all %}
                           <p><a href="{% url 'courses:detail' i.id %}">{{i}}</a> Студенты курса <a href="{% url 'students:list_view' %}?course_id={{i.id}}"><span class="glyphicon glyphicon-new-window"></span></a></p>
@@ -100,7 +100,7 @@
                         </td>
 			          </tr>
                       <tr>
-			            <td><strong>Курсы ассистент</strong></td>
+			            <td>Курсы ассистент</td>
 				        <td>
                           {% for i in cur_cur_assistant.all %}
                           <p><a href="{% url 'courses:detail' i.id %}">{{i}}</a> Студенты курса <a href="{% url 'students:list_view' %}?course_id={{i.id}}"><span class="glyphicon glyphicon-new-window"></span></a></p>
