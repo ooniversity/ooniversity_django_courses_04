@@ -139,3 +139,11 @@ nav{
 	width: 500px !important;
 }
 
+.head h2, .head .table-responsive{
+	margin-left: 20px !important;
+}
+
+.text-info{
+	color: black;
+}
+

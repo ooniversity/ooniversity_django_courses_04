@@ -56,6 +56,34 @@
         </div>
    
 
+   <div class="head">
+      <h2>Преподаватели</h2>
+
+    <div class="panel panel-success" style="margin-left: 20px; width: 1130px;">
+    <div class="panel-heading">
+      <h4>Учитель</h4>
+    </div>
+    <div class="panel-body">
+      <p class = "text-info"><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.full_name }}</a></p>
+      <p class = "text-info">{{ course.coach.description }}</p>
+    </div>
+    </div>
+
+    <div class="panel panel-success" style="margin-left: 20px; width: 1130px;">
+    <div class="panel-heading">
+      <h4>Ассистент</h4>
+    </div>
+    <div class="panel-body">
+      <p class = "text-info"><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.full_name }}</a></p>
+      <p class = "text-info">{{ course.assistant.description }}</p>
+    </div>
+    </div>
+   </div>
+
+
+
+
+  <div class="head">
   <!-- Default panel contents -->
    	<h2>План курса</h2>
       <div class="table-responsive">
@@ -74,7 +102,7 @@
 		{% endfor %}
       </table>   
     </div>
-
+    </div>
 {% endblock content %}
       
     </div>
