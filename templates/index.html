@@ -50,9 +50,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'pybursa.views.index' %}">Main</a></li>            
-            <li><a href="{% url 'pybursa.views.contact' %}">Contacts</a></li>
-             <li><a href="{% url 'pybursa.views.student_list' %}">Students</a></li>
+            <li class="active"><a href="{% url 'index' %}">Main</a></li>            
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+             <li><a href="{% url 'students:list_view' %}">Students</a></li>
             
           </ul>
         </div><!--/.nav-collapse -->
@@ -61,14 +61,15 @@
     
     <div>
       
-      <h1 class="head">Курсы Python от PyBursa</h1>
-      <h2 class="head">Description</h2>
+      <!--h1 class="head">Курсы Python от PyBursa</h1-->
+      <!--h2 class="head">Description</h2-->
 
 	</div>
     <div class="container theme-showcase" role="main">
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
+      <h1 class="head">Курсы от ITBursa</h1>
             <p>Наибольшей проблемой всех учебников и статей, по которым начинают
 изучать Python - это отсутствие практики с освоенным материалом.
 Можно читать тонны ресурсов по веб-программированию на Python - и
@@ -79,15 +80,27 @@
 трудно собрать общую картину.</p>
       </div>
 
-
+<div class="page-header">
+    <h3>Наши курсы</h3>
+</div>
       
 
-      <div class="page-header">
-        <h3>Program</h3>
-      </div>
-      <div class="well">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
-      </div>
+ <table class="table" >
+    <thead>
+        <tr class="success">
+            <th>Курс</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for id_cour, content_cour in course.items %}
+        <tr class="info">
+            <td><a href="{% url 'courses:detail' id_cour %}">{{content_cour.0}}</a></td>
+            <td>{{content_cour.1}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
       <br />
       <br />
