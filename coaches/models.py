@@ -11,7 +11,7 @@ class Coach(models.Model):
     description = models.TextField()
 
     def __unicode__(self):
-        return self.user.first_name
+        return self.user.username
 
     def first_name_field(self):
         return self.user.first_name
