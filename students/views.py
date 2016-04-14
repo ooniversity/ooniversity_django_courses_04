@@ -7,7 +7,6 @@ from django.utils.datastructures import MultiValueDictKeyError
 
 def detail(request, id):
     student = Student.objects.get(id=id)
-
     return render(request, 'students/detail.html',
              {"student":student})
 
