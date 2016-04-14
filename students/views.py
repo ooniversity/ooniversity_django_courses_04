@@ -8,7 +8,6 @@ def list_view(request):
         stud_at_course = Student.objects.filter(courses__id=a)
     except MultiValueDictKeyError:
         stud_at_course = Student.objects.all()
-
     return render(request, 'students/list.html', {'stud': stud_at_course})
 
 
