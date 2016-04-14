@@ -35,10 +35,10 @@
           <th>Courses</th>
         </tr>
         </thead>
-        {% for item in students %}
         <tbody>
+        {% for item in students %}
         <tr>
-          <td>{{ item.id }}</td>
+          <td>{{ forloop.counter }}</td>
           <td><a href="{% url 'students:detail' item.id %}">{{ item }}</a></td>
           <td>{{ item.address }}</td>
           <td>{{ item.skype }}</td>
@@ -48,8 +48,9 @@
             {% endfor %}
           </td>
         </tr>
-        </tbody>
         {% endfor %}
+        </tbody>
+
         
     </table>
     
