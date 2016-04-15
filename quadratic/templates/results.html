@@ -22,14 +22,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
          <ul class="nav navbar-nav menu_large_font_my">
             <!--<li class="active "> <a  href="/" >Main</a> <span class="sr-only">(current)</span></li> -->
-            <li> <a  href="{% url 'index' %}" >Main</a> <span class="sr-only">(current)</span></li>
-            <li class="divider-vertical">|</li>
-            <li> <a href="{% url 'contact' %}"  >Contacts</a> <span class="sr-only">(current)</span></li>
-            <li class="divider-vertical">|</li>
-            <li> <a href="{% url 'students:list_by_course' %}">Students</a> <span class="sr-only">(current)</span></li>
-            <li class="divider-vertical">|</li>
-            <li class="active"> <a href="{% url 'results' %}">Quad results</a> <span class="sr-only">(current)</span></li>
-            <li class="divider-vertical">|</li>
+            <li> <a  href="{% url 'index' %}" >Main</a></li>
+            <li> <a href="{% url 'contact' %}">Contacts</a></li>
+            <li> <a href="{% url 'students:list_by_course' %}">Students</a></li>
+            <li class="active"> <a href="{% url 'results' %}">Quad results</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
 
