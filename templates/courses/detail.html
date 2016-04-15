@@ -23,7 +23,7 @@
           <ul class="nav navbar-nav">
             <li><a href="{% url 'index' %}">Главная</a></li>
             <li><a href="{% url 'contact' %}">Контакты</a></li>
-            <li><a href=" {% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a></li>
+            <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -46,7 +46,7 @@
         {% for l in lessons %}
           <tr>
             <td>{{ l.order }}</td>
-            <td style="width:17%">{{ l.subject }}</td><!-- убрать класс ссылки потом -->
+            <td style="width:17%">{{ l.subject }}</td>
             <td style="width:50%">{{ l.description }}</td>
           </tr>
         {% endfor %}
