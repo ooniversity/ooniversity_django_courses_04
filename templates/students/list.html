@@ -57,7 +57,7 @@
       <td>{{a.address}}</td>
       <td>{{a.skype}}</td> 
      {% for s in a.courses.all %}
-      <td><a href = "{% url 'courses:detail' s.id %}">{{s.name}}</a></td>
+      <td><a href = "{% url 'courses:detail' s.id %}">{{s.name}}<br/></a></td>
      {% endfor %}
     {% endfor %}
     </tr>
