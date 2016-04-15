@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from courses.models import Course
 
@@ -13,3 +14,6 @@ class Student(models.Model):
 
 	def __unicode__(self):
 		return self.surname +' ' + self.name
+
+	def Full_name(self):
+		return " ".join([self.name, self.surname])
