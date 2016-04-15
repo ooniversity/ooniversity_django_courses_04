@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-from django.shortcuts import get_object_or_404, render
-from courses.models import Course,Lesson
+from django.shortcuts import render
+from courses.models import Course, Lesson
 
 
-def detail(request, course_id):
-    course = Course.objects.get(id=course_id)
-    lesson = Lesson.objects.filter(course_id = course_id)
-    return render(request, 'courses/detail.html',{'course':course, 'lesson':lesson})
+def course_detail_view(request, id_course):
+    lesson = Lesson.objects.filter(course_id=id_course)
+    course = Course.objects.get(id=id_course)
+    return render(request, 'courses/detail.html', {'course': course, 'lesson': lesson})
