@@ -46,17 +46,19 @@
 </div>
 <!-- <div class="panel-body"> -->
 <!--   <div class="table-responsive"> -->
-     <table class="table table-striped">
-        <tr>
-            <th>Курс</th>
-            <th>Описание</th>
-        </tr>
+    <table class="table table-striped">
+        <thead>
+           <tr>
+              <th>Курс</th>
+              <th>Описание</th>
+           </tr>
         </thead>
         {% for course in courses %}
-        <tr>
-            <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
-            <td>{{ course.short_description|title }}</td>
-        </tr>
+        <tbody>
+           <tr>
+               <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
+               <td>{{ course.short_description|title }}</td>
+           </tr>
         {% endfor %}
         </tbody>
     </table>
