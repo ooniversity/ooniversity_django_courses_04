@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="Description" content="Py">
-    <title>Core Page</title>
+    <title>Все курсы</title>
 
     <!-- Bootstrap -->
     {% load staticfiles %}
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
   
  
   </head>
@@ -19,59 +20,49 @@
  
     <nav class="navbar navbar-default">
       <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+          <!--
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          </button>  
+         <a class="navbar-brand" href="index.html">Main</a>
+        </div>
+        -->
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
          <ul class="nav navbar-nav menu_large_font_my">
-            <!--<li class="active "> <a  href="/" >Main</a> <span class="sr-only">(current)</span></li> -->
-            <li class="active "><a  href="{% url 'index' %}">Main</a> <span class="sr-only">(current)</span></li>
+            <!--<li class="active "> <a  href="/">Главная</a> <span class="sr-only">(current)</span></li> -->
+            <li class="active "> <a  href="{% url 'index' %}" >Main</a> <span class="sr-only">(current)</span></li>
             <li class="divider-vertical">|</li>
-            <li> <a href="{% url 'contact' %}">Contacts</a> <span class="sr-only">(current)</span></li>
+            <li> <a href="{% url 'contact' %}"  ></a> <span class="sr-only">(current)</span></li>
             <li class="divider-vertical">|</li>
-            <li> <a href="{% url 'students:list_by_course' %}">Students</a> <span class="sr-only">(current)</span></li>
+            <li> <a href="{% url 'student_list' %}">Студенты</a> <span class="sr-only">(current)</span></li>
             <li class="divider-vertical">|</li>
-            <li> <a href="{% url 'results' %}">Quad results</a> <span class="sr-only">(current)</span></li>
-            <li class="divider-vertical">|</li>
+
           </ul>
         </div><!-- /.navbar-collapse -->
 
         </div><!-- /.container-fluid -->
      </nav>
 
-
 	<div class="container">
      <div class="jumbotron">
        <h1>PyBursa course</h1>
-       <h2>ООО "Рога и копыта"</h2>
-       <p>Курсы ItBursa начали работу в 2014 году. Мы специализируемся на «модных» языках программирования. Принципиальное наше отличие от других курсов – максимум практики и жесткая система обязательных домашних заданий. Преподаватели – опытные практикующие разработчики, они помогают участникам в ходе курсов создать реальные проекты и получить практические навыки, применимые к работе.
-       </p>
-       <p>Test your might!</p>
+       <h2>Hello, Bursapeople!</h2>
+       <h2>Description<h2>
+       <p>Welcome!</p>
       </div>
     </div>  
 
-
-
-  <div class="container">
-      <h2>Courses in da block:</h2>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Курсы</th>
-            <th>Описание</th>
-          </tr>
-        </thead>
-        <tbody>
-         
-         {% for course in courses %}
-        <tr>
-        <td><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a></td>
-        <td>{{course.short_description}}</td>
-      </tr> 
-      {% endfor %}
-        </tbody>
-      </table>
-    </div>
-
+	<div class="container">
+	  <div class="jumbotron">
+	    <h2>Program</h2>
+	    <p> Курс посвящен основам Python/Django</p>    
+	  </div>
+	</div>
 
 	<div class="container">
 	  <div class="row ">

@@ -38,7 +38,7 @@
             <li class="divider-vertical">|</li>
             <li class="active "> <a href="{% url 'contact' %}"  >Contacts</a> <span class="sr-only">(current)</span></li>
             <li class="divider-vertical">|</li>
-            <li> <a href="{% url 'student_list' %}">Students</a> <span class="sr-only">(current)</span></li>
+            <li> <a href="{% url 'students:list_by_course' %}">Students</a> <span class="sr-only">(current)</span></li>
             <li class="divider-vertical">|</li>
             <li> <a href="{% url 'results' %}">Quad results</a> <span class="sr-only">(current)</span></li>
             <li class="divider-vertical">|</li>
@@ -67,7 +67,7 @@
  
       <div class="col-md-4">
         <div class="jumbotron">
-          <h2 class="founder">Founder  </h2>
+          <h2 class="founder">Founder</h2>
             <adress>
               <h3 class ="name">Name: Racoon bo$$ </h3>
                 <ul>
