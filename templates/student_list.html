@@ -56,7 +56,6 @@
 
   <div class="container">
     <h2>Striped Rows</h2>
-    <p>The .table-striped class adds zebra-stripes to a table:</p>            
     <table class="table table-striped">
       <thead>
         <tr>
@@ -68,15 +67,6 @@
         </tr>
       </thead>
       <tbody>
-      <!--Old style calling static link by cliking with js
-         <tr onclick="getElementById('launch_first_profile').click()" style="cursor: pointer">
-          <td>1<a href="% url 'student_detail' %" id="launch_first_profile"></a></td>
-
-<tr>
-          <td><a href="{% url 'student_detail' %}">1</a></td>             
-
-      -->
-
          <tr onclick="getElementById('launch_first_profile').click()" style="cursor: pointer">
           <td>1<a href="{% url 'student_detail' %}" id="launch_first_profile"></a></td>
           <td>Kachur</td>

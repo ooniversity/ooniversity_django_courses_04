@@ -32,7 +32,7 @@ def quadratic_results(request):
             b = int(b)
         except ValueError:
             error_b = u"коэффициент не целое число"
-
+                      
     c=request.GET.get(u'c',  '')
     if c=='':
         error_c=u"коэффициент не определен"
@@ -41,9 +41,10 @@ def quadratic_results(request):
             c = int(c)
         except ValueError:
             error_c = u"коэффициент не целое число"
+
     #debug print
-    print 'a: ', a, 'b: ', b, 'c: ', c
-    print 'a: ', error_a, 'b: ', error_b, 'c: ', error_c
+    #print 'a: ', a, 'b: ', b, 'c: ', c
+    #print 'a: ', error_a, 'b: ', error_b, 'c: ', error_c
 
     #------logic--------------------
     if a == 0:
@@ -52,7 +53,7 @@ def quadratic_results(request):
     if error_a+error_b+error_c=='' :
         disc['message'] = "Дискриминант: "
         disc['value'] = b**2 - 4*a*c
-        print 'disc', disc['value']
+        #print 'disc', disc['value']
 
         if disc['value'] < 0:
             text_result['message'] = u"Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."

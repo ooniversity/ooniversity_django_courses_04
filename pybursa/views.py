@@ -1,10 +1,8 @@
-from django.shortcuts import  render
+from django.shortcuts import  render, get_object_or_404
+from django.core.urlresolvers import reverse
+from django.views import generic
+from courses.models import Course
 
-
-
-def index(request):
-    print 'Start index view!'
-    return render(request, 'index.html')
 
 def contact(request):
     print 'Start contact view!'
@@ -17,3 +15,7 @@ def student_list(request):
 def student_detail(request):
     print 'Start student_detail view!'
     return render(request, 'student_detail.html')
+
+def courses_info(request):
+    courses = Course.objects.all()
+    return render(request, 'index.html', {'courses': courses})
