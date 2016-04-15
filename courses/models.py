@@ -3,7 +3,7 @@ from django.db import models
 
 class Course(models.Model):
     name = models.CharField(max_length=255)
-    short_descrition = models.CharField(max_length=255, null=True, blank=True)
+    short_description = models.CharField(max_length=255, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
 
     def __unicode__(self):
