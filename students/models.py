@@ -15,6 +15,12 @@ class Student(models.Model):
     def __unicode__(self):
         return self.surname
 
+    def my_property(self):
+        return u'{} {}'.format(self.name, self.surname)
+
+    my_property.short_description = 'Full name'
+    full_name = property(my_property)
+
 
 
 
