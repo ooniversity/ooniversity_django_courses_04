@@ -42,7 +42,7 @@
 </nav>
 <h1>Список студентов</h1>
 
-  <table class="table">
+  <table class="table table-stripe">
     <tr>
       <th>#</th>
       <th>фамилия имя</th>
@@ -50,8 +50,8 @@
       <th>skype</th>
       <th>курсы</th>
     </tr>
-    {% for a in deskr %}
     <tr>
+     {% for a in deskr %}
       <td>{{a.id}}</td>
       <td><a href = "{% url 'students:detail' a.id %}">{{a.surname}} {{a.name}}</a></td>
       <td>{{a.address}}</td>
