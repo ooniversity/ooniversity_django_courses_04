@@ -36,14 +36,14 @@
       <ul class="nav navbar-nav">
         <li><a href="{% url 'index' %}">Main</a></li>
         <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li><a href="{% url 'students:list_view' %}">Students</a></li>
+        <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 <h1>Список студентов</h1>
 
-  <table class="table table-stripe">
+  <table class="table">
     <tr>
       <th>#</th>
       <th>фамилия имя</th>
@@ -62,8 +62,6 @@
      {% endfor %}</td>
     </tr>
     {% endfor %}
-	
-
   </table>
 
 </div>

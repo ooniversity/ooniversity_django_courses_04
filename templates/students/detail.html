@@ -5,15 +5,15 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="PyBursa">
 	<title>PyBursa</title>
 	<!-- Bootstrap -->
 
 	<link href="{% static '/static/css/bootstrap.css' %}" rel="stylesheet">
-	<link href="{% static '/static/css/style.css' %}" rel="stylesheet"></head>
+	<link href="{% static '/static/css/style.css' %}" rel="stylesheet">
+</head>
 <body>
-	<div class="container">
 
+	<div class="container">
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -46,10 +46,8 @@
 			<!-- /.container-fluid -->
 		</nav>
 
+		<h1 class="cl_h1">{{det.name}} {{det.surname}}</h1>
 		<table class="table">
-			<h1 class="cl_h1">{{det.name}} {{det.surname}}</h1>
-			<br>
-
 			<tr>
 				<td>дата рождения</td>
 				<td>{{det.date_of_birth}}</td>
@@ -72,7 +70,7 @@
 			</tr>
 			<tr>
 				<td>курсы</td>
-				<td> {% for a in det.courses.all%}
+				<td> {% for a in det.courses.all %}
 					<a href="{% url 'courses:detail' a.id %}">{{a.name}}<br></a>
 					{%endfor%}
 				</td>
