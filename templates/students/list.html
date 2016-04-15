@@ -17,7 +17,6 @@
 <body>
 <div class="container">
   
-
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -58,7 +57,7 @@
       <td>{{a.address}}</td>
       <td>{{a.skype}}</td> 
       <td>{% for s in a.courses.all %}
-      <a href="{% url 'courses:detail' s.id %}">{{s.name}}<br/></a>
+      <a href="{% url 'courses:detail' s.id %}">{{s}}<br/></a>
      {% endfor %}</td>
     </tr>
     {% endfor %}
