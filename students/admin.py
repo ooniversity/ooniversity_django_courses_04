@@ -1,5 +1,32 @@
 from django.contrib import admin
 from students.models import Student
 
-# Register your models here.
-admin.site.register(Student)
+
+class StudentAdmin(admin.ModelAdmin):
+    #ListView:
+    list_display = ['full_name', 'email', 'skype']
+    search_fields = ['surname', 'email']
+    list_filter = ['courses']
+
+    def full_name(self, obj):
+        return ("%s %s" % (obj.name, obj.surname))
+
+    full_name.short_description = 'Full Name'
+
+    #ItemView:
+    fieldsets = [
+            ('Personal info', 
+                {'fields': ['name', 'surname', 'date_of_birth']}
+            ),
+            ('Contact info',
+                {'fields': ['email', 'phone', 'address', 'skype']}
+            ),
+            (None,
+                {'fields': ['courses']}
+            ),
+        ]
+    filter_horizontal = ['courses']
+
+
+
+admin.site.register(Student, StudentAdmin)
