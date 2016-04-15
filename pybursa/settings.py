@@ -1,5 +1,5 @@
 """
-Django settings for pybursa project.
+Django settings for hello project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -12,14 +12,14 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'gq-u&nduooybtfsg_3ye*@8+!gt_*pbzz-+pp516ft0m25%qoa'
+
+SECRET_KEY = 'p0yqa%-slv1e#@dab(-)622@1fd4=by25hn+pp(fi-(6shs6o2'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,11 +38,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'polls',
+    # 'polls',
     'quadratic',
     'courses',
     'students',
     'coaches',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -75,7 +76,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
@@ -88,5 +89,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/bootstrap'), )
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
