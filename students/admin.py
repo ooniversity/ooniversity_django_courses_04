@@ -8,25 +8,17 @@ class StudentAdmin(admin.ModelAdmin):
     search_fields = ['surname', 'email']
     list_filter = ['courses']
 
-    def full_name(self, obj):
-        return ("%s %s" % (obj.name, obj.surname))
-
-    full_name.short_description = 'Full Name'
-
     #ItemView:
     fieldsets = [
-            ('Personal info', 
-                {'fields': ['name', 'surname', 'date_of_birth']}
-            ),
-            ('Contact info',
-                {'fields': ['email', 'phone', 'address', 'skype']}
-            ),
-            (None,
-                {'fields': ['courses']}
-            ),
+            ('Personal info', {'fields': ['name', 'surname', 'date_of_birth']}),
+            ('Contact info', {'fields': ['email', 'phone', 'address', 'skype']}),
+            (None, {'fields': ['courses']}),
         ]
     filter_horizontal = ['courses']
 
+
+    def full_name(self, Student):
+        return ("%s %s" % (Student.name, Student.surname))
 
 
 admin.site.register(Student, StudentAdmin)
