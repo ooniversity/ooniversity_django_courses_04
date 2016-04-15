@@ -16,13 +16,11 @@ def list_view(request):
         students = Student.objects.all().order_by('id')
     context = []
     for student in students:
-        context.append({'student': student,
-            'student_courses': Course.objects.filter(student=student)})
+        context.append({'student': student})
     return render(request, 'students/list.html',
             {'context': context, 'course':course})
 
 
 def detail(request, student_id):
     student = get_object_or_404(Student, pk=student_id)
-    return render(request, 'students/detail.html', {'student': student,
-                  'student_courses': Course.objects.filter(student=student)})
+    return render(request, 'students/detail.html', {'student': student})
