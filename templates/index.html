@@ -36,11 +36,24 @@
 Глубина освоения django будет достаточной для самостоятельного написания web-проектов, которые содержат редактируемые страницы, структуру специфических данных, отображение их на фронтенде и создание-редактирование этих данных.</em></h3>
       <h2 class="Description_title">Выбери желаемое направление для изученя</h2>
 
+
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th style="width:20%"><span class="text-muted">Курс</span></th>
+            <th style="width:20%"><span class="text-muted">Описание</span></th>
+          </tr>
+        </thead>
+        <tbody>
+
         {% for course in courses %}
-          <ul id="ul_program_items" class="well well-sm">
-            <li><h4><a href={% url 'courses:detail' course.id %}>{{ course.name }}</a></h4></li>
-          </ul>
+          <tr>
+            <td style="width:17%"><a href={% url 'courses:detail' course.id %}>{{ course.name }}</a></td>
+            <td style="width:50%">{{ course.short_description }}</td>
+          </tr>
         {% endfor %}
+        </tbody>
+      </table>
 
     </div><!-- /.container -->
     <div class="index_border_line">
