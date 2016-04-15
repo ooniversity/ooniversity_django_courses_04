@@ -60,7 +60,7 @@
               <a href="{% url 'contact' %}">Contacts</a>
             </li>
             <li>
-              <a href="{% url 'students:list' %}">Students</a>
+              <a href="{% url 'students:list' %}?course_id={{ course.id }}">Students</a>
             </li>
           </ul>
         </div>
@@ -69,29 +69,31 @@
 
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <h1>PyBursa</h1>
+      <h1>{{ course.name }}</h1>
       <h2>Description</h2>
       <p>
-        Programming course at the cool languages for those who really want to start creating!
+        {{ course.description }}
       </p>
     </div>
 
     <div class="my_jumbotron my_transparensy07" title="The material that will be taught on the course">
-      <h2>Courses list</h2>
+      <h2>Program</h2>
     </div>
 
-    <table class="my_table">
+   <table class="my_table">
     <thead>
       <tr>
-        <th class="my_fistcolsize my_transparensy07">Course</th>
+        <th class="my_fistcolsize my_transparensy07">#</th>
+        <th class="my_secondcolsize my_transparensy07">Lesson</th>
         <th class="my_secondcolsize my_transparensy07">Description</th>
       </tr>
     </thead>
     <tbody>
-      {% for course in courses %}
+      {% for lesson in lesson %}
       <tr>
-      <td><a href="{% url "courses:detail" course.id %}">{{ course.name }}</a></td>
-        <td>{{ course.short_descrition}}</td>
+        <td>{{ lesson.order }}</td>
+        <td>{{ lesson.subject }}</td>
+        <td>{{ lesson.description }}</td>
       </tr>
       {% endfor %}
     </tbody>
