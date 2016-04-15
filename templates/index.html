@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>PyBursa course</title>
+    <title>Welcome!</title>
     <meta charset="UTF-8" />
     <!-- Bootstrap -->
     {% load staticfiles %}
@@ -11,49 +11,41 @@
   </head>
 
 
-  <body class="body">
+  <body>
     <nav class="navbar navbar-default">
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="container">
           <ul class="nav navbar-nav">
             <li class="active"><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>  
-            <li><a href="{% url 'student_list' %}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
           </ul>          
         </div>
     </nav>
-       
-    <table class="tab" align="center">
-      <tr><td><img class="logo" src="{% static 'images/logo.png' %}" alt="Python" /></td></tr>
-    </table>  
+
+    <div class="jumbotron">
+      <h2 align="center"><b>Norway university</b></h2>
+      <p>"Norway university" is a dummy name of organization that allows people from Ukraine to learn Python programming with Django from Norway.</p>
+    </div>
+
+    <h3>Select the course of your dream</h3>
     
-    <h1 class="header">Information about PyBursa</h1>
-    <h2 class="header">Description</h2>
-    <div> 
-      <p>First page made by Bohdan Volynskyi <a href="mailto:">bohdan.volynskyi@gmail.com</a></p>
-    </div>
-    
- 
-    <div>
-      <p class="jumbotron">PyBursa is one courses provided by ItBursa (<a href="http://itbursa.com">itbursa.com</a>) and located in Kharkiv. PyBursa course is about teaching people how to use Python programming languare and Django Web framework.</p>
-      <p class="new">The course lasts for 2 months and gives a lot of practical knowledge in Python and Django. After user finishes this course he would be able to take a role of Junior Python Web developer.</p>
-    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Course</th>     
+        <th>Description</th>
+      </tr>
+      </thead>
+      {% for item in courses_list %}
+      <tr>
+        <td><a href="{% url 'courses:detail' item.id %}">{{ item.name }}</a></td>
+        <td>{{ item.short_description }}</td>
+      </tr>
+      {% endfor %}
+      
+    </table>
 
-    <h3 class="center_blue">Program</h3>
-    <div>
-      <p class="inside">The course contains of offline/online lessons, video lectures and practical tasks. Each of task has its own deadline.</p>
-      <p class="back">For more information about course program and the nearest course start you can find at <a href="http://itbursa.com">itbursa.com</a></p>
-    </div>
-
-    <hr />
-
-    <div class="alert alert-success" role="alert">Please go to <strong>Contacts page</strong></div>
-
-    <nav>
-      <ul class="pager">
-        <li><a href="{% url 'contact' %}">Next</a></li>
-      </ul>
-    </nav>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

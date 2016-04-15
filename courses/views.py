@@ -1,10 +1,5 @@
 from django.shortcuts import render
-from models import Course, Lesson
-
-def index(request):
-    
-    courses = Course.objects.all()
-    return render(request, 'courses/index.html', {'courses': courses})
+from courses.models import Course, Lesson
 
 
 def detail(request, course_id):
