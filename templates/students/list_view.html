@@ -18,36 +18,39 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">        
-        <li class="active"><a href="{% url 'index' %}">Главная<span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'index' %}">Главная</a></li>
         <li><a href="{% url 'contact' %}">Контакты</a></li>
-        <li><a href="{% url 'students:detail' %}">Студенты</a></li>        
+        <li class="active"><a href="{% url 'students:list_view' %}">Студенты<span class="sr-only">(current)</span></a></li>        
       </ul>            
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
-  </nav>
-    <div class="container">
-      <h1>PyBursa</h1>
-      <p>Мы специализируемся на "модных" языках программирования. Принципиальное наше отличие от</p>   
-      <p>других курсов - максимум практики и жесткая система обязательных домашних заданий.</p>
-    </div>
+  </nav>    
 	<div class="container" id="id2">
-	<h3>Выбирай на каком курсе ты хочешь учиться!</h3>
+	<h3>Список студентов</h3>
 	  <table class="table">
 		<thead id="id2">
 		  <tr>
-		   <td>Курс</td>
-		   <td>описание</td>
+		   <td><b>#</b></td>
+		   <td><b>фамилия имя<b></td>
+		   <td><b>адрес<b></td>
+		   <td><b>skype<b></td>
+		   <td><b>курсы<b></td>
 		  </tr>
 		</thead>
-		<tbody>
-		<!--{% block content %}-->
-		{% for i in courses %}
+		<tbody>		
+		{% for i in students %}		
 		  <tr>
-		    <td><a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a></td>
-		    <td>{{ i.short_description }}</td>
+			<td>{{ i.id }}</td>
+		    <td><a href="{% url 'students:detail' i.id %}">{{ i }}</a></td>
+		    <td>{{ i.address }}</td>
+			<td>{{ i.skype }}</td>
+			<td>			
+			  {% for course in i.courses.all %}
+			  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
+			  {% endfor %}
+			</td>
 		  </tr>
-		{% endfor %}
-	   <!--{% endblock %}-->
+		{% endfor %}			  
 	   </tbody>	
 	  </table>
 	</div>
