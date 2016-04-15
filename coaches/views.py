@@ -6,5 +6,8 @@ from courses.models import Course
 
 
 def detail(request, coach_id):
-    coach = get_object_or_404(Coach, pk=coach_id)
-    return render(request, 'coaches/detail.html', {'coach': coach})
+    user = get_object_or_404(Coach, pk=coach_id)
+    coach_courses = Course.objects.filter(coach=user).order_by('id')
+    assistan_courses = Course.objects.filter(assistant=user).order_by('id')
+    return render(request, 'coaches/detail.html', {'coach': user,
+                  'coach_courses': coach_courses, 'assistant_courses': assistan_courses})
