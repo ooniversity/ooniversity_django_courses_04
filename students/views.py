@@ -2,8 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from students.models import Student
 
 def stud_list_by_course_id(request):
-       
-    if request.GET.get('course_id'):
+    if request.GET:
         student = Student.objects.filter(courses__id=int(request.GET['course_id']))
     else:
         student = Student.objects.all()
