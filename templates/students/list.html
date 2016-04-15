@@ -33,14 +33,11 @@
             <li class="divider-vertical">|</li>
           </ul>
         </div><!-- /.navbar-collapse -->
-
         </div><!-- /.container-fluid -->
      </nav>
 
-<div class="container">
-    <h2>Студенты курса </h2>
-    <table class="table table-striped">
-      <thead>
+
+<table>
         <tr>
          <th>#</th>
          <th>фамилия имя</th>
@@ -48,8 +45,7 @@
          <th>skype</th>
          <th>курсы</th>
         </tr>
-      </thead>
-      <tbody>
+
         {% for i in students %}
         <tr>
           <td>{{ i.id }}</td>
@@ -57,13 +53,15 @@
           <td>{{ i.address }}</td>
           <td>{{ i.skype }}</td>
           <td> {% for course in i.courses.all %}
-          <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
-               {% endfor %}</td>
+          <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+          {% endfor %}</td>
         </tr> 
         {% endfor %}
-      </tbody>
-    </table>
-  </div>
+
+</table>
+
+
+
 
 
 	<div class="container">
