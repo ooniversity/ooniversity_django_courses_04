@@ -28,38 +28,39 @@
         </nav>
     </div>
 {% block content %}
-   <!-- Main component  -->
-      <div>
-        <div class="panel-heading">
-        <div class="container">
-	<h1>{{ course.name }}</h1>	
-        </div>
-        </div>
-          <div>
-            <p>{{ course.description }}</p>
-          </div>
-        </div>
-        </div>
-   
+
 
   <!-- Default panel contents -->
-   	<h2>План курса</h2>
+<div class="container">
+   	<h2>{{student.surname}} {{ student.name }}</h2>
+<div>
       <div class="table-responsive">
       <table class="table table-striped">
         <tr>
-        	<th>#</th>
-        	<th>Фамилия имя</th>
-        	<th>адрес</th>
-        	<th>Skype</th>
-        	<th>курсы</th>
+        	<th>дата рождения</th>
+        	<th>{{student.date_of_birth}}</th>
         </tr>
-      	{% for i in lesson %}
         <tr>
-            <td>{{ i.order }}</td>
-			<td>{{ i.subject }}</td>
-			<td>{{ i.description }}</td>
-		</tr>	
-		{% endfor %}
+            <th>адрес</th>
+            <th>{{student.address}}</th>
+        </tr>
+
+        <tr>
+            <th>почта</th>
+            <th>{{student.email}}</th>
+        </tr>
+            <th>логин skype</th>
+            <th>{{student.skype}}</th>
+        </tr>
+            <th>телефон</th>
+            <th>{{student.phone}}</th>
+        </tr>
+            <th>Курсы</th>
+             <td> {% for course in student.courses.all %}
+                  <a href={% url 'courses:detail' course.id %}>{{ course.name }}<br></a>
+            {% endfor %}</td>
+        </tr>        
+		
       </table>   
     </div>
 
