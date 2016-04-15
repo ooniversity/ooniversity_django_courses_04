@@ -35,7 +35,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="{% url 'index' %}">Main</a></li>
         <li> <a href="{% url 'contact' %}">Contacts</a></li>
-        <li><a href="{% url 'student_list' %}">Students</a></li>
+        <li><a href="{% url 'students:list_view' %}">Students</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -65,6 +65,7 @@
       <li>Язык шаблонов</li>
     </ol>
     </div>
+
     <h3 class="cl_h3">Надоело собирать знания по крупицам?</h3>
     <p class="p_text">Наибольшей проблемой всех учебников и статей, по которым начинают
 изучать Python - это отсутствие практики с освоенным материалом.
@@ -74,6 +75,24 @@
 Многие начинающие сдаются на полпути, так как устают, им надоедает 
 бесконечное блуждание по сети в поисках крупиц информации, из которых
 трудно собрать общую картину.</p>
+
+
+
+  <table class="table">
+    <tr>
+      <th>Курс</th>
+      <th>Описание</th>
+    </tr>
+    {% for a in cours%}
+    <tr>
+      <td><a href={% url 'courses:detail' a.id %}>{{a.name}}</a></td>
+      <td>{{a.short_description}}</td>
+    {% endfor%}
+
+  </table>
+
+
+
 
     <h3 class="cl_h3">Потяну ли я?</h3>
     <p class="p_text">Волшебной таблетки не будет. Придётся учиться. Научить невозможно,
