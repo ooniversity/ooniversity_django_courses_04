@@ -35,7 +35,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="{% url 'index' %}">Main</a></li>
         <li> <a href="{% url 'contact' %}">Contacts</a></li>
-        <li><a href="{% url 'student_list' %}">Students</a></li>
+        <li><a href="{% url 'students:list_view' %}">Students</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -83,18 +83,11 @@
       <th>Курс</th>
       <th>Описание</th>
     </tr>
+    {% for a in cours%}
     <tr>
-      <td><a href={% url 'courses:detail' 1 %}>{{cours_PyBursa}}</a></td>
-      <td>{{short_description_PyBursa}}</td>
-    </tr>
-     <tr>
-      <td><a href={% url 'courses:detail' 2 %}>{{cours_DjBursa}}</a></td>
-      <td>{{short_description_DjBursa}}</td>
-    </tr>
-     <tr>
-      <td><a href={% url 'courses:detail' 3 %}>{{cours_JsBursa}}</a></td>
-      <td>{{short_description_JsBursa}}</td>
-    </tr>
+      <td><a href={% url 'courses:detail' a.id %}>{{a.name}}</a></td>
+      <td>{{a.short_description}}</td>
+    {% endfor%}
 
   </table>
 

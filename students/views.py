@@ -3,7 +3,12 @@ from models import Student
 
 
 def list_view(request):
-	deskr = Student.objects.all()
-	mtm = Student.objects.filter(student__courses)
+	if request.GET:
+		deskr = Student.objects.filter(courses__id=int(request.GET['course_id']))
+	else:
+		deskr = Student.objects.all()
+		
+	return render(request, 'students/list.html', {'deskr':deskr})
 
-	return render(request, 'students/list.html', {'deskr':deskr, 'mtm':mtm})
+def detail(request):
+	return render(request, 'students/detail')

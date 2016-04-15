@@ -53,11 +53,13 @@
     {% for a in deskr %}
     <tr>
       <td>{{a.id}}</td>
-      <td>{{a.surname}} {{a.name}}</td>
+      <td><a href = "{% url 'students:detail' a.id %}">{{a.surname}} {{a.name}}</a></td>
       <td>{{a.address}}</td>
       <td>{{a.skype}}</td> 
-      {%endfor%}
-      <td>{{mtm}}</td>
+     {% for s in a.courses.all %}
+      <td><a href = "{% url 'courses:detail' s.id %}">{{s.name}}</a></td>
+     {% endfor %}
+    {% endfor %}
     </tr>
 	
 
