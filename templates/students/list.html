@@ -36,8 +36,10 @@
         </div><!-- /.container-fluid -->
      </nav>
 
-
-<table>
+<div class="container">
+    <h2>Список студентов</h2>
+    <table class="table table-striped">
+      <thead>
         <tr>
          <th>#</th>
          <th>фамилия имя</th>
@@ -45,38 +47,36 @@
          <th>skype</th>
          <th>курсы</th>
         </tr>
-
-        {% for i in students %}
+      </thead>
+      <tbody>
+        {% for stud in students %}
         <tr>
-          <td>{{ i.id }}</td>
-          <td><a href="{% url 'students:detail_by_id' i.id %}">{{i.surname}} {{ i.name }}</a></td>
-          <td>{{ i.address }}</td>
-          <td>{{ i.skype }}</td>
-          <td> {% for course in i.courses.all %}
-          <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
-          {% endfor %}</td>
+          <td>{{ stud.id }}</td>
+          <td><a href="{% url 'students:detail_by_id' stud.id %}">{{stud.surname}} {{ stud.name }}</a></td>
+          <td>{{ stud.address }}</td>
+          <td>{{ stud.skype }}</td>
+          <td> {% for course in stud.courses.all %}
+          <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
+               {% endfor %}</td>
         </tr> 
         {% endfor %}
+      </tbody>
+    </table>
+  </div>
 
-</table>
-
-
-
-
-
-	<div class="container">
-	  <div class="row ">
-	    <footer class="footer">
-	        <div class="footer_div">
-	          <p>
-	          <img src="{% static 'images/python.png' %}" alt="footer image" class= "img_resized" >
-	          &copy; 2016 
-	          <img src="{% static 'images/slowpk.png' %}" alt="footer image" class= "img_resized"> 
-	          </p>
-	        </div>
-	    </footer>
-	  </div>
-	</div>
+  <div class="container">
+    <div class="row ">
+      <footer class="footer">
+          <div class="footer_div">
+            <p>
+            <img src="{% static 'images/python.png' %}" alt="footer image" class= "img_resized" >
+            &copy; 2016 
+            <img src="{% static 'images/slowpk.png' %}" alt="footer image" class= "img_resized"> 
+            </p>
+          </div>
+      </footer>
+    </div>
+  </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
