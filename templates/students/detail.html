@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
 	<meta name="description" content="PyBursa">
 	<title>PyBursa</title>
 	<!-- Bootstrap -->
-	{% load staticfiles %}
+
 	<link href="{% static '/static/css/bootstrap.css' %}" rel="stylesheet">
 	<link href="{% static '/static/css/style.css' %}" rel="stylesheet"></head>
 <body>
@@ -72,7 +73,7 @@
 			<tr>
 				<td>курсы</td>
 				<td> {% for a in det.courses.all%}
-					<a href={% url 'courses:detail' a.id %}>{{a.name}}<br></a>
+					<a href="{% url 'courses:detail' a.id %}">{{a.name}}<br></a>
 					{%endfor%}
 				</td>
 				

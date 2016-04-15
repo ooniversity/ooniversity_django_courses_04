@@ -4,7 +4,7 @@ from models import Student
 
 def list_view(request):
 	if request.GET:
-		deskr = Student.objects.filter(courses__id=(request.GET['course_id']))
+		deskr = Student.objects.filter(courses__id=int(request.GET['course_id']))
 	else:
 		deskr = Student.objects.all()
 		
