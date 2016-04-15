@@ -1,86 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="PyBursa">
-  <title>PyBursa</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PyBursa"> 
+    <title>PyBursa</title>
 
-  <!-- Bootstrap -->
-  {% load staticfiles %}
-  <link href="{% static '/static/css/bootstrap.css' %}" rel="stylesheet">
-  <link href="{% static '/static/css/style.css' %}" rel="stylesheet"></head>
+    <!-- Bootstrap -->
+    {% load staticfiles %}
+    <link href="{% static '/static/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static '/static/css/style.css' %}" rel="stylesheet">
+
+  </head>
 <body>
-  <div class="container">
+<div class="container">
+  
 
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <div class="navbar-brand">PyBursa</div>
-        </div>
+      <div class="navbar-brand">PyBursa</div>
+    </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="{% url 'index' %}">Main</a>
-            </li>
-            <li>
-              <a href="{% url 'contact' %}">Contacts</a>
-            </li>
-            <li>
-              <a href="{% url 'students:list_view' %}">Students</a>
-            </li>
-          </ul>
-        </div>
-        <!-- /.navbar-collapse --> </div>
-      <!-- /.container-fluid --> </nav>
-    <h1>Список студентов</h1>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'index' %}">Main</a></li>
+        <li><a href="{% url 'contact' %}">Contacts</a></li>
+        <li><a href="{% url 'students:list_view' %}">Students</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<h1>Список студентов</h1>
 
-    <table class="table table-stripe">
-      <tr>
-        <th>#</th>
-        <th>фамилия имя</th>
-        <th>адрес</th>
-        <th>skype</th>
-        <th>курсы</th>
-      </tr>
-      <tr>
-        {% for a in deskr %}
-        <td>{{a.id}}</td>
-        <td>
-          <a href = "{% url 'students:detail' a.id %}">{{a.surname}} {{a.name}}</a>
-        </td>
-        <td>{{a.address}}</td>
-        <td>{{a.skype}}</td>
-        {% for s in a.courses.all %}
-        <td>
-          <a href = "{% url 'courses:detail' s.id %}">
-            {{s.name}}
-            <br/>
-          </a>
-        </td>
-        {% endfor %}
+  <table class="table table-stripe">
+    <tr>
+      <th>#</th>
+      <th>фамилия имя</th>
+      <th>адрес</th>
+      <th>skype</th>
+      <th>курсы</th>
+    </tr>
+    {% for a in deskr %}
+    <tr>
+      <td>{{a.id}}</td>
+      <td><a href = "{% url 'students:detail' a.id %}">{{a.surname}} {{a.name}}</a></td>
+      <td>{{a.address}}</td>
+      <td>{{a.skype}}</td> 
+      <td>{% for s in a.courses.all %}
+      <a href = "{% url 'courses:detail' s.id %}">{{s.name}}<br/></a>
+     {% endfor %}</td>
+    </tr>
     {% endfor %}
-      </tr>
+	
 
-    </table>
+  </table>
 
-  </div>
-<script src="{% static 'js/bootstrap.js' %}"></script>
-<br>
-<br>
+</div>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+<br><br>
 <div class="foot">
-  <p class="footer">© 2016 Nikolzp</p>
+  <p class="footer">© 2016 Nikolzp </p>
 </div>
 </body>
 
 </html>
+
+
+
