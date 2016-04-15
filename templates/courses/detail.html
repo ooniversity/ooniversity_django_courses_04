@@ -35,14 +35,14 @@
       <ul class="nav navbar-nav">
         <li><a href="{% url 'index' %}">Main</a></li>
         <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li><a href="{% url 'students:list_view' %}?course_id={{ a.id }}">Students</a></li>
+        <li><a href="{% url 'students:list_view' %}?course_id={{ cours.id }}">Students</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-  <h1>{{name}}</h1>
-  <p>{{descript}}</p>
+ 
+  <h1>{{cours.name}}</h1>
+  <p>{{cours.description}}</p>
 
   <table class="table">
     <tr>
