@@ -17,3 +17,10 @@ class Coach(models.Model):
     def full_name(self):
         return self.user.get_full_name()
 
+    def surname(self):
+        return self.user.last_name
+    last_name = property(surname)
+
+    def name(self):
+        return self.user.first_name
+    first_name = property(name)
