@@ -5,14 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Stud_l</title>
+    <title>Students</title>
 
     <!-- Bootstrap -->
     {% load staticfiles %}
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
-    
   </head>
   <body>
   <nav class="navbar navbar-default">
@@ -42,56 +40,52 @@
   </nav>
 <div class="container">
   <div class="jumbotron">
-  <h2>Курс PyBursa</h2>
-  <p>Список студентов - выпуск апрель 2015 г.</p>  
-  
+  <h2>Список студентов</h2> 
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <!-- Table -->
   <table class="table">
   <tr class="hat_table">
-    <th>No</th>
-    <th>Surname</th>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Skype</th>
+    <th>#</th>
+    <th>фамилия имя</th>
+    <th>адрес</th>
+    <th>skype</th>
+    <th>курсы</th>
    </tr>
    <tr>
-    <div>
-    <td><a href="{% url 'student_detail' %}">1</a></td>
-    <td>Persianova</td>
-    <td>Elena</td>
-    </div>
-    <td>г.Харьков, ул.Иванова, 36</td>
-    <td>e.pers</td>
+    <td>1</td>
+    <td>Сидорова Ирина</td>
+    <td>ул. Сидорова, 37</td>
+    <td>sidorova</td>
+    <td><a href="{% url 'courses:detail' %}">Python</a></td>
    </tr>
    <tr>
-    <div><td>2</td>
-    <td>Shulga</td>
-    <td>Marina</td></div>
-    <td>г.Харьков, ул.Иванова, 38</td>
-    <td>m.shulg</td>
+    <td>2</td>
+    <td><a href="{% url 'detail' %}">Петров Петр</a></td>
+    <td>ул. Петровского, 34</td>
+    <td>petrov</td>
+    <td><a href="{% url 'courses:detail' %}">Python</a></td>
    </tr>  
    <tr>
-    <div><td>3</td>
-    <td>Polishuk</td>
-    <td>Vladimir</td></div>
-    <td>г.Харьков, ул.Иванова, 32</td>
-    <td>v.poli</td>
+    <td>3</td>
+    <td>Иванов Иван</td>
+    <td>ул. Иванова, 23</td>
+    <td>ivanov</td>
+    <td><a href="{% url 'courses:detail' %}">Python</a></td>
    </tr>
    <tr>
-    <div><td>4</td>
-    <td>Simeiko</td>
-    <td>Ivan</td></div>
-    <td>г.Харьков, ул.Иванова, 26</td>
+    <td>4</td>
+    <td>Симейко Иван</td>
+    <td>ул.Иванова, 26</td>
     <td>i.simei</td>
+    <td>Java</td>
    </tr>
    <tr>
     <div><td>5</td>
-    <td>Kotulska</td>
-    <td>Olga</td></div>
-    <td>г.Харьков, ул.Иванова, 44</td>
+    <td>Котульская Ольга</td>
+    <td>ул.Иванова, 44</td></div>
     <td>o.kot</td>
+    <td>Ruby</td>
    </tr>   
   </table>
 </div>

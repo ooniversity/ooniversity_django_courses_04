@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Descr</title>
+    <title>Descr course</title>
 
     <!-- Bootstrap -->
     {% load staticfiles %}
@@ -29,34 +29,38 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'index' %}">Main<span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'index' %}">Main</a></li>
         <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li><a href="{% url 'student_list' %}">Students</a></li>
+        <li><a href="{% url 'students:list_view' %}">Students</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>  
 <div class="container">
   <div class="jumbotron">
-  <h1>ooniversity</h1>
-  <p>Мы специализируемся на модных языках программирования.</p>
+  <h1>Web development on Python</h1>
+  <p>Данный курс дает базовые знания по языку, его синтаксису и подходам</p>
 </div> 
-    <h2>Выбирай на каком курсе ты хочешь учиться.</h2>
+    <h2>План курса</h2>
     <table class="table">
     <tr class="hat_table">
-    <th>Курс</th>
+    <th>#</th>
+    <th>Тема</th>
     <th>Описание</th>
     </tr>
     <tr>
-    <td><a href="{% url 'courses:detail' %}">Python</a></td>
+    <td>1</td>
+    <td>Основы Python</td>
     <td>краткое описание</td>
     </tr>
     <tr>
-    <td>Java</td>
+    <td>2</td>
+    <td>Строки и итераторы</td>
     <td>краткое описание</td>
     </tr>
     <tr>
-    <td>Ruby</td>
+    <td>3</td>
+    <td>Функции и модульность</td>
     <td>краткое описание</td>
     </tr>
   </div>
