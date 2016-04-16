@@ -45,8 +45,8 @@
           	<li><a href="#">PyBursa</a></li>
             <li><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'student_list' %}">Students</a></li>
-            <li> <a href="{% url 'results' %}">Equation</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
+            
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -63,6 +63,23 @@
 		<p class="lead"> This course is designed to help students with very little or no computing background learn the basics of building simple interactive applications. Our language of choice, Python, is an easy-to learn, high-level computer language that is used in many of the computational courses offered on Coursera. To make learning Python easy, we have developed a new browser-based programming environment that makes developing interactive applications in Python simple. These applications will involve windows whose contents are graphical and respond to buttons, the keyboard and the mouse.</p>
 		
       </div>
+      
+      <table class="table" >
+    <thead>
+        <tr class="success">
+            <th>Курс</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for course_id, course_data in course.items %}
+        <tr class="info">
+            <td><a href="{% url 'courses:detail' course_id %}">{{course_data.0}}</a></td>
+            <td>{{course_data.1}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
     </div><!-- /.container -->
     <footer class="footer">
