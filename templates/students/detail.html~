@@ -61,7 +61,7 @@
             </td>
           </tr>
           <tr>
-            <td>Phone:</td>
+            <td>телефон:</td>
             <td>
               {{student.phone}}
             </td>
