@@ -2,14 +2,10 @@ from django.contrib import admin
 from students.models import Student
 
 
-def get_fullname(student):
-    return "%s %s" % (student.name, student.surname)
-
-
 class StudentAdmin(admin.ModelAdmin):
     search_fields = ['surname', 'email']
     list_filter = ['courses']
-    list_display = [get_fullname, 'email', 'skype']
+    list_display = ['full_name', 'email', 'skype']
     filter_horizontal = ('courses',)
     fieldsets = [
        ('Personal info', {'fields': ('name', 'surname', 'date_of_birth',)}),
@@ -17,5 +13,8 @@ class StudentAdmin(admin.ModelAdmin):
        (None, {'fields': ('courses',)})
     ]
 
+    @staticmethod
+    def full_name(student):
+        return "%s %s" % (student.name, student.surname)
 
 admin.site.register(Student, StudentAdmin)
