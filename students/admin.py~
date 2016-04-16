@@ -1,14 +1,18 @@
 from django.contrib import admin
 from students.models import Student
 
-class ArticleAdmin(admin.ModelAdmin):
-   prepoluted_fields = {'fullname': ('name' , 'surname')}
+#class ArticleAdmin(admin.ModelAdmin):
+   #prepoluted_fields = {'fullname': ('name' , 'surname')}
 
 class StudentAdmin(admin.ModelAdmin):
-    search_fields=['surname', 'email']    
-    list_display = ['fullname', 'email', 'skype']
+    search_fields=['surname', 'email']
+    def full('name', 'surname')
+        full_name='name'+''+'surname'
+        return full_name            
+    list_display = ['name' , 'surname', 'email', 'skype']
     list_filter = ['courses']
-    fieldsets = [('Personal info', {'fields': ['name','surname', 'date_of_birth']}),('Contact info', {'fields': ['email','phone', 'address', 'skype', 'courses' ]})] 
+    fieldsets = [('Personal info', {'fields': ['name','surname', 'date_of_birth']}),('Contact info', {'fields': ['email','phone', 'address', 'skype']}), ( '',{'fields': ['courses']})]
+    filter_horizontal = ['courses'] 
 
 
     
