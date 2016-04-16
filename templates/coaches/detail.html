@@ -32,33 +32,47 @@
 
   <!-- Default panel contents -->
 <div class="container">
-   	<h2>{{student.surname}} {{ student.name }}</h2>
+   	<h2>{{coach.user.first_name}} {{ coach.user.last_name }}</h2>
 <div>
       <div class="table-responsive">
       <table class="table table-striped">
         <tr>
         	<th>дата рождения</th>
-        	<th>{{student.date_of_birth}}</th>
+        	<th>{{coach.date_of_birth}}</th>
         </tr>
         <tr>
             <th>адрес</th>
-            <th>{{student.address}}</th>
+            <th>{{coach.address}}</th>
         </tr>
 
         <tr>
             <th>почта</th>
-            <th>{{student.email}}</th>
+            <th>{{coach.email}}</th>
         </tr>
             <th>логин skype</th>
-            <th>{{student.skype}}</th>
+            <th>{{coach.skype}}</th>
         </tr>
             <th>телефон</th>
-            <th>{{student.phone}}</th>
+            <th>{{coach.phone}}</th>
         </tr>
-            <th>Курсы</th>
-             <td> {% for course in student.courses.all %}
-                  <a href={% url 'courses:detail' course.id %}>{{ course.name }}<br></a>
-            {% endfor %}</td>
+            <th>Курсы учитель</th>
+             <td>{% for course in coach.coach_courses.all %}
+               <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a>
+               студенты курса 
+               <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-info-sign"></span></a>
+               </p>
+               {% endfor %}
+             </td>
+        </tr>        
+        </tr>
+            <th>Курсы ассистент</th>
+             <td>{% for course in coach.assistant_courses.all %}
+               <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a>
+               студенты курса 
+               <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-info-sign"></span></a>
+               </p>
+               {% endfor %}
+             </td>
         </tr>        
 		
       </table>   
