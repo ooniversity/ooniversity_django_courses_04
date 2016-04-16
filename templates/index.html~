@@ -11,77 +11,68 @@
   <script src="../static/js/bootstrap.js"></script>
 </head>
 <body>
-<nav>
-      <a class="navbar-brand" href="index.html">
-        <img alt="Brand" src="../static/images/small_logo.png"  width="40px">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <a class="navbar-brand" href="{% url 'index' %}">
+        <img alt="Brand" src="../static/images/Logo.ico"  width="40px">
       </a>
-  <ul>
-    <li class="menu-item active">
-      <a href="index.html">Main</a>
-    </li>
-    <li class="menu-item">
-      <a href="contact.html">Contacts</a>
-    </li>
-    <li class="menu-item">
-      <a href="student_list.html">Students</a>
-    </li>
-  </ul>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'index' %}">Main</a></li>
+      <li><a href="{% url 'contact' %}">Contacts</a></li>
+      <li><a href="{% url 'student_list' %}">Students</a></li>
+    </ul>
+  </div>
 </nav>
 <div class="container">
   <div class="row">
     <div class="col-lg-10 col-lg-push-1">
         <div id="mainInfo" class="main-container text-center">
           <h1>Join our PyBursa Family</h1>
-          <img src="../static/images/logo.png" alt="logo">
           <h4>Description</h4>
           <p>
-         But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+            But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
           </p>
           <hr/>
-	        <h4>Program</h4>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">First week: Основы Python</h3>
-              </div>
-              <div class="panel-body">
-                zen, pep8, pylint, tools, IDE, консоль, типы данных, операторы, синтаксис управляющих конструкций (if, for...), исключения и разбор, стектрейса, кодировка в Python
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">Second week: Строки и итераторы</h3>
-              </div>
-              <div class="panel-body">
-                работа со строками и итерируемыми типами, запуск скрипта и параметры, git http://try.github.com/levels/
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">Third week: Функции и модульность</h3>
-              </div>
-              <div class="panel-body">
-                функции (def, lambda), генераторы списков, модули, структура
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">Fourth week: Библиотеки и пакетный менеджер</h3>
-              </div>
-              <div class="panel-body">
-                встроенные библиотеки http://docs.python.org/, сторонние библиотеки (менеджер пакетов) PYPI, PYTHONPATH и виртуальное окружение
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">Fifth week: 	Классы и ООП, основы</h3>
-              </div>
-              <div class="panel-body">
-                синтаксис, атрибуты, методы, инстанцирование, все объект, служебные методы
-              </div>
-            </div>
-		   </div>
+        </div>
+        <div class="courses-list-wrapper">
+        <h5>
+          <img src="../static/images/python-programming-tutorials-main.png" alt="logo">
+          <span>
+            Our courses:
+          </span>
+        </h5>
+          <table>
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% block content %}
+            {% for course in courses %}
+            <tr>
+              <td>
+                <a href="{% url 'courses:detail' course.id %}">
+                  {{course.name}}
+                </a>
+              </td>
+              <td>
+                {{course.short_description}}
+              </td>
+            </tr>
+            {% endfor %}
+          {% endblock %}
+          </tbody>
+      </table>
+      </div>
     </div>
   </div>
- </div>
+  <div class="row">
+
+  </div>
+</div>
 </body>
 </html>
