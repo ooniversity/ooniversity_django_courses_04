@@ -47,7 +47,7 @@
             <li class="active"><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
             <li><a href="{% url 'students:list_view' %}">Students</a></li>
-            <li><a href="{% url 'results' %}">Equation</a></li>
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -60,7 +60,49 @@
           <h1><a href="{% url 'students:list_view' %}?course_id={{course.id}}">{{course.name}}</a></h1>        
           <p>{{course.description}}</p>
         {% endfor %}          
-        <div class="container-fluid">       
+        <div class="container-fluid">
+
+          <table class="table">
+            <thead class="table-bordered">
+              <tr>
+                <th>Учитель</th>                
+              </tr>
+            </thead>
+            <tbody class="table-bordered">
+              {% for course in courses %}
+                <tr>
+                  <td><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.first_name}} {{course.coach.user.last_name}} </a>
+                  <button type="button" class="btn btn-default btn-lg">
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+                  </button>
+                  </td>
+       
+                </tr>
+                <tr>
+                  <td>{{course.coach.description}}</td>
+              {% endfor %} 
+                </tr>            
+            </tbody>
+          </table>
+
+          <table class="table">
+            <thead class="table-bordered">
+              <tr>
+                <th>Ассистент</th>                
+              </tr>
+            </thead>
+            <tbody class="table-bordered">
+              {% for course in courses %}
+                <tr>
+                  <td><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.user.first_name}} {{course.assistant.user.last_name}}</a></td>
+                </tr>
+                <tr>
+                  <td>{{course.assistant.description}}</td>
+              {% endfor %} 
+                </tr>            
+            </tbody>
+          </table>
+          <h2>План курса</h2>     
           <table class="table">
             <thead class="table-bordered">
               <tr>

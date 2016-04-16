@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>OONIVERSITY Main</title>
+    <title>OONIVERSITY Coaches</title>
 
        <!-- Bootstrap core CSS -->
     {% load staticfiles %}
@@ -47,7 +47,7 @@
             <li class="active"><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
             <li><a href="{% url 'students:list_view' %}">Students</a></li>
-
+           
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -55,71 +55,53 @@
 
     <div class="container">
 
-      <div class="main_font">
-        {% for course in courses %}
-          <h1><a href="{% url 'students:list_view' %}?course_id={{course.id}}">{{course.name}}</a></h1>        
-          <p>{{course.description}}</p>
-        {% endfor %}          
-        <div class="container-fluid">
-
+      <div class="main_font"> 
+        {% for coach in coaches %}    
+        <h1>{{coach.user.first_name}} {{coach.user.last_name}}</h1>        
+        
+        <div class="container-fluid">       
           <table class="table">
-            <thead class="table-bordered">
-              <tr>
-                <th>Учитель</th>                
-              </tr>
-            </thead>
             <tbody class="table-bordered">
-              {% for course in courses %}
                 <tr>
-                  <td><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.first_name}} {{course.coach.user.last_name}} </a>
+                  <td>Дата рождения</td>
+                  <td>{{coach.date_of_birth}}</td>
+                </tr>
+                <tr>
+                  <td>Адрес</td>
+                  <td>{{coach.address}}</td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td>{{coach.user.email}}</td>
+                </tr>
+                <tr>
+                  <td>Skype</td>
+                  <td>{{coach.skype}}</td>
+                </tr>
+                <tr>
+                  <td>Телефон</td>
+                  <td>{{coach.address}}</td>
+                </tr>
+                <tr>
+                  <td>Курсы учитель</td>                  
+                  {% for course in courses_coach.all %} 
+                  <td><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a></td>
+                  {% endfor %}
+                </tr>
+                <tr>
+                  <td>Курсы ассистент</td>                  
+                  {% for course in courses_assistant.all %} 
+                  <td><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a> 
+                  <a href="{% url 'students:list_view' %}?course_id={{course.id}}">Студенты курса</a></span>
                   </td>
-       
+                  {% endfor %} 
                 </tr>
-                <tr>
-                  <td>{{course.coach.description}}</td>
-              {% endfor %} 
-                </tr>            
+                          
             </tbody>
           </table>
 
-          <table class="table">
-            <thead class="table-bordered">
-              <tr>
-                <th>Ассистент</th>                
-              </tr>
-            </thead>
-            <tbody class="table-bordered">
-              {% for course in courses %}
-                <tr>
-                  <td><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.user.first_name}} {{course.assistant.user.last_name}}</a></td>
-                </tr>
-                <tr>
-                  <td>{{course.assistant.description}}</td>
-              {% endfor %} 
-                </tr>            
-            </tbody>
-          </table>
-          <h2>План курса</h2>     
-          <table class="table">
-            <thead class="table-bordered">
-              <tr>
-                <th>#</th>
-                <th>Тема</th>
-                <th>Описание</th>
-              </tr>
-            </thead>
-            <tbody class="table-bordered">
-              {% for lesson in lessons %}
-                <tr>
-                  <td>{{lesson.order}}</td>
-                  <td>{{lesson.subject}}</td>
-                  <td>{{lesson.description}}</td>
-                </tr>
-              {% endfor %}             
-            </tbody>
-          </table>
-
-        </div>          
+        </div> 
+        {% endfor %}          
       </div>
     </div><!-- /.container -->
 

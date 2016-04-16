@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>OONIVERSITY Main</title>
+    <title>OONIVERSITY Students</title>
 
        <!-- Bootstrap core CSS -->
     {% load staticfiles %}
@@ -44,9 +44,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
+            <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
 
           </ul>
         </div><!--/.nav-collapse -->
@@ -55,67 +55,34 @@
 
     <div class="container">
 
-      <div class="main_font">
-        {% for course in courses %}
-          <h1><a href="{% url 'students:list_view' %}?course_id={{course.id}}">{{course.name}}</a></h1>        
-          <p>{{course.description}}</p>
-        {% endfor %}          
-        <div class="container-fluid">
+      <div class="main_font">     
+        <h1>Список студентов</h1>        
+        
+        <div class="container-fluid">       
+          <table class="table">
+            <thead class="table-bordered">
+              <tr>
+                <th>Фамилия Имя</th>
+                <th>Адрес</th>
+                <th>Skype</th>
+                <th>Курсы</th>
+              </tr>
+            </thead>
+            <tbody class="table-bordered">
+              {% for student in students %}
+                <tr>
+                  <td><a href="{% url 'students:detail' student.id %}">{{student.name}} {{student.surname}}</a></td>
+                  <td>{{student.address}}</td>
+                  <td>{{student.skype}}</td>
 
-          <table class="table">
-            <thead class="table-bordered">
-              <tr>
-                <th>Учитель</th>                
-              </tr>
-            </thead>
-            <tbody class="table-bordered">
-              {% for course in courses %}
-                <tr>
-                  <td><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.first_name}} {{course.coach.user.last_name}} </a>
-                  </td>
-       
-                </tr>
-                <tr>
-                  <td>{{course.coach.description}}</td>
-              {% endfor %} 
-                </tr>            
-            </tbody>
-          </table>
+                  {% for course in student.courses.all %} 
+                  <td>{{course.name}}</td>
+                  {% endfor %}
 
-          <table class="table">
-            <thead class="table-bordered">
-              <tr>
-                <th>Ассистент</th>                
-              </tr>
-            </thead>
-            <tbody class="table-bordered">
-              {% for course in courses %}
-                <tr>
-                  <td><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.user.first_name}} {{course.assistant.user.last_name}}</a></td>
-                </tr>
-                <tr>
-                  <td>{{course.assistant.description}}</td>
               {% endfor %} 
-                </tr>            
-            </tbody>
-          </table>
-          <h2>План курса</h2>     
-          <table class="table">
-            <thead class="table-bordered">
-              <tr>
-                <th>#</th>
-                <th>Тема</th>
-                <th>Описание</th>
-              </tr>
-            </thead>
-            <tbody class="table-bordered">
-              {% for lesson in lessons %}
-                <tr>
-                  <td>{{lesson.order}}</td>
-                  <td>{{lesson.subject}}</td>
-                  <td>{{lesson.description}}</td>
+ 
                 </tr>
-              {% endfor %}             
+                          
             </tbody>
           </table>
 
