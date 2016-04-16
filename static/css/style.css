@@ -198,15 +198,28 @@ div.info{
     background-color:white;
     width: 100%;
 }
-.student-details table tr:first-child{
+.student-details table tr:first-child,
+.teacher-info table td:first-child{
     background-color: #7F909A;
     opacity: 0.6;
+    font-weight: bold;
 }
 .student-details table td{
     padding: 25px 20px;
 }
 .student-details table td:first-child{
     font-weight: bold;
+}
+.teacher-info table{
+    background-color:white;
+    width:100%;
+    margin:50px 0;
+}
+.teacher-info table td{
+    padding:25px 20px;
+}
+.teacher-info table td:first-child{
+    width: 25%;
 }
 
 form{
