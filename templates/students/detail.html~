@@ -86,10 +86,9 @@
 
                   <td>Курсы</td>
                   
-     
-                  
-                  <td>{{student.course_id}}</td>
- 
+                  {% for course in students.courses.all %} 
+                  <td>{{students.courses}}</td>
+                  {% endfor %}
  
                 </tr>
                           
