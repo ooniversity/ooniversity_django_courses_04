@@ -6,8 +6,9 @@ def detail(request, student_id):
     return render(request, 'students/detail.html', {'student': student})
 
 def list_view(request):
-	if request.GET:
-		student = Student.objects.filter(courses__id=int(request.GET['course_id']))
-	else:
-		student = Student.objects.all()
-	return render(request, 'students/list.html', {'students': student})
+	if request.GET.get('course_id') is None:
+        student = Student.objects.all()
+        return render(request, 'students/list.html', {'students': student})
+    else:
+        student = Student.objects.filter(courses__id=request.GET.get('course_id'))
+        return render(request, 'students/list.html', {'students': student})
