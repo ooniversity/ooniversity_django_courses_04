@@ -11,21 +11,14 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-<<<<<<< HEAD
-=======
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
->>>>>>> f114d78577c0d563bac959a439787d0446e06ff9
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD
-SECRET_KEY = 'lhy-g8a3(ibgr6!tab$*t1)4=%r+cj0l*u51s60r7lhp!#sbh-'
-=======
 SECRET_KEY = '3qs7qa#7sc=ok7l&*$azf!^s$@-!w!d^jpta0-o4du8*57h3_o'
->>>>>>> f114d78577c0d563bac959a439787d0446e06ff9
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -46,6 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'polls',
     'quadratic',
+    'courses',
+    'students',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -78,11 +73,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-<<<<<<< HEAD
-TIME_ZONE = 'Europe/Kiev'
-=======
 TIME_ZONE = 'UTC'
->>>>>>> f114d78577c0d563bac959a439787d0446e06ff9
 
 USE_I18N = True
 
@@ -95,10 +86,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
-
-=======
->>>>>>> f114d78577c0d563bac959a439787d0446e06ff9
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+ 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)

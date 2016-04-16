@@ -1,94 +1,3 @@
-<<<<<<< HEAD
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-
-<head>
-   <meta charset="utf-8">
-	<meta name="description" content="PyBursa">
-	<title>List</title>
-	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-	<link href="{% static 'css/style.css' %}" rel="stylesheet">
-	<script src="{% static 'js/bootstrap.min.js' %}"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-</head>
-<body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'index' %}">PYBURSA <span class="glyphicon glyphicon-education"></span></a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="{% url 'index' %}">Main</a></li>
-      <li><a href="{% url 'contact' %}">Contacts</a></li>
-      <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
-      <li><a href="{% url 'results' %}">Quadratic</a></li>
-    </ul>
-  </div>
-</nav>
-<div class="container">
-        <h1 class="head1">Студенты курса PyBursa</h1> 
- 		  <p>Ниже представлен список студентов этого года</p>
- <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Surname</th>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Skype</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="success">
-        <td><a href="{% url 'student_detail' %}">1</a></td>
-        <td><a href="{% url 'student_detail' %}">Doe</a></td>	
-        <td><a href="{% url 'student_detail' %}">John</a></td>
-        <td><a href="{% url 'student_detail' %}">USA, Dover 34, ap.56</a></td>
-        <td><a href="{% url 'student_detail' %}">john_doe</a></td>
-      </tr>
-      <tr class="active">
-      	<td>2</td>
-        <td>Moe</td>
-        <td>Mary</td>
-        <td>Canada, Monreal 23, ap.2 </td>
-        <td>mary_moe</td>
-      </tr>
-      <tr class="info">
-      	<td>3</td>
-        <td>Dooley</td>
-        <td>July</td>
-        <td>England, London 212, ap.B</td>
-        <td>july_dooley</td>
-      </tr>
-      <tr class="warning">
-      	<td>4</td></td>
-        <td>Jones</td>
-        <td>Jane</td>
-        <td>England, Dover 12, ap.A</td>
-        <td>jane_jones</td>
-      </tr>
-      <tr class="danger">
-      	<td>5</td>
-        <td>Crosby</td>
-        <td>Ben</td>
-        <td>Ukraine, Kiev 212, ap.234</td>
-        <td>ben_crosby</td>
-      </tr>
-    </tbody>
-  </table>		  
- 		  
- <ul class="pager">
-    <li class="previous"><a href="{% url 'contact' %}"><span class="glyphicon glyphicon-chevron-left"></span> Previous</a></li>
-    <li class="next"><a href="{% url 'results' %}">Next <span class="glyphicon glyphicon-chevron-right"></span></a></li>
- </ul>
-    <div class="panel panel-default text-center">
-          <p class="panel-footer"> © 2016 PyBursa V Pikalova </p>
-    </div>
-</div>  
-</body>
-</html>
-=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,7 +23,7 @@
         <a href="{% url 'contact' %}">Contacts</a>
       </li>
     <li class="menu-item active">
-      <a href="{% url 'student_list' %}">Students</a>
+      <a href="{% url 'student:list_view' %}">Students</a>
     </li>
     </ul>
   </nav>
@@ -197,4 +106,3 @@
 </div>
 </body>
 </html>
->>>>>>> f114d78577c0d563bac959a439787d0446e06ff9
