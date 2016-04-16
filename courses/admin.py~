@@ -6,8 +6,8 @@ class LessonInline(admin.StackedInline):
 
 class CourseAdmin(admin.ModelAdmin):
     search_fields=['name']    
-    list_display = ('name' , 'surname', 'email', 'skype')
-    #inlines = [LessonInline]
+    list_display = ('name', 'short_description')
+    inlines = [LessonInline]
 
 
 
