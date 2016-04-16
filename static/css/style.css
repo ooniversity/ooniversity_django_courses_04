@@ -1,0 +1,149 @@
+body {
+	padding: 20px;
+	background: #63B8FF !important;
+}
+
+.director ul li {
+	list-style-type: none;
+}
+
+.manager li {
+	list-style-type: circle;
+}
+
+.founder li {
+	list-style-type:square;
+}
+
+
+ul li {
+	list-style-type: none;
+}
+
+footer {
+	text-align: center;
+}
+
+.manager {
+	background-color:#F0F8FF;
+	color: black;
+}
+
+.director {
+	background-color:#E6E6FA;
+	color: black;
+}
+
+.founder {
+	background-color:#66CDAA;
+	color: black;
+}
+
+.img-circle {
+	background-color:#5F9EA0;
+	padding: 10px;
+}
+
+
+.panel {
+	margin: 5px;
+}
+
+.panel .panel-primary .panel-heading img {
+	width:120px;
+	height:120px;
+}
+
+.muted {
+	color: #0000CD;
+}
+
+
+.list-group-item {
+	color: #48D1CC;
+}
+
+.text-info {
+	background-color:#F8F8FF;
+}
+
+ol .list-group-item {
+	background-color:#F5F5F5;
+}
+
+ol {
+	background-color:#DCDCDC;
+}
+
+.panel-info .panel-body {
+	background-color: #696969;
+}
+
+footer {
+	color: #20B2AA;
+}
+
+.dropdown-menu li,
+.dropdown ul {
+	background-color:#E6E6FA;
+}
+
+#list_prog {
+	font-style: italic;
+}
+
+.name {
+	font-style: italic;
+	font-weight: bold;
+}
+
+#myCarousel .item {
+	background-color:#E6E6FA
+}
+
+.panel-body ul {
+	width: 300px;
+	text-align: left;
+}
+
+
+#list_prog {
+	font-style: italic;
+}
+
+.name {
+	font-style: italic;
+	font-weight: bold;
+}
+
+.table-responsive {
+	background-color:#87CEEB;
+}
+
+#header_table {
+	color:#0000CD
+}
+
+#stud_detail {
+	width: 500px;
+	background-color:#BC8F8F;
+}
+
+
+nav{
+	background: #B2DFEE !important;
+}
+
+.panel .panel-success{
+	margin-left: 20px !important;
+	width: 500px !important;
+}
+
+.head h2, .head .table-responsive{
+	margin-left: 20px !important;
+}
+
+.text-info{
+	color: black;
+}
+

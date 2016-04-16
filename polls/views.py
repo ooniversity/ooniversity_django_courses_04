@@ -6,14 +6,13 @@ from django.views import generic
 from polls.models import Choice, Question
 
 
+
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
-        """
-        Return questions
-        """
+        """Return the last five published questions."""
         return Question.objects.order_by('-pub_date')[:5]
 
 
@@ -25,6 +24,7 @@ class DetailView(generic.DetailView):
 class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
+
 
 def vote(request, question_id):
     p = get_object_or_404(Question, pk=question_id)
@@ -42,4 +42,4 @@ def vote(request, question_id):
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
+        return HttpResponseRedirect(reverse('results', args=(p.id,)))

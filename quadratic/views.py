@@ -1,64 +1,75 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
-from quadratic.forms import QuadraticForm
+from django.utils.datastructures import MultiValueDictKeyError
 
 
 def quadratic_results(request):
-    """
-    The solution of the quadratic equation
-    """
-    text = {'error': False}
-    for name_value in ['a', 'b', 'c']:
-        valid = Validation(name_value, request.GET.get(name_value, ''))
-        if valid.valid_quadratic():
-            text[name_value] = valid.value_int
+    a = ''
+    b = ''
+    c = ''
+    error_a = ''
+    error_b = ''
+    error_c = ''
+    disc = {}
+    text_result = {}
+
+    try:
+        a = int(request.GET['a'])
+    except ValueError:
+        if request.GET['a'].isalpha():
+            error_a = u"коэффициент не целое число"
+            a = request.GET['a']
         else:
-            text['error'] = True
-            text[name_value + '_error'] = valid.error_msg
-            text[name_value] = valid.value
-        form = QuadraticForm(request.GET)
-        if form.is_valid():
-            a = form.cleaned_data['a']
-            b = form.cleaned_data['b']
-            c = form.cleaned_data['c']
-            d = b ** 2 - 4 * a * c
-            if d < 0:
-                result = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
-            elif d == 0:
-                result = "Дискриминант равен нулю, квадратное уравнение имеет один" \
-                         " действительный корень: x1 = x2 = %0.1f" % (-b / 2 * a)
-            else:
-                x1 = (-b + d ** (1/2.0)) / (2 * a)
-                x2 = (-b - d ** (1/2.0)) / (2 * a)
-                result = "Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f" % (x1, x2)
-            text.update(dict(d=str(int(d)), result=str(result)))
-    else:
-        form = QuadraticForm()
-    text.update(dict(form=form))
-    return render(request, "results.html",  text)
+            error_a = u"коэффициент не определен"
+    except MultiValueDictKeyError:
+            a = ''
+            error_a = u"коэффициент не определен"
+
+    try:
+        b = int(request.GET['b'])
+    except ValueError:
+        if request.GET['b'].isalpha():
+            error_b = u"коэффициент не целое число"
+            b = request.GET['b']
+        else:
+            error_b = u"коэффициент не определен"
+    except MultiValueDictKeyError:
+            b = ''
+            error_b = u"коэффициент не определен"
+
+    try:
+        c = int(request.GET['c'])
+    except ValueError:
+        if request.GET['c'].isalpha():
+            error_c = u"коэффициент не целое число"
+            c = request.GET['c']
+        else:
+            error_c = u"коэффициент не определен"
+    except MultiValueDictKeyError:
+        c = ''
+        error_c = u"коэффициент не определен"
+
+    if a == 0:
+        error_a = u"коэффициент при первом слагаемом уравнения не может быть равным нулю"
+
+    if not error_a and not error_b and not error_c :
+        disc['message'] = "Дискриминант: "
+        disc['value'] = b**2 - 4*a*c
+
+        if disc['value'] < 0:
+            text_result['message'] = u"Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
+        elif disc['value'] == 0:
+            x = (-b + disc['value'] ** (1/2.0)) / 2*a
+            text_result['message'] = u"Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = "
+            text_result['value'] = x
+        else:
+            x1 = (-b + disc['value'] ** (1/2.0)) / 2*a
+            x2 = (-b - disc['value'] ** (1/2.0)) / 2*a
+            text_result['message'] = u"Квадратное уравнение имеет два действительных корня: "
+            text_result['value'] = u"x1 = %.1f, x2 = %.1f" % (x1, x2)
 
 
-class Validation(object):
-    """
-    Validation coefficients
-    """
-    def __init__(self, name, value):
-        self.name = name
-        self.value = value
-        self.value_int = None
-        self.error_msg = None
+    content = {"error_a":error_a, "error_b":error_b, "error_c":error_c, "disc":disc, "text_result":text_result, 'a':{'message':'a = ','value': a}, 'b':{'message':'b = ', 'value':b}, 'c':{'message':'c = ', 'value':c}}
 
-    def valid_quadratic(self):
-        if not self.value:
-            self.error_msg = 'коэффициент не определен'
-            return False
-        try:
-            self.value_int = int(self.value)
-        except ValueError:
-            self.error_msg = 'коэффициент не целое число'
-            return False
+    return render(request, 'results.html', content)
 
-        if self.name == 'a' and self.value_int == 0:
-            self.error_msg = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
-            return False
-        return True
