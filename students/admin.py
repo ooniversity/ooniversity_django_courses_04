@@ -9,7 +9,7 @@ class StudentAdmin(admin.ModelAdmin):
     list_filter = ['courses']
 
     def full_name(self, Student):
-        return ("%s %s" % (Student.name, Student.surname)).upper()
+        return ("%s %s" % (Student.name, Student.surname))
     full_name.short_description = 'Full name'
     fieldsets = [('Personal info', {'fields':['name', 'surname', 'date_of_birth']}),
                  ('Contact info', {'fields':['email', 'phone', 'address', 'skype']}),
