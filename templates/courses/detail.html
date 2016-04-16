@@ -40,7 +40,7 @@
        <div>
             <h4>Учитель</h4>
        
-            <a href="{% url 'coaches:detail' course.coach_id %}">{{ cource.coach.first_name }} {{cource.coach.last_name}}</a>
+            <a href="{% url 'coaches:detail' course.coach.id %}">{{ cource.coach.first_name }} {{cource.coach.last_name}}</a>
        </div>
             <p>{{ cource.coach.description }}</p>
        <div>
