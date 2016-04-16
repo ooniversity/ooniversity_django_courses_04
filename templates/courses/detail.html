@@ -28,50 +28,50 @@
         </nav>
     </div>
 
-   <!-- Main component  -->
-<div class="container">
-    <div class="jimbotron">
-        <h1>{{ course.name }}</h1>	
-        <p>{{ course.description }}</p>
+  <div class="container">
+    <div class="jumbotron">
+        <h1>{{course.name}}</h1>
+      <p>{{course.description}}</p>
     </div>
 
-    <div class="jimbotron">
+
+    <div class="jumbotron">
         <h2>Преподаватели</h2>
-       <div>
-            <h4>Учитель</h4>
-       
-            <a href="{% url 'coaches:detail' course.coach.id %}">{{ cource.coach.first_name }} {{cource.coach.last_name}}</a>
-       </div>
-            <p>{{ cource.coach.description }}</p>
-       <div>
-            <h4>Ассистент</h4>
-       
-            <a href="{% url 'coaches:detail' course.assistant.id %}">{{ cource.assistant.first_name }} {{cource.assistant.last_name}}</a>
-       </div>
-            <p>{{ cource.coach.description }}</p>        
-    </div>
-   
+    <div><h4>Учитель</h4>
 
-  <!-- Default panel contents -->
+     <a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.first_name}} {{course.coach.last_name}}</a>
+    </div>
+    <p>{{course.coach.description}}</p>
+
+   <div><h4>Ассистент</h4>
+
+    <a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name}} {{course.assistant.last_name}}</a>
+    </div>
+    <p>{{course.assistant.description}}</p>
+
+
+  </div>
+
+
 <div class="container">
-   	<h2>План курса</h2>
+    <h2>План курса</h2>
 <div>
 <div class="container">
       <div class="table-responsive">
       <table class="table table-striped">
         <tr>
-        	<th>#</th>
-        	<th>Тема</th>
-        	<th>Описание</th>
+          <th>#</th>
+          <th>Тема</th>
+          <th>Описание</th>
         </tr>
-      	{% for i in lesson %}
+        {% for i in lesson %}
         <tr>
             <td>{{ i.order }}</td>
-			<td>{{ i.subject }}</td>
-			<td>{{ i.description }}</td>
-		</tr>	
-		{% endfor %}
-      </table>   
+      <td>{{ i.subject }}</td>
+      <td>{{ i.description }}</td>
+    </tr>
+    {% endfor %}
+      </table>
     </div>
 
     <hr>
