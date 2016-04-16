@@ -43,8 +43,18 @@
         </div>
         <!-- /.navbar-collapse --> </div>
       <!-- /.container-fluid --> </nav>
+      <h1>Преподаватели</h1>
+      <h3>Учитель</h3>
+      <h4><a href="{% url 'coaches:detail' cours.coach_id %}">{{cours.coach.foolname}}</a></h4>
+      <p>{{cours.coach.description}} </p>
+      <br>
+      <h3>Асистент</h3>
+      <h4><a href="{% url 'coaches:detail' cours.assistant_id %}">{{cours.assistant.foolname}}</a></h4>
+      <p>{{cours.assistant.description}} </p>
+      <br>
 
-    <h1>{{cours.name}}</h1>
+
+    <h2>{{cours.name}}</h2>
     <p>{{cours.description}}</p>
     <h3 class="cl_h1">План курса</h3>
     <br>
