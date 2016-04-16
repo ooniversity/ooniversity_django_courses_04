@@ -7,8 +7,7 @@ from students.models import Student
 def student_list_view(request):
     if request.GET.get('course_id') is None:
         student = Student.objects.all()
-        return render(request,
-                  'students/list.html', {"students": student})
+        return render(request, 'students/list.html', {"students": student})
     else:
         student = Student.objects.filter(courses__id=request.GET.get
                                          ("course_id"))
