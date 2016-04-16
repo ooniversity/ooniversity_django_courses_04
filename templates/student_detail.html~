@@ -1,123 +1,118 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-   <meta charset="utf-8">
-	<meta name="description" content="PyBursa">
-	<title>Deatils</title>
-	<link href="../static/css/bootstrap.min.css" rel="stylesheet">
-	<link href="../static/css/style.css" rel="stylesheet">
-	<script src="../static/js/bootstrap.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <title>PyBursa Student Details</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="../static/js/bootstrap.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">PYBURSA <span class="glyphicon glyphicon-education"></span></a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="index.html">Main</a></li>
-      <li><a href="contact.html">Contacts</a></li>
-      <li><a href="student_list.html">Students</a></li>
+  <nav>
+    <a class="navbar-brand" href="index.html">
+        <img alt="Brand" src="../static/images/small_logo.png"  width="40px">
+      </a>
+    <ul class="list-unstyled">
+      <li class="menu-item">
+        <a href="index.html">Main</a>
+      </li>
+      <li class="menu-item">
+        <a href="contact.html">Contacts</a>
+      </li>
+    <li class="menu-item active">
+      <a href="student_list.html">Students</a>
+    </li>
     </ul>
-  </div>
-</nav>
-
- <div class="container">
-    <h1 class="head1">Doe John</h1>  
-    <img src="../static/images/python2016.jpg" alt="portrait">
-    <h2 class="head2">Студент о себе</h2>
-    <h3 class="head3">Student's card</h3>
-    <table class="table table-bordered table_bg1">
-    <tbody>
-      <tr>
-        <td class="td_red">Surname</td>
-        <td>Doe</td>
-      </tr>
-      <tr>
-        <td class="td_red">Name</td>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td class="td_red">Patronymic</td>
-        <td>Mark</td>
-      </tr>
-      <tr>
-        <td class="td_red">Birth Date</td>
-        <td>06.05.1977</td>
-      </tr>
-      <tr>
-        <td class="td_red">Address</td>
-        <td>USA, Dover 34, ap.56</td>
-      </tr>
-      <tr>
-        <td class="td_red">E-mail</td>
-        <td>johndoe@gmail.com</td>
-      </tr>
-      <tr>
-        <td class="td_red">Skype</td>
-        <td>john_doe</td>
-      </tr>
-    </tbody>
-  </table>
-<h3 class="head3">Perfomance</h3>  
-<table class="table table-condensed table_bg2">
-    <thead>
-      <tr>
-        <th>Course</th>
-        <th>Week</th>
-        <th>Control Type</th>
-        <th>Average Grade</th>
-        <th>Rating</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Py101</td>
-        <td>Week1</td>
-        <td>Tests</td>
-        <td>99%</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td>Problem Task №1</td>
-        <td>100%</td>
-        <td>4</td>
-      </tr>
-      <tr>
-         <td></td>
-        <td></td>
-        <td>Problem Task №2</td>
-        <td>98%</td>
-        <td>7</td>
-      </tr>
-      <tr>
-      <td></td>
-        <td>Week1</td>
-        <td>Tests</td>
-        <td>90%</td>
-        <td>2</td>
-       </tr>
-       <tr>
-         <td></td>
-        <td></td>
-        <td>Problem Task №1</td>
-        <td>100%</td>
-        <td>5</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
- <ul class="pager">
-    <li class="previous"><a href="student_list.html"><span class="glyphicon glyphicon-chevron-left"></span> Previous</a></li>
- </ul>
-    <div class="panel panel-default text-center">
-          <p class="panel-footer"> © 2016 PyBursa V Pikalova </p>
+  </nav>
+<div class="container">
+  <div class="main-container">
+    <div class="profile-info">
+      <div class="row">
+				<div class="col-lg-10 col-lg-push-1">
+          <h4>Floyd Mayweather</h4>
+						<div class="media">
+							<div class="media-left">
+								<img class="media-object" src="../static/images/Floyd_Mayweather.jpg" width="180px" alt="profile_picture">
+							</div>
+							<div class="media-body">
+							<div class="profile-data">
+				        <p><span>Surname:</span>Mayweather</p>
+				        <p><span>Name:</span>Floyd</p>
+				        <p><span>Patronymic:</span>Floyd</p>
+				        <p><span>Birth Date:</span>1979-02-24</p>
+				        <p><span>Address:</span>Grand Rapids, Michigan, U.S.</p>
+				        <p><span>E-mail:</span>pretty_boy@gmail.com</p>
+				        <p><span>Skype:</span>pretty_boy</p>
+				        <p><span>Average Grade:</span>58</p>
+				        <p><span>Rating:</span>3</p>
+				      </div>
+						</div>
+							<div class="media-right">
+									<img class="media-object" src="../static/images/achievement.png" width="100px" alt="logo">
+							</div>
+					</div>
+        		<h6>Finished courses:</h6>
+							<div>No data available</div>
+						<h6>Courses in progress:</h6>
+							<div>PyBursa Corps</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+								90%
+							</div>
+						</div>
+           <table class="table">
+            <thead>
+              <tr>
+                <th class="width-md">Topic</th>
+                <th>Tests</th>
+                <th>Problem Task1</th>
+                <th>Problem Task2</th>
+                <th>Grade</th>
+								<th>Process</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Основы Python</td>
+                <td>100</td>
+                <td>100</td>
+                <td>100</td>
+                <td>100</td>
+								<td><span class="label label-success">finished</span></td>
+              </tr>
+              <tr>
+                <td>Функции и модульность</td>
+                <td>100</td>
+                <td>100</td>
+                <td>100</td>
+                <td>100</td>
+								<td><span class="label label-success">finished</span></td>
+              </tr>
+              <tr>
+                <td>Библиотеки и пакетный менеджер</td>
+                <td>100</td>
+                <td>100</td>
+                <td>100</td>
+                <td>100</td>
+								<td><span class="label label-success">finished</span></td>
+              </tr>
+              <tr>
+                <td>Классы и ООП, основы</td>
+                <td>100</td>
+                <td>75</td>
+                <td>0</td>
+                <td>58</td>
+								<td><span class="label label-info">in progress</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-</div> 
+  </div>
+</div>
 </body>
 </html>

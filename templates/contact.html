@@ -1,89 +1,3 @@
-<<<<<<< HEAD
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="description" content="Contact">
-	<title>Contact</title>
-	<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-	<link href="{% static 'css/style.css' %}" rel="stylesheet">
-	<script src="{% static 'js/bootstrap.min.js' %}"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	<link href='https://fonts.googleapis.com/css?family=PT+Serif+Caption&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
-</head>
-<body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'index' %}">PYBURSA <span class="glyphicon glyphicon-education"></span></a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="{% url 'index' %}">Main</a></li>
-      <li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
-      <li><a href="{% url 'student_list' %}">Students</a></li>
-      <li><a href="{% url 'results'  %}">Quadratic</a></li>
-    </ul>
-  </div>
-</nav>
-<div class="container">
-<div class="text-center">
-	<h1 class="head1">Contacts</h1>
-</div>
-<div>
-	<div class="head_padding">
-		<h3 class="text_direct head32">Director</h3>
-			  
- 		 <dl class="dl-horizontal">
-    		<dt class="text_name">Name</dt>
-    			<dd> <span class="glyphicon glyphicon-user"></span> Ivan Ivanov</dd>
-    		<dt class="text_skype">Skype</dt>
-    			<dd><span class="glyphicon glyphicon-headphones"></span> ivan2016</dd>
-    		<dt class="text_email">Email</dt>
-    			<dd><span class="glyphicon glyphicon-envelope"></span> ivan2016@gmail.com </dd>
-    		<dt class="text_phone">Phone</dt>
-    			<dd> <span class="glyphicon glyphicon-phone"></span> +380671111111</dd>	
-    	 </dl>       
-	</div>
-	<div class="head_padding">
-		<h3 class="text_manager head32">Manager</h3>
-		  <dl class="dl-horizontal">
-    		 <dt class="text_name">Name</dt>
-    			<dd><span class="glyphicon glyphicon-user"></span> Petr Petrov </dd>
-    		 <dt class="text_skype">Skype</dt>
-    			<dd><span class="glyphicon glyphicon-headphones"></span> petr2016</dd>
-    		 <dt class="text_email">Email</dt>
-    			<dd><span class="glyphicon glyphicon-envelope"></span> petr2016@gmail.com</dd>
-    		 <dt class="text_phone">Phone</dt>
-    			<dd><span class="glyphicon glyphicon-phone"></span> +380672222222</dd>	
-    	  </dl>       
-	</div>
-	<div class="head_padding">
-		<h3 class="text_founder head32">Founder</h3>
-		 <dl class="dl-horizontal">
-    		<dt class="text_name">Name</dt>
-    			<dd>  <span class="glyphicon glyphicon-user"></span> Alex Alexseev</dd>
-    		<dt class="text_skype">Skype</dt>
-    			<dd><span class="glyphicon glyphicon-headphones"></span> alex2016</dd>
-    		<dt class="text_email">Email</dt>
-    			<dd><span class="glyphicon glyphicon-envelope"></span> alex2016@gmail.com</dd>
-    		<dt class="text_phone">Phone</dt>
-    			<dd><span class="glyphicon glyphicon-phone"></span> +380677777777</dd>	
-    	 </dl>       
-	</div>
-</div>
- <ul class="pager">
-    <li class="previous"><a href="{% url 'index' %}"><span class="glyphicon glyphicon-chevron-left"></span> Previous</a></li>
-    <li class="next"><a href="{% url 'student_list' %}">Next <span class="glyphicon glyphicon-chevron-right"></span></a></li>
- </ul>
- <div class="panel panel-default text-center">
-     <div class="panel-footer"> © 2016 PyBursa V Pikalova</div>
- </div>
-</div>
-
-</body>
-</html>
-=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,7 +23,7 @@
         <a href="{% url 'contact' %}">Contacts</a>
       </li>
     <li class="menu-item">
-      <a href="{% url 'student_list' %}">Students</a>
+      <a href="{% url 'student:list_view' %}">Students</a>
     </li>
     </ul>
   </nav>
@@ -199,4 +113,3 @@
   </div>
 </body>
 </html>
->>>>>>> f114d78577c0d563bac959a439787d0446e06ff9
