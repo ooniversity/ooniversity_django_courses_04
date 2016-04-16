@@ -6,5 +6,9 @@
     color: grey;
     font-size: 16px;
     font-weight: bold;
-    margin:15px 0 5px 0;
+    margin: 15px 0 5px 0;
+}
+
+body > .container {
+    padding-top: 60px;
 }
