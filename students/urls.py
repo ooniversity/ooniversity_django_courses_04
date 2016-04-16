@@ -5,5 +5,5 @@ from students import views
 
 urlpatterns = patterns('',
                        url(r'^(\d+)/$', views.student_detail_view, name="detail"),
-                       url(r'^$', views.student_list_view, name="list"),
+                       url(r'^$', views.student_list_view, name="list_view"),
                        )
