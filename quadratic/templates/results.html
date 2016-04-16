@@ -1,31 +1,32 @@
+
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block title %}Quadratic{% endblock title %}
-{% block active_quadratic %}active{% endblock active_quadratic %}
 
 {% block content %}
+<p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 
-  <div class="row marketing">
-    <h3 style="text-align: center">Квадратное уравнение a*x*x + b*x + c = 0</h3><br>
+ <ul>
 
-    <div class="container">
-      <form method="get">
-        {{ form.as_p }}
-        <br><input type="submit" value="Решить уравнение"/>
-      </form>
-    </div>
-
-    <ul>
-      <li>a = {{ a }} {% if a_error %}<br /><em>{{ a_error }}</em>{% endif %}</li>
-      <li>b = {{ b }} {% if b_error %}<br /><em>{{ b_error }}</em>{% endif %}</li>
-      <li>c = {{ c }} {% if c_error %}<br /><em>{{ c_error }}</em>{% endif %}</li>
-    </ul>
-
-    {% if not error %}
-      <p>Дискриминант: {{ d }}</p>
-      <p>{{ result }}</p>
+  <li>{{a.message}}{{a.value}}
+    {% if error_a %}
+  	<br /><i>  {{error_a}} </i>
     {% endif %}
+  </li>
+  <li>{{b.message}}{{b.value}}
+    {% if error_b %}
+  	<br /><i>  {{error_b}} </i>
+    {% endif %}
+  </li>
+  <li>{{c.message}}{{c.value}}
+    {% if error_c %}
+  	<br /><i>  {{error_c}} </i>
+    {% endif %}
+  </li>
 
-   </div>
+ </ul>
+
+  <p>{{disc.message}}{{disc.value}}</p>
+  <p>{{text_result.message}}{{text_result.value}}</p>
 
 {% endblock content %}

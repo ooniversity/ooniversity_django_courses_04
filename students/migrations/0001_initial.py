@@ -19,9 +19,9 @@ class Migration(migrations.Migration):
                 ('surname', models.CharField(max_length=50)),
                 ('date_of_birth', models.DateField()),
                 ('email', models.EmailField(max_length=75)),
-                ('phone', models.CharField(max_length=15)),
-                ('address', models.CharField(max_length=100)),
-                ('skype', models.CharField(max_length=20)),
+                ('phone', models.CharField(max_length=20)),
+                ('address', models.CharField(max_length=255)),
+                ('skype', models.CharField(max_length=50)),
                 ('courses', models.ManyToManyField(to='courses.Course')),
             ],
             options={
