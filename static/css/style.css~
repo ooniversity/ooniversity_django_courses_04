@@ -1,14 +1,26 @@
-
 @font-face{
 	font-family: Comic Sans, Comic Sans MS, cursive;
 }
-nav{
+nav.navbar{
 	background-color: #060683;
 	left: 0;
 	position: fixed;
 	right:0;
 	top:0;
 	z-index: 100;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus{
+	background-color: transparent;
+} 
+.navbar.navbar-inverse{
+	border-radius: 0;
+	background-color: #1D2F3E;
+}
+.navbar.navbar-inverse .container-fluid{
+	padding: 0;
+	margin:0;
 }
 body{
 	background-color: #ffffc7;
@@ -22,7 +34,7 @@ nav li.menu-item{
 	display: inline-block;
 	color: white;
 	font-size: 22px;
-	padding: 1px 30px;
+	padding: 20px 40px;
 }
 li.menu-item a,
 li.menu-item a:hover,
@@ -38,16 +50,13 @@ li.menu-item a:focus{
 	font-style: italic;
 }
 .main-container{
-	margin-top: 80px;
-	padding: 50px 50px 20px 50px;
-	text-align: justify;
+	padding: 150px 50px 20px 50px;
 }
 h1, h4{ font-weight: bold; }
 h1{
 	font-size: 72px;
 	line-height: 80px;
-	margin: 70px 0 30px 0;
-	text-align: center;
+	margin: 80px 0 30px 0;
 }
 h4{
 	font-size: 36px;
@@ -56,19 +65,19 @@ h4{
 h5{
 	color: #7F909A;
 	font-size: 28px; 
-	margin-bottom: 25px;
+	margin-bottom: 10px;
 }
 h4 + p {
 	margin: 15px;
-	font-family: Comic Sans, Comic Sans MS, cursive;
+	font-family: "Libre Baskerville";
 }
 #mainInfo > img{
-	width: 600px;
+	width: 50px;
 }
 div.info{
 	margin-bottom: 25px;
 }
-.info .btn{ 
+.info .btn, .calc{
 	background-color: #F9F1B5;
 	width: 60%;
 	text-transform: uppercase;
@@ -77,6 +86,11 @@ div.info{
 .info ul{
 	margin: 30px 0;
 }
+.img-rounded{
+	width: 190px;
+	border-radius: 50%;
+	margin-top: 30px;
+}
 .label{
 	font-size: 14px;
 	margin-right: 10px;
@@ -84,11 +98,10 @@ div.info{
 .info-block{
 	padding: 15px 0;
 	text-indent: 20px;
-	font-family: Comic Sans, Comic Sans MS, cursive;
 }
 .table-wrapper, .profile-info{
 	border-radius: 5px;
-	background-color: #ffffc7;
+	background-color: white;
 	padding: 20px;
 }
 .profile-pic{
@@ -100,14 +113,14 @@ div.info{
 	text-transform: uppercase;
 }
 .profile-data{
-	margin-top: 15px;
+	margin: 0 0 50px 0;
 	font-size: 15px;
 }
 .profile-data p{
 	margin-bottom: 0;
 }
 .profile-data span{
-	color: #457094;
+	color:#7F909A;
 	font-weight: bold;
 	text-transform: uppercase;
 	margin-right: 15px;
@@ -124,12 +137,100 @@ div.info{
 .profile-info .table{
 	margin-top: 30px;
 }
-.panel-body{
-	background-color: #ffffc7;
+.courses-list-wrapper h5{
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    margin-top: 40px;
 }
-.badge{
-	background-color: #99cce9;
+.courses-list-wrapper span{
+    padding-left: 200px;
 }
-.btn-default{
-	background-color: #99cce9;
+.courses-list-wrapper img{
+    height: 160px;
+    top: -80px;
+    left:18px;
+    position: absolute;
+}
+.courses-list-wrapper table,
+.course-details table{
+    margin: 50px 0;
+    width: 100%;
+}
+.courses-list-wrapper table th,
+.courses-list-wrapper table td,
+.course-details table tr td,
+.course-details table tr th{
+    padding: 25px 20px;
+}
+.courses-list-wrapper table td:first-child{
+    background-color: #1D2F3E;
+    text-align: center;
+}
+.courses-list-wrapper table th:first-child{
+    background-color: #152737;
+    color: white;
+    text-align: center;
+}
+.courses-list-wrapper table td:first-child a{
+    color: white;
+}
+.courses-list-wrapper table td:last-child{
+    background-color: white;
+}
+.courses-list-wrapper table th:last-child,
+.course-details table tr th{
+    background-color: #7F909A;
+    opacity: 0.6;
+}
+.course-details table tr td{
+    background-color: white;
+}
+.course-details table tr th:last-child{
+    width: 65%;
+}
+.course-details div{
+    background-color: white;
+    padding: 25px 20px;
+}
+.width-25{
+    width: 25%;
+}
+.student-details table{
+    background-color:#7F909A;
+    width: 100%;
+}
+.student-details table tr:first-child{
+    background-color: #ffffc7;
+    opacity: 0.6;
+}
+.student-details table td{
+    padding: 25px 20px;
+}
+.student-details table td:first-child{
+    font-weight: bold;
+}
+
+form{
+	margin: 50px 0 20px 0;
+}
+h3{
+	margin:0;
+}
+.profile-info img{
+	margin-bottom: 20px;
+}
+.profile-info{
+	padding-bottom: 0;
+}
+.form-wrapper{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding: 30px;
+}
+.calc{
+    width: 100%;
+    margin-top: 30px;
 }
