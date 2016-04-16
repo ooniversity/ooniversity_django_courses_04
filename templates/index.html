@@ -17,13 +17,33 @@
 				<ul class="nav navbar-nav">
 				<li class="active"><a href="{% url 'index' %}">Main</a></li>
 				<li><a href="{% url 'contact' %}">Contacts</a></li>
-				<li><a href="{% url 'student_list' %}">Students</a></li>
+				<li><a href="{% url 'students:list_view' %}">Students</a></li>
 				</ul>
 			</div>
 			</div>
 		</nav>
-	</div>	
-	<div class="row"></div>
+	</div>
+	<div class="row">
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+		<div class="lead col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<h1 id="shadow">Ooniversity</h1>
+			<p>This courses is designed for mastering in web development</p>
+			<h2 class="blockquote-reverse text-uppercase">Choose your course!</h2>
+			<table>
+				<tbody>
+					<tr>
+						<th class="text-center">Course</th>
+						<th class="text-center">Description</th>
+					</tr>
+				{% for course in courses %}
+					<tr>
+						<td><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a></td>
+						<td>{{course.short_description}}</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
 		<div class="lead col-xs-6 col-sm-6 col-md-6 col-lg-6">
 			<h1 id="shadow">PyBursa courses</h1>
@@ -306,6 +326,7 @@
 				</tbody>
 			</table>
 		</div>
+	</div>
 	<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
 </body>
 </html>
