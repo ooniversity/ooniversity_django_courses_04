@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>PyBursa Main</title>
+    <title>OONIVERSITY Main</title>
 
        <!-- Bootstrap core CSS -->
     {% load staticfiles %}
@@ -46,8 +46,8 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'student_list' %}">Students</a></li>
-            <li><a href="{% url 'results' %}">Equation</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -56,47 +56,28 @@
     <div class="container">
 
       <div class="main_font">
-        <h1>PyBursa</h1>
-        <h1 class="small">Description</h1>
-        <p>Курсы ItBursa начали работу в 2014 году. Мы специализируемся на «модных» языках программирования.<br/> Принципиальное наше отличие от других курсов – максимум практики и жесткая система обязательных домашних заданий. <br/>Преподаватели – опытные практикующие разработчики, они помогают участникам в ходе курсов создать реальные проекты и получить практические навыки, применимые к работе.<br/> Домашние задания на наших курсах обязательны и их невыполнение приводит к исключению с курсов. <br/>Таким образом, мы готовим не просто «слушателей» курсов, а настоящих специалистов, способных создавать пусть простые, но рабочие проекты.</p>
-        <h1 class=small>Program</h1> 
+        <h1>OONIVERSITY</h1>        
+        <p>Мы специализируемся на «модных» языках программирования.<br/> Принципиальное наше отличие от других курсов – максимум практики и жесткая система обязательных домашних заданий. <br/>Преподаватели – опытные практикующие разработчики, они помогают участникам в ходе курсов создать реальные проекты и получить практические навыки, применимые к работе.<br/> Домашние задания на наших курсах обязательны и их невыполнение приводит к исключению с курсов. <br/>Таким образом, мы готовим не просто «слушателей» курсов, а настоящих специалистов, способных создавать пусть простые, но рабочие проекты.</p>        
         <div class="container-fluid">       
-          <div class="col-sm-6 col-md-6">
-            <ul class="list">
-              <li>Основы Python</li> 
-              <li>Строки и итераторы</li>
-              <li>Функции и модульность</li>
-              <li>Библиотеки и пакетный менеджер</li>
-              <li>Классы и ООП, основы</li>
-              <li>Классы и ООП, возможности Python</li>
-              <li>Работа с файлами</li>
-              <li>Работа с датами</li>
-              <li>Основы html/css</li>
-              <li>Основы JavaScript</li>
-            </ul>
-          </div>
-          <div class="col-sm-6 col-md-6">
-            <ul class="list">
-              <li>Основы Web, HTTP</li>
-              <li>Django first steps</li>
-              <li>Структура Web приложения</li>
-              <li>Работа с базами данных, ORM</li>
-              <li>Кастомизация админки</li>
-              <li>Язык шаблонов</li>
-              <li>Forms</li>
-              <li>Class-based (Generic) Views</li>        
-              <li>Реализация стандартных задач</li>
-              <li>Средства отладки и тестирование</li>
-            </ul>
-          </div>
-        </div>
+          <table class="table">
+            <thead class="table-bordered">
+              <tr>
+                <th>Курс</th>
+                <th>Описание</th>
+              </tr>
+            </thead>
+            <tbody class="table-bordered">
+              {% for course in courses %}
+                <tr>
+                  <td><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a></td>
+                  <td>{{course.short_description}}</td>
+                </tr>
+              {% endfor %}             
+            </tbody>
+          </table>
 
-        <div class="row">
-          <p> Более подробная информация на сайте:<a href="http://pybursa.com/"><i>http://pybursa.com/</i></a></p>
-        </div>
-
+        </div>          
       </div>
-
     </div><!-- /.container -->
 
 

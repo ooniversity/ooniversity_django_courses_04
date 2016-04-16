@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>OONIVERSITY Main</title>
+    <title>OONIVERSITY Students</title>
 
        <!-- Bootstrap core CSS -->
     {% load staticfiles %}
@@ -44,9 +44,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
+            <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
 
           </ul>
         </div><!--/.nav-collapse -->
@@ -55,24 +55,34 @@
 
     <div class="container">
 
-      <div class="main_font">
-        <h1>OONIVERSITY</h1>        
-        <p>Мы специализируемся на «модных» языках программирования. Принципиальное наше отличие от других курсов – максимум практики и жесткая система обязательных домашних заданий. <br/>Преподаватели – опытные практикующие разработчики, они помогают участникам в ходе курсов создать реальные проекты и получить практические навыки, применимые к работе.</p>        
+      <div class="main_font">     
+        <h1>Список студентов</h1>        
+        
         <div class="container-fluid">       
           <table class="table">
             <thead class="table-bordered">
               <tr>
-                <th>Курс</th>
-                <th>Описание</th>
+                <th>Фамилия Имя</th>
+                <th>Адрес</th>
+                <th>Skype</th>
+                <th>Курсы</th>
               </tr>
             </thead>
             <tbody class="table-bordered">
-              {% for course in courses %}
+              {% for student in students %}
                 <tr>
-                  <td><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a></td>
-                  <td>{{course.short_description}}</td>
+                  <td><a href="{% url 'students:detail' student.id %}">{{student.name}} {{student.surname}}</a></td>
+                  <td>{{student.address}}</td>
+                  <td>{{student.skype}}</td>
+
+                  {% for course in students.courses.all %} 
+                  <td><a href="{% url 'courses:detail' courses.id %}">{{students.courses}}</a></td>
+                  {% endfor %}
+
+              {% endfor %} 
+ 
                 </tr>
-              {% endfor %}             
+                          
             </tbody>
           </table>
 
