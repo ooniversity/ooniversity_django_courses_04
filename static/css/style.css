@@ -1,0 +1,90 @@
+.table_bg1{
+	background-color: #FFE0B1;
+}
+.table_bg2{
+	background-color: #87E0B1;
+}
+.td_red {
+	color: red;
+	font-weight: bold;
+}
+.word_highlight1{
+	color: #0E0354;
+	font-weight: bold;
+}
+.word_highlight2{
+	color: #2B1A4F;
+	font-weight: bolder;
+	background-color: white;
+}	
+.word_highlight3{
+	color: #12046F;
+	font-weight: bold;
+	font-style: italic;
+}
+.head1{
+	color: #890001;
+	font-weight: bold;
+	font-family: 'PT Serif Caption', serif;
+}
+.head2{
+	color: #D90404;
+}
+.head3{
+	color: #040DBF;
+}
+.head32{
+	color: white;
+	font-family: 'PT Serif Caption', serif;
+}
+.text_pp{
+	background-color: #BFDE72; 
+	border:2px solid white; 
+	 padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+}
+.text_pp2{
+	background-color:#BF8E97; 
+	border:2px solid white; 
+	 padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    }
+.text_pp3{
+	background-color:#F2AD85; 
+	border:2px solid white; 
+	 padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;    
+}
+.head_padding{
+	padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.text_direct{
+	background-color: #F2AD85;
+}
+.text_manager{
+	background-color: #BF8E97;
+	}
+.text_founder{
+	background-color: #BFDE72;
+	}
+.text_name{
+	color: red;
+}
+.text_skype{
+	color: #612A74;
+}
+.text_email{
+	color: green;
+}
+.text_phone{
+	color: brown;
+}
