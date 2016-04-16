@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <title>MyBursa | Students</title>
-
+{% load staticfiles %}
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
 
   <body>
@@ -15,9 +15,9 @@
         <!-- Static navbar -->
         <nav class="navbar navbar-default">
           <ul class="nav nav-tabs">
-            <li><a href="index.html">Main</a></li>
-            <li><a href="contact.html">Contacts</a></li>
-            <li class="active"><a href="student_list.html">Students</a></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </nav>
 
@@ -45,7 +45,7 @@
             </tr>
             <tr>
                 <td>
-                    <a href="student_detail.html">1</a>
+                    <a href="{% url 'student_detail' %}">1</a>
                 </td>
                 <td>
                 Stadnikov
@@ -91,7 +91,7 @@
         </table>
         </div>
 
-        <p><a class="btn btn-primary btn-lg" href="index.html" role="button">Index</a></p>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'index' %}" role="button">Index</a></p>
       </div>
     </div> <!-- /container -->
 
@@ -99,8 +99,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../static/js/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
 </body>
 </html>
