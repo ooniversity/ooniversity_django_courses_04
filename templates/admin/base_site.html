@@ -1,9 +1,16 @@
 {% extends "admin/base.html" %}
 
+<<<<<<< HEAD
 {% block title %}{{ title }} | {{ site_title|default:_('Polls_Django admin') }}{% endblock %}
 
 {% block branding %}
 <h1 id="site-name"><a href="{% url 'admin:index' %}">Polls Administration</a></h1>
+=======
+{% block title %}{{ title }} | {{ site_title|default:_('PyBursa site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('PyBursa Admin') }}</a></h1>
+>>>>>>> f114d78577c0d563bac959a439787d0446e06ff9
 {% endblock %}
 
 {% block nav-global %}{% endblock %}

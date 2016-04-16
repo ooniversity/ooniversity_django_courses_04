@@ -1,4 +1,5 @@
 <h1>{{ question.question_text }}</h1>
+<<<<<<< HEAD
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
@@ -10,3 +11,10 @@
 {% endfor %}
 <input type="submit" value="Vote" />
 </form>
+=======
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }}</li>
+{% endfor %}
+</ul>
+>>>>>>> f114d78577c0d563bac959a439787d0446e06ff9
