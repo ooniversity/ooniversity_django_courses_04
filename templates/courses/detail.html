@@ -29,7 +29,7 @@
             {% block content %}
             <div>
                 <h4>{{ course.name }}</h4>
-                {{ course.description }}
+                <p>{{ course.description }}</p>
             </div>
             <table>
                 <thead>
@@ -42,15 +42,9 @@
                 <tbody>
                 {% for lesson in lessons %}
                 <tr>
-                    <td>
-                        {{lesson.order}}
-                    </td>
-                    <td>
-                        {{lesson.subject}}
-                    </td>
-                    <td>
-                        {{lesson.description}}
-                    </td>
+                    <td>{{lesson.order}}</td>
+                    <td>{{lesson.subject}}</td>
+                    <td>{{lesson.description}}</td>
                 </tr>
                 {% endfor %}
                 </tbody>
