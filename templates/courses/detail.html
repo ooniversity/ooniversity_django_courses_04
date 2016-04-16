@@ -35,6 +35,10 @@
                     {{cource.name}}
                 </h4>
                 {{cource.description}}
+                <h5>Преподаватель: <a href="{% url 'coaches:detail' cource.coach.id %}">{{cource.coach.user_name}}</a></h5>
+                <span>{{cource.coach.description}}</span>
+                <h5>Ассистент: <a href="{% url 'coaches:detail' cource.assistant.id %}">{{cource.assistant.user_name}}</a></h5>
+                <span>{{cource.assistant.description}}</span>
                 </div>
                 <table>
                     <thead>

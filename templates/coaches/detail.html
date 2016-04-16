@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>course-details</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="../static/js/bootstrap.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class="menu-item active">
+            <a href="{% url 'index' %}">Main</a>
+          </li>
+          <li class="menu-item">
+            <a href="{% url 'contact' %}">Contacts</a>
+          </li>
+          <li class="menu-item">
+            <a href="{% url 'students:list_view' %}">Students</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="main-container teacher-info">
+                <h4 class="text-center">{{user.user_name}}</h4>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>дата рождения:</td>
+                        <td>{{user.date_of_birth}}</td>
+                    </tr>
+                    <tr>
+                        <td>адрес:</td>
+                        <td>{{user.address}}</td>
+                    </tr>
+                    <tr>
+                        <td>ел. почта:</td>
+                        <td>{{user.user.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>skype:</td>
+                        <td>{{user.skype}}</td>
+                    </tr>
+                    <tr>
+                        <td>телефон</td>
+                        <td>{{user.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td>преподаватель курсов:</td>
+                        <td>
+                            {% for i in  course_teacher %}
+                            <a href="{% url 'courses:detail' i.id %}">
+                                {{i.name}}
+                            </a>
+                            студенты курса
+                            <a href="{% url 'students:list_view' %}?course_id={{i.id}}">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </a>
+                            <br>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ассистент курсов</td>
+                        <td>
+                            {% for j in course_assistant %}
+                            <a href="{% url 'courses:detail' j.id %}">
+                                {{j.name}}
+                            </a>
+                            студенты курса
+                            <a href="{% url 'students:list_view' %}?course_id={{j.id}}">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </a>
+                            <br>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
