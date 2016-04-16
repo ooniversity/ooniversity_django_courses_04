@@ -34,7 +34,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'student_list' %}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -42,34 +42,42 @@
 
     <div class="container">
       <div class="page-header">
-        <h1 class="py_main_header">PyBursa Main</h1>
+        <h1 class="py_main_header">IT University</h1>
       </div>
     </div><!-- /.container -->
 
     <div class="container">
       <div class="well">
-        <h1 class="container_name">PyBursa</h1>
-        <h3 class="block_header">Description</h3>
         <p>
-          <span class="block_text">
-<span class="first-word">Lorem</span> ipsum dolor sit amet, eu populo vituperata has. Id eos porro aeque disputationi, no est nisl scribentur consequuntur, nominati posidonium sed id. Vidisse eripuit pri eu, laoreet moderatius ad eam. Sed an quando viderer scripserit.
+          <span>Lorem ipsum dolor sit amet, eu populo vituperata has. Id eos porro aeque disputationi, no est nisl scribentur consequuntur, nominati posidonium sed id. Vidisse eripuit pri eu, laoreet moderatius ad eam. Sed an quando viderer scripserit.
 Sea cu altera intellegat accommodare, in sed mundi inermis moderatius. Accusam hendrerit at ius, nullam suscipit theophrastus an duo, cum ei postea bonorum dissentiet. Et iudico altera vivendo nec. Et qui melius inimicus. Eum illum persecuti cu.
 Ad vim dico definitiones. Ius stet ancillae tincidunt ne, appareat appetere gloriatur in est. Fugit menandri reprimique ut eam. Te nullam adipisci mea, his fugit oportere et. Ei eam dicunt aeterno delectus, dico malorum vim at.
 Ut justo malis vocent mel, graecis dissentiet concludaturque ut sea. Nam nemore honestatis contentiones in. Per ne dicta placerat torquatos. No nam decore regione antiopam, recusabo mediocrem prodesset nam ut. Lorem docendi at cum.
-Nam ne copiosae delicata, id latine ornatus inciderint vel, eam ad modus inani necessitatibus. Ius tota adipisci inimicus ne, te utinam ponderum mea. Nec ex porro sanctus, ne duo minim utroque. Duo inani aliquam ne. Ut has audiam principes, purto utamur ea est.
-          </span>
-        </p>
-        <h3 class="block_header">Program</h3>
-        <p>
-          <span class="block_text">
-<span class="first-word">Lorem</span> ipsum dolor sit amet, eu populo vituperata has. Id eos porro aeque disputationi, no est nisl scribentur consequuntur, nominati posidonium sed id. Vidisse eripuit pri eu, laoreet moderatius ad eam. Sed an quando viderer scripserit.
-Sea cu altera intellegat accommodare, in sed mundi inermis moderatius. Accusam hendrerit at ius, nullam suscipit theophrastus an duo, cum ei postea bonorum dissentiet. Et iudico altera vivendo nec. Et qui melius inimicus. Eum illum persecuti cu.
-Ad vim dico definitiones. Ius stet ancillae tincidunt ne, appareat appetere gloriatur in est. Fugit menandri reprimique ut eam. Te nullam adipisci mea, his fugit oportere et. Ei eam dicunt aeterno delectus, dico malorum vim at.
-Ut justo malis vocent mel, graecis dissentiet concludaturque ut sea. Nam nemore honestatis contentiones in. Per ne dicta placerat torquatos. No nam decore regione antiopam, recusabo mediocrem prodesset nam ut. Lorem docendi at cum.
-Nam ne copiosae delicata, id latine ornatus inciderint vel, eam ad modus inani necessitatibus. Ius tota adipisci inimicus ne, te utinam ponderum mea. Nec ex porro sanctus, ne duo minim utroque. Duo inani aliquam ne. Ut has audiam principes, purto utamur ea est.
-          </span>
+Nam ne copiosae delicata, id latine ornatus inciderint vel, eam ad modus inani necessitatibus. Ius tota adipisci inimicus ne, te utinam ponderum mea. Nec ex porro sanctus, ne duo minim utroque. Duo inani aliquam ne. Ut has audiam principes, purto utamur.</span>
         </p>
       </div>
+    </div>
+
+    <div class="container">
+        <div class="well">
+            <table>
+          <caption>Available Courses:</caption>
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for course in courses %}
+            <tr>
+              <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
+              <td>{{ course.short_description }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        </div>
     </div>
 
     <div class="copyright"></div>
