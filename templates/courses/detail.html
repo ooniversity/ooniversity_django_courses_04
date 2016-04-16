@@ -70,10 +70,38 @@
     This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.
   </p>
 </div-->
-<div class="jumbotron">
+<!--div class="jumbotron">
     <h1>{{course.name}}</h1>
     <p>{{course.description}}</p>
-</div>
+</div-->
+
+<div class="jumbotron">
+        <h1>{{course.name}}</h1>
+      <p>{{course.description}}</p>
+    </div>
+    
+    <div><h4><b>Преподаватели</b></h4></div>
+ 
+        
+    <div class="well well-sm">
+    	<h5><b>Учитель</b></h5>
+  </div>
+	   
+  <div>
+    <a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.first_name_field}} {{course.coach.last_name_field}}</a>
+      <p>{{course.coach.description}}</p>
+  </div>
+
+   <div class="well well-sm">
+   <h5><b>Ассистент</b></h5> 
+  </div>
+  <div>   
+     <a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name_field}} {{course.assistant.last_name_field}}</a>    
+      <p>{{course.assistant.description}}</p>
+  </div> 
+    
+  
+    
 
 <div class="page-header">
   <h3>План курса</h3>
