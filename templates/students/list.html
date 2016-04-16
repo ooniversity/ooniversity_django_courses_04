@@ -1,18 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Descr</title>
-
+    <title>Course students</title>
     <!-- Bootstrap -->
     {% load staticfiles %}
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
-    
   </head>
   <body>
     <nav class="navbar navbar-default">
@@ -29,36 +26,46 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'index' %}">Main<span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'index' %}">Main</a></li>
         <li><a href="{% url 'contact' %}">Contacts</a></li>
         <li><a href="{% url 'student_list' %}">Students</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>  
-<div class="container">
+  <div class="container">
   <div class="jumbotron">
-  <h1>ooniversity</h1>
-  <p>Мы специализируемся на модных языках программирования.</p>
-</div> 
-    <h2>Выбирай на каком курсе ты хочешь учиться.</h2>
+    <h2>Список студентов</h2>
     <table class="table">
     <tr class="hat_table">
-    <th>Курс</th>
-    <th>Описание</th>
+    <th>#</th>
+    <th>фамилия имя</th>
+    <th>адрес</th>
+    <th>skype</th>
+    <th>курсы</th>
     </tr>
     <tr>
+    <td>1</td>
+    <td>Сидорова Ирина</td>
+    <td>ул. Сидорова, 37</td>
+    <td>sidorova</td>
     <td><a href="{% url 'courses:detail' %}">Python</a></td>
-    <td>краткое описание</td>
     </tr>
     <tr>
-    <td>Java</td>
-    <td>краткое описание</td>
+    <td>2</td>
+    <td><a href="{% url 'detail' %}">Петров Петр</a></td>
+    <td>ул. Петровского, 34</td>
+    <td>petrov</td>
+    <td><a href="{% url 'courses:detail' %}">Python</a></td>
     </tr>
     <tr>
-    <td>Ruby</td>
-    <td>краткое описание</td>
+    <td>3</td>
+    <td>Иванов Иван</td>
+    <td>ул. Иванова, 23</td>
+    <td>ivanov</td>
+    <td><a href="{% url 'courses:detail' %}">Python</a></td>
     </tr>
+  </div>
   </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
