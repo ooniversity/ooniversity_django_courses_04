@@ -2,64 +2,60 @@
 from django.shortcuts import render
 
 def quadratic_results(request):
+	text_a = text_b = text_c = str()
+	disc = {}
+	text_result = {}
+
 	try:
 		a = int(request.GET['a'])
-	except :
+	except ValueError:
 		a = request.GET['a']
+		if request.GET['a'].isalpha():
+			text_a = u"коэффициент не целое число"
+		else:
+			text_a = u"коэффициент не определен"
 
 	try:
 		b = int(request.GET['b'])
-	except :
+	except ValueError:
 		b = request.GET['b']
+		if request.GET['b'].isalpha():
+			text_b = u"коэффициент не целое число"
+		else:
+			text_b = u"коэффициент не определен"
 
 	try:
 		c = int(request.GET['c'])
-	except :
+	except ValueError:
 		c = request.GET['c']
-	d = None	
-
-	data = {'a':a, 'b':b, 'c':c}
-
-	error_a = ""
-	error_b = ""
-	error_c = ""
-	errors = {'a':error_a, 'b':error_b, 'c':error_c}
-
-	need_answer = True
-	for key in data:
-		if data[key] == '':
-			errors[key] = u'коэффициент не определен'
-			need_answer = False
-			continue
-		if not isinstance( data[key], ( int ) ):
-			errors[key] = u'коэффициент не целое число'	 
-			need_answer = False	
-		
-		
-		if a == 0:
-		    errors['a'] = u'коэффициент при первом слагаемом уравнения не может быть равным нулю'
-		    need_answer = False
-	answer = ""
-	if need_answer:
-		d = (b ** 2 - 4 * a * c)
-
-		if d < 0:
-			answer = u'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
-		elif d == 0:
-		    x = float(-b / 2 * a)	
-		    answer = u'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f' % x
+		if request.GET['c'].isalpha():
+			text_c = u"коэффициент не целое число"
 		else:
-		    x1 = float((-b + d ** (1/2.0)) / (2*a))              
-		    x2 = float((-b - d ** (1/2.0)) / (2*a))  
-		    answer = u'Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' % (x1, x2)
-		              
-		              
+			text_c = u"коэффициент не определен"
+
+	if 'a' in locals():
+		if a == 0:
+			text_a = u"коэффициент при первом слагаемом уравнения не может быть равным нулю"
+
+	if not text_a and not text_b and not text_c :
+		disc['message'] = "Дискриминант: "
+		disc['value'] = b**2 - 4*a*c
+
+		if disc['value'] < 0:
+			text_result['message'] = u"Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
+		elif disc['value'] == 0:
+			x = (-b + disc['value'] ** (1/2.0)) / 2*a
+			text_result['message'] = u"Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = "
+			text_result['value'] = x
+		else:
+			x1 = (-b + disc['value'] ** (1/2.0)) / 2*a
+			x2 = (-b - disc['value'] ** (1/2.0)) / 2*a
+			text_result['message'] = u"Квадратное уравнение имеет два действительных корня: " 
+			text_result['value'] = u"x1 = %.1f, x2 = %.1f" % (x1, x2)
 
 
-	return render(request, 'quadratic/results.html', {
-	        'data': data, 
-	        'errors': errors,
-	        'need_answer': need_answer,
-	        'answer': answer,
-	        'd':d,
-	    })
+	context = {"text_a":text_a, "text_b":text_b, "text_c":text_c, "disc":disc, \
+			"text_result":text_result, 'a':{'message':'a = ','value':a}, 'b':{'message':'b = ', 'value':b}, \
+			'c':{'message':'c = ', 'value':c}}
+	
+	return render(request,'results.html', context)
