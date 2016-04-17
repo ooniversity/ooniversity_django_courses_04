@@ -10,7 +10,7 @@
   {% load staticfiles %}
   <link rel="icon" href="{% static "images/favicon.ico" %}">
 
-  <title>PyBursa - Main</title>
+  <title>PyBursa - Student List</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
@@ -60,7 +60,7 @@
               <a href="{% url 'contact' %}">Contacts</a>
             </li>
             <li>
-              <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a>
+              <a href="{% url 'students:list_view' %}">Students</a>
             </li>
           </ul>
         </div>
@@ -69,56 +69,70 @@
 
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <h1>{{ course.name }}</h1>
+      <h1>{{ coach.first_name_field }} {{ coach.last_name_field }}</h1>
       <h2>Description</h2>
-      <p>
-        {{ course.description }}
-      </p>
+      <p>Detail information of selected coach</p>
     </div>
 
     <div class="my_jumbotron my_transparensy07" title="The material that will be taught on the course">
-      <h2>Teaching Staff</h2>
+      <h2>Info list</h2>
     </div>
+
     <table class="my_table">
-    <thead>
+      <thead>
+        <tr>
+          <th class="my_fistcolsize my_transparensy07">Date of birth</th>
+          <td>{{ coach.date_of_birth }}</td>
+        </tr>
+      </thead>
       <tr>
-        <th class="my_fistcolsize my_transparensy07">Coach</th>
-        <th class="my_fistcolsize my_transparensy07">Assistant</th>
+        <th class="my_secondcolsize my_transparensy07">Address</th>
+        <td>{{ coach.address }}</td>
       </tr>
-    </thead>
-    <tbody>
       <tr>
-        <td><h3><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.first_name_field}} {{course.coach.last_name_field}}</a></h3>
-        <p>{{course.coach.description}}</p>
+        <th class="my_secondcolsize my_transparensy07">Email</th>
+        <td>{{ coach.email }}</td>
+      </tr>
+      <tr>
+        <th class="my_secondcolsize my_transparensy07">Skype nickname</th>
+        <td>{{ coach.skype }}</td>
+      </tr>
+      <tr>
+        <th class="my_secondcolsize my_transparensy07">Phone</th>
+        <td>{{ coach.phone }}</td>
+      </tr>
+      <tr>
+        <th class="my_secondcolsize my_transparensy07">Courses coach</th>
+        {% for course in teacher %}
+        <td>
+          <p>
+            <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+          </p>
+          <p>
+            Course studets:
+            <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+              <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+            </a>
+          </p>
         </td>
-        <td><h3><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name_field}} {{course.assistant.last_name_field}}</a></h3>
-        <p>{{course.assistant.description}}</p>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th class="my_secondcolsize my_transparensy07">Courses assistant</th>
+        {% for course in assistant %}
+        <td>
+          <p>
+            <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+          </p>
+          <p>
+            Course studets:
+            <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+              <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+            </a>
+          </p>
         </td>
+        {% endfor %}
       </tr>
-    </tbody>
-    </table>
-
-    <div class="my_jumbotron my_transparensy07" title="The material that will be taught on the course">
-      <h2>Program</h2>
-    </div>
-
-   <table class="my_table">
-    <thead>
-      <tr>
-        <th class="my_fistcolsize my_transparensy07">#</th>
-        <th class="my_secondcolsize my_transparensy07">Lesson</th>
-        <th class="my_secondcolsize my_transparensy07">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for lesson in lesson %}
-      <tr>
-        <td>{{ lesson.order }}</td>
-        <td>{{ lesson.subject }}</td>
-        <td>{{ lesson.description }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
     </table>
   </div>
 
