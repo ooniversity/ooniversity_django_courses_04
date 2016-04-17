@@ -71,17 +71,12 @@
             <tbody class="table-bordered">
               {% for course in courses %}
                 <tr>
-                  <td><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.first_name}} {{course.coach.user.last_name}} </a>
-                  <button type="button" class="btn btn-default btn-lg">
-                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
-                  </button>
+                  <td><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.first_name}} {{course.coach.user.last_name}} </a><br/>
+                  {{course.coach.description}}
                   </td>
-       
                 </tr>
-                <tr>
-                  <td>{{course.coach.description}}</td>
               {% endfor %} 
-                </tr>            
+                        
             </tbody>
           </table>
 
