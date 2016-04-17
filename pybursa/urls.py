@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^courses/1/', include('courses.urls', namespace="courses")),
     url(r'^students/?course_id=1', include('students.urls', namespace="students")),
     url(r'^students/1/$', views.detail, name='detail'),
+    url(r'^coaches/3/', include('coaches.urls', namespace="coaches")),
 )
