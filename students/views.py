@@ -14,11 +14,3 @@ def list_view(request):
 def detail(request, id):
     student = Student.objects.get(id = int(id))
     return render(request, 'students/detail.html', {'student': student})
-
-    course_id = request.GET.get('course_id')
-    course = Course.objects.get(id = int(course_id))
-    if course_id:
-        students_list = Student.objects.filter(courses=course)
-    else:
-        students_list = Student.objects.all()
-    return render(request, 'students/list.html', {'students_list': students_list})
