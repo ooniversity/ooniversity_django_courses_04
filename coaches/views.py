@@ -5,11 +5,11 @@ from courses.models import Course
 
 
 def detail(request, coach_id):
-    user = Coach.objects.get(id=coach_id)
+    coach = Coach.objects.get(id=coach_id)
     course_teacher = Course.objects.filter(coach=coach_id)
     course_assistant = Course.objects.filter(assistant=coach_id)
     parameters = {
-        'user': user,
+        'coach': coach,
         'course_teacher': course_teacher,
         'course_assistant': course_assistant
     }

@@ -52,9 +52,9 @@
           <div>
             <h3>{{ course.name }}</h3>
             <span>{{ course.description }}</span>
-            <h5>Coach: <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.user_name }}</a></h5>
+            <h5>Coach: <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.first_name }} {{ course.coach.last_name }}</a></h5>
             <span>{{ cource.coach.description }}</span>
-            <h5>Assistants: <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.user_name }}</a></h5>
+            <h5>Assistants: <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.first_name }} {{ course.assistant.last_name }}</a></h5>
             <span>{{ cource.assistant.description }}</span>
           </div>
             <table>
