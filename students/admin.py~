@@ -5,10 +5,7 @@ from students.models import Student
    #prepoluted_fields = {'fullname': ('name' , 'surname')}
 
 class StudentAdmin(admin.ModelAdmin):
-    search_fields=['surname', 'email']
-    def full('name', 'surname')
-        full_name='name'+''+'surname'
-        return full_name            
+    search_fields=['surname', 'email']        
     list_display = ['name' , 'surname', 'email', 'skype']
     list_filter = ['courses']
     fieldsets = [('Personal info', {'fields': ['name','surname', 'date_of_birth']}),('Contact info', {'fields': ['email','phone', 'address', 'skype']}), ( '',{'fields': ['courses']})]
