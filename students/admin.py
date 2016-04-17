@@ -14,8 +14,5 @@ class StudentAdmin(admin.ModelAdmin):
                 (None, {'fields': ['courses']}),
                  ]
 
-    formfield_overrides = {
-        models.ManyToManyField: {'widget': CheckboxSelectMultiple},
-    }
 
 admin.site.register(Student, StudentAdmin)

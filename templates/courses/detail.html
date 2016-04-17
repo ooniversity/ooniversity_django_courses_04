@@ -21,6 +21,28 @@
         <div class="container">
             <h1>{{course.0.name}}</h1>
             <p>{{course.0.description}}</p>
+            <h3>Преподаватели</h3>
+
+                <table class="table table-striped">
+
+                  <tr>
+                    <th>Coach</th>
+                    <th>Assistant</th>
+                  </tr>
+
+
+                  <tr>
+                    <td><h3><a href="{{course.coach_id}}">{{course.coach.first_name}}w {{course.coach.last_name}}</a></h3>
+                    <p>{{course.coach.description}}</p>
+                    </td>
+                    <td><h3><a href="{{course.assistant.id}}">{{course.assistant.first_name}}e {{course.assistant.last_name}}</a></h3>
+                    <p>{{course.assistant.description}}</p>
+                    </td>
+                  </tr>
+
+                </table>
+
+
             <h3>План курса</h3>
             <table class="table table-striped">
                     <tr>
