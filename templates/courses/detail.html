@@ -28,6 +28,30 @@
                 <h2>{{ course.name }}</h2>
                 <h3>{{ course.description }}</h3>
             </div>
+	    <h4>Coaches</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Coach</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.first_name }} {{ course.coach.last_name }}</a></td>
+                    </tr>
+                    <tr><td>{{ course.coach.description }}</td></tr>
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assistant</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.first_name }} {{ course.assistant.last_name }}</a></td></tr>
+                    <tr><td>{{ course.assistant.description }}</td></tr>
+            </table>
+		<h4>Course Plan</h4>
             <table>
                 <thead>
                 <tr>
