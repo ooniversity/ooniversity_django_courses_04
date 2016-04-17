@@ -71,14 +71,12 @@
             <tbody class="table-bordered">
               {% for course in courses %}
                 <tr>
-                  <td><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.first_name}} {{course.coach.user.last_name}} </a>
+                  <td><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.first_name}} {{course.coach.user.last_name}} </a><br/>
+                  {{course.coach.description}}
                   </td>
-       
                 </tr>
-                <tr>
-                  <td>{{course.coach.description}}</td>
               {% endfor %} 
-                </tr>            
+                        
             </tbody>
           </table>
 
@@ -91,12 +89,11 @@
             <tbody class="table-bordered">
               {% for course in courses %}
                 <tr>
-                  <td><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.user.first_name}} {{course.assistant.user.last_name}}</a></td>
+                  <td><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.user.first_name}} {{course.assistant.user.last_name}}</a><br/>
+                  {{course.assistant.description}}
+                  </td>
                 </tr>
-                <tr>
-                  <td>{{course.assistant.description}}</td>
-              {% endfor %} 
-                </tr>            
+              {% endfor %}            
             </tbody>
           </table>
           <h2>План курса</h2>     
