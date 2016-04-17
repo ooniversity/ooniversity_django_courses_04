@@ -15,7 +15,7 @@
 			</div>
 			<div class="navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="{% url 'index' %}">Main</a></li>
+					<li><a href="{% url 'index' %}">Main</a></li>
 					<li><a href="{% url 'contact' %}">Contacts</a></li>
 					<li><a href="{% url 'students:list_view' %}{% block course_students %}?course_id={{ course.id }}{% endblock course_students %}">Students</a></li>
 				</ul>
@@ -26,10 +26,12 @@
 	<div class="row">
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
 		<div class="lead col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			<h1 id="shadow">{{course.name}}</h1>
-			<p>{{course.description}}</p>
-			<h2 class="blockquote-reverse text-uppercase">Course containe lessons:</h2>
-			<table>
+			<div class="jumbotron">
+				<h1 id="shadow">{{course.name}}</h1>
+				<p>{{course.description}}</p>
+				<h2 class="blockquote-reverse text-uppercase">Course containe lessons:</h2>
+			</div>
+			<table class="table">
 				<tbody>
 					<tr>
 						<th class="text-center">#</th>
@@ -45,6 +47,15 @@
 				{% endfor %}
 				</tbody>
 			</table>
+			<h2>Coaches</h2>
+			<div class="panel panel-warning">
+				<h3 class="panel-body">Coach</h3>
+				<div><h3><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.username}} {{course.coach.user.last_name}}</a></h3></div>
+				<div><p>{{course.coach.description}}</p></div>
+				<h3 class="panel-body">Asistant</h3>
+				<div><h3><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.user.username}} {{course.assistant.user.last_name}}</a></h3></div>
+				<div><p>{{course.assistant.description}}</p></div>
+			</div>
 		</div>
 	<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
 </body>

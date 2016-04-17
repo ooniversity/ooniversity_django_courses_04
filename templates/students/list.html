@@ -15,9 +15,9 @@
             </div>
             <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="{% url 'index' %}">Main</a></li>
+                    <li><a href="{% url 'index' %}">Main</a></li>
                     <li><a href="{% url 'contact' %}">Contacts</a></li>
-                    <li><a href="{% url 'students:list_view' %}">Students</a></li>
+                    <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
                 </ul>
             </div>
             </div>
@@ -27,7 +27,7 @@
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
         <div class="lead col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <h1 id="shadow">Students list</h1>
-            <table>
+            <table class="table">
                 <tbody>
                     <tr>
                         <th class="text-center">#</th>
