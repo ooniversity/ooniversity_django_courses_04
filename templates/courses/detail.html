@@ -27,6 +27,29 @@
         <p>{{ details.description }}</p>
     </div>
     
+    <h3>Coaches</h3>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Coach</h3>
+      </div>
+      <div class="panel-body">
+        <a href="{% url 'coaches:detail' details.coach.id %}">{{ details.coach.first_name }} {{ details.coach.last_name }}</a>
+        <p>{{ details.coach.description }}</p>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Assistant</h3>
+      </div>
+      <div class="panel-body">
+        <a href="{% url 'coaches:detail' details.assistant.id %}">{{ details.assistant.first_name }} {{ details.assistant.last_name }}</a>
+        <p>{{ details.assistant.description }}</p>
+      </div>
+    </div>
+
+
     <h3>Course plan</h3>
 
     <table class="table">
