@@ -4,6 +4,7 @@ from django.contrib import admin
 from pybursa import views
 import polls
 import courses
+import coaches
 
 urlpatterns = patterns('',
     # Examples:
@@ -12,6 +13,8 @@ urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^courses/', include('courses.urls', namespace='courses')),
     url(r'^students/', include('students.urls', namespace='students')),
+    url(r'^coaches/', include('coaches.urls', namespace='coaches')),
+
     url(r'^polls/', include('polls.urls', namespace='polls')),
 
     url(r'^contact/$', views.contact, name='contact'),
