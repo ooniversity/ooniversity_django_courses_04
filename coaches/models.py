@@ -23,3 +23,5 @@ class Coach(models.Model):
 
     def last_name(self):
         return self.user.last_name
+    # def get_email(self):
+    #     return self.user.email

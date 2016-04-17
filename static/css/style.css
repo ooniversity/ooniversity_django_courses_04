@@ -5,13 +5,18 @@ body {
 }
 
 
-h1.course_name, h3.course_name, h2.Description_title,.Description, .ul_course_items{
+ h2.Description_title,.Description, .ul_course_items{
   color:#FFFFFF;
 }
 
 .course_name {
   padding: 20px 15px;
   text-align: center;
+  color:#FFFFFF;
+}
+
+.my_labels{
+  text-align: left;
 }
 
 .Description{
@@ -145,6 +150,11 @@ h1.course_name, h3.course_name, h2.Description_title,.Description, .ul_course_it
   background-color:#2F5765;
   width: 90%;
 }
+.my_table{
+  margin-bottom: 10%;
+  /*width: 40%;*/
+}
+
 .table_links{
     color: #FFF;
     text-decoration: underline;
@@ -175,6 +185,19 @@ a{
   width: 800px;
 }
 
+/*-------------------------student_detail--------------------------------*/
+
+.index_panel{
+  width: 90%;
+  background-color:#2F5765;
+  color: #FFF;
+}
+
+hr.my_hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #2F5765, #FFFFFF, #2F5765);
+}
 
 /*tr:hover {background-color: #417D93}*/
 
