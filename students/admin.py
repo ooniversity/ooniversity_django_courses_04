@@ -4,7 +4,7 @@ from students.models import Student
 
 class StudentAdmin(admin.ModelAdmin):
     search_fields = ['surname', 'email']
-    list_display = ['name', 'surname', 'email', 'skype']
+    list_display = ['full_name', 'email', 'skype']
     list_filter = ['courses']
     filter_horizontal = ['courses']
     fieldsets = [
