@@ -38,7 +38,6 @@
   </div>  
 
 
-
 <div class="container">
     <h3>{{ coach.full_name }}</h3>
     <table class="table table-striped">
@@ -70,8 +69,7 @@
                   <a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a> студенты курса <a href="{% url 'students:list_by_course' %}{% block students_by_course %}?course_id={{ i.id }}{% endblock students_by_course %}"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></a><br>
                   {% endfor %}
           </td>
-        </tr>
-        
+        </tr>      
         <tr>
           <td>курсы ассистент</td>
             <td> {% for i in assist_courses %}
@@ -83,9 +81,6 @@
       </tbody>
     </table>
   </div>
-
-
-
 
 	<div class="container">
 	  <div class="row ">
