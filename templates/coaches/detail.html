@@ -49,34 +49,59 @@
     <div class="container">
       <div class="row">
         <div class="main-container">
-          <div>
-            <h3>{{ course.name }}</h3>
-            <span>{{ course.description }}</span>
-            <h5>Coach: <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.user_name }}</a></h5>
-            <span>{{ cource.coach.description }}</span>
-            <h5>Assistants: <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.user_name }}</a></h5>
-            <span>{{ cource.assistant.description }}</span>
-          </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Subject</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for lesson in lessons %}
-                  <tr>
-                    <td>{{ lesson.order }}</td>
-                    <td>{{ lesson.subject }}</td>
-                    <td>{{ lesson.description }}</td>
-                  </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
+          <h4 class="text-center">{{ user.user_name }}</h4>
+          <table>
+            <tbody>
+              <tr>
+                <td>Date of Birth:</td>
+                <td>{{ user.date_of_birth }}</td>
+              </tr>
+              <tr>
+                <td>Address:</td>
+                <td>{{ user.address }}</td>
+              </tr>
+              <tr>
+                <td>E-mail:</td>
+                <td>{{ user.user.email }}</td>
+              </tr>
+              <tr>
+                <td>Skype:</td>
+                <td>{{ user.skype }}</td>
+              </tr>
+              <tr>
+                <td>Phone:</td>
+                <td>{{ user.phone }}</td>
+              </tr>
+              <tr>
+                <td>Courses Coach:</td>
+                <td>
+                  {% for course in  course_teacher %}
+                    <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+                      Course Students
+                      <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+                        <span class="glyphicon glyphicon-user"></span>
+                      </a>
+                      <br />
+                  {% endfor %}
+                </td>
+              </tr>
+              <tr>
+                <td>Courses Assistant</td>
+                <td>
+                  {% for course in course_assistant %}
+                    <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+                    Course Students
+                    <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+                      <span class="glyphicon glyphicon-user"></span>
+                    </a>
+                    <br />
+                  {% endfor %}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
 
     <div class="copyright"></div>
