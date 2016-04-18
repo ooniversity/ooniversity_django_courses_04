@@ -11,13 +11,14 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1vo$&fy2^rpm^wiu^hdh8t2o(hq0**@09w#g5s4_ucqe+%ame)'
+SECRET_KEY = 'm=8#8-_=ct1$)hv24lrh&!2*3+p6i5_ra67bk#-1^p9kq8a=q^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
