@@ -53,7 +53,7 @@
           <ul class="nav navbar-nav">
             <li class="{% block nav_class_index %}{% endblock %}"><a href="{% url 'index' %}">Main</a></li>            
             <li class="{% block nav_class_contact %}{% endblock %}"><a href="{% url 'contact' %}">Contacts</a></li>
-             <li class="{% block nav_class_student %}{% endblock %}"><a href="{% url 'students:list_view' %}">Students</a></li>
+            <li class="{% block nav_class_student %}{% endblock %}"><a href="{% url 'students:list_view' %}">Students</a></li>
             
           </ul>
         </div><!--/.nav-collapse -->
@@ -66,8 +66,7 @@
 	<!--/div-->
 
     <div class="container theme-showcase" role="main">
-{% block content %}      
-{% endblock content %}
+{% block content %}{% endblock content %}
   </div>
 
       <br />
