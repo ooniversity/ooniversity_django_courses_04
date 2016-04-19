@@ -1,7 +1,16 @@
 ﻿{% extends 'base.html' %}
 {% block student_active %}active{% endblock %}
 {% block title %}Список студентов{% endblock title %}
-{% block content %}<h3 >Список студентов</h3>
+{% block content %}<br>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<br><a href="{% url 'students:add' %}" class="btn btn-primary" role="button">Добавить нового студента</a><br>
+<h3 >Список студентов</h3>
         <br>
         <table id="ind_t1" class="table table-striped">
           <tbody>
@@ -21,8 +30,12 @@
             <td>
 {% for course in student.courses.all %}<a href="{%url 'courses:detail' course.id%}">{{ course.name }}</a>
             <br>{% endfor %}</td>
-
+            <td><a href="{% url 'students:edit' %}" class="btn btn-primary" role="button">Изменить</a>
+    </td>
+            <td><a href="{% url 'students:remove' %}" class="btn btn-primary" role="button">Удалить</a>
+</td>
            </tr>{% endfor %}</tbody>
 
         </table>
+
 {% endblock content %}
