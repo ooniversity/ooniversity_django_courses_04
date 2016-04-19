@@ -13,7 +13,7 @@
 
       {% for course in courses %}
       <h1><a href="{% url 'students:list_view' %}?course_id={{course.id}}">{{course.name}}</a></h1>        
-        <p>{{course.description|truncatechars:32}}</p>      
+        <p>{{course.description|truncatechars:35}}</p>      
           <div class="container-fluid">
 
 
