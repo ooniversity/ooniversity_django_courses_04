@@ -1,9 +1,10 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext, loader
 from polls.models import Choice, Question
 from django.http import Http404
 from django.views import generic
+from django.core.urlresolvers import reverse
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
