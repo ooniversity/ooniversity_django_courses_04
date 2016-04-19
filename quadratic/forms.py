@@ -11,7 +11,7 @@ class QuadraticForm(forms.Form):
     c = forms.FloatField(label="коэффициент c", widget=forms.TextInput)
 
     def clean_a(self):
-        if int(self.cleaned_data["a"]) == 0:
-            raise forms.ValidationError("коэффициент при первом слагаемом уравнения не может быть равным нулю")
+        if int(self.cleaned_data['a']) == 0:
+            raise forms.ValidationError('коэффициент при первом слагаемом уравнения не может быть равным нулю')
         else:
-            return self.cleaned_data["a"]
+            return self.cleaned_data['a']
