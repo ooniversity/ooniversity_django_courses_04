@@ -61,13 +61,13 @@
       <tr>
         <th>Teacher courses</th>
         <td>{% for course in coach_courses %}
-          <p><a href="{% url 'courses:detail' course_id=course.id %}">{{ course.name }}</a>   <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">students <span class="glyphicon glyphicon glyphicon-share"></span></a></p>
+          <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>   <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">students <span class="glyphicon glyphicon glyphicon-share"></span></a></p>
           {% endfor %}</td>
         </tr>
         <tr>
           <th>Assistant courses</th>
           <td>{% for course in assistant_courses %}
-            <p><a href="{% url 'courses:detail' course_id=course.id %}">{{ course.name }}</a>    <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">students <span class="glyphicon glyphicon glyphicon-share"></span></a></p>
+            <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>    <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">students <span class="glyphicon glyphicon glyphicon-share"></span></a></p>
             {% endfor %}</td>
         </tr>
     </table>
