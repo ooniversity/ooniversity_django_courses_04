@@ -26,4 +26,29 @@ def quadratic_results(request):
             context.update({'d': 'Дискриминант: %d' %d, 'result_message': result_message})
     else:
         form = QuadraticForm()
+    text.update({ 'form' : form })
+    return render(request, "results.html",  text )
+
+class Validation(object):
+
+    def __init__(self, name, value):
+        self.name = name
+        self.value = value
+        self.value_int = None
+        self.error_msg = None
+
+    def valid_quadratic(self):
+        if not self.value:
+            self.error_msg = 'коэффициент не определен'
+            return False
+        try:
+            self.value_int = int(self.value)
+        except ValueError:            
+            self.error_msg = 'коэффициент не целое число'
+            return False
+
+        if self.name == 'a' and self.value_int == 0:
+            self.error_msg = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
+            return False
+        return True
     return render(request, 'quadratic/results.html', {'form': form, 'context': context})
