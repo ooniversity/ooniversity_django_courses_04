@@ -51,7 +51,7 @@
               <li class="{% block active_menu_main %}{% endblock active_menu_main %}"><a href="{% url 'index' %}">Main</a></li>
               <li class="{% block active_menu_contacts %}{% endblock active_menu_contacts %}"><a href="{% url 'contact' %}">Contacts</a></li>
 			  <li class="{% block active_menu_students %}{% endblock active_menu_students %}"><a href="{% block students_href %}{% url 'students:list_view' %}{% endblock students_href %}">Students</a></li>
-              <li class="{% block active_menu_equation %}{% endblock active_menu_equation %}"><a href="{% url 'quadratic:equation' %}">Equation</a></li>
+              <li class="{% block active_menu_equation %}{% endblock active_menu_equation %}"><a href="{% url 'quadratic:results' %}">Equation</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
