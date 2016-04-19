@@ -1,18 +1,7 @@
-<p>Квадратное уравнение a*x*x + b*x + c = 0 </p>
-<form action="/quadratic/results/">
-    <label for="your_name">a: </label>
-    <input id="a" type="text" '' name="a" value="{{ current_name }}">
-    <label for="your_name">b: </label>
-    <input id="b" type="text" '' name="b" value="{{ current_name }}">
-    <label for="your_name">c: </label>
-    <input id="c" type="text" '' name="c" value="{{ current_name }}">
-    <input type="submit" value="OK">
+<p xmlns="http://www.w3.org/1999/html">Квадратное уравнение a*x*x + b*x + c = 0 </p>
+<form method="get">
+    {{ form.as_p }}
+    <input type="submit" value="Решить">
 </form>
-<li>a = {{ a }}</li>
-<i>{{ mk }}{{ aknd }}</i>
-<li>b = {{ b }}</li>
-<i>{{ bknd }}</i>
-<li>c = {{ c }}</li>
-<i>{{ cknd }}</i>
 <p>{{ d }}</p>
 <p>{{ xx }}</p>
