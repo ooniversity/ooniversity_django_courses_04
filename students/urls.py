@@ -7,7 +7,7 @@ urlpatterns = patterns(
     '',
     url(r'^$', views.student_list_view, name="list_view"),
     url(r'^(\d+)/$', views.student_detail_view, name="detail"),
-    url(r'^add/$', views.student_create_view, name="add"),
-    url(r'^edit/(?P<student_id>\d+)/$', views.student_update_view, name="edit"),
-    url(r'remove/(?P<student_id>\d+)/$', views.student_delete_view, name="remove"),
+    url(r'^add/$', views.create, name="add"),
+    url(r'^edit/(?P<student_id>\d+)/$', views.edit, name="edit"),
+    url(r'remove/(?P<student_id>\d+)/$', views.remove, name="remove"),
 )
