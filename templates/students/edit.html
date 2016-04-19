@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Edit student{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock nav_class_students %}
+
+
+{% block content %}
+  {% if messages %}
+    {% for message in messages %}
+    <div class="jumbotron">
+      <h4>{{ message }}</h4>
+    </div>
+    {% endfor %}
+  {% endif %}
+  <div class="main">
+    <div class="container">
+      <div class="col-lg-12">
+        <h3>Редактирование данных студента</h3>
+        <form method='post'>
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-success">Сохранить изменения</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
