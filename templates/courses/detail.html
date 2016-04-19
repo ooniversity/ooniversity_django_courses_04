@@ -1,33 +1,38 @@
 {% extends 'base.html' %}
-{% block students_link %}href="{% url 'students:list_view' %}?course_id={{ course_table.id }}"{% endblock %}
-{% load staticfiles %}
-{% block content %}
 
+{% block students_link %}href="{% url 'students:list_view' %}?course_id={{ course_table.id }}"{% endblock %}
+
+
+{% load staticfiles %}
+
+
+{% block content %}
     <div class="starter-template">
         <h1>{{ course_table.name }}</h1>
         <h3 class="lead">{{ course_table.description|truncatechars:32 }}</h3>
     </div>
-<div>
-<h2>Преподаватели</h2>
-{% include 'include/tables_include.html' %}
-<div>
-    <table class="table">
-    <h2>План курса</h2>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Тема</th>
-            <th>Описание</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for item in lesson %}
-          <tr class="success">
-            <td>{{ item.order }}</td>
-            <td>{{ item.subject }}</td>
-            <td>{{ item.description }}</td>
-          </tr>
-        {% endfor %}
-    </table>
-</div>
+    <div>
+        <h2>Преподаватели</h2>
+        {% include 'include/tables_include.html' %}
+        <div>
+            <table class="table">
+                <h2>План курса</h2>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Тема</th>
+                    <th>Описание</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in lesson %}
+                    <tr class="success">
+                        <td>{{ item.order }}</td>
+                        <td>{{ item.subject }}</td>
+                        <td>{{ item.description }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 {% endblock %}

@@ -1,33 +1,39 @@
 {% extends 'base.html' %}
+
 {% load staticfiles %}
+
 {% block title %}Students list{% endblock %}
+
+
 {% block nav_students %}active{% endblock %}
+
+
 {% block content %}
-      <h2>Список студентов</h2>
-      <table class="table">
+    <h2>Список студентов</h2>
+    <table class="table">
         <thead>
-          <tr>
+        <tr>
             <th>#</th>
             <th>фамилия имя</th>
             <th>адрес</th>
             <th>skype</th>
             <th>курсы</th>
-          </tr>
+        </tr>
         </thead>
-          {% for item in stud %}
-        <tbody>
-          <tr class="success">
-            <td>{{ item.id }}</td>
-            <td><a href="{% url 'students:detail' item.id %}">{{ item.surname }} {{ item.name }}</a></td>
-            <td>{{ item.address }}</td>
-            <td>{{ item.skype }}</td>
-            <td>
-              {% for course in item.courses.all %}
-            <a href="{% url 'courses:detail' course.id %}">{{ course }}</a>
-              {% endfor %}
-            </td>
-          </tr>
-        </tbody>
-          {% endfor %}
-      </table>
+        {% for item in stud %}
+            <tbody>
+            <tr class="success">
+                <td>{{ item.id }}</td>
+                <td><a href="{% url 'students:detail' item.id %}">{{ item.surname }} {{ item.name }}</a></td>
+                <td>{{ item.address }}</td>
+                <td>{{ item.skype }}</td>
+                <td>
+                    {% for course in item.courses.all %}
+                        <a href="{% url 'courses:detail' course.id %}">{{ course }}</a>
+                    {% endfor %}
+                </td>
+            </tr>
+            </tbody>
+        {% endfor %}
+    </table>
 {% endblock %}

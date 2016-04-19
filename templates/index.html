@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
+
 {% load staticfiles %}
+
 {% block title %}Main Page{% endblock %}
+
+
 {% block nav_index %}active{% endblock %}
+
 
 {% block content %}
     <div class="starter-template">
@@ -17,20 +22,20 @@
             Все разделы django будут освещены. </p>
     </div>
     <div>
-    <table class="table">
-        <thead>
-          <tr>
-            <th>Курс</th>
-            <th>Описание</th>
-          </tr>
-        </thead>
-        {% for item in cours_table %}
-        <tbody>
-          <tr class="success">
-            <td><a href="{% url 'courses:detail' item.id%}">{{ item.name|upper }}</a></td>
-            <td>{{ item.short_description|title }}</td>
-          </tr>
-        {% endfor %}
-    </table>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Курс</th>
+                <th>Описание</th>
+            </tr>
+            </thead>
+            {% for item in cours_table %}
+                <tbody>
+                <tr class="success">
+                    <td><a href="{% url 'courses:detail' item.id %}">{{ item.name|upper }}</a></td>
+                    <td>{{ item.short_description|title }}</td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
 {% endblock %}

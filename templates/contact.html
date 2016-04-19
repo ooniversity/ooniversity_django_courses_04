@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
-{% block title %}Main Page{% endblock %}
-{% block nav_contact %}active{% endblock %}
-{% block content %}
 
+{% load staticfiles %}
+
+{% block title %}Contact{% endblock %}
+
+
+{% block nav_contact %}active{% endblock %}
+
+
+{% block content %}
     <div class="row">
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
           <div class="caption">
-
             <img src="{% static 'images/Obod.jpg' %}" alt="..." class="img-circle">
             <div>
               <h3>Founder</h3>
@@ -40,7 +44,6 @@
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
           <div class="caption">
-
             <img src="{% static 'images/Alex.jpg' %}" alt="..." class="img-circle">
             <div>
               <h3>Director</h3>
