@@ -1,1 +1,34 @@
 {% extends "students/base.html" %}
+
+{% block page_header %}Список студентов{% endblock %}
+
+	{% block page_content %}
+	 <div class="col-md-12">
+	  <table class="table">
+		<thead id="id2">
+		  <tr>
+		   <td><b>#</b></td>
+		   <td><b>фамилия имя<b></td>
+		   <td><b>адрес<b></td>
+		   <td><b>skype<b></td>
+		   <td><b>курсы<b></td>
+		  </tr>
+		</thead>
+		<tbody>		
+		{% for i in students %}		
+		  <tr>
+			<td>{{ i.id }}</td>
+		    <td><a href="{% url 'students:detail' i.id %}">{{ i }}</a></td>
+		    <td>{{ i.address }}</td>
+			<td>{{ i.skype }}</td>
+			<td>			
+			  {% for course in i.courses.all %}
+			  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
+			  {% endfor %}
+			</td>
+		  </tr>
+		{% endfor %}			  
+	   </tbody>	
+	  </table>
+	 </div> <!-- col-md-12  -->
+	{% endblock page_content %}

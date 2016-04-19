@@ -8,7 +8,7 @@
 {% block nav_class_contact %}active{% endblock %}
 
 
-{%  block main_content %}    
+{% block content %}    
     <!--<div class="container">-->
       <h1 class="organization">Организаторы курса</h1>
       <h3 class="director">Director</h3>
@@ -52,4 +52,4 @@
     <div align="center" id="id2">
       <img class="python2" src ="{% static 'images/python2.jpg' %}"/>
     </div>     
-{%  endblock main_content %}    
+{% endblock content %}    
