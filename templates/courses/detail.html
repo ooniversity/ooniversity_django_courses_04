@@ -3,7 +3,7 @@
 {% block title %}Информация о курсе{% endblock title %}
 {% block content %}
 <h1>{{ course.name }}</h1><br>
-        <p>{{ course.description }}</p>
+        <p>{{ course.description|truncatechars:32 }}</p>
         <br><br> 
         <h3 >Преподаватели</h3>
         <br>
@@ -37,7 +37,7 @@
           </tr>{% for lesson in lessons_list %}<tr>
             <td>{{ lesson.order }}</td>
             <td>{{ lesson.subject }}</td>
-            <td>{{ lesson.description|truncatechars:32 }}</td>
+            <td>{{ lesson.description }}</td>
            </tr>{% endfor %}
 </tbody>
 
