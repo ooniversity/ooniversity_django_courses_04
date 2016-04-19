@@ -1,0 +1,11 @@
+	  <table class="table">
+		<tr id="id1">
+		  <td>Учитель</td>
+		</tr>
+		<tr>
+		  <td><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.first_name}} {{course.coach.last_name}}</a></td>
+		</tr>
+		<tr>
+		  <td>{{course.coach.description}}</td>
+		</tr>		
+	  </table>
