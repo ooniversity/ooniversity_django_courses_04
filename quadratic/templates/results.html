@@ -1,60 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Equation</title>
-</head>
-<body>
-    Квадратное уравнение a*x*x + b*x + c = 0
-    <ul>
-        <li>
-            {% if erra == True and a != '' %}
-                a = {{a}}
-                <p>коэффициент не целое число</p>
-            {% elif a != 0 and a != '' %}
-                a = {{a}}
-            {% elif a == '' %}
-                a = {{a}}
-                <p>коэффициент не определен</p>
-            {% elif a == 0 %}
-                a = {{a}}
-                <p>коэффициент при первом слагаемом уравнения не может быть равным нулю</p>
-            {% endif %}
-        </li>
-        <li>
-            {% if errb == True and b != '' %}
-                b = {{b}}
-                <p>коэффициент не целое число</p>
-            {% elif b != '' %}
-                b = {{b}}
-            {% elif b == '' %}
-                b = {{b}}
-                <p>коэффициент не определен</p>
-            {% endif %}
-        </li>
-        <li>
-            {% if errc == True and c != '' %}
-                c = {{c}}
-                <p>коэффициент не целое число<p>
-            {% elif b != '' %}
-                c = {{c}}
-            {% elif c == '' %}
-                c = {{c}}
-                <p>коэффициент не определен</p>
-            {% endif %}
-        </li>
-    </ul>
-    {% if discr == None or a == 0 %} 
-        <p></p>
-        <p></p>
-    {% elif discr < 0 %}    
-        <p>Дискриминант: {{discr}}</p>
-        <p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</p>
-    {% elif discr > 0 %} 
-        <p>Дискриминант: {{discr}}</p>
-        <p>Квадратное уравнение имеет два действительных корня: x1 = {{x1}}, x2 = {{x2}}</p>
-    {% elif discr == 0 %} 
-        <p>Дискриминант: {{discr}}</p>
-        <p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{x1}}</p>
+  <head>
+    <title>Квадратное уравнение</title>
+  </head>
+
+  <body>
+    <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+    <form method="GET">
+      {{ form.as_p }}
+      <input type="Submit" value="Решить" />
+    </form>
+
+  <!--  <ul>
+      <li>a = {{ a }} {% if a_error %}<br /><em>{{ a_error }}</em>{% endif %}</li>
+      <li>b = {{ b }} {% if b_error %}<br /><em>{{ b_error }}</em>{% endif %}</li>
+      <li>c = {{ c }} {% if c_error %}<br /><em>{{ c_error }}</em>{% endif %}</li>
+    </ul> -->
+    {% if not error %}
+    <p>Дискриминант: {{ d }}</p>
+    <p>{{ result_message }}</p>
     {% endif %}
-</body>
+  </body>
 </html>
