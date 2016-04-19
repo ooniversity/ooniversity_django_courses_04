@@ -24,7 +24,7 @@ def create(request):
         form = StudentModelForm(request.POST)
         if form.is_valid():
             new_student = form.save()
-            new_message = "Student %s %s has been successfully added." % (new_student.name, new_student.surname)
+            new_message = u"Student %s %s has been successfully added." % (new_student.name, new_student.surname)
             messages.success(request, new_message)
             return redirect("students:list_view")
     else:
@@ -33,15 +33,14 @@ def create(request):
 
 
 def edit(request, student_id):
-    student = Student.objects.get(id=student_id)
+    new_student = Student.objects.get(id=student_id)
     if request.method == 'POST':
-        form = StudentModelForm(request.POST, instance=student)
+        form = StudentModelForm(request.POST, instance=new_student)
         if form.is_valid():
             form.save()
-            new_message = "Info on the student has been sucessfully changed."
-            messages.success(request, new_message)
+            messages.success(request, u"Info on the student has been sucessfully changed.")
     else:
-        form = StudentModelForm(instance=student)
+        form = StudentModelForm(instance=new_student)
     return render(request, "students/edit.html", {'form': form})
 
 
@@ -49,7 +48,7 @@ def remove(request, student_id):
     new_student = Student.objects.get(id=student_id)
     if request.method == 'POST':
         new_student.delete()
-        new_message = "Info on %s %s has been sucessfully deleted." % (new_student.name, new_student.surname)
+        new_message = u"Info on %s %s has been sucessfully deleted." % (new_student.name, new_student.surname)
         messages.success(request, new_message)
         return redirect("students:list_view")
     return render(request, "students/remove.html", {'name': new_student.name, 'surname': new_student.surname})
