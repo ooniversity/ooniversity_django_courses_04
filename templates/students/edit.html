@@ -13,7 +13,9 @@
 {% block content %}
   {% if messages %}
     {% for message in messages %}
-      <p>{{ message }}</p>
+      <div class="jumbotron">
+        <h4>{{ message }}</h4>
+      </div>
     {% endfor %}
   {% endif %}
   <div class="main">

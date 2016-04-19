@@ -13,7 +13,9 @@
 {% block content %}
   {% if messages %}
     {% for message in messages %}
-      <p>{{ message }}</p>
+      <div class="jumbotron">
+        <h4>{{ message }}</h4>
+      </div>
     {% endfor %}
   {% endif %}
   <p><a href="{% url 'students:add' %}" role="button" class="btn btn-default">
