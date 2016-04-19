@@ -2,12 +2,12 @@
 from django import forms
 
 class QuadraticForm(forms.Form):
-    a = forms.IntegerField(label='коэффициент a', widget=forms.TextInput) #error_messages={'required': 'коэффициент не определен', 'invalid': 'коэффициент не целое число'})
+    a = forms.IntegerField(label='коэффициент a', widget=forms.TextInput)
     b = forms.IntegerField(label='коэффициент b', widget=forms.TextInput)
     c = forms.IntegerField(label='коэффициент c', widget=forms.TextInput)
     
-    def clean(self):
+    def clean_a(self):
         if self.cleaned_data.get('a') == 0:
             raise forms.ValidationError('коэффициент при первом слагаемом уравнения не может быть равным нулю')
-        return self.cleaned_data
+        return self.cleaned_data.get('a')
 

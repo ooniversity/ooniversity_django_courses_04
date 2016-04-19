@@ -38,7 +38,10 @@ def get_eq_root(a, b, d, order=1):
     return x
 
 def quadratic_results(request):
-    form = QuadraticForm(request.GET)
+    if request.GET:
+        form = QuadraticForm(request.GET)
+    else:
+        form = QuadraticForm()
     context = {'error': False}
     for name_value in ['a', 'b', 'c']:
         coefficient = Coefficient(name_value, request.GET.get(name_value, ''))
