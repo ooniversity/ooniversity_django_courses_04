@@ -88,27 +88,8 @@
 	<!-- Content end -->
 {% endblock content %}
 
-{% block panel_menu %}			
-	<!-- Panel Menu begin -->
-	  <div class="col-md-offset-8">
-        <div class="panel panel-primary">
-          <!-- Default panel contents -->
-          <div class="panel-heading">Lorem ipsum dolor sit amet</div>
-            <div class="panel-body">
-              <div class="list-group">
-			  <!--<a href="#" class="list-group-item active">-->
-                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
-                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
-                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
-                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
-			    <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
-              </div>
-		    </div>
-		</div>
-	  </div>
-	</div>
-	<!-- Panel Menu end -->
-{% endblock panel_menu %}
+
+{% include "include/panel_include.html" %}
 
 	<!-- Footer begin -->
 	<div class="container" id="PageFooter">
