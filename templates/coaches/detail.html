@@ -1,43 +1,14 @@
+  {% extends "base.html" %}
 
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>{% block title %}{{ coach.full_name }}{% endblock title %}</title>
-  <!-- Bootstrap -->
-  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
-</head>
+  {% load staticfiles %}
 
-  <body>
-    <div class="navbar-wrapper">
-      <div class="container">
-      <!-- Static navbar -->
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <img ></img>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="{% url 'index' %}">Main</a></li>
-              <li><a href="{% url 'contact' %}">Contacts</a></li>
-              <li><a href="{% url 'students:list_view' %}">Students</a></li>  
-              <li><a href="{% url 'results' %}">Уравнение</a></li>
-            </ul>
-            </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
+
+  {% block title %}{{ coach.full_name }}{% endblock title %}
+
+  {% block nav_active_index %}active{% endblock %}
+
+  
+  {% block content %}
     <div class="container-fluid">
      
     <h2 id = "header_table">{{ coach.full_name }}</h2>
@@ -45,7 +16,7 @@
       <table class="table table-striped">
         <tr>
             <td>дата рождения</td>
-            <td>{{ coach.date_of_birth }}</td>
+            <td>{{ coach.date_of_birth|date:"d F, Y" }}</td>
         </tr>
         <tr>
             <td>адрес</td>
@@ -80,15 +51,4 @@
       </table>   
     </div>
 
-
-
-      <!-- FOOTER -->
-      <footer id = "footer_header">
-        <p>&copy; 2016 Bursa, Inc. &middot; </p>
-      </footer>
-
- 
-  </body>
-</html>
-
-
+{% endblock content %}
