@@ -6,9 +6,9 @@ class QuadraticForm(forms.Form):
     """
     Input variables of the quadratic equation
     """
-    a = forms.FloatField(label="коэффициент a")
-    b = forms.FloatField(label="коэффициент b")
-    c = forms.FloatField(label="коэффициент c")
+    a = forms.FloatField(label="коэффициент a", widget=forms.TextInput)
+    b = forms.FloatField(label="коэффициент b", widget=forms.TextInput)
+    c = forms.FloatField(label="коэффициент c", widget=forms.TextInput)
 
     def clean_a(self):
         if int(self.cleaned_data["a"]) == 0:
