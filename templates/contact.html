@@ -1,114 +1,61 @@
+ {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Организаторы курсов</title>
+    <title>Main</title>
 
-    <!-- Bootstrap -->
-    {% load static %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    
-
-    
+    <link href="{% static 'css/bootstrap.css' %}" rel
+    ="stylesheet">
   </head>
   <body>
     <div class="common">
-    
-    <nav class="navbar navbar-default">
-        <a href="{% url 'index' %}">Главная</a>
-        <a href="{% url 'contact' %}">Контакты</a>
-        <a href="{% url 'students:list_view' %}">Студенты</a>
+      <nav class="navbar navbar-default">
+        <a href="{% url 'index' %}">Main </a>
+        <a href="{% url 'contact' %}">Contacts</a>  
+        <a href="{% url 'students:list_view' %}">Students</a>
     </nav>
-    
-  <div class="container">     
-    <h1>Организаторы курсов</h1>
-    
-    <div class="organized">
-    <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img class="foto"src="{% static 'images/Director.jpg' %}" alt="Director">
-        <div class="caption">
-          <h3>Director</h3>
-          <p><label>Name:&nbsp</label>Brad Pitt</p>
-          <p><label>Skype:&nbsp</label>mikky</p>
-          <p><label>Email:&nbsp</label>bp@gmail.com</p>
-          <p><label>Phone:&nbsp</label>555 333 222</p>
-          
-        </div>
-      </div>
-    </div>
-    </div>
-    
-    
-    <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img class="foto"src="{% static 'images/Founder.jpg' %}" alt="Founder">
-        <div class="caption">
-          <h3>Founder</h3>
-          <p><label>Name:&nbsp</label>Arnold Schwarzenegger</p>
-          <p><label>Skype:&nbsp</label>zeus</p>
-          <p><label>Email:&nbsp</label>god@gmail.com</p>
-          <p><label>Phone:&nbsp</label>777 777 777</p>
-          
-        </div>
-      </div>
-    </div>
-    </div>
-    
-    
-    <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img class="foto"src="{% static 'images/Manager.jpg' %}" alt="manager">
-        <div class="caption">
-          <h3>Manager</h3>
-          <p><label>Name:&nbsp</label>George Clooney</p>
-          <p><label>Skype:&nbsp</label>fknwork</p>
-          <p><label>Email:&nbsp</label>gc@gmail.com</p>
-          <p><label>Phone:&nbsp</label>111 222 333</p>
-          
-        </div>
-      </div>
-    </div>
-    </div>
-  
-  </div>
-  
-  <div class='company'>
-  <h2 data-toggle="tooltip" data-placement="bottom" title="Состав">Состав компании</h2>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <span class="badge">22</span>
-         Руководящий состав
-      </li>
-      <li class="list-group-item">
-        <span class="badge">1</span>
-         Трудящийся состав
-      </li>
-      <li class="list-group-item">
-        <span class="badge">15</span>
-         Бездельники
-      </li>
-     
-    </ul>
-  </div>
-  
-  <nav>
-    <ul class="pager">
-      <li class="previous"><a href="{% url 'index' %}"><span aria-hidden="true">&larr;</span> Previous</a></li>
-      <li class="next"><a href="{% url 'student_list' %}">Next <span aria-hidden="true">&rarr;</span></a></li>
-    </ul>
-  </nav>
-  
-  </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <div class="container">     
+      
+         <ul>
+      <li>
+        <h4>Director</h4>
+        <p>
+        Name: Director of the World <br />
+        Skype: director.skype <br />
+        Email: directro@gamil.com <br />
+        Phone: +380500000000 <br />
+        </p>
+      </li>
+
+      <li>
+        <h4>Manager</h4>
+        <p>
+        Name: Manager of the World <br />
+        Skype: manager.skype <br />
+        Email: manager@gamil.com <br />
+        Phone: +380500000001 <br />
+        </p>
+      </li>
+
+      <li>
+        <h4>Founder</h4>
+        <p>
+        Name: Founder of the World <br />
+        Skype: founder.skype <br />
+        Email: founder@gamil.com <br />
+        Phone: +380500000002 <br />
+        </p>
+      </li>
+    </ul>
+      </div>
+    
+
+   </div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{% static 'js/bootstrap.min.js' %}"></script>

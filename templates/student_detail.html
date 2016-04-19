@@ -1,143 +1,69 @@
+ {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Состояние студента</title>
+    <title>Srudents detail</title>
 
     <!-- Bootstrap -->
-    {% load static %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" >
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    
 
-    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <div class="common">
-    
     <nav class="navbar navbar-default">
-        <a href="{% url 'index' %}">Main</a>
-        <a href="{% url 'contact' %}">Contacts</a>
-        <a href="{% url 'student_list' %}">Students</a>
-        <a href="{% url 'results' %}">Уравнение</a>
+    
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="nav navbar-nav">
+          <a href="{% url 'index' %}">Main </a>
+          <a href="{% url 'contact' %}">Contacts</a>  
+          <a href="{% url 'student_list' %}">Students</a>
+        </div>
+        
+        
+      </div><!-- /.navbar-collapse -->
     </nav>
+
+    <h2>Ivanov Ivan</h2>
+    <br />
+
+    <p>Student's card</p>
+    <table  bgcolor="black" border="2">
+      <tr class="h1"><td>Surname</td> <td>Inanov</td></tr>
+      <tr class="h2"><td>Name</td> <td>Ivan</td></tr>
+      <tr class="h3"><td>Patronymic</td> <td>Ivanovich</td></tr>
+      <tr class="h4"><td>Rating</td> <td>7</td></tr>
+      <tr class="h5"><td>Average grade</td> <td>24</td></tr>
+      <tr class="h6"><td>Package</td> <td>Gold</td></tr>
+      <tr  class="small"><td>Birth Date</td> <td>12/12/1976</td></tr>
+      <tr class="mark"><td>Address</td> <td>Ukraine, Donetsk, Artjoma st., 12/222</td></tr>
+      <tr class="text-muted"><td>E-mail</td> <td>ivan@mail.ru</td></tr>
+      <tr class="text-primary"><td>Skype</td> <td>ibanov.ivan</td></tr>
+      
+    </table>
+    <br />
+
+    <p>Perfomance</p>
+    <table >
+      <tr bgcolor="blue"><th>Courde</th> <th>Week</th> <th>Control Type</th> <th>Grade</th><th>Average Grade</th></tr>
+      <tr><td>PyBursa</td> <td>Week1</td> <td>Tests</td> <td>99%</td><td>99%</td></tr>
+      <tr><td></td> <td></td> <td>Problem Task № 1</td> <td>100%</td><td>99%</td></tr>
+      <tr><td></td> <td></td> <td>Problem Task № 2</td> <td>100%</td><td>99%</td></tr>
+      <tr><td></td> <td>Week2</td> <td>Tests</td> <td>99%</td><td>99%</td></tr>
+      <tr><td></td> <td>Week1</td> <td>Problem Task № 1</td> <td>99%</td><td>99%</td></tr>
+
+    </table>
     
-  <div class="container">     
-    <div class="jumbotron small">
-        <h1 class="student-name">Иванов Иван</h1>
-    
-        <div class="thumbnail">
-        <img  src="{% static 'images/python.jpg' %}">
-        </div> 
-       
-
-    </div>
-
-
- 
-   <div class="well">Карточка студента</div>
-<table class="table small table-bordered" >
-    <tbody>
-        <tr class="info">
-            <td>Surname</td>
-            <td class="student-name">Иванов</td>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td class="student-name">Иван</td>
-        </tr>
-        <tr class="warning">
-            <td>Patronymic</td>
-            <td class="student-name">Иванович</td>
-        </tr>
-        <tr>
-            <td>Birth Date</td>
-            <td class="student-name">11/10/1985</td>
-        </tr>
-        <tr>
-            <td>Address</td>
-            <td class="student-name">Республика Чад, г. Харьков, ул. 1 Января, д.1б</td>
-        </tr>
-        <tr class="info">
-            <td>E-mail</td>
-            <td class="student-name">ivanov@gmail.com</td>
-        </tr>
-        <tr>
-            <td>Skype</td>
-            <td class="student-name">ivanov.ivan</td>
-        </tr>
-        <tr class="warning">
-            <td>Average Grade</td>
-            <td class="student-name">99.9</td>
-        </tr>
-        <tr>
-            <td>Rating</td>
-            <td class="student-name">22</td>
-        </tr>
-    </tbody>
-</table>    
-    
- <table class="table table-bordered" >
- <thead>
-        <tr class="success">
-            <th>Курс</th>
-            <th>Неделя</th>
-            <th>Тип задания</th>
-            <th>Оценка</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan="5" class="vert-align">Введение в питон</td>
-            <td rowspan="3" class="vert-align">Week 1</td>
-            <td>Tests</td>
-            <td>99%</td>
-        </tr>
-        <tr>
-            <td>Problem Task №1</td>
-            <td>100%</td>
-        </tr>
-        <tr>
-            <td>Problem Task №2</td>
-            <td>100%</td>
-        </tr>
-        <tr>
-            <td rowspan="2" >Week 2</td>
-            <td>Tests</td>
-            <td>100%</td>
-        </tr>
-        <tr>
-            <td>Problem Task №1</td>
-            <td>100%</td>
-        </tr>
-    </tbody>
-</table>   
-  
-  </div>
-  
-  <div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary">
-          <input type="checkbox"> Желтая карточка
-        </label>
-  <label class="btn btn-primary">
-          <input type="checkbox"> Красная карточка
-        </label>
-  <label class="btn btn-primary">
-          <input type="checkbox"> Синяя карточка
-        </label>
-</div>
-  
-  <nav>
-    <ul class="pager">
-      <li class="previous"><a href="{% url 'student_list' %}"><span aria-hidden="true">&larr;</span> Previous</a></li>
-    </ul>
-  </nav>
-   
-  </div>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
