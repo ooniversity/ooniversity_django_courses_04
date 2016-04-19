@@ -1,7 +1,10 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+
 
 {% block title %}PyBursa - Courses{% endblock title %}
+
+
+{% block active_menu_main %}"active"{% endblock active_menu_main %}
 
 
 {% block students_href %}"{% url 'students:list_view' %}?course_id={{cur_course.id}}"{% endblock students_href %}
@@ -56,4 +59,5 @@
         </div>
 	  </div>
 	<!-- Content end -->
+{% include "include/panel_include.html" %}
 {% endblock content %}
