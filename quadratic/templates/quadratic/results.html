@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="utf-8">
@@ -16,23 +16,13 @@
     
   </head>
   <body>
-    <div class="common">
-    
-    <nav class="navbar navbar-default">
-        <a href="{% url 'index' %}">Main</a>
-        <a href="{% url 'contact' %}">Contacts</a>
-        <a href="{% url 'student_list' %}">Students</a>
-        <a href="{% url 'results' %}">Equation</a>
-    </nav>   
-  </div>
   <div class="container">
   <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 
 <form method="get">
 {{ form.as_p }}
-<input type="submit" value="Решить"/>
+<input type="submit" value="Решить" />
 </form>
-  
   <p>{{disc.message}}{{disc.value}}</p>
   <p>{{text_result.message}}{{text_result.value}}</p>
  

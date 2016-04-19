@@ -1,61 +1,31 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
+from quadratic.forms import QuadraticForm
 
 def quadratic_results(request):
-	text_a = text_b = text_c = str()
-	disc = {}
-	text_result = {}
+    disc = {}
+    text_result = {}
+    if request.GET == {}:
+        form = QuadraticForm()
+    else:
+        form = QuadraticForm(request.GET)
+        if request.method == "GET":
+            if form.is_valid():
+                data = form.cleaned_data
+                disc['message'] = "Дискриминант: "
+                disc['value'] = data['b']**2 - 4*data['a']*data['c']
+                if disc['value'] < 0:
+                    text_result['message'] = u"Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
+                elif disc['value'] == 0:
+                    x = (-data['b'] + disc['value'] ** (1/2.0)) / 2*data['a']
+                    text_result['message'] = u"Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = "
+                    text_result['value'] = x
+                else:
+                    x1 = (-data['b'] + disc['value'] ** (1/2.0)) / 2*data['a']
+                    x2 = (-data['b'] - disc['value'] ** (1/2.0)) / 2*data['a']
+                    text_result['message'] = u"Квадратное уравнение имеет два действительных корня: " 
+                    text_result['value'] = u"x1 = %.1f, x2 = %.1f" % (x1, x2)
 
-	try:
-		a = int(request.GET['a'])
-	except ValueError:
-		a = request.GET['a']
-		if request.GET['a'].isalpha():
-			text_a = u"коэффициент не целое число"
-		else:
-			text_a = u"коэффициент не определен"
-
-	try:
-		b = int(request.GET['b'])
-	except ValueError:
-		b = request.GET['b']
-		if request.GET['b'].isalpha():
-			text_b = u"коэффициент не целое число"
-		else:
-			text_b = u"коэффициент не определен"
-
-	try:
-		c = int(request.GET['c'])
-	except ValueError:
-		c = request.GET['c']
-		if request.GET['c'].isalpha():
-			text_c = u"коэффициент не целое число"
-		else:
-			text_c = u"коэффициент не определен"
-
-	if 'a' in locals():
-		if a == 0:
-			text_a = u"коэффициент при первом слагаемом уравнения не может быть равным нулю"
-
-	if not text_a and not text_b and not text_c :
-		disc['message'] = "Дискриминант: "
-		disc['value'] = b**2 - 4*a*c
-
-		if disc['value'] < 0:
-			text_result['message'] = u"Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
-		elif disc['value'] == 0:
-			x = (-b + disc['value'] ** (1/2.0)) / 2*a
-			text_result['message'] = u"Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = "
-			text_result['value'] = x
-		else:
-			x1 = (-b + disc['value'] ** (1/2.0)) / 2*a
-			x2 = (-b - disc['value'] ** (1/2.0)) / 2*a
-			text_result['message'] = u"Квадратное уравнение имеет два действительных корня: " 
-			text_result['value'] = u"x1 = %.1f, x2 = %.1f" % (x1, x2)
-
-
-	context = {"text_a":text_a, "text_b":text_b, "text_c":text_c, "disc":disc, \
-			"text_result":text_result, 'a':{'message':'a = ','value':a}, 'b':{'message':'b = ', 'value':b}, \
-			'c':{'message':'c = ', 'value':c}}
+    context = {"disc":disc, "text_result":text_result, "form":form}
 	
-	return render(request,'results.html', context)
+    return render(request,'quadratic/results.html', context)
