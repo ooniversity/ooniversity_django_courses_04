@@ -19,7 +19,7 @@ def student_detail_view(request, student_id):
         return render(request, 'students/detail.html', {'students': student})
 
 
-def student_create_view(request):
+def create(request):
     if request.method == "POST":
         form = StudentModelForm(request.POST)
         if form.is_valid():
@@ -32,7 +32,7 @@ def student_create_view(request):
     return render(request, "students/add.html", {'form': form})
 
 
-def student_update_view(request, student_id):
+def edit(request, student_id):
     student = Student.objects.get(id=student_id)
     if request.method == "POST":
         form = StudentModelForm(request.POST, instance=student)
@@ -45,7 +45,7 @@ def student_update_view(request, student_id):
     return render(request, "students/edit.html", {'form': form})
 
 
-def student_delete_view(request, student_id):
+def remove(request, student_id):
     student = Student.objects.get(id=student_id)
     if request.method == "POST":
         student.delete()
