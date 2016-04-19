@@ -16,6 +16,7 @@ def get_eq_root(a, b, d, order=1):
 
 def quadratic_results(request):
     context = {}
+    context['error'] = True
     if request.GET:
         form = QuadraticForm(request.GET)
         if form.is_valid():
