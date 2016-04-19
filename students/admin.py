@@ -1,8 +1,7 @@
 from django.contrib import admin
 from students.models import Student
 
-#class ArticleAdmin(admin.ModelAdmin):
-   #prepoluted_fields = {'fullname': ('name' , 'surname')}
+
 
 class StudentAdmin(admin.ModelAdmin):
     search_fields=['surname', 'email']        
