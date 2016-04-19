@@ -7,7 +7,7 @@
 {% block nav_class_index %}active{% endblock %}
 
 
-{%  block content %}
+{% block content %}
 	<div class="container">		
 		<h1>PyBursa</h1>
       <p>Мы специализируемся на "модных" языках программирования. Принципиальное наше отличие от</p>   
@@ -25,7 +25,7 @@
 		<tbody>		
 		{% for i in courses %}
 		  <tr>
-		    <td><a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a></td>
+		    <td><a href="{% url 'courses:detail' i.id %}">{{ i.name|upper }}</a></td>
 		    <td>{{ i.short_description|title }}</td>
 		  </tr>
 		{% endfor %}
