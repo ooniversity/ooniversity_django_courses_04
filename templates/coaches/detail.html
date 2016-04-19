@@ -1,83 +1,51 @@
-﻿{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="python framework jango обучение">
-    <meta name="author" content="">
-
-    <title>Преподаватель</title>
-    <script src="{%static 'js/jquery-2.2.2.js'%}"></script>
-    <script src="{%static 'js/bootstrap.js'%}"></script>
-
-    <link href="{%static 'css/style.css'%}" rel="stylesheet">
-
-    <link href="{%static 'css/bootstrap.css'%}" rel="stylesheet">
-
-   </head>
-
-  <body>
-
-
-    <div class="container">
-      <ul class="nav nav-tabs">
-  	<li role="presentation"><a href="{%url 'index'%}">Главная</a></li>
-  	<li role="presentation" ><a href="{%url 'contact'%}">Контакты</a></li>
-    <li role="presentation" ><a href="{%url 'students:list_view'%}"> Студенты</a></li>
-      </ul>
-
-        <h1>{{coach.user.last_name}} {{coach.user.first_name}}</h1><br>
+﻿﻿{% extends 'base.html' %}
+{% block index_active %}active{% endblock %}
+{% block title %}Информация о преподавателе{% endblock title %}
+{% block content %}<h1>{{ coach.user.last_name }} {{ coach.user.first_name }}</h1><br>
         <br>
         <table class="table table-striped">
           <tbody>
           <tr>
 		  <td>дата рождения</td>
-		  <td>{{coach.date_of_birth|date:"N j, Y"}}</td>
+		  <td>{{ coach.date_of_birth|date:"j F, Y" }}</td>
           </tr>
 
            <tr>
 		  <td>почта</td>
-		  <td>{{coach.user.email}}</td>
+		  <td>{{ coach.user.email }}</td>
           </tr>
 
           <tr>
 		  <td>телефон</td>
-		  <td>{{coach.phone}}</td>
+		  <td>{{ coach.phone }}</td>
           </tr>
 
           <tr>
 		  <td>адрес</td>
-		  <td>{{coach.address}}</td>
+		  <td>{{ coach.address }}</td>
           </tr>
 
           <tr>
 		  <td>skype</td>
-		  <td>{{coach.skype}}</td>
+		  <td>{{ coach.skype }}</td>
           </tr>
 
           <tr>
 		  <td>курсы учитель</td>
-		  <td>
-		  {%for course in as_coach%}
-             <a href="{%url 'courses:detail' course.id%}">{{course.name}}</a> Студенты курса <a href="{%url 'students:list_view'%}?course_id={{course.id}}"><span class="glyphicon glyphicon-new-window"></span></a><br>
- 		  {%endfor%}
-		  </td>
+		  <td>{% for course in as_coach %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> Студенты курса <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-new-window"></span></a>
+                <br>{% endfor %}</td>
           </tr>
 
          <tr>
 		  <td>курсы ассистент</td>
 		  <td>
-		  {%for course in as_assistant%}
-             <a href="{%url 'courses:detail' course.id%}">{{course.name}}</a> Студенты курса <a href="{%url 'students:list_view'%}?course_id={{course.id}}"><span class="glyphicon glyphicon-new-window"></span></a><br>
- 		  {%endfor%}
+                      <p>{% for course in as_assistant %}</p>
+             <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> Студенты курса <a href="{%url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-new-window"></span></a><br>
+ 		  <p>{% endfor %}</p>
 		  </td>
           </tr>
 
           </tbody>
 
         </table>
-      </div>
-</body>
-</html>
+{% endblock content %}

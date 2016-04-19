@@ -1,37 +1,9 @@
-﻿{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="python framework jango обучение">
-    <meta name="author" content="">
-
-    <title>Главная. Описание курса PyBursa</title>
-    <script src="{%static 'js/jquery-2.2.2.js'%}"></script>
-    <script src="{%static 'js/bootstrap.js'%}"></script>
-
-    <link href="{%static 'css/style.css'%}" rel="stylesheet">
-
-    <link href="{%static 'css/bootstrap.css'%}" rel="stylesheet">
-
-   </head>
-
-  <body>
-
-
-    <div class="container">
-      <ul class="nav nav-tabs">
-  	<li role="presentation"><a href="{%url 'index'%}">Главная</a></li>
-  	<li role="presentation"><a href="{%url 'contact'%}">Контакты</a></li>
-    <li role="presentation"><a href="{%url 'students:list_view'%}">Студенты</a></li>
-      </ul>
-
-
-        <h1>ItBursa</h1><br>
+﻿{% extends 'base.html' %}
+{% block index_active %}active{% endblock %}
+{% block title %}Главная. Описание курса PyBursa{% endblock title %}
+{% block content %}<h1>ItBursa</h1><br>
         <h3>Description</h3>
-        <p>Мы специализируемся на модных языках программирования </p>
+        <p>Мы специализируемся на модных языках программирования</p>
         <br><br> 
 
         <h3>Выбирай свой курс!</h3>
@@ -42,19 +14,15 @@
             <th >Курс </th>
             <th>Описание </th>
           </tr>
-       {%for course in courses_list%}
+{%for course in courses_list%}
           <tr>
             <td>
-              <a href="{%url 'courses:detail' course.id%}">{{course.name}}</a>
+              <a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a>
             </td>
-            <td>
-              {{course.short_description}}
-            </td>
-           </tr> 
-       {%endfor%}
+            <td>{{ course.short_description|title }}</td>
+           </tr>
+{%endfor%}
           </tbody>
 
         </table>
-      </div>
-</body>
-</html>
+{% endblock %}
