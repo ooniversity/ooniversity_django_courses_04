@@ -1,51 +1,17 @@
+{% extends "base.html" %}
+
+
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>PyBursa</title>
-	<!-- Bootstrap -->
 
-	<link href="{% static '/static/css/bootstrap.css' %}" rel="stylesheet">
-	<link href="{% static '/static/css/style.css' %}" rel="stylesheet">
-</head>
-<body>
 
-	<div class="container">
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<div class="navbar-brand">PyBursa</div>
-				</div>
+{% block title %}Student Detail{% endblock title %}
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li>
-							<a href="{% url 'index' %}">Main</a>
-						</li>
-						<li>
-							<a href="{% url 'contact' %}">Contacts</a>
-						</li>
-						<li>
-							<a href="{% url 'students:list_view' %}">Students</a>
-						</li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container-fluid -->
-		</nav>
 
+{% block naw_class_students %}active{% endblock %}
+
+
+{% block main_content %}
+<div class="container">
 		<h1 class="cl_h1">{{det.name}} {{det.surname}}</h1>
 		<table class="table">
 			<tr>
@@ -80,12 +46,5 @@
 		</table>
 
 	</div>
-	<script src="{% static 'js/bootstrap.js' %}"></script>
-	<br>
-	<br>
-	<div class="foot">
-		<p class="footer">© 2016 Nikolzp</p>
-	</div>
-</body>
+{% endblock main_content %}
 
-</html>

@@ -1,160 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="PyBursa"> 
-    <title>PyBursa student_detail</title>
+{% extends "base.html" %}
 
-    <!-- Bootstrap -->
-    {% load staticfiles %}
-    <link href="{% static '/static/css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static '/static/css/style.css' %}" rel="stylesheet">
 
-  </head>
-<body>
+{% load staticfiles %}
+
+
+{% block title %}Student detail PyBursa{% endblock title %}
+
+
+{% block naw_class_students %}active{% endblock %}
+
+
+{% block main_content %}
 <div class="container">
-  
+  <div class="page-geader">
+    <h1 class="cl_h1">PyBursa</h1>
+    <h2 class="cl_h1">Юрий Махно</h2>
+  </div>
+  <br>
+  <br>
 
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-      <div class="navbar-brand">PyBursa</div>
+  <h4 class="cl_h2">Карточка студента</h4>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-condensed">
+      <tr>
+        <td>Surname</td>
+        <td>Махно</td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td>Юрий</td>
+      </tr>
+      <tr>
+        <td>Patronymic</td>
+        <td>Батькович</td>
+      </tr>
+      <tr>
+        <td>Rating</td>
+        <td>150</td>
+      </tr>
+      <tr>
+        <td>Average Grade</td>
+        <td>99,9</td>
+      </tr>
+      <tr>
+        <td>Packege</td>
+        <td>Standart</td>
+      </tr>
+      <tr>
+        <td>Birth Date</td>
+        <td>11.02.1985</td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td>Украина, г.Харьков ул.Петренко д5, кв1</td>
+      </tr>
+      <tr>
+        <td>Post</td>
+        <td>61010</td>
+      </tr>
+      <tr>
+        <td>Skype</td>
+        <td>makhnoy</td>
+      </tr>
+      <tr>
+        <td>E-mail</td>
+        <td>makhnoy@mail.ru</td>
+      </tr>
+    </table>
+    <br>
+
+    <h4 class="cl_h2">Успеваемость</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered table-condensed">
+        <tr>
+          <th>Course</th>
+          <th>Week</th>
+          <th>Control Type</th>
+          <th>Grade</th>
+          <th>Average</th>
+          <th>Rating</th>
+        </tr>
+        <tr>
+          <td rowspan="6">PyBursa_04</td>
+          <td rowspan="3">Week1</td>
+          <td>Tests</td>
+          <td>100%</td>
+          <td rowspan="3">75%</td>
+          <td rowspan="6">20</td>
+        </tr>
+        <tr>
+          <td>Problem Task_1</td>
+          <td>50%</td>
+        </tr>
+        <tr>
+          <td>Problem Task_2</td>
+          <td>80%</td>
+        </tr>
+        <tr>
+          <td rowspan="3">Week2</td>
+          <td>Tests</td>
+          <td>100%</td>
+          <td rowspan="3">75%</td>
+        </tr>
+        <tr>
+          <td>Problem Task_1</td>
+          <td>50%</td>
+        </tr>
+        <tr>
+          <td>Problem Task_2</td>
+          <td>80%</td>
+        </tr>
+      </table>
+
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="{% url 'index' %}">Main</a></li>
-        <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li><a href="{% url 'student_list' %}">Students</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-<div class="page-geader">
-  <h1 class="cl_h1">PyBursa</h1>
-  <h2 class="cl_h1">Юрий Махно</h2>
+  </div>
 </div>
-<br><br>
-
-<h4 class="cl_h2">Карточка студента</h4>
-
-<div class="table-responsive">
-<table class="table table-bordered table-condensed">
-  <tr>
-    <td>Surname</td>
-    <td>Махно</td>
-  </tr>
-  <tr>
-    <td>Name</td>
-    <td>Юрий</td>
-  </tr>
-  <tr>
-    <td>Patronymic</td>
-    <td>Батькович</td>
-  </tr>
-  <tr>
-    <td>Rating</td>
-    <td>150</td>
-  </tr>
-  <tr>
-    <td>Average Grade</td>
-    <td>99,9</td>
-  </tr>
-  <tr>
-    <td>Packege</td>
-    <td>Standart</td>
-  </tr>
-  <tr>
-    <td>Birth Date</td>
-    <td>11.02.1985</td>
-  </tr>
-  <tr>
-    <td>Address</td>
-    <td>Украина, г.Харьков ул.Петренко д5, кв1</td>
-  </tr>
-  <tr>
-    <td>Post</td>
-    <td>61010</td>
-  </tr>
-  <tr>
-    <td>Skype</td>
-    <td>makhnoy</td>
-  </tr>
-  <tr>
-    <td>E-mail</td>
-    <td>makhnoy@mail.ru</td>
-  </tr>
-</table>
-<br>
-
-<h4 class="cl_h2">Успеваемость</h4>
-<div class="table-responsive">
-<table class="table table-bordered table-condensed">
-  <tr>
-    <th>Course</th>
-    <th>Week</th>
-    <th>Control Type</th>
-    <th>Grade</th>
-    <th>Average</th>
-    <th>Rating</th>
-  </tr>
-  <tr>
-    <td rowspan="6">PyBursa_04</td>
-    <td rowspan="3">Week1</td>
-    <td>Tests</td>
-    <td>100%</td>
-    <td rowspan="3">75%</td>
-    <td rowspan="6">20</td>
-  </tr>
-  <tr>
-    <td>Problem Task_1</td>
-    <td>50%</td>
-  </tr>
-  <tr>
-    <td>Problem Task_2</td>
-    <td>80%</td>
-  </tr>
-  <tr>
-    <td rowspan="3">Week2</td>
-    <td>Tests</td>
-    <td>100%</td>
-    <td rowspan="3">75%</td>
-  </tr>
-   <tr>
-    <td>Problem Task_1</td>
-    <td>50%</td>
-  </tr>
-  <tr>
-    <td>Problem Task_2</td>
-    <td>80%</td>
-  </tr>
-
-
-</table>
-
-
-
-
-</div>
-</div>
-  <script src="../static/js/bootstrap.js"></script>
-<br><br>
-<div class="foot">
-  <p class="footer">© 2016 Nikolzp </p>
-</div>
-</body>
-
-</html>
-
-
+{% endblock main_content %}

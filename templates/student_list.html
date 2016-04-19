@@ -1,111 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="PyBursa"> 
-    <title>PyBursa student_list</title>
+{% extends "base.html" %}
 
-    <!-- Bootstrap -->
-     {% load staticfiles %}
-    <link href="{% static '/static/css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static '/static/css/style.css' %}" rel="stylesheet">
 
-  </head>
-<body>
+{% load staticfiles %}
+
+
+{% block title %}Student list PyBursa{% endblock title %}
+
+
+{% block naw_class_students %}active{% endblock %}
+
+
+{% block main_content %}
 <div class="container">
-  
+  <div class="cl_h1">
+    <h1>Students PyBursa</h1>
+    <p>Данные про наших сеудентов 2016г</p>
+  </div>
 
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-      <div class="navbar-brand">PyBursa</div>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="{% url 'index' %}">Main</a></li>
-        <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
-
-<div class="cl_h1">
-  <h1>Students PyBursa</h1>
-  <p>Данные про наших сеудентов 2016г</p>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <tr>
+        <th>No</th>
+        <th>Surname</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Skype</th>
+      </tr>
+      <tr>
+        <td>
+          <a href="{% url 'student_detail' %}">1</a>
+        </td>
+        <td>
+          <a href="{% url 'student_detail' %}">Юрий</a>
+        </td>
+        <td>
+          <a href="{% url 'student_detail' %}">Махно</a>
+        </td>
+        <td>
+          <a href="{% url 'student_detail' %}">Украина, г.Харьков ул.Петренко д5, кв1</a>
+        </td>
+        <td>
+          <a href="{% url 'student_detail' %}">makhnoy</a>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Денис</td>
+        <td>Гагаро</td>
+        <td>Украина, г.Харьков ул.Петренко д5, кв2</td>
+        <td>DenisPlaytika</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Сергей</td>
+        <td>Поважнюк</td>
+        <td>Украина, г.Харьков ул.Петренко д5, кв3</td>
+        <td>SergPo</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Руслан</td>
+        <td>Токарь</td>
+        <td>Украина, г.Харьков ул.Петренко д5, кв4</td>
+        <td>rexxx</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Богдан</td>
+        <td>Волынский</td>
+        <td>Украина, г.Харьков ул.Петренко д5, кв5</td>
+        <td>Bohdan</td>
+      </tr>
+    </table>
+  </div>
 </div>
-
-<div class="table-responsive">
-<table class="table table-bordered">
-  <tr>
-    <th>No</th>
-    <th>Surname</th>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Skype</th>
-  </tr>
-  <tr>
-    <td><a href="{% url 'student_detail' %}">1</a></td>
-    <td><a href="{% url 'student_detail' %}">Юрий</a></td>
-    <td><a href="{% url 'student_detail' %}">Махно</a></td>
-    <td><a href="{% url 'student_detail' %}">Украина, г.Харьков ул.Петренко д5, кв1</a></td>
-    <td><a href="{% url 'student_detail' %}">makhnoy</a></td>
-  </tr>
-   <tr>
-    <td>2</td>
-    <td>Денис</td>
-    <td>Гагаро</td>
-    <td>Украина, г.Харьков ул.Петренко д5, кв2</td>
-    <td>DenisPlaytika</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Сергей</td>
-    <td>Поважнюк</td>
-    <td>Украина, г.Харьков ул.Петренко д5, кв3</td>
-    <td>SergPo</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>Руслан</td>
-    <td>Токарь</td>
-    <td>Украина, г.Харьков ул.Петренко д5, кв4</td>
-    <td>rexxx</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>Богдан</td>
-    <td>Волынский</td>
-    <td>Украина, г.Харьков ул.Петренко д5, кв5</td>
-    <td>Bohdan</td>
-  </tr>
-</table>
-</div>
-
-
-
-</div>
-</div>
-  <script src="../static/js/bootstrap.js"></script>
-<br><br>
-<div class="foot">
-  <p class="footer">© 2016 Nikolzp </p>
-</div>
-</body>
-
-</html>
-
-
+{% endblock main_content %}
