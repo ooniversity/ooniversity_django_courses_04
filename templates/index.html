@@ -27,8 +27,8 @@
         {% for item in cours_table %}
         <tbody>
           <tr class="success">
-            <td><a href="{% url 'courses:detail' item.id%}">{{ item.name }}</a></td>
-            <td>{{ item.short_description }}</td>
+            <td><a href="{% url 'courses:detail' item.id%}">{{ item.name|upper }}</a></td>
+            <td>{{ item.short_description|title }}</td>
           </tr>
         {% endfor %}
     </table>

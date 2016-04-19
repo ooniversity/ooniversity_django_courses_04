@@ -1,0 +1,35 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>Учитель</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="success">
+        <td>
+            <a href="{% url 'coaches:detail' course_table.coach.id %}">
+                {{ course_table.coach.first_name }} {{ course_table.coach.last_name }}</a>
+        </td>
+    </tr>
+    <tr class="success">
+        <td>{{ course_table.coach.description }}</td>
+    </tr>
+</table>
+</div>
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Ассистент</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="success">
+            <td><a href="{% url 'coaches:detail' course_table.assistant.id %}">
+                {{ course_table.assistant.first_name }} {{ course_table.assistant.last_name }}</a></td>
+        </tr>
+        <tr class="success">
+            <td>{{ course_table.assistant.description }}</td>
+        </tr>
+    </table>
+</div>

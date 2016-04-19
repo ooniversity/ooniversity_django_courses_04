@@ -1,29 +1,8 @@
-{% load staticfiles %}<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Student list</title>
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  </head>
-  <body>
-		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
-		    <div class="navbar-header">
-		      <a class="navbar-brand" href="http://pybursa.com/">PyBursa</a>
-		    </div>
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="{% url 'index' %}">Main</a></li>
-		        <li><a href="{% url 'contact' %}">Contacts</a></li>
-                <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
-		      </ul>
-		    </div>
-		  </div>
-		</nav>
-    <div class="container">
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Students list{% endblock %}
+{% block nav_students %}active{% endblock %}
+{% block content %}
       <h2>Список студентов</h2>
       <table class="table">
         <thead>
@@ -51,8 +30,4 @@
         </tbody>
           {% endfor %}
       </table>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-  </body>
-</html>
+{% endblock %}

@@ -2,47 +2,14 @@
 {% block students_link %}href="{% url 'students:list_view' %}?course_id={{ course_table.id }}"{% endblock %}
 {% load staticfiles %}
 {% block content %}
+
     <div class="starter-template">
         <h1>{{ course_table.name }}</h1>
-        <h3 class="lead">{{ course_table.description }}</h3>
+        <h3 class="lead">{{ course_table.description|truncatechars:32 }}</h3>
     </div>
 <div>
 <h2>Преподаватели</h2>
-    <table class="table">
-        <thead>
-          <tr>
-            <th>Учитель</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="success">
-            <td>
-                <a href="{% url 'coaches:detail' course_table.coach.id %}">
-                {{ course_table.coach.first_name }} {{ course_table.coach.last_name }}</a>
-            </td>
-          </tr>
-          <tr class="success">
-            <td>{{ course_table.coach.description }}</td>
-          </tr>
-    </table>
-</div>
-    <div>
-    <table class="table">
-        <thead>
-          <tr>
-            <th>Ассистент</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="success">
-            <td><a href="{% url 'coaches:detail' course_table.assistant.id %}">
-                {{ course_table.assistant.first_name }} {{ course_table.assistant.last_name }}</a></td>
-          </tr>
-          <tr class="success">
-            <td>{{ course_table.assistant.description }}</td>
-          </tr>
-    </table>
-    </div>
+{% include 'include/tables_include.html' %}
 <div>
     <table class="table">
     <h2>План курса</h2>
