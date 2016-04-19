@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
+
+
 {% load staticfiles %}
+
+
 {% block title %}Students {{ course.name }}{% endblock %}
+
+
 {% block active_students %}active{% endblock active_students %}
 
-{% block content %}
 
+{% block content %}
   <div class="row marketing">
     <div class="col-lg-12">
       <div class="navbar">
+      <h3>Студенты курса</h3>
         <div class="navbar-inner">
           <div class="container-fluid">
             <div class="jumbotron" style="background:rgba(255,255,255,0.3);">

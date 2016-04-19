@@ -1,10 +1,16 @@
 {% extends "base.html" %}
+
+
 {% load staticfiles %}
+
+
 {% block title %}Quadratic{% endblock title %}
+
+
 {% block active_quadratic %}active{% endblock active_quadratic %}
 
-{% block content %}
 
+{% block content %}
   <div class="row marketing">
     <h3 style="text-align: center">Квадратное уравнение a*x*x + b*x + c = 0</h3><br>
 
@@ -16,16 +22,14 @@
     </div>
 
     <ul>
-      <li>a = {{ a }} {% if a_error %}<br /><em>{{ a_error }}</em>{% endif %}</li>
-      <li>b = {{ b }} {% if b_error %}<br /><em>{{ b_error }}</em>{% endif %}</li>
-      <li>c = {{ c }} {% if c_error %}<br /><em>{{ c_error }}</em>{% endif %}</li>
+      <li>a = {{ a }}{% if a_error %}<br /><em>{{ a_error }}</em>{% endif %}</li>
+      <li>b = {{ b }}{% if b_error %}<br /><em>{{ b_error }}</em>{% endif %}</li>
+      <li>c = {{ c }}{% if c_error %}<br /><em>{{ c_error }}</em>{% endif %}</li>
     </ul>
 
     {% if not error %}
       <p>Дискриминант: {{ d }}</p>
       <p>{{ result }}</p>
     {% endif %}
-
-   </div>
-
+  </div>
 {% endblock content %}
