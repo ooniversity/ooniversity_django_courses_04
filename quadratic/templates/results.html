@@ -1,7 +1,12 @@
+    {% extends "base.html" %}
 
-{% extends "base.html" %}
-{% load staticfiles %}
-{% block title %}Quadratic{% endblock title %}
+    {% load staticfiles %}
+
+
+    {% block title %}Quadratic{% endblock title %}
+
+    {% block nav_active_qudratic %}active{% endblock %}
+
 
 {% block content %}
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
