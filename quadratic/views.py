@@ -23,7 +23,7 @@ def quadratic_results(request):
                 koef[i]=int(form.cleaned_data.get(koef_names[i]))
             a,b,c = koef
             discr1= b ** 2 - 4 * a * c
-            message.append(u"Дескриминант: %d<br>" % int(discr1))
+            #message.append(u"Дескриминант: %d<br>" % int(discr1))
             if discr1 > 0:
                 x1 = (-b + math.sqrt(discr1)) / (2.0 * a)
                 x2 = (-b - math.sqrt(discr1)) / (2.0 * a)
@@ -32,7 +32,7 @@ def quadratic_results(request):
                 x2=x1;
     else:
         form = QuadraticForm()
-    return render(request,'quadratic/results.html',{'form':form,'koef':zip(koef_names,koef), 'd':discr1, 'x1':x1, 'x2':x2}) 
+    return render(request,'quadratic/results.html',{'form':form, 'd':discr1, 'x1':x1, 'x2':x2}) 
 
  
 
