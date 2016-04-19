@@ -40,7 +40,7 @@
                
 {% include 'include/instr_courses_include.html' with block_title='Курсы учитель' instructor=courses_coach %}
                
-{% include 'include/instr_courses_include.html' with block_title='Курсы ассистент!' instructor=courses_assistant %}
+{% include 'include/instr_courses_include.html' with block_title='Курсы ассистент' instructor=courses_assistant %}
                                        
             </tbody>
           </table>
