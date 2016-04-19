@@ -1,63 +1,16 @@
+{% extends "base.html" %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PyBursa - Courses - Students</title>
 
-    <!-- Bootstrap -->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+{% block title %}PyBursa - Courses - Students{% endblock title %}
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-	
-	<!-- Userdefined styles begin -->
-	<link href="{% static 'css/style.css' %}" rel="stylesheet">
-	<!-- Userdefined styles end -->
-	
-  </head>
-  <body>
-  
-	<!-- Header begin -->
-	<div class="container" id="PageHeader">
-	  <div class="page-header">
-	    <h1 id="TitleHeader">PYTHON <small>the best courses ever...</small></h1>
-	  </div>
-	</div>
-	<!-- Header end -->
-	
-    <!-- Navigation menu begin -->
-	<div class="container" id="Navigation">
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li><a href="{% url 'index' %}">Main</a></li>
-              <li><a href="{% url 'contact' %}">Contacts</a></li>
-			  <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-	</div>
-    <!-- Navigation menu end -->
-	
+
+{% block active_menu_main %}{% endblock active_menu_main %}
+
+
+{% block active_menu_students %}"active"{% endblock active_menu_students %}
+
+
+{% block content %}	
 	<!-- Content begin -->
 	<div class="container" id="Content">
 	  <div class="col-md-8">
@@ -93,38 +46,5 @@
         </div>
 	  </div>
 	<!-- Content end -->
-	
-	<!-- Panel Menu begin -->
-	  <div class="col-md-offset-8">
-        <div class="panel panel-primary">
-          <!-- Default panel contents -->
-          <div class="panel-heading">Lorem ipsum dolor sit amet</div>
-            <div class="panel-body">
-              <div class="list-group">
-			  <!--<a href="#" class="list-group-item active">-->
-                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
-                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
-                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
-                <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
-			    <a href="{% url 'index' %}" class="list-group-item">Lorem ipsum dolor</a>
-              </div>
-		    </div>
-		</div>
-	  </div>
-	</div>
-	<!-- Panel Menu end -->
-	
-	<!-- Footer begin -->
-	<div class="container" id="PageFooter">
-	  <div class="well well-sm">
-		<h5>Python courses 2016. Valery Perepelitsa</h5>
-	  </div>
-	</div>
-	<!-- Footer end -->
-	
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-  </body>
-</html>
+{% endblock content %}	
+
