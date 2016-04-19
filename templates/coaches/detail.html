@@ -1,6 +1,4 @@
 {% extends "base.html" %}
-
-
 {% block title %}PyBursa - Coache info{% endblock title %}
 
 
@@ -22,7 +20,7 @@
 		    <tbody>
 		        <tr class="info">
 		            <td>дата рождения</td>
-		            <td>{{coach.date_of_birth|date:"j F Y"}}</td>
+		            <td>{{coach.date_of_birth|date:"d N,  Y"}}</td>
 		        </tr>
 		                <tr class="info">
 		            <td>адрес</td>
