@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^polls/', include('polls.urls',namespace="polls")),
 
-    url(r'^quadratic/', include('quadratic.urls')),
+    url(r'^quadratic/', include('quadratic.urls', namespace='quadratic')),
 
     url(r'^admin/', include(admin.site.urls)),
     #url(r'^index/', views.index, name='index'),

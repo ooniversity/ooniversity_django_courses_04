@@ -1,0 +1,24 @@
+﻿{% extends "base.html" %}
+{% load quadratic_filter %}
+{% block title %}Решение квадратного уравнения{% endblock %}
+{% block quadratic_active %}active{% endblock %}
+{% block content %}
+<br>
+Квадратное уравнение a*x*x+b*x+c=0
+<p>
+<form method='get'>
+{{ form.as_p }}
+<input type='submit' value='Решить'>
+</form>
+</p>
+
+
+{%if d != ''  %}
+ 
+  Дискриминант: {{ d }}<br>
+{% if d > 0  %}Квадратное уравнение имеет два действительных корня: x1 = {{ x1|floatformat:1 }}, x2 = {{ x2|floatformat:1 }}<br>
+{% elif d == 0 %}Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x1|floatformat:1 }}<br>
+{% else %}Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.<br>
+{% endif %}
+{% endif %}
+{% endblock content %}
