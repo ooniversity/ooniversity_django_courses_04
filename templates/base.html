@@ -8,7 +8,7 @@
     <meta name="description" content="python framework jango обучение">
     <meta name="author" content="">
 
-    <title>Главная. Описание курса PyBursa</title>
+    <title>{% block title %}Главная. Описание курса PyBursa{% endblock title %}</title>
     <script src="{%static 'js/jquery-2.2.2.js'%}"></script>
     <script src="{%static 'js/bootstrap.js'%}"></script>
 
@@ -19,25 +19,15 @@
    </head>
 
   <body>
-
-
-    <div class="container-fluid">
+    <div class="container">
       <ul class="nav nav-tabs">
 
-  	<li role="presentation"><a href="{% url 'index'%}">Главная</a></li>
-  	<li role="presentation"><a href="{% url 'contact'%}">Контакты</a></li>
-    <li role="presentation"><a href="{% url 'students:list'%}"> Студенты</a></li>
+  	<li role="presentation" class={% block index_active %}{% endblock %}><a href="{% url 'index' %}">Главная</a></li>
+  	<li role="presentation" class={% block contact_active %}{% endblock %}><a href="{% url 'contact' %}">Контакты</a></li>
+    <li role="presentation" class={% block student_active %}{% endblock %}><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a></li>
 
       </ul>
-    <div class="container">
-    {%block content%}
-
-
-
-    {% endblock content %}
-
-
-    </div><!-- /.container -->
+    <div class="container">{% block content %}{% endblock content %}</div><!-- /.container -->
 
 
   </body>

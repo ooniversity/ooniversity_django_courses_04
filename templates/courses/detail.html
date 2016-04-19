@@ -1,34 +1,9 @@
-﻿{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="python framework jango обучение">
-    <meta name="author" content="">
-
-    <title>Главная. Описание курса PyBursa</title>
-    <script src="{%static 'js/jquery-2.2.2.js'%}"></script>
-    <script src="{%static 'js/bootstrap.js'%}"></script>
-
-    <link href="{%static 'css/style.css'%}" rel="stylesheet">
-
-    <link href="{%static 'css/bootstrap.css'%}" rel="stylesheet">
-
-   </head>
-
-
-<body>
-    <div class="container">
-      <ul class="nav nav-tabs">
-  	<li role="presentation"><a href="{%url 'index'%}">Главная</a></li>
-  	<li role="presentation"><a href="{%url 'contact'%}">Контакты</a></li>
-    <li role="presentation"><a href="{%url 'students:list_view'%}?course_id={{course.id}}">Студенты</a></li>
-      </ul>
-
-        <h1>{{course.name}}</h1><br>
-        <p>{{course.description}} </p>
+﻿{% extends 'base.html' %}
+{% block index_active %}active{% endblock %}
+{% block title %}Информация о курсе{% endblock title %}
+{% block content %}
+<h1>{{ course.name }}</h1><br>
+        <p>{{ course.description }}</p>
         <br><br> 
         <h3 >Преподаватели</h3>
         <br>
@@ -37,9 +12,8 @@
             <h3 class="panel-title">Учитель</h3>
           </div>
           <div class="panel-body">
-            <a href="{%url 'coaches:detail' course.coach.id%}">{{course.coach.user.first_name}} {{course.coach.user.last_name}}</a><br><br>
-           {{course.coach.description}}
-          </div>
+            <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.user.first_name }} {{ course.coach.user.last_name }}</a><br>
+          <br>{{ course.coach.description }}</div>
         </div>
 
         <br>
@@ -48,12 +22,11 @@
             <h3 class="panel-title">Ассистент</h3>
           </div>
           <div class="panel-body">
-            <a href="{%url 'coaches:detail' course.assistant.id%}">{{course.assistant.user.first_name}} {{course.assistant.user.last_name}}</a><br><br>
-           {{course.assistant.description}}
-          </div>
+            <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.user.first_name }} {{ course.assistant.user.last_name }}</a><br>
+          <br>{{ course.assistant.description }}</div>
         </div>
         <br>
-        <h3 >План курса</h3>
+        <h3>План курса</h3>
         <br>
         <table id="ind_t1" class="table table-striped">
           <tbody>
@@ -61,21 +34,13 @@
             <th >#</th>
             <th >Тема</th>
             <th>Описание</th>
-          </tr>
-          {%for lesson in lessons_list%}
-          <tr>
-            <td>{{lesson.order}}</td>
-            <td>
-              {{lesson.subject}}
-            </td>
-            <td>
-              {{lesson.description}}
-            </td>
-           </tr> 
-       {%endfor%}
-          </tbody>
+          </tr>{% for lesson in lessons_list %}<tr>
+            <td>{{ lesson.order }}</td>
+            <td>{{ lesson.subject }}</td>
+            <td>{{ lesson.description|truncatechars:32 }}</td>
+           </tr>{% endfor %}
+</tbody>
 
         </table>
-      </div>
-</body>
-</html>
+{% endblock content %}
+
