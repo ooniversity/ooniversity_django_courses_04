@@ -10,19 +10,12 @@
 {% block content %}
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 
-<ul>
+<form method="get">
 
-	<li>a = {{a}}</li> <i>{{no_koef_a}}{{koef_not_int_a}}{{if_a_0}}</i>
-
-	<li>b = {{b}}</li> <i>{{no_koef_b}}{{koef_not_int_b}}</i>
-
-	<li>c = {{c}}</li>
-	<i>{{no_koef_c}}{{koef_not_int_c}}</i>
-
-</ul>
+{{ form.as_p }}
+<input type="submit">
+</form>
 
 <p>{{diskrimin}}</p>
-<p>{{diskr_less_0}}</p>
-<p>{{dva_kornya}}</p>
-<p>{{odin_koren}}</p>
+<p>{{koren}}</p>
 {% endblock content %}
