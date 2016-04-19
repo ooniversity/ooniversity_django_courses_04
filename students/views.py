@@ -40,8 +40,8 @@ def edit(request, student_id):
             form.save()
             new_message = "Info on the student has been sucessfully changed."
             messages.success(request, new_message)
-            return render(request, 'students/edit.html', {'form': form})
-    form = StudentModelForm(instance=student)
+    else:
+        form = StudentModelForm(instance=student)
     return render(request, "students/edit.html", {'form': form})
 
 
