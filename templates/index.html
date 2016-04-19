@@ -1,1 +1,36 @@
 {% extends "base.html" %}
+
+
+{% block active_menu_main %}"active"{% endblock active_menu_main %}
+
+
+{% block content %}
+	<!-- Content begin -->
+	<div class="container" id="Content">
+	  <div class="col-md-8">
+	      <h1>OONIVERSITY</h1>
+	      <h4>Мы специализируемся на модных языках програмирования. Принципиальное наше отличие от других курсов - максимум практики и жесткая система обязательных домашних заданий.</h4>
+	  </div>
+	  <div class="col-md-8">
+	    <div class="table-responsive">
+		  <table class="table table-bordered">
+		    <thead>
+			  <th>Курс</th>
+			  <th>Описание</th>
+			</thead>
+			<tbody>
+              {% for i in cur_course %}
+			  <tr>
+				<td><a href="{% url 'courses:detail' i.id %}">{{i.name|upper}}</a></td>
+				<td>
+				  {{i.short_description|title}}
+				</td>
+			  </tr>
+              {% endfor %}
+			</tbody>
+		  </table>
+        </div>
+	  </div>
+	<!-- Content end -->
+{% include "include/panel_include.html" %}
+{% endblock content %}
