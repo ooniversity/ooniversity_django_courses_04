@@ -48,9 +48,9 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class={% block active_menu_main %}{% endblock active_menu_main %}><a href="{% url 'index' %}">Main</a></li>
-              <li class={% block active_menu_contacts %}{% endblock active_menu_contacts %}><a href="{% url 'contact' %}">Contacts</a></li>
-			  <li class={% block active_menu_students %}{% endblock active_menu_students %}><a href={% block students_href %}"{% url 'students:list_view' %}"{% endblock students_href %}>Students</a></li>
+              <li class="{% block active_menu_main %}{% endblock active_menu_main %}"><a href="{% url 'index' %}">Main</a></li>
+              <li class="{% block active_menu_contacts %}{% endblock active_menu_contacts %}"><a href="{% url 'contact' %}">Contacts</a></li>
+			  <li class="{% block active_menu_students %}{% endblock active_menu_students %}"><a href="{% block students_href %}{% url 'students:list_view' %}{% endblock students_href %}">Students</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
