@@ -20,11 +20,11 @@ def student_detail_view(request, student_id):
 
 
 def create(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = StudentModelForm(request.POST)
         if form.is_valid():
-            student = form.save()
-            new_message = "Student %s %s has been successfully added." % (student.name, student.surname)
+            new_student = form.save()
+            new_message = "Student %s %s has been successfully added." % (new_student.name, new_student.surname)
             messages.success(request, new_message)
             return redirect("students:list_view")
     else:
@@ -34,22 +34,22 @@ def create(request):
 
 def edit(request, student_id):
     student = Student.objects.get(id=student_id)
-    if request.method == "POST":
+    if request.method == 'POST':
         form = StudentModelForm(request.POST, instance=student)
         if form.is_valid():
             form.save()
             new_message = "Info on the student has been sucessfully changed."
             messages.success(request, new_message)
-    else:
-        form = StudentModelForm(instance=student)
+            return render(request, 'students/edit.html', {'form': form})
+    form = StudentModelForm(instance=student)
     return render(request, "students/edit.html", {'form': form})
 
 
 def remove(request, student_id):
-    student = Student.objects.get(id=student_id)
-    if request.method == "POST":
-        student.delete()
-        new_message = "Info on %s %s has been sucessfully deleted." % (student.name, student.surname)
+    new_student = Student.objects.get(id=student_id)
+    if request.method == 'POST':
+        new_student.delete()
+        new_message = "Info on %s %s has been sucessfully deleted." % (new_student.name, new_student.surname)
         messages.success(request, new_message)
         return redirect("students:list_view")
-    return render(request, "students/remove.html", {'name': student.name, 'surname': student.surname})
+    return render(request, "students/remove.html", {'name': new_student.name, 'surname': new_student.surname})
