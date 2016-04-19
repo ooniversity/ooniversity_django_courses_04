@@ -1,23 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-	<title>Kvadratnoe_uravnenie</title>
-</head>
-<body>
+{% extends "base.html" %}
 
+
+{% load staticfiles %}
+
+
+{% block title %}quadratic{% endblock title %}
+
+
+{% block main_content %}
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 
 <ul>
 
-  <li>a = {{a}}</li>
-  <i>{{no_koef_a}}{{koef_not_int_a}}{{if_a_0}}</i>
+	<li>a = {{a}}</li> <i>{{no_koef_a}}{{koef_not_int_a}}{{if_a_0}}</i>
 
-  <li>b = {{b}}</li>
-  <i>{{no_koef_b}}{{koef_not_int_b}}</i>
+	<li>b = {{b}}</li> <i>{{no_koef_b}}{{koef_not_int_b}}</i>
 
-  <li>c = {{c}}</li>
-  <i>{{no_koef_c}}{{koef_not_int_c}}</i>
+	<li>c = {{c}}</li>
+	<i>{{no_koef_c}}{{koef_not_int_c}}</i>
 
 </ul>
 
@@ -25,6 +25,4 @@
 <p>{{diskr_less_0}}</p>
 <p>{{dva_kornya}}</p>
 <p>{{odin_koren}}</p>
-
-</body>
-</html>
+{% endblock main_content %}
