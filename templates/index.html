@@ -1,28 +1,30 @@
 ﻿{% extends 'base.html' %}
 {% block index_active %}active{% endblock %}
 {% block title %}Главная. Описание курса PyBursa{% endblock title %}
-{% block content %}<h1>ItBursa</h1><br>
-        <h3>Description</h3>
-        <p>Мы специализируемся на модных языках программирования</p>
-        <br><br> 
-
-        <h3>Выбирай свой курс!</h3>
-        <br>
-        <table class="table table-striped">
-          <tbody>
-          <tr>
-            <th >Курс </th>
-            <th>Описание </th>
-          </tr>
-{%for course in courses_list%}
-          <tr>
-            <td>
-              <a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a>
-            </td>
-            <td>{{ course.short_description|title }}</td>
-           </tr>
-{%endfor%}
-          </tbody>
-
-        </table>
+{% block content %}
+<h1>ItBursa</h1><br>
+<h3>Description</h3>
+<p>Мы специализируемся на модных языках программирования</p>
+<br>
+<br> 
+<h3>Выбирай свой курс!</h3>
+<br>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <th >Курс </th>
+      <th>Описание </th>
+    </tr>
+	{%for course in courses_list%}
+      <tr>
+        <td>
+          <a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a>
+        </td>
+        <td>
+	      {{ course.short_description|title }}
+	    </td>
+      </tr>
+    {%endfor%}
+  </tbody>
+</table>
 {% endblock %}
