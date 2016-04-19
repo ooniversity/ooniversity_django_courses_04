@@ -19,7 +19,7 @@
             <th>фамилия имя</th>
             <th>адрес</th>
             <th>skype</th>
-            <th>курсы</th>
+            <th>курсы</th><th></th><th></th>
           </tr>{% for student in student_list %}<tr>
             <td>{{ forloop.counter }}</td>
             <td>
@@ -30,9 +30,9 @@
             <td>
 {% for course in student.courses.all %}<a href="{%url 'courses:detail' course.id%}">{{ course.name }}</a>
             <br>{% endfor %}</td>
-            <td><a href="{% url 'students:edit' %}" class="btn btn-primary" role="button">Изменить</a>
+            <td><a href="{% url 'students:edit' student.id %}" class="btn btn-primary" role="button">Изменить</a>
     </td>
-            <td><a href="{% url 'students:remove' %}" class="btn btn-primary" role="button">Удалить</a>
+            <td><a href="{% url 'students:remove' student.id %}" class="btn btn-primary" role="button">Удалить</a>
 </td>
            </tr>{% endfor %}</tbody>
 
