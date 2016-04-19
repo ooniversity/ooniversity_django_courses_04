@@ -15,7 +15,7 @@
     <div class="container">
       <div class="col-lg-12">
         <h3>Студент {{ name }} {{ surname }} будет удален</h3>
-        <form method='post'>
+        <form method="post">
           {% csrf_token %}
           <button type="submit" class="btn btn-success" value='Delete'>Удалить</button>
         </form>

@@ -22,7 +22,7 @@
     <div class="container">
       <div class="col-lg-12">
         <h3>Редактирование данных студента</h3>
-        <form method='post'>
+        <form method="post">
           {% csrf_token %}
           {{ form.as_p }}
           <button type="submit" class="btn btn-success">Сохранить изменения</button>

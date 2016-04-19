@@ -6,4 +6,4 @@ from students.models import Student
 class StudentModelForm(ModelForm):
     class Meta:
         model = Student
-    fields = '__all__'
+        fields = '__all__'
