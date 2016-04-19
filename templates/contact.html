@@ -2,8 +2,7 @@
 {% load staticfiles %}
 {% block title %}Контакты pyBursa{% endblock title %}
 {% block nav_class_contact %}active{% endblock %}
-{% block content %}    
-    <!--<div class="container">-->
+{% block content %}        
       <h1 class="organization">Организаторы курса</h1>
       <h3 class="director">Director</h3>
         <div class="dir">
@@ -25,24 +24,7 @@
           Skype: vasia.zaicev <br>
           Email: vasia@gmail.com <br>
           Phone: 551-242-933    
-        </div>
-       <nav>
-        <ul class="pagination">
-         <li>
-           <a href="{% url 'index' %}" aria-label="Previous">
-             <span aria-hidden="true">&laquo;</span>
-           </a>
-        </li>
-        <li><a href="{% url 'index' %}">1</a></li>
-        <li class="active"><a href="{% url 'contact' %}">2</a></li>    
-        <li class="disabled">
-          <a href="{% url 'contact' %}" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-         </a>
-        </li>
-        </ul>
-       </nav>
-    <!--</div>-->
+        </div>                  
     <div align="center" id="id2">
       <img class="python2" src ="{% static 'images/python2.jpg' %}"/>
     </div>     
