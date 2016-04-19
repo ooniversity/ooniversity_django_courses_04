@@ -6,11 +6,6 @@
 
 
 {% block content %}
-
-{% comment "The text below will be ignored" %}
-    <p>Commented out text with {{ create_date|date:"c" }}</p>
-{% endcomment %}
-
 <div class="page-header">
    <h1>{{coach.first_name_field}} {{coach.last_name_field}}</h1>
 </div>
@@ -20,7 +15,7 @@
 		    <tbody>
 		        <tr class="info">
 		            <td>дата рождения</td>
-		            <td>{{coach.date_of_birth|date:"d N,  Y"}}</td>
+		            <td>{{coach.date_of_birth|date:'d N, Y'}}</td>
 		        </tr>
 		                <tr class="info">
 		            <td>адрес</td>

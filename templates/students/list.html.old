@@ -1,17 +1,9 @@
-{% extends "base.html" %}
-{% block title %}Студенты курса PyBursa{% endblock title %}
+{% extends "students/base.html" %}
+{% block page_header %}Студенты курса PyBursa{% endblock page_header %}
+        
 
-
-{% block nav_class_student %}active{% endblock %}
-
-
-{% block content %}
-<div class="page-header">
-        <h2>Студенты курса PyBursa</h2>
-        <!--h4>Ниже предоставлен список студентов курса</h4-->
-      </div>
+{% block page_content %}
  <!--div class="container"-->
- <div class="row">
   <table class="table">
     <thead>
       <tr>
@@ -42,5 +34,5 @@
         {% endfor %}
     </tbody>
   </table>
-</div>
-{% endblock content %}
+<!--/div-->
+{% endblock page_content %}
