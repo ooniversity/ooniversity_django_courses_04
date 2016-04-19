@@ -1,5 +1,7 @@
  # -*- coding: utf-8 -*-
 from django.shortcuts import render
+from forms import QuadraticForm
+from django.utils.datastructures import MultiValueDictKeyError
 
 def quadratic_results(request):
 	'''reshenie kvadratnogo uravneniya'''
@@ -7,10 +9,14 @@ def quadratic_results(request):
 	no_koef_a, no_koef_b, no_koef_c= '','',''
 	koef_not_int_a, koef_not_int_b, koef_not_int_c, if_a_0 = '','','',''
 	diskr_less_0, dva_kornya, odin_koren, diskrimin = '','','',''
-	
+
+	form = 	QuadraticForm()	
+	a = form[a]
+	print a
+
 	try:
-	   a = int(request.GET['a'])
-	except ValueError:
+		a = int(request.GET['a'])
+	except ValueError, MultiValueDictKeyError:
 		if (request.GET['a']).isalpha():
 			koef_not_int_a = 'коэффициент не целое число'
 		else:
@@ -56,7 +62,7 @@ def quadratic_results(request):
 			x2 = (-b - diskriminant ** (1/2.0))/(2*a)
 			diskrimin = 'Дискриминант: %d' % diskriminant
 			dva_kornya = 'Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' % (x1, x2)
-			
-	dic = {'a':a, 'b':b, 'c':c, 'x':x, 'x1':x1, 'x2':x2, 'no_koef_a':no_koef_a, 'no_koef_b':no_koef_b, 'no_koef_c':no_koef_c, 'koef_not_int_a':koef_not_int_a, 'koef_not_int_b':koef_not_int_b, 'koef_not_int_c':koef_not_int_c,
+	
+	dic = {'form':form, 'a':a, 'b':b, 'c':c, 'x':x, 'x1':x1, 'x2':x2, 'no_koef_a':no_koef_a, 'no_koef_b':no_koef_b, 'no_koef_c':no_koef_c, 'koef_not_int_a':koef_not_int_a, 'koef_not_int_b':koef_not_int_b, 'koef_not_int_c':koef_not_int_c,
 			'diskr_less_0':diskr_less_0, 'diskrimin':diskrimin, 'dva_kornya':dva_kornya, 'odin_koren':odin_koren, 'if_a_0':if_a_0}
 	return render(request, 'results.html', dic)

@@ -10,6 +10,12 @@
 {% block content %}
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 
+<form method="get">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit">
+</form>
+
 <ul>
 
 	<li>a = {{a}}</li> <i>{{no_koef_a}}{{koef_not_int_a}}{{if_a_0}}</i>
