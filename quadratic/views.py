@@ -22,7 +22,8 @@ def quadratic_results(request):
                 x1 = (-b + d ** (1/2.0)) / (2*a)
                 x2 = (-b - d ** (1/2.0)) / (2*a)
                 context['xx'] = 'Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s' % (x1, x2)
-            context['d'] = 'Дискриминант: %s' %d
+            context['d'] = 'Дискриминант: %s' %int(d)
+    
     else:
         context['form'] = QuadraticForm()
     return render(request, 'quadratic/results.html', context)
