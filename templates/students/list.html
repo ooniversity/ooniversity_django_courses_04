@@ -48,12 +48,12 @@
           <tbody>
             {% for item in context %}
             <tr>
-              <td><a href="{% url 'students:detail' student_id=item.student.id %}">{{item.student.surname}} {{item.student.name}}</a></td>
-              <td>{{item.student.address}}</td>
-              <td>{{item.student.skype}}</td>
+              <td><a href="{% url 'students:detail' student_id=item.student.id %}">{{ item.student.surname }} {{ item.student.name }}</a></td>
+              <td>{{ item.student.address }}</td>
+              <td>{{ item.student.skype }}</td>
               <td>
                 {% for student_course in item.student_courses %}
-                <p><a href="{% url 'courses:detail' course_id=student_course.id %}">{{student_course.name}}</a></p>
+                <p><a href="{% url 'courses:detail' course_id=student_course.id %}">{{ student_course.name }}</a></p>
                 {% endfor %}
               </td>
             </tr>
