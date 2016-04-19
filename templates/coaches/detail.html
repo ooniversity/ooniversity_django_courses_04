@@ -7,7 +7,10 @@
 {% load staticfiles %}
 
 
-{% block main_content %}
+{% block naw_class_students %}active{% endblock %}
+
+
+{% block content %}
 <div class="container">
 		<h1 class="cl_h1">{{coach.foolname|date:"d F, Y"}}</h1>
 		<table class="table">
@@ -45,4 +48,4 @@
 			</tr>
 		</table>
 	</div>
-{% endblock main_content %}
+{% endblock content %}
