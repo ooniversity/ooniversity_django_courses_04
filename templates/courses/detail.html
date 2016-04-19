@@ -1,58 +1,27 @@
-﻿{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bursa main</title>
-    <!-- Bootstrap -->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">   
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-    <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->    
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">        
-        <li><a href="{% url 'index' %}">Главная</a></li>
-        <li><a href="{% url 'contact' %}">Контакты</a></li>
-        <li><a href="{% url 'students:list_view' %}?course_id={{course.id}}">Студенты</a></li>        
-      </ul>            
-    </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+{% extends "base.html" %}
+
+
+{% block title %}Course detail page{% endblock title %}
+
+
+{% block course_id %}?course_id={{ course.id }}{% endblock %}
+
+
+{% block content %}
     <div class="container">
       <h1>{{ course.name }}</h1>
-      <p>{{ course.description }}</p>         
+      <p>{{ course.description|truncatechars:32 }}</p>         
     </div>
 	<div class="container" id="id2">
 	<h3>Преподаватели</h3>
-	  <table class="table">
-		<tr id="id1">
-		  <td>Учитель</td>
-		</tr>
-		<tr>
-		  <td><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.first_name}} {{course.coach.last_name}}</a></td>
-		</tr>
-		<tr>
-		  <td>{{course.coach.description}}</td>
-		</tr>		
-	  </table>
-	  <table class="table">
-		<tr id="id1">
-		  <td>Ассистент</td>
-		</tr>
-		<tr>
-		  <td><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name}} {{course.assistant.last_name}}</a></td>
-		</tr>
-		<tr>
-		  <td>{{course.assistant.description}}</td>
-		</tr>		
-	  </table>
+
+
+{% include "include/coach_include.html" with block_title="Учитель" instructor=course.coach %}
+
+
+{% include "include/coach_include.html" with block_title="Ассистент" instructor=course.assistant %}
+	
+  	  
 	</div>
 	<div class="container" id="id2">
 	<h3>План курса</h3>
@@ -63,21 +32,14 @@
 		   <td>описание</td>
 		  </tr>
 		</thead>
-		<tbody>
-		<!--{% block content %}-->
+		<tbody>		
 		{% for i in lesson %}
 		  <tr>
 		    <td>{{ i.subject }}</td>
 		    <td>{{ i.description }}</td>
 		  </tr>
 		{% endfor %}
-	   <!--{% endblock %}-->
 	   </tbody>	
 	  </table>
 	</div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static '/js/bootstrap.js' %}"></script>
-  </body>
-</html>
+{% endblock content %}    

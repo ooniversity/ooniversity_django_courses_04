@@ -1,8 +1,11 @@
 from django.shortcuts import render
+from courses.models import Course
+import datetime
 
 def index(request):
 	courses = Course.objects.only('name', 'short_description', 'id')
-	return render(request, 'index.html', {"courses": courses})
+	pub_date=datetime.date(2015,04,01)
+	return render(request, 'index.html', {"courses": courses,'pub_date':pub_date})
 
 def contact(request):
 	return render(request, 'contact.html')
