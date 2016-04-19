@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
+
 {% load staticfiles %}
+
 
 {% block title %}Student detail{% endblock %}
 
@@ -36,7 +38,6 @@
                     <--
                     <a href="{% url 'students:list_view' %}?course_id={{ item.id }}">Students</a>
                 </td>
-
             {% endfor %}
         </tr>
         <tr class="success">
@@ -47,10 +48,9 @@
                     <--
                     <a href="{% url 'students:list_view' %}?course_id={{ item.id }}">Students</a>
                 </td>
-
             {% endfor %}
         </tr>
         </tbody>
     </table>
-{% endblock %}
+{% endblock content %}
 
