@@ -12,6 +12,7 @@
 
 {% block content %}
 <div class="container">
+<div class="col-md-8">
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
     <form method="get">
       {{ form.as_p }}
@@ -22,4 +23,5 @@
     <p>{{ result_message }}</p>
     {% endif %}
 </div>
+{% include "include/panel_include.html" %}
 {% endblock content %}
