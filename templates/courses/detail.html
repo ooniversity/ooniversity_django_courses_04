@@ -1,83 +1,74 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>{{ course.name }}</title>
+<title>{{ course.name }}</title>
 {% endblock title %}
 
 {% block navbar %}
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{% url 'index' %}">DjBursa</a>
-        </div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'index' %}">DjBursa</a>
+    </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
-            <li><a href="{% url 'results' %}?a=&b=&c=">Quadratic</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'index' %}">Main</a></li>
+        <li><a href="{% url 'contact' %}">Contacts</a></li>
+        <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
+        <li><a href="{% url 'results' %}?a=&b=&c=">Quadratic</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 {% endblock navbar %}
 
 {% block content %}
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h1>{{ course.name }}</h1>
-          <p>{{ course.description|truncatechars:32 }}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lh-12">
-          <h4>Teachers</h4>
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <h1>{{ course.name }}</h1>
+    <p>{{ course.description|truncatechars:32 }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lh-12">
+    <h4>Teachers</h4>
 
-          {% include "include/coach_include.html" with title='Coach' coach=course.coach %}
+    {% include "include/coach_include.html" with title='Coach' coach=course.coach %}
 
-          {% include "include/coach_include.html" with title='Assistant' coach=course.assistant %}
+    {% include "include/coach_include.html" with title='Assistant' coach=course.assistant %}
 
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <p><em>Сourse Program</em></p>
-          <table class="table">
-            <thead class="thead-inverse">
-              <tr>
-                <th width="2%">No</th>
-                <th width="18%">Subject</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for lesson in lessons %}
-              <tr>
-                <td>{{ lesson.order }}</td>
-                <td>{{ lesson.subject }}</td>
-                <td>{{ lesson.description }}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <footer class="footer">
-        <div class="row">
-          <div class="col-lg-12">
-            <p class="text-center">Copyright &copy; 2016 <a class="anchorjs-link" href="{% url 'index' %}">DjBursa</a></p>
-          </div>
-        </div>
-      </footer>
-    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <p><em>Сourse Program</em></p>
+    <table class="table">
+      <thead class="thead-inverse">
+        <tr>
+          <th width="2%">No</th>
+          <th width="18%">Subject</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for lesson in lessons %}
+        <tr>
+          <td>{{ lesson.order }}</td>
+          <td>{{ lesson.subject }}</td>
+          <td>{{ lesson.description }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
 {% endblock content %}
