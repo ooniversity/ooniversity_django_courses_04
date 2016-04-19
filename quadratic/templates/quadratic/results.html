@@ -1,11 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Квадратное уравнение</title>
-  </head>
+{% extends "base.html" %}
 
-  <body>
-    <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+
+{% load staticfiles %}
+
+
+{% block title %}Quadratic equation{% endblock title %}
+
+
+{% block active_menu_equation %}active{% endblock active_menu_equation %}
+
+
+{% block content %}
+<div class="container">
+<div class="col-md-8">
+<p>Квадратное уравнение a*x*x + b*x + c = 0</p>
     <form method="get">
       {{ form.as_p }}
       <input type="Submit" value="Решить"/>
@@ -14,5 +22,6 @@
     <p>Дискриминант: {{ d }}</p>
     <p>{{ result_message }}</p>
     {% endif %}
-  </body>
-</html>
+</div>
+{% include "include/panel_include.html" %}
+{% endblock content %}
