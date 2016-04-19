@@ -7,15 +7,8 @@ def quadratic_results(request):
     """
     The solution of the quadratic equation
     """
-    text = {'error': False}
-    for name_value in ['a', 'b', 'c']:
-        valid = Validation(name_value, request.GET.get(name_value, ''))
-        if valid.valid_quadratic():
-            text[name_value] = valid.value_int
-        else:
-            text['error'] = True
-            text[name_value + '_error'] = valid.error_msg
-            text[name_value] = valid.value
+    text = {}
+    if request.GET:
         form = QuadraticForm(request.GET)
         if form.is_valid():
             a = form.cleaned_data['a']
@@ -35,30 +28,4 @@ def quadratic_results(request):
     else:
         form = QuadraticForm()
     text.update(dict(form=form))
-    return render(request, "results.html",  text)
-
-
-class Validation(object):
-    """
-    Validation coefficients
-    """
-    def __init__(self, name, value):
-        self.name = name
-        self.value = value
-        self.value_int = None
-        self.error_msg = None
-
-    def valid_quadratic(self):
-        if not self.value:
-            self.error_msg = 'коэффициент не определен'
-            return False
-        try:
-            self.value_int = int(self.value)
-        except ValueError:
-            self.error_msg = 'коэффициент не целое число'
-            return False
-
-        if self.name == 'a' and self.value_int == 0:
-            self.error_msg = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
-            return False
-        return True
+    return render(request, "quadratic/results.html",  text)
