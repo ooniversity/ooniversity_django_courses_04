@@ -18,39 +18,30 @@
         <a href="{% url 'students:list_view' %}">Students</a>
     </nav>
     <div class="container">
-      <h2>{{student.name}} {{student.surname}}</h2>
-    </div>
+      <h2>Список студентов:</h2>
+    </div>  
     <div class="container"> 
       <table class="table">
         <tr>
-          <td>дата рождения</td>
-          <td>{{student.date_of_birth}}</td>
+          <th>#</th>
+          <th>фамилия имя</th>
+          <th>адрес</th>
+          <th>skype</th>
+          <th>курсы</th>
         </tr>
+      {% for student in students %}
         <tr>
-          <td>адрес</td>
+          <td>{{student.id}}</td>
+          <td><a href="{% url 'students:detail' student.id %}">{{student.surname}} {{student.name}}</a></td>
           <td>{{student.address}}</td>
-        </tr>
-        <tr>
-          <td>почта</td>
-          <td>{{student.email}}</td>
-        </tr>
-        <tr>
-          <td>логин skype</td>
           <td>{{student.skype}}</td>
-        </tr>
-        <tr>
-        <td>телефон</td>
-          <td>{{student.phone}}</td>
-        </tr>
-        <tr>
-        <td>курсы</td>
-          <td>{%  for course in student_courses %}
-                <p><a href="{% url 'courses:detail' course.id %}">{{course}}</a></p>
-              {%  endfor %} 
+          <td>
+            {% for course in student.courses.all %}    
+              <p><a href="{% url 'courses:detail' course.id %}">{{course}}</a></p>
+            {%  endfor %}  
           </td>
+      {%  endfor %}    
         </tr>
-
-
       </table>
     </div>
     </div>

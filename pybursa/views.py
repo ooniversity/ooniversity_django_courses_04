@@ -1,18 +1,16 @@
 from django.shortcuts import render
-from courses.models import Course, Lesson
+from courses.models import Course, Lesson	
+
 
 def index(request):
-    course_dict = dict()
-    for one_course in Course.objects.all():
-        course_dict[one_course.id] = [one_course.name, one_course.short_description]
-    print (course_dict)
-    return render(request, 'index.html', {'course':course_dict})
+	courses = Course.objects.all()
+	return render(request, '../templates/index.html', {'courses':courses})
 
 def contact(request):
-    return render(request, 'contact.html')
+    return render(request, '../templates/contact.html', )
 
 def student_list(request):
-    return render(request, 'student_list.html')
+    return render(request, '../templates/student_list.html', )
 
 def student_detail(request):
-    return render(request, 'student_detail.html')
+    return render(request, '../templates/student_detail.html', )            

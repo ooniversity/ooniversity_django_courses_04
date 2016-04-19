@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'xt13ltqg&cq=a5dked7(6_5i*oyld74bsklh6#vqg9hpye7ub7'
+SECRET_KEY = 'koqglv)7+6rehb)x4i_&aat4v-i6a!+5fwsvchzxsb83x0wow3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -88,4 +88,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
