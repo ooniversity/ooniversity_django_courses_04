@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>{{course.name}}</title>
+    <title>{{ course.name }}</title>
 {% endblock title %}
 
 {% block navbar %}
@@ -23,7 +23,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}?course_id={{course.id}}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
             <li><a href="{% url 'results' %}?a=&b=&c=">Quadratic</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -35,8 +35,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h1>{{course.name}}</h1>
-          <p>{{course.description|truncatechars:32}}</p>
+          <h1>{{ course.name }}</h1>
+          <p>{{ course.description|truncatechars:32 }}</p>
         </div>
       </div>
       <div class="row">
@@ -63,9 +63,9 @@
             <tbody>
               {% for lesson in lessons %}
               <tr>
-                <td>{{lesson.order}}</td>
-                <td>{{lesson.subject}}</td>
-                <td>{{lesson.description}}</td>
+                <td>{{ lesson.order }}</td>
+                <td>{{ lesson.subject }}</td>
+                <td>{{ lesson.description }}</td>
               </tr>
               {% endfor %}
             </tbody>

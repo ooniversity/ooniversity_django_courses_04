@@ -1,7 +1,7 @@
 <div class="panel panel-default">
 <div class="panel-heading">{{ title }}</div>
     <div class="panel-body">
-      <p><a href="{% url 'coaches:detail' coach_id=coach.id %}">{{coach.user.first_name}} {{coach.user.last_name}}</a></p>
-      <p>{{coach.description}}</p>
+      <p><a href="{% url 'coaches:detail' coach_id=coach.id %}">{{ coach.user.first_name }} {{ coach.user.last_name }}</a></p>
+      <p>{{ coach.description }}</p>
   </div>
 </div>

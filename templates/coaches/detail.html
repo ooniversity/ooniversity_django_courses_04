@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>{{coach.user.first_name}} {{coach.user.last_name}}</title>
+<title>{{ coach.user.first_name }} {{ coach.user.last_name }}</title>
 {% endblock title %}
 
 {% block navbar %}
@@ -35,40 +35,40 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center student-full-name">
-          <h1>{{coach.user.first_name}} {{coach.user.last_name}}</h1>
+          <h1>{{ coach.user.first_name }} {{ coach.user.last_name }}</h1>
         </div>
         <div class="col-lg-12">
           <table class="table table-detail table-hover">
               <tr>
                 <th>Birth Date</th>
-                <td>{{coach.date_of_birth|date:"j F, Y"}}</td>
+                <td>{{ coach.date_of_birth|date:"j F, Y" }}</td>
               </tr>
               <tr>
                 <th>Address</th>
-                <td>{{coach.address}}</td>
+                <td>{{ coach.address }}</td>
               </tr>
               <tr>
                 <th>E-mail</th>
-                <td>{{coach.user.email}}</td>
+                <td>{{ coach.user.email }}</td>
               </tr>
               <tr>
                 <th>Skype</th>
-                <td>{{coach.skype}}</td>
+                <td>{{ coach.skype }}</td>
               </tr>
               <tr>
                 <th>Phone</th>
-                <td>{{coach.phone}}</td>
+                <td>{{ coach.phone }}</td>
               </tr>
               <tr>
                 <th>Teacher courses</th>
                 <td>{% for course in coach_courses %}
-                <p><a href="{% url 'courses:detail' course_id=course.id %}">{{course.name}}</a>   <a href="{% url 'students:list_view' %}?course_id={{course.id}}">students <span class="glyphicon glyphicon glyphicon-share"></span></a></p>
+                <p><a href="{% url 'courses:detail' course_id=course.id %}">{{ course.name }}</a>   <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">students <span class="glyphicon glyphicon glyphicon-share"></span></a></p>
                 {% endfor %}</td>
               </tr>
               <tr>
                 <th>Assistant courses</th>
                 <td>{% for course in assistant_courses %}
-                <p><a href="{% url 'courses:detail' course_id=course.id %}">{{course.name}}</a>    <a href="{% url 'students:list_view' %}?course_id={{course.id}}">students <span class="glyphicon glyphicon glyphicon-share"></span></a></p>
+                <p><a href="{% url 'courses:detail' course_id=course.id %}">{{ course.name }}</a>    <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">students <span class="glyphicon glyphicon glyphicon-share"></span></a></p>
                 {% endfor %}</td>
               </tr>
           </table>
