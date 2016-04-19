@@ -13,13 +13,8 @@ def list_view(request):
         course_id = int(request.GET['course_id'])
         course = get_object_or_404(Course, id=course_id)
         list_of_students = course.student_set.all()
-        list_of_students.order_by('id')
     else:
         list_of_students = Student.objects.all()
-        list_of_students.order_by('id')
 
-    student_courses = dict()
-    for stud in list_of_students:
-        student_courses[stud.id] = stud.courses.all()
-    return render(request, 'students/list.html', {'students_list': list_of_students, 'course_list': student_courses})
+    return render(request, 'students/list.html', {'students_list': list_of_students})
     

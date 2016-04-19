@@ -1,29 +1,14 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Курсы программирования на Python</title>
+{% extends "base.html" %}
+{% load static %}
 
-    <!-- Bootstrap -->
-    {% load static %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    
 
-    
-  </head>
-  <body>
-    <div class="common">
-    
-    <nav class="navbar navbar-default">
-        <a href="{% url 'index' %}">Главная</a>
-        <a href="{% url 'contact' %}">Контакты</a>
-        <a href="{% url 'students:list_view' %}">Студенты</a>
-    </nav>
-    
+{% block title %}Курсы программирования на Python{% endblock title %}
+
+
+{% block  nav_index %}active{% endblock nav_index %}
+
+
+{% block content %}
   <div class="container">     
     <div class="jumbotron">
         <h1>Курсы PyBursa</h1>
@@ -61,26 +46,10 @@
     <tbody>
     {% for course_id, course_data in course.items %}
         <tr class="info">
-            <td><a href="{% url 'courses:detail' course_id %}">{{course_data.0}}</a></td>
-            <td>{{course_data.1}}</td>
+            <td><a href="{% url 'courses:detail' course_id %}">{{course_data.0|upper}}</a></td>
+            <td>{{course_data.1|title}}</td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
-  
-  </div>
- 
-  <nav>
-    <ul class="pager">
-      <li class="next"><a href="{% url 'contact' %}">Next <span aria-hidden="true">&rarr;</span></a></li>
-    </ul>
-  </nav>
-   
-  </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="%{ static 'js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+{% endblock content %}
