@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Remove student{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock nav_class_students %}
+
+
+{% block content %}
+  <div class="main">
+    <div class="container">
+      <div class="col-lg-12">
+        <h3>Студент {{ name }} {{ surname }} будет удален</h3>
+        <form method='post'>
+          {% csrf_token %}
+          <button type="submit" class="btn btn-success" value='Delete'>Удалить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
