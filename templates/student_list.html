@@ -1,105 +1,70 @@
-{% load staticfiles %}<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Student list</title>
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% extends 'base.html' %}
 
-    <!-- Custom styles for this template -->
+{% load staticfiles %}
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+{% block title %}Students List{% endblock %}
 
-		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      <a class="navbar-brand" href="http://pybursa.com/">PyBursa</a>
-		    </div>
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="{% url 'index' %}">Main</a></li>
-		        <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li class="active"><a href="{% url 'student_list' %}">Students<span class="sr-only"></span></a></li>
-		      </ul>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
-    <div class="container">
-      <h2>Студенты курса PyBursa</h2>
-      <p>Ниже представлен список студентов, выпуск - апрель 2015.</p>
-      <table class="table">
+
+{% block nav_students %}active{% endblock %}
+
+
+{% block content %}
+    <h2>Студенты курса PyBursa</h2>
+    <p>Ниже представлен список студентов, выпуск - апрель 2015.</p>
+    <table class="table">
         <thead>
-          <tr>
+        <tr>
             <th>No</th>
             <th>Surname</th>
             <th>Name</th>
             <th>Address</th>
             <th>Skype</th>
-          </tr>
+        </tr>
         </thead>
         <tbody>
-          <tr class="success">
+        <tr class="success">
             <td><a href="{% url 'student_detail' %}">1</a></td>
             <td>Persianova</td>
             <td>Olena</td>
             <td>Украина, г.Харькоов, ул.Иванова, д.36, кв.3</td>
             <td>olena.persianova</td>
-          </tr>
-          <tr class="danger">
+        </tr>
+        <tr class="danger">
             <td>2</td>
             <td>Shulga</td>
             <td>Maryna</td>
             <td>Украина, г.Харькоов, ул.Иванова, д.5, кв.6</td>
             <td>M.Shulga</td>
-          </tr>
-          <tr class="info">
+        </tr>
+        <tr class="info">
             <td>3</td>
             <td>Polishchuk</td>
             <td>Volodymyr</td>
             <td>Украина, г.Харькоов, ул.Межлаука, д.8, кв.3</td>
             <td>V.Polishchuk</td>
-          </tr>
-          <tr class="success">
+        </tr>
+        <tr class="success">
             <td>4</td>
             <td>Zhlobinskyi</td>
             <td>Pavel</td>
             <td>РФ, г.Москва, ул.Петрова д.5, кв.7</td>
             <td>P.Zhlobinskyi</td>
-          </tr>
-          <tr class="danger">
+        </tr>
+        <tr class="danger">
             <td>5</td>
             <td>Zhuvanov</td>
             <td>Yaroslav</td>
             <td>Украина, г.Харькоов, Петренко, д.6, кв.8</td>
             <td>Y.Zhuvanov</td>
-          </tr>
-          <tr class="info">
+        </tr>
+        <tr class="info">
             <td>6</td>
             <td>Ishchenko</td>
             <td>Oleg</td>
             <td>Украина, г.Харькоов, ул.Витязева, д.7, кв.11</td>
             <td>O.Ishchenko</td>
-          </tr>
+        </tr>
         </tbody>
-      </table>
-      <a href="#" class="btn btn-info disabled" role="button">Дополнительно</a>
-    </div>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-  </body>
-</html>
+    </table>
+    <a href="#" class="btn btn-info disabled" role="button">Дополнительно</a>
+{% endblock %}
