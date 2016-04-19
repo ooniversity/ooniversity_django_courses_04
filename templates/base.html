@@ -42,7 +42,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="{% block nav_index %}{% endblock %}"><a href="{% url 'index' %}">Main<span class="sr-only"></span></a></li>
                 <li class="{% block nav_contact %}{% endblock %}"><a href="{% url 'contact' %}">Contacts</a></li>
-                <li class="{% block nav_students %}{% endblock %}"><a href="{% url 'students:list_view' %}">Students</a></li>
+                <li class="{% block nav_students %}{% endblock %}"><a {% block students_link %}href="{% url 'students:list_view' %}"{% endblock %}>Students</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -53,6 +53,7 @@
 {% block content %}
 {% endblock content %}
 </div><!-- /.container -->
+<div class="navbar-fixed-bottom panel-footer">Zaika_Y_S</div>
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
