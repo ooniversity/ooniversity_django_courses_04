@@ -7,11 +7,23 @@
 {% block content %}
 <div class="row">
   <div class="col-lg-12">
-    <p>Список студентов:</p>
-  </div>
+    {% if messages %}
+    <div class="alert alert-success"><ul class="messages">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}{{ message }}{%endif %}
+    </li>
+    {% endfor %}
+  </ul></div>
+  {% endif %}
+  <p><a href="{% url 'students:add' %}" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить нового студента</a></p>
+  <p>Список студентов:</p>
+</div>
   <table class="table table-hover">
     <thead class="thead-inverse">
       <tr>
+        <th>#</th>
         <th>Surname Name</th>
         <th>Address</th>
         <th>Skype</th>
@@ -21,11 +33,12 @@
     <tbody>
       {% for item in context %}
       <tr>
-        <td><a href="{% url 'students:detail' item.student.id %}">{{ item.student.surname }} {{ item.student.name }}</a></td>
+        <td>{{ forloop.counter }}</td>
+        <td><a href="{% url 'students:detail' item.student.id %}">{{ item.student.surname }} {{ item.student.name }}</a> <a href="{% url 'students:edit' item.student.id %}"><span class="glyphicon glyphicon-edit"></span></a> <a href="{% url 'students:remove' item.student.id %}"><span class="glyphicon glyphicon-remove"></span></a></td>
         <td>{{ item.student.address }}</td>
         <td>{{ item.student.skype }}</td>
         <td>
-          {% for student_course in item.student_courses %}
+          {% for student_course in item.student.courses.all %}
           <p><a href="{% url 'courses:detail' student_course.id %}">{{ student_course.name }}</a></p>
           {% endfor %}
         </td>
