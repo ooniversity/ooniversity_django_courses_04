@@ -26,7 +26,7 @@ def create(request):
     form = StudentModelForm(request.POST)
     if form.is_valid():
       student = form.save()
-      messages.success(request, u'Student {} {} has been successfully added.'.format(student.name, student.surname))
+      messages.success(request, u'Student {} {} has been successfully added'.format(student.name, student.surname))
       return HttpResponseRedirect(reverse('students:list'))
   else:
     form = StudentModelForm()
@@ -38,7 +38,7 @@ def edit(request, pk):
       form = StudentModelForm(request.POST, instance=student)
       if form.is_valid():
           student = form.save()
-          messages.success(request, 'Info on the student has been sucessfully changed.')
+          messages.success(request, 'Info on the student has been sucessfully changed')
           return redirect('students:edit', student.id)
   else:
       form = StudentModelForm(instance=student)
@@ -48,6 +48,6 @@ def remove(request, pk):
   student = get_object_or_404(Student, pk=pk)
   if request.method == "POST":
       student.delete()
-      messages.success(request, 'Info on {} {} has been sucessfully deleted.'.format(student.name, student.surname))
+      messages.success(request, 'Info on {} {} has been sucessfully deleted'.format(student.name, student.surname))
       return redirect('students:list')
   return render(request, 'students/remove.html', {'student': student})
