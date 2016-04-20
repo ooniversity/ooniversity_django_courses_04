@@ -9,40 +9,43 @@
 
 {% block content %}
 
-  <!-- Default panel contents -->
 <div class="container">
-   	<h2>{{student.surname}} {{ student.name }}</h2>
-<div>
-      <div class="table-responsive">
-      <table class="table table-striped">
-        <tr>
-            <th>дата рождения</th>
-            <th>{{student.date_of_birth}}</th>
-        </tr>
-        <tr>
-            <th>адрес</th>
-            <th>{{student.address}}</th>
-        </tr>
-
-        <tr>
-            <th>почта</th>
-            <th>{{student.email}}</th>
-        </tr>
-            <th>логин skype</th>
-            <th>{{student.skype}}</th>
-        </tr>
-            <th>телефон</th>
-            <th>{{student.phone}}</th>
-        </tr>
-            <th>Курсы</th>
-             <td> {% for course in student.courses.all %}
-                  <a href={% url 'courses:detail' course.id %}>{{ course.name }}<br></a>
-            {% endfor %}</td>
-        </tr>        
-		
-      </table>   
+    <div class="page-header">
+         <h2>{{student.surname}} {{ student.name }}</h2>
     </div>
-
+    <div class="row">
+        <div class="col-md-7">
+            <table class="table table-striped">
+                <tr>
+                    <th>дата рождения</th>
+                    <th>{{student.date_of_birth}}</th>
+                </tr>
+                <tr>
+                    <th>адрес</th>
+                    <th>{{student.address}}</th>
+                </tr>
+                <tr>
+                    <th>почта</th>
+                    <th>{{student.email}}</th>
+                </tr>
+                <tr>
+                    <th>логин skype</th>
+                    <th>{{student.skype}}</th>
+                </tr>
+                    <th>телефон</th>
+                    <th>{{student.phone}}</th>
+                </tr>
+                <tr>
+                    <th>Курсы</th>
+                        <td> {% for course in student.courses.all %}
+                            <a href={% url 'courses:detail' course.id %}>{{ course.name }}<br></a>
+                            {% endfor %}
+                        </td>
+                </tr>        
+            </table>   
+        </div>
+    </div>
+</div>
     <hr>
 
 {% endblock content %}
