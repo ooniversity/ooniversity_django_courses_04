@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <title>Main PyBursa</title>
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body class="background">
-    <div class="header-menu">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-            <div class="navbar-header">
-                <span class="navbar-brand">PyBursa</span>
-            </div>
-            <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url 'index' %}">Main</a></li>
-                    <li><a href="{% url 'contact' %}">Contacts</a></li>
-                    <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
-                </ul>
-            </div>
-            </div>
-        </nav>
-    </div>
+{% extends "base.html" %}
+{% block title %}Students list{% endblock title %}
+{% block active_nav_students %}active{% endblock active_nav_students %}
+{% block content %}
     <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
         <div class="lead col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -56,6 +35,4 @@
                 </tbody>
             </table>
         </div>
-    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
-</body>
-</html>
+{% endblock content %}

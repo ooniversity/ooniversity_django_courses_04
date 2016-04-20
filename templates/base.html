@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>{% block title %}{% endblock title %}</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body class="background">
+	<div class="header-menu">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="navbar-brand">PyBursa</span>
+			</div>
+			<div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+				<li class="{% block active_nav_index %}{% endblock active_nav_index %}"><a href="{% url 'index' %}">Main</a></li>
+				<li class="{% block active_nav_contact %}{% endblock active_nav_contact %}"><a href="{% url 'contact' %}">Contacts</a></li>
+				<li class="{% block active_nav_students %}{% endblock active_nav_students %}"><a href="{% url 'students:list_view' %}">Students</a></li>
+				</ul>
+			</div>
+			</div>
+		</nav>
+	</div>
+	{% block content %}{% endblock content %}
+	<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>

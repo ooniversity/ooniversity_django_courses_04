@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <title>Main PyBursa</title>
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body class="background">
-    <div class="header-menu">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-            <div class="navbar-header">
-                <span class="navbar-brand">PyBursa</span>
-            </div>
-            <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url 'index' %}">Main</a></li>
-                    <li><a href="{% url 'contact' %}">Contacts</a></li>
-                    <li><a href="{% url 'students:list_view' %}">coachs</a></li>
-                </ul>
-            </div>
-            </div>
-        </nav>
-    </div>
+{% extends "base.html" %}
+{% block title %}Coach details{% endblock title %}
+{% block content %}
     <div class="row">
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
         <div class="lead col-xs-8 col-sm-8 col-md-8 col-lg-8">
@@ -56,7 +34,7 @@
                             <ul>
                             {% for course in coach_courses %}
                                 <li>
-                                    <a href="{% url 'courses:detail' course.id %}">{{course.name}}</a>Course Students:<a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-link"></span></a>
+                                    <a href="{% url 'courses:detail' course.id %}">{{course.name}}</a> course Students:<a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-link"></span></a>
                                 </li>
                             {% endfor %}
                             </ul>
@@ -70,7 +48,7 @@
                             <ul>
                             {% for course in assistant_courses %}
                                 <li>
-                                    <a href="{% url 'courses:detail' course.id %}">{{course.name}}</a>Course Students:<a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-link"></span></a>
+                                    <a href="{% url 'courses:detail' course.id %}">{{course.name}}</a> course Students:<a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-link"></span></a>
                                 </li>
                             {% endfor %}
                             </ul>
@@ -80,6 +58,4 @@
                 </tbody>
             </table>
         </div>
-    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
-</body>
-</html>
+{% endblock content %}
