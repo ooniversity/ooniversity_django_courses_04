@@ -1,14 +1,13 @@
 {% extends 'students/base.html' %}
 {% load staticfiles %}
 
-{% block main_content %}
 
-      <div class="main_font">     
-        <h1>Список студентов</h1>        
-        
-        <div class="container-fluid">       
-          <table class="table">
-            <thead class="table-bordered">
+{% block title_page %}Список студентов{% endblock %}
+
+
+{% block page_content %}
+
+
               <tr>
                 <th>Фамилия Имя</th>
                 <th>Адрес</th>
@@ -27,13 +26,7 @@
                   <a href="{% url 'courses:detail' course.id %}">{{course.name}}<br/></a>
                   {% endfor %}
                   </td>
-              {% endfor %} 
- 
+              {% endfor %}  
                 </tr>
-                          
-            </tbody>
-          </table>
+{% endblock page_content %}
 
-        </div>          
-      </div>
-{% endblock main_content %}
