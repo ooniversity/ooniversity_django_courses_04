@@ -11,25 +11,12 @@
 {% block content %}
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 
- <ul>
+<form method="get">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Решить"/>
+</form>
 
-  <li>{{a.message}}{{a.value}}
-    {% if error_a %}
-  	<br /><i>  {{error_a}} </i>
-    {% endif %}
-  </li>
-  <li>{{b.message}}{{b.value}}
-    {% if error_b %}
-  	<br /><i>  {{error_b}} </i>
-    {% endif %}
-  </li>
-  <li>{{c.message}}{{c.value}}
-    {% if error_c %}
-  	<br /><i>  {{error_c}} </i>
-    {% endif %}
-  </li>
-
- </ul>
 
   <p>{{disc.message}}{{disc.value}}</p>
   <p>{{text_result.message}}{{text_result.value}}</p>
