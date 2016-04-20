@@ -20,7 +20,7 @@ def detail(request, student_id):
     return render(request, 'students/detail.html', {'student': stud_table})
 
 
-def add_student(request):
+def create(request):
     if request.method == 'POST':
         add_form = StudentModelForm(request.POST)
         if add_form.is_valid():
@@ -35,7 +35,7 @@ def add_student(request):
     return render(request, 'students/add.html', {'add_s': add_form})
 
 
-def edit_student(request, pk):
+def edit(request, pk):
     edit_app = Student.objects.get(id=pk)
     if request.method == 'POST':
         edit_form = StudentModelForm(request.POST, instance=edit_app)
@@ -46,5 +46,19 @@ def edit_student(request, pk):
     else:
         edit_form = StudentModelForm(instance=edit_app)
     return render(request, 'students/edit.html', {'edit_form': edit_form})
+
+
+def remove(request, pk):
+    edit_app = Student.objects.get(id=pk)
+    context = {}
+    context['name'] = edit_app.name
+    context['surname'] = edit_app.surname
+    if request.method == 'POST':
+        edit_app.delete()
+        msg = 'Студент {0} {1} был(а) удален(а).'.format(context['name'], context['surname'])
+        messages.success(request, msg)
+
+        return redirect('students:list_view')
+    return render(request, 'students/remove.html', context)
 
 

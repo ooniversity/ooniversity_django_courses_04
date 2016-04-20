@@ -13,14 +13,12 @@
 {% block content %}
     {% if messages %}
         {% for message in messages %}
-        <div class="alert alert-success" role="alert">{{ message }}</div>
+            <div class="alert alert-success" role="alert">{{ message }}</div>
         {% endfor %}
     {% endif %}
     <form method="post">
-    {% csrf_token %}
-    <p>{{ edit_form.as_p }}</p>
-    <input type="submit" value="Сохранить">
+        {% csrf_token %}
+        <p>{{ edit_form.as_p }}</p>
+        <input type="submit" value="Сохранить">
     </form>
-
-
 {% endblock content %}
