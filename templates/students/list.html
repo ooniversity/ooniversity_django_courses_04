@@ -11,7 +11,14 @@
 
 
 {% block content %}
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
     <div>
+    <p><a class="btn btn-primary btn-lg" href="{% url 'students:add' %}" role="button">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить нового студента</a></p>
     <h2>Список студентов</h2>
     <table class="table">
         <thead>

@@ -4,4 +4,5 @@ urlpatterns = patterns('',
 
     url(r'^$', views.list_view, name='list_view'),
     url(r'^(?P<student_id>\d+)/$', views.detail, name='detail'),
+    url(r'^add/$', views.add_student, name='add'),
 )
