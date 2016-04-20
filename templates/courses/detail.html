@@ -9,20 +9,9 @@
   <br> 
 	<h3 >Преподаватели</h3>
 	<br>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Учитель</h3>
-    </div>
-    {% include "include/coach_include.html" with teacher=course.coach %}
-  </div>
+    {% include "include/coach_include.html" with teacher = "Учитель" instructor = course.coach %}
 	<br>
-
-	<div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Ассистент</h3>
-    </div>
-    {% include "include/coach_include.html" with teacher=course.assistant %}
-	</div>
+    {% include "include/coach_include.html" with teacher = "Ассистент" instructor = course.assistant %}
 	<br>
 	<h3>План курса</h3>
 	<br>
