@@ -50,22 +50,23 @@ def quadratic_results(request):
             elif a == '0':
                 war_a = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'    
                         
-            elif not a.replace('-', '').isdigit():
-                war_a = 'коэффициент не целое число'
+            #elif not a.replace('-', '').isdigit():
+            #elif not a.isdigit():
+            #    war_a = 'коэффициент не целое число'
             
             if b == '':
                 b = ''
                 war_b = 'коэффициент не определен'
             
-            elif not b.replace('-', '').isdigit():
-                war_b = 'коэффициент не целое число'
+            #elif not b.replace('-', '').isdigit():
+            #    war_b = 'коэффициент не целое число'
 
             if c == '':
                 c = ''
                 war_c = 'коэффициент не определен'
 
-            elif not c.replace('-', '').isdigit(): #last check if c=digit add check war_a and war_b
-                war_c = 'коэффициент не целое число'
+            #elif not c.replace('-', '').isdigit(): #last check if c=digit add check war_a and war_b
+            #    war_c = 'коэффициент не целое число'
 
             if war_a == '' and war_b == '' and war_c == '':
                 a = int(a)
