@@ -1,27 +1,13 @@
-﻿from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
-from django.views import generic
+﻿from django.shortcuts import render
 from courses.models import Course
 
 
 def index(request):
-    #template = loader.get_template('index.html')
+    """ основная страница со списком курсов """
     course=Course.objects.all()
     return render(request, 'index.html', {"courses_list":course})
 
-
-
+    
 def contact(request):
-
+    """ контакты организаторов"""
     return render(request, 'contact.html')
-
-
-def student_list(request):
-
-    return render(request, 'student_list.html')
-
-
-def student_detail(request):
-
-    return render(request, 'student_detail.html')

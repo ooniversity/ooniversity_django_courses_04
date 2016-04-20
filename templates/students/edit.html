@@ -1,13 +1,14 @@
 ﻿{% extends 'base.html' %}
 {% block student_active %}active{% endblock %}
 {% block title %}Новый студент{% endblock title %}
-{% block content %}<br>
-        <h1>Создание нового студента</h1>
-        <br><br> 
-
+{% block content %}
+<br>
+<h1>Создание нового студента</h1>
+<br>
+<br> 
 <form method="post">
-{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Изменить"/>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Изменить"/>
 </form>
 {% endblock %}
