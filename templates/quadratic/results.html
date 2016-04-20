@@ -9,10 +9,10 @@
 
 
 {% block content %}
+
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 
 <form method="get">
-  {% csrf_token %}
   {{ form.as_p }}
   <input type="submit" value="Решить"/>
 </form>
