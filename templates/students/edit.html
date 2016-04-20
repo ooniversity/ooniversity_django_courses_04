@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Edit studentl{% endblock title %}
+
+
+{% block naw_class_students %}active{% endblock %}
+
+
+{% block content %}
+<div class="container">
+ <form method="post">
+ {% csrf_token %}
+ {{form}}
+ <input type="submit">
+ </form>
+</div>
+{% endblock content %}
+
