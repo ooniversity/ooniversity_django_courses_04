@@ -14,7 +14,14 @@
 	<!-- Content begin -->
 	<div class="container" id="Content">
 	  <div class="col-md-8">
-	      <h1>Список студентов</h1>
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        <!-- Standard button -->
+        <a href="{% url 'students:add' %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Добавить нового студента</button></a>
+        <h1>Список студентов</h1>
 	  </div>
 	  <div class="col-md-8">
 	    <div class="table-responsive">
@@ -38,6 +45,12 @@
                     {% for i in i.courses.all %}
                     <a href="{% url 'courses:detail' i.id %}"><p>{{i}}</p></a>
                     {% endfor %}
+                </td>
+                <td>
+                    <a href="{% url 'students:edit' i.id %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Изменить</button></a>
+                </td>
+                <td>
+                    <a href="{% url 'students:remove' i.id %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span> Удалить</button></a>
                 </td>
 			  </tr>
               {% endfor %}
