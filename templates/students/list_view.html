@@ -1,11 +1,14 @@
-{% extends "students/base.html" %}
+﻿{% extends "base.html" %}
 
-{% block title %}Студенты - список - pyBursa{% endblock title %}
 
-{% block page_header %}Список студентов{% endblock %}
+{% block title %}List of students{% endblock title %}
 
-	{% block page_content %}
-	 <div class="col-md-12">
+
+{% block nav_class_student %}active{% endblock %}
+
+
+{% block content %} 
+	<h3>Список студентов</h3>
 	  <table class="table">
 		<thead id="id2">
 		  <tr>
@@ -32,5 +35,4 @@
 		{% endfor %}			  
 	   </tbody>	
 	  </table>
-	 </div> <!-- col-md-12  -->
-	{% endblock page_content %}
+{% endblock content %}	
