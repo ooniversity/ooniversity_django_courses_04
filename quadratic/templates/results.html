@@ -3,46 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>Уравнение</title>
-
   </head>
-  <body>
-  Квадратное уравнение a*x*x + b*x + c = 0
-    <ul>
-      <li>a = {{ var.a }}</li>
-      {% if errors.a %}
-         {{ errors.a }}
-      {% endif %}
-      <li>b = {{ var.b }}</li>
-      {% if errors.b %}
-         {{ errors.b }}
-      {% endif %}
-      <li>c = {{ var.c }}</li>
-      {% if errors.c %}
-         {{ errors.c }}
-      {% endif %}
-    </ul> 
 
-  <p>
-  {% if var.d %}
-      Дискриминант: {{ var.d }}
-  {% endif %}
-  
-  {% if var.d = 0 %}
-      Дискриминант: 0
-  {% endif %}
-  <br />
-  <br />
-  {% if var.d and var.d > 0 %}
-      Квадратное уравнение имеет два действительных корня: x1 = {{ var.x1 }}, x2 = {{ var.x2 }}
-  {% endif %}
-  
-  {% if var.d and var.d < 0 %}
-      Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.
-  {% endif %}
-  
-  {% if var.d = 0 %}
-      Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ var.x1 }}
-  {% endif %}
-  </p>
+  <body>
+    <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+    <form method="get">
+      {{ form.as_p }}
+      <input type="submit" value="Решить" />
+    </form>
+    {% if not form.errors and d != None %}
+      <p>Дискриминант: {{ d }}</p>
+      <p>{{ result_message }}</p>
+    {% endif %}
   </body>
 </html>
