@@ -9,7 +9,11 @@
 
 {% block content %}
 
-     <div class="container">
+<div class="container">
+    <a href="/students/add/" class="btn btn-success" role="button">
+       <span class="glyphicon glyphicon-plus"></span> 
+       Добавить курс
+    </a>
 	<h2>Список студентов</h2>
      <div>
   <div class="container">
@@ -35,5 +39,5 @@
 		{% endfor %}
       </table>   
     </div>
-  </div>
+</div>
 {% endblock content %} 
