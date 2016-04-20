@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}DjBursa - Создание нового студента{% endblock title %}
+
+{% block nav_students %}active{% endblock nav_students %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-12">
+    <h3>Создание нового студента</h3>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p><input type="submit" value="Создать"></p>
+    </form>
+  </div>
+</div>
+{% endblock content %}

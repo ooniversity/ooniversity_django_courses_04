@@ -14,6 +14,7 @@
     <table class="table table-hover">
       <thead class="thead-inverse">
         <tr>
+          <th>#</th>
           <th>Course Name</th>
           <th>Short Description</th>
         </tr>
@@ -21,6 +22,7 @@
       <tbody>
         {% for course in courses %}
         <tr>
+        <td>{{ forloop.counter }}</td>
         <td><a href="{% url 'courses:detail' course_id=course.id %}">{{ course.name|upper }}</a></td>
           <td>{{ course.short_description|title }}</td>
         </tr>
