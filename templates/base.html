@@ -21,7 +21,7 @@
     <nav class="navbar navbar-inverse">
       <a href="{% url 'index' %}" class="{% block nav_index %}{% endblock %}">Main</a>
       <a href="{% url 'contact' %}" class="{% block nav_contact %}{% endblock %}">Contacts</a>
-      <a href="{% url 'student_list' %}" class="{% block nav_students %}{% endblock %}">Students</a>
+      <a href="{% url 'students:list_view' %}{% block students_course %}{% endblock %}" class="{% block nav_students %}{% endblock %}">Students</a>
     </nav>
   </div>
   <div class="page"> 
