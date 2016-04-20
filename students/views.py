@@ -33,3 +33,18 @@ def add_student(request):
     else:
         add_form = StudentModelForm()
     return render(request, 'students/add.html', {'add_s': add_form})
+
+
+def edit_student(request, pk):
+    edit_app = Student.objects.get(id=pk)
+    if request.method == 'POST':
+        edit_form = StudentModelForm(request.POST, instance=edit_app)
+        if edit_form.is_valid():
+            edit_form.save()
+            msg = 'Данные изменены.'
+            messages.success(request, msg)
+    else:
+        edit_form = StudentModelForm(instance=edit_app)
+    return render(request, 'students/edit.html', {'edit_form': edit_form})
+
+
