@@ -1,27 +1,14 @@
-<!--h3>Квадратное уравнение</h3-->
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 
 <p><form method="get">
-{#{% csrf_token %}#}
-{{ form.as_p }}
-
+  {{ form.as_p }}
 <input type="submit" value="Решить"/>
-
-	</form></p>
-<!--ul>
-	<li>a = {{ a }}</li>
-     {{ warning_a }}
-    <li>b = {{ b }}</li>
-     {{ warning_b }}
-    <li>c = {{ c }}</li>
-     {{ warning_c }}
-</ul-->
-
-{% if des %}Дискриминант:	{{ des }}{% endif %}<br>
-<p>{{ des_warn }}</p>
+</form></p>
+{% if des %}Дискриминант: {{ des }}{% endif %}<br>
+  <p>{{ des_warn }}</p>
 {% if x1 and x2 %}
-	<p>{{root_mes}}</p>
+  <p>{{ root_mes }}</p>
 {% endif %}
 {% if x  %}
-	<p>{{same_root}}</p>
+  <p>{{ same_root }}</p>
 {% endif %}
