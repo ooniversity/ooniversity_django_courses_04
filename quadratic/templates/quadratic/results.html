@@ -4,7 +4,7 @@
   {{ form.as_p }}
 <input type="submit" value="Решить"/>
 </form></p>
-{% if des %}Дискриминант: {{ des }}{% endif %}<br>
+{% if des or des == 0%}Дискриминант: {{ des }}{% endif %}<br>
   <p>{{ des_warn }}</p>
 {% if x1 and x2 %}
   <p>{{ root_mes }}</p>
