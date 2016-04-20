@@ -1,28 +1,15 @@
-﻿<!DOCTYPE html>
-<html lang="ru">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Студент_1</title>
-{% load staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-		<link href="{% static 'css/style.css' %}" rel="stylesheet">
-		<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-		<style>
-			body { background: url(../../static/images/Fon.png); }
-		</style>
-	</head>
-	
-<body>
-	<div class="page">    
-		<nav class="navbar navbar-inverse">
-			<a href="{% url 'index' %}" class="button9">Main</a>
-			<a href="{% url 'contact' %}" class="button9">Contacts</a>
-			<a href="{% url 'students:list_view' %}" class="button9">Students</a>
-		</nav>
-	</div>
-	
+﻿{% extends "base.html" %}
+
+
+{% block title %}Студент{% endblock %}
+
+
+{% block nav_index %}button9{% endblock %}
+{% block nav_contact %}button9{% endblock %}
+{% block nav_students %}button9{% endblock %}
+
+
+{% block content %}	
 	<div class="page">
        <h2>{{ student.name }} {{ student.surname }}</h2>
   <div class="page">
@@ -64,9 +51,4 @@
     </div>
   </div>
   </div>
-
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="../static/js/bootstrap.js"></script>
-</body>
-	
-</html>
+{% endblock content %}
