@@ -1,13 +1,11 @@
-{% extends "students/base.html" %}
+{% extends "base.html" %}
 
 
-{% block title %}Сведения о студенте - pyBursa{% endblock title %}
-﻿
-
-{% block nav_class_student %}active{% endblock %}
+{% block title %}Student detail{% endblock title %}
 
 
-{% block main_content %}        	
+{% block content %}﻿    
+	<div class="container" id="id2">
 	<h3>{{ student.name }}  {{ student.surname }}</h3>
 	  <table class="table">
 	    <tr>
@@ -39,4 +37,5 @@
 		  </td>		  
 	    </tr>			
 	  </table>
-{% endblock main_content %}	
+	</div>
+{% endblock contain %}    
