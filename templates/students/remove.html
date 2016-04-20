@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block title %}Студенты{% endblock %}
+
+
+{% block nav_index %}button9{% endblock %}
+{% block nav_contact %}button9{% endblock %}
+{% block nav_students %}button8{% endblock %}
+
+
+{% block content %}
+<div class="page-header">
+  <h4>Студент {{ student.name }} {{ student.surname }} будет удален</h4>
+</div>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Удалить">
+  </form>
+{% endblock content %}
