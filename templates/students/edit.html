@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Pybursa-Edit-Students{% endblock title %}
+
+
+{% block active_menu_students %}active{% endblock active_menu_students %}
+
+
+{% block content %}
+    <div class="container">
+      <div class="col-md-8">
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        <h2>Редактирование данных студента</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Изменить" />
+      </form>
+  </div>
+{% include "include/panel_include.html" %}
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa-Add Students{% endblock title %}
+
+
+{% block active_menu_students %}active{% endblock active_menu_students %}
+
+
+{% block content %}
+<div class="container">
+  <div class="col-md-8">
+  <h2>Создание нового студента</h2>
+  <form method="post">
+    {{add_form.as_p}}
+    {% csrf_token %}
+    <input type="submit" value="Создать"/>
+  </form>
+</div>
+{% include "include/panel_include.html" %}
+{% endblock content %}
