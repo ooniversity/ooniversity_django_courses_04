@@ -11,7 +11,7 @@
 	</ul>
 {% endif %}
 <br>
-<a href="{% url 'students:add' %}" class="btn btn-primary btn-xs" role="button">Добавить нового студента</a>
+<a href="{% url 'students:add' %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-plus-sign"></span> Добавить нового студента</a>
 <br>
 <h3 >Список студентов</h3>
 <br>
@@ -40,10 +40,10 @@
 		{% endfor %}
 	  </td>
 	  <td>
-		<a href="{% url 'students:edit' student.id %}" class="btn btn-primary btn-xs" role="button">Изменить</a>
+		<a href="{% url 'students:edit' student.id %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-pencil"></span> Изменить</a>
 	  </td>
 	  <td>
-		<a href="{% url 'students:remove' student.id %}" class="btn btn-primary btn-xs" role="button">Удалить</a>
+		<a href="{% url 'students:remove' student.id %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-trash"></span> Удалить</a>
 	  </td>
 	</tr>
 	{% endfor %}

@@ -6,7 +6,7 @@ from courses.models import Course
 
 class Student(models.Model):
     """ модель студента """
-    name = models.CharField(verbose_name='Nane', max_length = 50)
+    name = models.CharField(verbose_name='Name', max_length = 50)
     surname = models.CharField(verbose_name = 'Surname', max_length = 50)
     date_of_birth = models.DateField(verbose_name = 'Date of birth')
     email = models.EmailField(verbose_name = 'Email')
