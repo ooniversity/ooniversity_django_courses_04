@@ -10,7 +10,8 @@ def list_view(request):
     return render(request, 'students/list.html', {'students':students})
 
 def detail(request, students__id):
-    students = Student.objects.filter(id = students__id)    
+    students = Student.objects.filter(id = students__id)   
     return render(request, 'students/detail.html', {'students':students})
+
 
 

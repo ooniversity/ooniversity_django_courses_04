@@ -3,9 +3,9 @@
 
 
 {% block title_page %}
-
+{% for student in students %}
 {{student.name}} {{student.surname}}
-
+{% endfor %}
 {% endblock %}
 
 

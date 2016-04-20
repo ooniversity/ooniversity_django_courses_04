@@ -5,6 +5,9 @@
 {% block title %}Main PyBursa{% endblock title %}
 
 
+{% block nav_class_index %}active{% endblock %}
+
+
 {% block content %}
 
       <div class="main_font"> 

@@ -6,8 +6,6 @@
 
 
 {% block page_content %}
-
-
               <tr>
                 <th>Фамилия Имя</th>
                 <th>Адрес</th>
