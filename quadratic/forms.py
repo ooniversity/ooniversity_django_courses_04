@@ -3,9 +3,13 @@ from django import forms
 
 
 class QuadraticForm(forms.Form):
-    """
-    Input variables of the quadratic equation
-    """
-    a = forms.FloatField(label='Введите коэффициент a ', widget=forms.TextInput(attrs={'size': '10'}))
-    b = forms.FloatField(label='Введите коэффициент b ', widget=forms.TextInput(attrs={'size': '10'}))
-    c = forms.FloatField(label='Введите коэффициент c ', widget=forms.TextInput(attrs={'size': '10'}))
+
+    a = forms.FloatField(label='коэффициент a:')
+    b = forms.FloatField(label='коэффициент b:')
+    c = forms.FloatField(label='коэффициент c:')
+
+    def clean_a(self):
+        data = self.cleaned_data['a']
+        if data == 0:
+            raise forms.ValidationError(u"коэффициент при первом слагаемом уравнения не может быть равным нулю")
+        return data
