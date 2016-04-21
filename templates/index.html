@@ -34,11 +34,15 @@
         <tr>
           <th>Курс</th>
           <th>Описание</th>
+          <th>Редактировать</th>
+          <th>Удалить</th>
         </tr>
         {% for a in cours%}
         <tr>
           <td><a href="{% url 'courses:detail' a.id %}">{{a.name|upper}}</a></td>
           <td>{{a.short_description|title}}</td>
+          <td><a href="{% url 'courses:edit' a.id %}">Edit</a></td>
+          <td><a href="{% url 'courses:remove' a.id %}">Remove</a></td>
         </tr>
         {% endfor%}
       </table>

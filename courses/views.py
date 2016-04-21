@@ -49,7 +49,7 @@ def add_lesson(request, course_id):
 		if add_les.is_valid():
 			new_les = add_les.save()
 			messages.success(request, 'Lesson %s has been successfully added.' % new_les.subject)
-			return redirect('courses:detail', new_les.course.id)
+			return redirect('courses:detail', course_id=course_id)
 	else:
 		add_les = LessonModelForm()
 	return render(request, 'courses/add_lesson.html', {'add_les':add_les})
