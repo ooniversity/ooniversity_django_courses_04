@@ -9,6 +9,7 @@
 
 
 {% block content %}
+<br />
 
 {% if messages %}
       {% for message in messages %}
@@ -44,8 +45,6 @@
             </td>
             <td>
                 <a href="{% url 'students:edit' stud.id %}"><span class="glyphicon glyphicon-edit"></span></a>
-            </td>
-            <td>
                 <a href="{% url 'students:remove' stud.id %}"><span class="glyphicon glyphicon-remove"></span></a>
             </td>
         </tr>
