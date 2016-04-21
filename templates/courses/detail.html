@@ -1,47 +1,31 @@
-<!DOCTYPE html>
-<head xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{course.0.name}}</title>
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-</head>
-<body>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'index' %}">Главная</a></li>
-        <li><a href="{% url 'contact' %}">Контакты</a></li>
-        <li><a href="{% url 'students:list_view' %}?course_id={{course.0.id}}">Студенты</a></li>
-      </ul>
-    </div>
-    <div class="container theme-showcase" role="main"
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Course Detail{% endblock %}
+
+{% block content %}
+
     <div class="jumbotron">
         <div class="container">
-            <h1>{{course.0.name}}</h1>
-            <p>{{course.0.description}}</p>
+            <h1>{{course.name}}</h1>
+            <p>{{course.description|truncatechars:32}}</p>
             <h3>Преподаватели</h3>
 
-                <table class="table table-striped">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Учитель</div>
+                  <div class="panel-body">
+                    <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.first_name }} {{ course.coach.last_name }}</a><br>
+                    {{ course.coach.description }}
+                  </div>
+                </div>
 
-                  <tr>
-                    <th>Coach</th>
-                    <th>Assistant</th>
-                  </tr>
-
-
-                  <tr>
-                    <td><h3><a href="{{course.coach_id}}">{{course.coach.first_name}}w {{course.coach.last_name}}</a></h3>
-                    <p>{{course.coach.description}}</p>
-                    </td>
-                    <td><h3><a href="{{course.assistant.id}}">{{course.assistant.first_name}}e {{course.assistant.last_name}}</a></h3>
-                    <p>{{course.assistant.description}}</p>
-                    </td>
-                  </tr>
-
-                </table>
-
+                <div class="panel panel-default">
+                  <div class="panel-heading">Ассистент</div>
+                  <div class="panel-body">
+                    <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.first_name }} {{ course.assistant.last_name }}</a><br>
+                    {{ course.assistant.description }}
+                  </div>
+                </div>
 
             <h3>План курса</h3>
             <table class="table table-striped">
@@ -50,7 +34,7 @@
                         <th>Тема</th>
                         <th>Описание</th>
                     </tr>
-                {% for element in course_detail %}
+                {% for element in lesson %}
                     <tr>
                         <td>{{element.id}}</td>
                         <td>{{element.subject}}</td>
@@ -60,6 +44,4 @@
             </table>
         </div>
     </div>
-    </div>
-</body>
-</html>
+{% endblock content %}
