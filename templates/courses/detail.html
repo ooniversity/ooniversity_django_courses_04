@@ -9,6 +9,16 @@
 
   
   {% block content %}
+
+ {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
    <!-- Main component  -->
       <div class="panel panel-primary">
         <div class="panel-heading">
@@ -37,6 +47,9 @@
   <div class="head" style="width: 1120px;">
   <!-- Default panel contents -->
    	<h2>План курса</h2>
+        <p style="margin: 20px;">
+        <button><a href="{% url 'courses:add_lesson' course.id %}" style=  "text-decoration: none;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить новое занятие</a></button>
+      </p>
       <div class="table-responsive">
       <table class="table table-striped">
         <tr>
