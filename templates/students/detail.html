@@ -9,16 +9,13 @@
 
 {% block content %}
 
-
-<br>
 {% if messages %}
-</br>
-<div class="alert alert-success" role="alert">
-    {% for message in messages %}
-    {{ message }}
-    {% endfor %}  
+<div class = "alert alert-success" role="alert">
+   {% for message in messages %}
+      {{ message }}
+   {% endfor %}
 </div>
-<br>
+{% endif %}
 
 <div class="container">
     <div class="page-header">

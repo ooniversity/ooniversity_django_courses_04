@@ -39,7 +39,7 @@ def remove(request,id):
         message = u"Course %s  has been deleted." %(course.name)
         messages.success(request, message)
         return redirect("/")
-    return render(request,"courses/remove.html",{"name":course.name})
+    return render(request,"courses/remove.html",{"course":course})
 
 def add_lesson(request):
 	if request.method == 'POST':
