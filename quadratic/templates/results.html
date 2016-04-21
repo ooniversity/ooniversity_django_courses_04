@@ -47,7 +47,7 @@
             <li><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
             <li><a href="{% url 'student_list' %}">Students</a></li>
-            <li class='active'><a href="{% url 'student_list' %}">Students</a></li>
+            <li class='active'><a href="{% url 'student_list' %}">Quadratic</a></li>
 
           </ul>
         </div><!--/.nav-collapse -->
@@ -59,7 +59,12 @@
    
         <h2>Квадратное уравнение a*x*x+b*x+c=0</h2>
 
-        <p>
+        <form method="get">
+          {{form.as_p}}
+          <input type = "submit" value = "Решить"/>
+        </form>
+     
+      <!--  <p>
         a = {{parametr.param_a}}
         </p>
         {% if not parametr.param_a %}
@@ -71,29 +76,9 @@
         {% endif %}
         {% ifequal parametr.param_a '0' %}
         <i>коэффициент при первом слагаемом уравнения не может быть равным нулю</i>
-        {% endifequal %}
+        {% endifequal %}-->
 
-        <p>
-        b = {{parametr.param_b}}
-        </p>
-        {% if not parametr.param_b %}
-        <i>коэффициент не определен</i>
-        {% else %}
-             {% if not charact.char_b %}
-             <i>коэффициент не целое число</i>
-             {% endif %}
-        {% endif %}
 
-        <p>
-        c = {{parametr.param_c}}
-        </p>
-        {% if not parametr.param_c %}
-        <i>коэффициент не определен</i>
-        {% else %}
-             {% if not charact.char_c %}
-             <i>коэффициент не целое число</i>
-             {% endif %}
-        {% endif %}
 
         {% if solution.discr %}
             {% if solution.root1 and solution.root1 %}
