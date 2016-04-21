@@ -2,7 +2,13 @@
 {# не подсвечиваю активную вкладку #}
 {% block title %}Информация о курсе{% endblock title %}
 {% block content %}
-{% include 'include/messages_include.html'%}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 	<h1>{{ course.name }}</h1>
 	<br>
 	<p>{{ course.description|truncatechars:32 }}</p>
