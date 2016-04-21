@@ -44,15 +44,12 @@ def remove(request, student_id):
 
 def edit(request, student_id):
     student = Student.objects.get(id=student_id)
-    print(request)
     if request.method == "POST":
         form = StudentModelForm(request.POST, instance=student)
         if form.is_valid():
             application = form.save()
             messages.success(request, "Info on the student has been successfully changed.")
             return redirect('students:edit', student_id=student.id)
-        else:
-            return render(request, 'students/edit.html', {'form':form})
     else:
         form = StudentModelForm(instance=student)
         return render(request, 'students/edit.html', {'form':form})

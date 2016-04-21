@@ -36,12 +36,12 @@
             </td>
             <td>
                 <form action="{% url 'students:edit' stud.id %}">
-                    <button type="submit" class="btn btn-primary">Изменить</button>
+                    <input type="submit" value="Изменить"/>
                 </form>
             </td>
             <td>
                 <form action="{% url 'students:remove' stud.id %}">
-                    <button type="submit" class="btn btn-primary">Удалить студента</button>
+                    <input type="submit" value="Удалить студента"/>
                 </form>
             </td>
         </tr>
