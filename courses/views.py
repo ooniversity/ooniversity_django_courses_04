@@ -36,3 +36,15 @@ def edit(request, pk):
     else:
         edit_form = CourseModelForm(instance=edit_app)
     return render(request, 'courses/edit.html', {'edit_form': edit_form})
+
+
+def remove(request, pk):
+    edit_app = Course.objects.get(id=pk)
+    context = {}
+    context['name'] = edit_app.name
+    if request.method == 'POST':
+        edit_app.delete()
+        msg = "Course {0} has been deleted.".format(context['name'])
+        messages.success(request, msg)
+        return redirect('/')
+    return render(request, 'courses/remove.html', context)
