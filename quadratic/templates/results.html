@@ -63,38 +63,11 @@
           {{form.as_p}}
           <input type = "submit" value = "Решить"/>
         </form>
-     
-      <!--  <p>
-        a = {{parametr.param_a}}
-        </p>
-        {% if not parametr.param_a %}
-        <i>коэффициент не определен</i>
-        {% else %}
-             {% if not charact.char_a %}
-             <i>коэффициент не целое число</i>
-             {% endif %}
-        {% endif %}
-        {% ifequal parametr.param_a '0' %}
-        <i>коэффициент при первом слагаемом уравнения не может быть равным нулю</i>
-        {% endifequal %}-->
+        {% if not form.errors and d != None %}
+        <p>Дискриминант: {{d}}</p>
+        <p>{{result_message}}</p>
+        {% endif%}    
 
-
-
-        {% if solution.discr %}
-            {% if solution.root1 and solution.root1 %}
-            <p>Дискриминант: {{solution.discr}}</p> 
-            <p>Квадратное уравнение имеет два действительных корня: x1 = {{solution.root1}}, x2 = {{solution.root2}}</p>             
-            {% else %}
-            <p>Дискриминант: {{solution.discr}}</p> 
-            <p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</p>
-            {% endif %}  
-        {% endif %}     
-
-
-        {% ifequal solution.discr 0 %}
-        <p>Дискриминант: {{solution.discr}}</p> 
-        <p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{solution.root1}}</p>
-        {% endifequal %}
 
       </div>
     </div><!-- /.container -->
