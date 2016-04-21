@@ -1,13 +1,15 @@
 ﻿{% extends 'base.html' %}
-{% block index_active %}active{% endblock %}
+{# не подсвечиваю активную вкладку #}
 {% block title %}Информация о курсе{% endblock title %}
 {% block content %}
+{% include 'include/messages_include.html'%}
 	<h1>{{ course.name }}</h1>
 	<br>
 	<p>{{ course.description|truncatechars:32 }}</p>
 	<br>
-  <br> 
-	<h3 >Преподаватели</h3>
+	<a href="{% url 'courses:edit' course.id %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-pencil"></span> Изменить</a>
+    <br> 
+	<h3>Преподаватели</h3>
 	<br>
     {% include "include/coach_include.html" with teacher="Учитель" instructor=course.coach %}
 	<br>
@@ -15,6 +17,7 @@
 	<br>
 	<h3>План курса</h3>
 	<br>
+    <a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-plus-sign"></span> Добавить занятие</a>
 	<table id="ind_t1" class="table table-striped">
     <tbody>
       <tr>

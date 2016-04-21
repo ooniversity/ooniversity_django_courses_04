@@ -2,18 +2,23 @@
 {% block index_active %}active{% endblock %}
 {% block title %}Главная. Описание курса PyBursa{% endblock title %}
 {% block content %}
+{% include 'include/messages_include.html' %}
+
 <h1>ItBursa</h1><br>
 <h3>Description</h3>
 <p>Мы специализируемся на модных языках программирования</p>
 <br>
 <br> 
+<a href="{% url 'courses:add' %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-plus-sign"></span> Добавить новый курс</a>
+<br>
 <h3>Выбирай свой курс!</h3>
 <br>
 <table class="table table-striped">
   <tbody>
     <tr>
-      <th >Курс </th>
-      <th>Описание </th>
+      <th >Курс</th>
+      <th>Описание</th>
+      <th></th>
     </tr>
 	{%for course in courses_list%}
       <tr>
@@ -23,6 +28,9 @@
         <td>
 	      {{ course.short_description|title }}
 	    </td>
+        <td>
+          <a href="{% url 'courses:remove' course.id %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-trash"></span> Удалить</a>
+        </td>
       </tr>
     {%endfor%}
   </tbody>
