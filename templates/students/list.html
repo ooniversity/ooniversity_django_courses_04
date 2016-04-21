@@ -10,7 +10,7 @@
 
 {% block content %}
 
-        <h1>Список студентов</h1>
+<h1>Список студентов</h1>
   
 <table class="table" >
     <thead>
@@ -25,17 +25,30 @@
     <tbody>
     {% for stud in students_list %}
         <tr class="info">
-            <td>{{stud.id}}</td>
+            <td>{{forloop.counter}}</td>
             <td><a href="{% url 'students:detail' stud.id %}">{{stud.surname}} {{stud.name}}</a></td>
             <td>{{stud.address}}</td>
             <td>{{stud.skype}}</td>
             <td>
-            {% for course in stud.courses.all %}
-            <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a></p>
-            {% endfor %}
+                {% for course in stud.courses.all %}
+                    <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a></p>
+                {% endfor %}
+            </td>
+            <td>
+                <form action="{% url 'students:edit' stud.id %}">
+                    <button type="submit" class="btn btn-primary">Изменить</button>
+                </form>
+            </td>
+            <td>
+                <form action="{% url 'students:remove' stud.id %}">
+                    <button type="submit" class="btn btn-primary">Удалить студента</button>
+                </form>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+<form  action="{% url 'students:add' %}">
+<button type="submit" class="btn btn-primary">Добавить нового студента</button>
+</form>
 {% endblock content %}
