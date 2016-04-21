@@ -39,6 +39,22 @@ body {
     display: table-cell;
 }
 
+.messages li.error { 
+  list-style-type: none;
+  color red;
+}
+
+.messages li.success {
+  list-style-type: none;
+  color: green;
+}
+
+.red {
+    background-color: red;
+    border: none;
+}
+
+
 
 
 
