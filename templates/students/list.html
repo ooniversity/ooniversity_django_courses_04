@@ -24,6 +24,8 @@
         <th>адрес</th>
         <th>Skype</th>
         <th>курсы</th>
+		<th></th>
+		<th></th>
             </tr>
         {% for i in students %}
       <tr>
@@ -36,11 +38,13 @@
           {% endfor %}</td>
         <td>
           <button class="btn btn-success" type="button">
+			<span class="glyphicon glyphicon-pencil"></span>
             <a href="{% url 'students:edit' i.id %}">Изменить</a>
           </button>
         </td>
         <td>
           <button class="btn btn-success" type="button">
+			<span class="glyphicon glyphicon-trash"></span>
             <a href="{% url 'students:remove' i.id %}">Удалить</a>                    
           </button>
         </td>

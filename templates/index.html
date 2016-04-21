@@ -19,7 +19,12 @@
     <h2>Выбирай на каком курсе хочешь учиться!</h2>
    <br>
 </div>
- 
+<div class="container">
+    <a href="/courses/add/" class="btn btn-success" role="button">
+       <span class="glyphicon glyphicon-plus"></span> 
+       Добавить новый курс
+    </a>
+</div> 
 <div class="panel-body">
    <div class="table-responsive">
     <table class="table">
@@ -34,7 +39,20 @@
            <tr>
                <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper}}</a></td>
                <td>{{ course.short_description|title}}</td>
-           </tr>
+           
+       <td>
+          <button class="btn btn-success" type="button">
+			<span class="glyphicon glyphicon-pencil"></span>
+            <a href="{% url 'courses:edit' course.id %}">Изменить</a>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-success" type="button">
+			<span class="glyphicon glyphicon-trash"></span>
+            <a href="{% url 'courses:remove' course.id %}">Удалить</a>                    
+          </button>
+        </td>
+</tr>
         {% endfor %}
         </tbody>
     </table>

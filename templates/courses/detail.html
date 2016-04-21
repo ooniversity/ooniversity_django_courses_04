@@ -27,9 +27,20 @@
     </div>
 
 
+
+
     <div class="container">
         <h2>План курса</h2>
     </div>
+
+<div class="container">
+    <a href="/courses/add_lesson/" class="btn btn-success" role="button">
+       <span class="glyphicon glyphicon-plus"></span> 
+       Добавить новое занятие
+    </a>
+</div> 
+
+
     <div class="container">
         <div class="table-responsive">
            <table class="table table-hover table-condensed">
@@ -43,11 +54,10 @@
                    <td>{{ i.order }}</td>
                    <td>{{ i.subject }}</td>
                    <td>{{ i.description }}</td>
-               </tr>
+                </tr>
                {% endfor %}
             </table>
         </div>
     </div>
 </div>
 {% endblock content %}
-
