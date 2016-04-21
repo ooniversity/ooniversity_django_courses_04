@@ -1,7 +1,36 @@
 #-*- coding: utf-8 -*-
 from django.shortcuts import render
+from quadratic.forms import QuadraticForm
 
-def quadratic_results(request):
+def quadratic_results(request):	
+	context = {}
+	str_d = results = ''	
+	if request.GET: #method == 'GET':
+		form = QuadraticForm(request.GET)
+		if form.is_valid():
+			a = form.cleaned_data['a']
+			b = form.cleaned_data['b']
+			c = form.cleaned_data['c']
+			d = b ** 2 - 4 * a * c
+			if d > 0:
+				str_d = 'Дискриминант: %d' % d
+				x1 = (-b + d ** (1/2.0)) / (2*a)
+				x2 = (-b - d ** (1/2.0)) / (2*a)
+				results = 'Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' % (x1, x2)
+			elif d < 0:
+				str_d = 'Дискриминант: %d' % d
+				results = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
+			else:
+				str_d = 'Дискриминант: %d' % d
+				x = -b / 2*a
+				results = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f' % x
+	else:
+		form = QuadraticForm()	
+	
+	context = {'form':form, 'str_d':str_d, 'results':results} 
+	return render(request, 'quadratic/results.html', context)
+
+def quadratic_results_old(request):
 	str_a = str_b = str_c = str_d = a = b = c = d = results = ''
 	try:	
 		a = int(request.GET['a'])
