@@ -2,13 +2,8 @@
 {% block index_active %}active{% endblock %}
 {% block title %}Главная. Описание курса PyBursa{% endblock title %}
 {% block content %}
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+
+{% include "include/messages_include.html" with messages=messages%}
 
 <h1>ItBursa</h1><br>
 <h3>Description</h3>
