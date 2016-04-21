@@ -25,7 +25,7 @@ def edit(request,id):
 			course= form.save()
 			message = u"The changes has been saved."
 			messages.success(request, message)
-			return redirect('courses:detail',course_inst.id)
+			return redirect('courses:detail',course.id)
 	else:
 		form = CourseModelForm(instance=course_inst)
 	

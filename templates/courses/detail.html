@@ -42,7 +42,7 @@
     </div>
 
 <div class="container">
-    <a href="/courses/add_lesson/" class="btn btn-success" role="button">
+    <a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-success" role="button">
        <span class="glyphicon glyphicon-plus"></span> 
        Добавить новое занятие
     </a>
