@@ -1,21 +1,25 @@
 {% extends "base.html" %}
 
 
-{% block title %}Студенты{% endblock %}
-
+{% block title %}Новый студент{% endblock %}
+    <style>
+      body { background: url(../static/images/Fon.png); }
+    </style>
 
 {% block nav_index %}button9{% endblock %}
 {% block nav_contact %}button9{% endblock %}
-{% block nav_students %}button8{% endblock %}
+{% block nav_students %}button9{% endblock %}
 
 
 {% block content %}
+
 <div class="page-header">
   <h2>Создание нового студента</h2>
 </div>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Создать">
-  </form>
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+  <input type="submit" value="Создать">
+</form>
+
 {% endblock content %}
