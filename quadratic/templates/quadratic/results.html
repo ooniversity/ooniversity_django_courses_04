@@ -16,8 +16,7 @@
     <div class ="container" id="id2">
 	  <p></p>
 	  <p>Квадратное уравнение a*x*x + b*x + c = 0</p>  
-	  <form method="get">
-	  	{% csrf_token %}
+	  <form method="get">	  
 		{{ form.as_p }}
 		<input type="submit" value="Решить" />
 	  </form>
