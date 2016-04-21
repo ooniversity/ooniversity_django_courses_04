@@ -10,10 +10,10 @@
 
 {% block content %}
 
-<h2>Студент {{ student.name }} {{ student.surname }} будет удален</h2>
+<h1>Студент {{ student.name }} {{ student.surname }} будет удален</h1>
 <form method='post'>
 	{% csrf_token %}
-    <button type='submit'>Удалить</button>
+    <input type="submit" value="Удалить"/>
 </form>
 
 {% endblock content %}
