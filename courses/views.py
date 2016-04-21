@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
-from courses.models import Course,Lesson
+from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
 
@@ -46,7 +46,7 @@ def add_lesson(request, course_id):
         if form.is_valid:
             app = form.save()
             messages.success(request, "Lesson %s has been successfully added" % app.subject)
-            return redirect('courses:detail')
+            return redirect('courses:detail', course_id)
     else:
         form = LessonModelForm(initial={'news_subscribe':True, 'course': course_id})
-    return render(request, 'courses/add_lesson.html', {'form': form})
+    return render(request, "courses/add_lesson.html", {'form': form})
