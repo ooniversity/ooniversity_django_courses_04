@@ -9,10 +9,8 @@ from coaches.models import Coach
 def detail(request,course_id):
     course = get_object_or_404(Course, pk=course_id)
     lessons = Lesson.objects.filter(course=course).order_by('order')
-    #course_coaches = Coach.objects.filter(course=course)#.order_by('order')
     return render(request, 'courses/detail.html',
            {"course":course,
             "lessons":lessons,
-            #"coaches":course_coaches,
             })
 

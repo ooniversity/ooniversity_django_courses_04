@@ -9,6 +9,10 @@ body {
   color:#FFFFFF;
 }
 
+h3.well-sm, h2.Description_title, table.table-condensed{
+  margin-left:5%;
+}
+
 .course_name {
   padding: 20px 15px;
   text-align: center;
@@ -187,17 +191,8 @@ a{
 
 /*-------------------------student_detail--------------------------------*/
 
-.index_panel{
-  width: 90%;
-  background-color:#2F5765;
-  color: #FFF;
-}
 
-hr.my_hr{
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, #2F5765, #FFFFFF, #2F5765);
-}
+
 
 /*tr:hover {background-color: #417D93}*/
 
@@ -208,5 +203,47 @@ hr.my_hr{
 }
 th.marker::-moz-selection, td.marker::selection {
   background: #00C0BA;
+}
+*/
+/*---------------course detail---------------------------*/
+
+.my_labels{
+  margin-left: 7%;
+}
+hr.my_hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, #2F5765, #FFFFFF, #2F5765);
+}
+
+.index_panel{
+  width: 90%;
+  background-color:#2F5765;
+  color: #FFF;
+  margin-left: 5%;
+}
+/*---------------contact_me---------------------------*/
+.contact_me{
+  background-image:linear-gradient(to right,#2F5765, #2F5765, #282828);
+  text-align:center;
+  /*margin-left: 20%;*/
+  width: 18%;
+  /*padding:3px;*/
+  margin-top: 29%;
+  margin-left: -9%;
+}
+
+
+.contact_me > h4 >a:hover{
+  color: #E95C00;
+}
+.contact_me > h4 >a:visited{
+  color: #FFFFFF;
+}
+
+
+/*a.contact_me{
+  color: #FFFFFF;
+  text-decoration: underline;
 }
 */

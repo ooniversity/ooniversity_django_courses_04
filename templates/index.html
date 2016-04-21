@@ -1,35 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
-    {% load staticfiles %}
-    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  </head>
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'index' %}">Главная</a></li>
-            <li><a href="{% url 'contact' %}">Контакты</a></li>
-            <li><a href="{% url 'students:list_view' %}">Студенты</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div> <!-- end menu div -->
+{% extends "base.html" %}
+{% load staticfiles %}
 
+
+{% block title %}Main{% endblock %}
+
+
+{% block nav_class_ind %}active{% endblock %}
+
+{% block content %}
     <div class="container">
+
       <h1 class="course_name">University</h1>
       <h3 class="well well-sm"><em>Курс подразумевает, что студенты уже освоили базовый python.
 В рамках курса даются азы html/css, достаточные для формирования html страниц браузеру, но не достаточные для профессиональной верстки.
@@ -48,19 +28,12 @@
 
         {% for course in courses %}
           <tr>
-            <td style="width:17%"><a href={% url 'courses:detail' course.id %}>{{ course.name }}</a></td>
-            <td style="width:50%">{{ course.short_description }}</td>
+            <td style="width:17%"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a class="styled_links" href={% url 'courses:detail' course.id %}>{{ course.name|upper }}</a></td>
+            <td style="width:50%">{{ course.short_description|title }}</td>
           </tr>
         {% endfor %}
         </tbody>
       </table>
-
+    {% include "include/contactme_include.html" %}
     </div><!-- /.container -->
-    <div class="index_border_line">
-    </div>
-    <div class="index_footer">
-    </div>
-    <script src="{% static 'bootstrap/googleapis/jquery.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
-  </body>
-</html>
+{% endblock content %}

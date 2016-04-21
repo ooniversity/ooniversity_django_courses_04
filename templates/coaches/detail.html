@@ -1,41 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ДЕТАЛИ О ПРЕПОДАВАТЕЛЕ</title>
-    {% load staticfiles %}
-    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  </head>
+{% extends "base.html" %}
+{% load staticfiles %}
 
 
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'index' %}">Главная</a></li>
-            <li><a href="{% url 'contact' %}">Контакты</a></li>
-            <li><a href="{% url 'students:list_view' %}">Студенты</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
+{% block title %}Coach Detail{% endblock %}
 
 
+{% block content %}
     <h1 class="list_name_page">{{ coach.first_name }} {{ coach.last_name }}</h1>
-
-        <div class="container">
+    <div class="container">
       <div class="row">
         <div class="student_info">
           <div class="col-sm-6">
@@ -43,7 +15,7 @@
               <tbody>
                 <tr>
                   <td>дата рождения</td>
-                  <td>{{ coach.date_of_birth|date:"N d, Y" }}</td>
+                  <td>{{ coach.date_of_birth|date:"j F, Y" }}</td>
                 </tr>
                 <tr>
                   <td>адрес</td>
@@ -67,7 +39,7 @@
                 <td>{% for c in coach.coach_courses.all %}
                   <p><a href="{% url 'courses:detail' c.id %}">{{ c.name }}</a>
                студенты курса
-                  <a href="{% url 'students:list_view' %}?course_id={{ c.id }}"><span class="glyphicon glyphicon-info-sign"></span></a>
+                  <a href="{% url 'students:list_view' %}?course_id={{ c.id }}"><span class="glyphicon glyphicon-export"></span></a>
                   </p>
                {% endfor %}
              </td>
@@ -83,16 +55,8 @@
                </tr>
               </tbody>
             </table>
-
           </div>
         </div>
       </div>
     </div>
-    <div class="cont_border_line">
-    </div>
-    <div class="cont_footer">
-    </div>
-    <script src="{% static 'bootstrap/googleapis/jquery.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
-  </body>
-</html>
+{% endblock content %}
