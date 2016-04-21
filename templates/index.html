@@ -1,29 +1,12 @@
-<!DOCTYPE html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  </head>
-  <body>
+{% extends "base.html" %}
+{% load staticfiles %}
 
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'index' %}">Главная</a></li>
-        <li><a href="{% url 'contact' %}">Контакты</a></li>
-        <li><a href="{% url 'students:list_view' %}">Студенты</a></li>
-      </ul>
-    </div>
+{% block title %}Main Page{% endblock %}
 
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Team my dream</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-      </div>
-    </div>
+{% block nav_index_activ %}active{% endblock %}
+
+{% block content %}
+{% include "include/index_include.html" %}
     <div class="container">
         <h3>All in your hands</h3>
         <table class="table table-striped">
@@ -33,11 +16,10 @@
             </tr>
           {% for element in c %}
             <tr>
-                <td  width="200"><a href="{% url 'courses:courses' %}{{element.id}}">{{element.name}}</a></td>
-                <td>{{element.short_description}}</td>
+                <td  width="200"><a href="{% url 'courses:courses' %}{{element.id}}/">{{element.name|upper}}</a></td>
+                <td>{{element.short_description|title}}</td>
             </tr>
           {% endfor %}
         </table>
     </div>
-     </body>
-</html>
+{% endblock content %}

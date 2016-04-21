@@ -1,6 +1,4 @@
 from django.shortcuts import render
-
-from django.shortcuts import render
 from coaches.models import Coach
 from courses.models import Course
 
@@ -9,6 +7,7 @@ def coaches_detail_view(request, coach_id):
     coach = Coach.objects.get(id=coach_id)
     teacher = Course.objects.filter(coach=coach_id)
     assistant = Course.objects.filter(assistant=coach_id)
+    print type(coach.date_of_birth)
     return render(request, 'coaches/detail.html',
                   {'coach': coach,  'teacher': teacher,
                    'assistant': assistant})

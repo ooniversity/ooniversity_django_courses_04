@@ -19,8 +19,8 @@ class Coach(models.Model):
     def __unicode__(self):
         return self.user.username
 
-    def first_name(self, obj):
-         return obj.user.first_name
+    def first_name(self):
+        return self.user.first_name
 
-    def last_name(self, obj):
-        return obj.user.last_name
+    def last_name(self):
+        return self.user.last_name
