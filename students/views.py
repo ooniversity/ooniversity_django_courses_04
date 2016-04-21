@@ -38,7 +38,7 @@ def remove(request,id):
     student=Student.objects.get(pk=id)
     if request.method == 'POST':
         student.delete()
-        messages = u"Info on %s %s has been sucessfully deleted." %(student.name, student.surname)
+        message = u"Info on %s %s has been sucessfully deleted." %(student.name, student.surname)
         messages.success(request, message)
         return redirect('students:list_view')
     return render(request,"students/remove.html",{"student":student})
