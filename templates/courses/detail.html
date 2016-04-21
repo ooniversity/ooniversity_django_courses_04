@@ -11,6 +11,11 @@
 
 
 {% block content %}
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
     <div class="starter-template">
         <h1>{{ course_table.name }}</h1>
         <h3 class="lead">{{ course_table.description|truncatechars:32 }}</h3>
@@ -21,7 +26,7 @@
         <div>
             <table class="table">
                 <h2>План курса</h2>
-                <p><a class="btn btn-primary" href="{% url 'students:add' %}" role="button">
+                <p><a class="btn btn-primary" href="{% url 'courses:add-lesson' course_table.id %}" role="button">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить занятие</a></p>
                 <thead>
                 <tr>

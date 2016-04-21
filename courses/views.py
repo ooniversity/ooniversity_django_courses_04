@@ -4,7 +4,6 @@ from django.contrib import messages
 from forms import CourseModelForm, LessonModelForm
 
 
-
 def detail(request, course_id):
     cours_table = Course.objects.get(id=course_id)
     lesson = Lesson.objects.all().filter(course__name=cours_table.name)
@@ -48,3 +47,17 @@ def remove(request, pk):
         messages.success(request, msg)
         return redirect('/')
     return render(request, 'courses/remove.html', context)
+
+
+def add_lesson(request, pk):
+    if request.method == 'POST':
+        add_form = LessonModelForm(request.POST)
+        if add_form.is_valid():
+            a = add_form.cleaned_data['subject']
+            add_form.save()
+            msg = "Lesson {0} has been successfully added.".format(a)
+            messages.success(request, msg)
+            return detail(request, pk)
+    else:
+        add_form = LessonModelForm()
+    return render(request, 'courses/add_lesson.html', {'add_form': add_form})
