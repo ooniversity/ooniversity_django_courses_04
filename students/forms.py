@@ -6,12 +6,3 @@ class StudentModelForm(forms.ModelForm):
 
     class Meta:
         model = Student
-
-class StudentModelForm(forms.ModelForm):
-
-    class Meta:
-        model = Student
-
-class StudentModelForm(forms.Form):
-
-    pass
