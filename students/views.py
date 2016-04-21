@@ -46,5 +46,4 @@ def remove(request, student_id):
 		remov.delete()
 		messages.success(request, "Info on %s %s has been successfully deleted." % (remov.name, remov.surname))
 		return redirect('students:list_view')
-
 	return render(request, 'students/remove.html', {'remov':remov})
