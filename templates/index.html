@@ -11,6 +11,11 @@
 
 
 {% block content %}
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
     <div class="starter-template">
         <h1>PyBursa</h1>
         <h2 class="lead">Description</h2>
@@ -24,6 +29,8 @@
             Все разделы django будут освещены. </p>
     </div>
     <div>
+                    <p><a class="btn btn-primary" href="{% url 'courses:add' %}" role="button">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить курс</a></p>
         <table class="table">
             <thead>
             <tr>
