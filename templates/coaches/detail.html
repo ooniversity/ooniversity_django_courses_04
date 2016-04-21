@@ -27,8 +27,6 @@
             </div>
         </nav>
     </div>
-{% block content %}
-
 
   <!-- Default panel contents -->
 <div class="container">
@@ -44,10 +42,9 @@
             <th>адрес</th>
             <th>{{coach.address}}</th>
         </tr>
-
         <tr>
             <th>почта</th>
-            <th>{{coach.email}}</th>
+            <th>{{coach.user.email}}</th>
         </tr>
             <th>логин skype</th>
             <th>{{coach.skype}}</th>
@@ -77,8 +74,6 @@
 		
       </table>   
     </div>
-
-{% endblock content %}
 
     <hr>
     <div class="container">

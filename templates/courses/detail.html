@@ -1,4 +1,4 @@
-{% load staticfiles %}
+l{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 
@@ -46,16 +46,16 @@
        <div>
             <h4>Ассистент</h4>
        
-            <a href="{% url 'coaches:detail' course.assistant.id %}">{{ cource.assistant.first_name }} {{cource.assistant.last_name}}</a>
+            <a href="{% url 'coaches:detail' course.assistant.id %}"> {{ cource.assistant.first_name }} {{cource.assistant.last_name}}</a>
        </div>
-            <p>{{ cource.coach.description }}</p>        
+            <p>{{ cource.assistant.description }}</p>        
     </div>
    
 
   <!-- Default panel contents -->
 <div class="container">
    	<h2>План курса</h2>
-<div>
+</div>
 <div class="container">
       <div class="table-responsive">
       <table class="table table-striped">
@@ -73,13 +73,14 @@
 		{% endfor %}
       </table>   
     </div>
-
+</div>
     <hr>
     <div class="container">
         <footer class="footer">
             <p>Copyright @ 2016 Sergpo </p>
         </footer>
     </div>
+</div>
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
