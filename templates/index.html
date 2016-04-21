@@ -23,7 +23,7 @@
       {% for item in courses_list %}
       <tr>
         <td><a href="{% url 'courses:detail' item.id %}">{{ item.name|upper }}</a></td>
-        <td>{{ item.short_description|title|truncatechars:32 }}</td>
+        <td>{{ item.short_description|title }}</td>
       </tr>
       {% endfor %}
       
