@@ -11,8 +11,19 @@
 
 {% block content %}
 <div class="container">
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+ <p> <a href="{% url 'students:create' %}"> Add new student</a></p>
   <h1>Список студентов</h1>
-  {{model.as_p}}
+
   <table class="table">
     <tr>
       <th>#</th>
@@ -36,6 +47,12 @@
           <br/>
         </a>
         {% endfor %}
+      </td>
+      <td>
+        <a href="{% url 'students:edit' a.id %}">Edit</a>
+      </td>
+      <td>
+        <a href="{% url 'students:remove' a.id %}">Delete</a>
       </td>
     </tr>
     {% endfor %}
