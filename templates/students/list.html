@@ -17,12 +17,14 @@
 </a>
 
 {% if messages %}
-  {% for message in messages %}
-    <div class="alert alert-success">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      {{ message }}
-    </div>
-  {% endfor %}
+	<div class="alert alert-success"><ul class="messages">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  	{% for message in messages %}
+    	<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+      	{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}{{ message }}{%endif %}
+    	</li>
+    {% endfor %}
+    </ul></div>
 {% endif %}
 
 	<div class="page">
@@ -33,19 +35,19 @@
 			</div>
 			
     <div class="row">
-        <div class="col-md-12">
-          <table class="table table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>фамилия имя</th>
-                <th>адрес</th>
-                <th>skype</th>
-                <th>курсы</th>
-              </tr>
-            </thead>
-      <tbody>
-        {% for student in students %}
+      <div class="col-md-12">
+        <table class="table table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>фамилия имя</th>
+              <th>адрес</th>
+              <th>skype</th>
+              <th>курсы</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for student in students %}
           <tr>
             <td>{{ forloop.counter }}</td>
             <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>
@@ -57,21 +59,19 @@
               {% endfor %}
             </td>
             <td>
-              <a href="{% url 'students:edit' student.id  %}" class="btn btn-primary" role="button">
+              <a href="{% url 'students:edit' student.id %}" class="btn btn-info" role="button">
                 <span class="glyphicon glyphicon-pencil"></span>
-                Изменить
               </a>
             </td>
             <td>
-              <a href="{% url 'students:remove' student.id  %}" class="btn btn-primary" role="button">
+              <a href="{% url 'students:remove' student.id %}" class="btn btn-danger" role="button">
                 <span class="glyphicon glyphicon-remove"></span>
-                Удалить
               </a>
             </td>
           </tr>
-        {% endfor %}
-      </tbody>
-          </table>
-        </div>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
 {% endblock content %}
