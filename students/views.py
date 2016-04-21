@@ -1,17 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import get_object_or_404, redirect, render
+from django.contrib import messages
 from students.models import Student
 from courses.models import Course
 from students.forms import StudentModelForm
-from django.contrib import messages
 
-#def list_view(request):
-
-#	s = {
-#         'title': "СПИСОК СТУДЕНТОВ"
-#        }
-
-#	return render(request, 'students/list.html', s)
 
 def list_view(request):
     if request.GET:
