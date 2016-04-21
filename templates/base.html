@@ -16,12 +16,14 @@
 
   <body>
     <div class="container">
-      <ul class="nav nav-tabs navbar-inverse">
-		<li role="presentation" class={% block index_active %}{% endblock %}><a href="{% url 'index' %}">Главная</a></li>
-		<li role="presentation" class={% block contact_active %}{% endblock %}><a href="{% url 'contact' %}">Контакты</a></li>
-		<li role="presentation" class={% block student_active %}{% endblock %}><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a></li> 
-		<li role="presentation" class={% block quadratic_active %}{% endblock %}><a href="{% url 'quadratic:results' %}">Уравнение</a></li>
-      </ul>
+      <nav class="navbar navbar-inverse">
+        <ul class="nav navbar-nav">
+		    <li role="presentation" class={% block index_active %}{% endblock %}><a href="{% url 'index' %}">Главная</a></li>
+		    <li role="presentation" class={% block contact_active %}{% endblock %}><a href="{% url 'contact' %}">Контакты</a></li>
+		    <li role="presentation" class={% block student_active %}{% endblock %}><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a></li> 
+		    <li role="presentation" class={% block quadratic_active %}{% endblock %}><a href="{% url 'quadratic:results' %}">Уравнение</a></li>
+        </ul>
+      </nav>
 	  {% block content %}
       {% endblock content %}
 	</div>
