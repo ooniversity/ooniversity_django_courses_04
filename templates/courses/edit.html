@@ -1,0 +1,29 @@
+    {% extends "base.html" %}
+
+    {% load staticfiles %}
+
+
+    {% block title %}Edit Course{% endblock title %}
+
+    {% block nav_active_index %}active{% endblock %}
+
+
+{% block content %}
+
+ {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<h2>Редактирование данных о курсе</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Редактировать"/>
+</form>
+
+{% endblock content %}
