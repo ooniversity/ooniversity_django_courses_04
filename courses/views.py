@@ -29,7 +29,7 @@ def edit(request, course_id):
 		if edit_cours.is_valid():
 			edit_cours.save()
 			messages.success(request, 'The changes have been saved.')
-			return redirect('courses:edit', course_id)
+			return redirect('courses:edit', open_cours.id)
 	else:
 		edit_cours = CourseModelForm(instance=open_cours)
 	return render(request, 'courses/edit.html', {'edit_cours':edit_cours})
@@ -49,7 +49,7 @@ def add_lesson(request, course_id):
 		if add_les.is_valid():
 			new_les = add_les.save()
 			messages.success(request, 'Lesson %s has been successfully added.' % new_les.subject)
-			return redirect('courses:detail', new_les.course_id)
+			return redirect('courses:detail', new_les.course.id)
 	else:
 		add_les = LessonModelForm()
 	return render(request, 'courses/add_lesson.html', {'add_les':add_les})
