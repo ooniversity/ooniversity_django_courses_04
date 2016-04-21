@@ -35,7 +35,7 @@
           <p><a href="{% url 'coaches:detail' course.coach_id %}">{{ course.coach.user.first_name }} {{ course.coach.user.last_name }}</a></p>
           <p>{{ course.coach.description }}</p>
       </div>
-
+      <p></p>
       <div class="ramka">
           <h3 class="panel-title">Ассистент</h3>
           <p><a href="{% url 'coaches:detail' course.assistant_id %}">{{ course.assistant.user.first_name }} {{ course.assistant.user.last_name }}</a></p>
@@ -65,6 +65,10 @@
               {% endfor %}
             </tbody>
           </table>
+<a href="{% url 'courses:add_lesson' course.id %}" class="btn btn-success btn-block btn-xs" role="button">
+  <span class="glyphicon glyphicon-plus"></span>
+  Добавить новое занятие
+</a>
         </div>
     </div>
 {% endblock content %}
