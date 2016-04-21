@@ -1,31 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Students list</title>
-    <meta charset="UTF-8" />
-    <!-- Bootstrap -->
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
-    <!--Own css-->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  </head>
+{% extends 'students/base.html' %}
 
-  <body>
-    <nav class="navbar navbar-default">
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="container">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>  
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
-          </ul>          
-        </div>
-    </nav>
+{% block page_header %}Students list{% endblock %}
 
-   
-    <h3>Students list</h3>
-
-    <table class="table">
+{% block table_content %}
       <thead>
         <tr>
           <th>#</th>
@@ -50,14 +27,4 @@
         </tr>
         {% endfor %}
         </tbody>
-
-        
-    </table>
-    
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+{% endblock table_content %} 
