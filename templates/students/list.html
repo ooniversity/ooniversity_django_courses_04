@@ -11,13 +11,7 @@
 
 
 {% block content %}
-  {% if messages %}
-    {% for message in messages %}
-      <div class="jumbotron">
-        <h4>{{ message }}</h4>
-      </div>
-    {% endfor %}
-  {% endif %}
+  {% include "include/inc_message.html" %}
   <p><a href="{% url 'students:add' %}" role="button" class="btn btn-default">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить нового студента</a></p>
   <div class="row marketing">
@@ -31,13 +25,13 @@
                 <table class="table table-striped table-bordered" border="1" cellpadding="4">
                   <thead>
                     <tr>
-                      <td>#</td>
-                      <td>фамилия имя</td>
-                      <td>адрес</td>
-                      <td>skype</td>
-                      <td>курсы</td>
-                      <td>edit</td>
-                      <td>remove</td>
+                      <th>#</th>
+                      <th>фамилия имя</th>
+                      <th>адрес</th>
+                      <th>skype</th>
+                      <th>курсы</th>
+                      <th>edit</th>
+                      <th>remove</th>
                     </tr>
                   </thead>
                   <tbody>
