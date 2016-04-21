@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Add Student{% endblock title %}
+
+
+{% block nav_class_student %}active{% endblock %}
+
+
+{% block content %}
+      <div class="page-header">
+        <h2>Создание нового студента</h2>
+        <!--h4>Ниже предоставлен список студентов курса</h4-->
+      </div>
+<form method="post">
+     {% csrf_token %}
+	{{ form.as_p }}
+
+	<input type="Submit" value="Создать" />
+</form>
+
+{% endblock content %}

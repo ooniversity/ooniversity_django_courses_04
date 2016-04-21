@@ -6,6 +6,21 @@
 
 
 {% block content %}
+
+<br>
+{% if messages %}
+<div class="well well-sm">
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    </div>
+{% endif %}
+<br>
+<a href="{% url 'students:create' %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-plus-sign"></span> Добавить нового студента</a>
+<br>
+
 <div class="page-header">
         <h2>Студенты курса PyBursa</h2>
         <!--h4>Ниже предоставлен список студентов курса</h4-->
@@ -37,6 +52,12 @@
             {% endfor %}
             {% endif %}
             {% endfor %}
+            </td>
+            <td>
+               <a href="{% url 'students:edit' classman.id %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-pencil"></span>Изменить</a>
+            </td>
+            <td>
+               <a href="{% url 'students:remove' classman.id %}" class="btn btn-primary btn-xs red" role="button"><span class="glyphicon glyphicon-pencil-remove"></span>Удалить</a>
             </td>
         </tr>
         {% endfor %}
