@@ -23,3 +23,16 @@ def add(request):
     else:
         add_form = CourseModelForm()
     return render(request, 'courses/add.html', {'form_add_course': add_form})
+
+
+def edit(request, pk):
+    edit_app = Course.objects.get(id=pk)
+    if request.method == 'POST':
+        edit_form = CourseModelForm(request.POST, instance=edit_app)
+        if edit_form.is_valid():
+            edit_form.save()
+            msg = "The changes have been saved."
+            messages.success(request, msg)
+    else:
+        edit_form = CourseModelForm(instance=edit_app)
+    return render(request, 'courses/edit.html', {'edit_form': edit_form})
