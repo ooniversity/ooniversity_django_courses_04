@@ -1,51 +1,56 @@
 ﻿﻿{% extends 'base.html' %}
-{% block index_active %}active{% endblock %}
 {% block title %}Информация о преподавателе{% endblock title %}
-{% block content %}<h1>{{ coach.user.last_name }} {{ coach.user.first_name }}</h1><br>
-        <br>
-        <table class="table table-striped">
-          <tbody>
-          <tr>
-		  <td>дата рождения</td>
-		  <td>{{ coach.date_of_birth|date:"j F, Y" }}</td>
-          </tr>
-
-           <tr>
-		  <td>почта</td>
-		  <td>{{ coach.user.email }}</td>
-          </tr>
-
-          <tr>
-		  <td>телефон</td>
-		  <td>{{ coach.phone }}</td>
-          </tr>
-
-          <tr>
-		  <td>адрес</td>
-		  <td>{{ coach.address }}</td>
-          </tr>
-
-          <tr>
-		  <td>skype</td>
-		  <td>{{ coach.skype }}</td>
-          </tr>
-
-          <tr>
-		  <td>курсы учитель</td>
-		  <td>{% for course in as_coach %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> Студенты курса <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-new-window"></span></a>
-                <br>{% endfor %}</td>
-          </tr>
-
-         <tr>
-		  <td>курсы ассистент</td>
-		  <td>
-                      <p>{% for course in as_assistant %}</p>
-             <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> Студенты курса <a href="{%url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-new-window"></span></a><br>
- 		  <p>{% endfor %}</p>
-		  </td>
-          </tr>
-
-          </tbody>
-
-        </table>
+{% block content %}
+  <h1>{{ coach.user.last_name }} {{ coach.user.first_name }}</h1>
+  <br>
+  <br>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>дата рождения</td>
+        <td>{{ coach.date_of_birth|date:"j F, Y" }}</td>
+      </tr>
+      <tr>
+        <td>почта</td>
+        <td>{{ coach.user.email }}</td>
+      </tr>
+      <tr>
+        <td>телефон</td>
+        <td>{{ coach.phone }}</td>
+      </tr>
+      <tr>
+        <td>адрес</td>
+        <td>{{ coach.address }}</td>
+      </tr>
+      <tr>
+        <td>skype</td>
+        <td>{{ coach.skype }}</td>
+      </tr>
+      <tr>
+        <td>курсы учитель</td>
+        <td>
+          {% for course in as_coach %}
+            <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+            Студенты курса 
+            <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+              <span class="glyphicon glyphicon-new-window"></span>
+            </a>
+            <br>
+          {% endfor %}
+        </td>
+      </tr>
+      <tr>
+        <td>курсы ассистент</td>
+        <td>
+          {% for course in as_assistant %}
+          <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> 
+          Студенты курса 
+          <a href="{%url 'students:list_view' %}?course_id={{ course.id }}">
+            <span class="glyphicon glyphicon-new-window"></span>
+          </a><br>
+          {% endfor %}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 {% endblock content %}

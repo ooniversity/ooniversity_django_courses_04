@@ -1,6 +1,5 @@
 ﻿{% extends 'base.html' %}
-{% block student_active %}active{% endblock %}
-{% block title %}Новый студент{% endblock title %}
+{% block title %}Новый курс{% endblock title %}
 {% block content %}
 <br>
 
@@ -10,7 +9,7 @@
   {% csrf_token %}
 
   <div class="panel panel-default">
-  <div class="panel-heading"><h1>Создание нового студента</h1></div>
+  <div class="panel-heading"><h1>Добавление нового курса</h1></div>
     
   <br>
   <table class="table">
