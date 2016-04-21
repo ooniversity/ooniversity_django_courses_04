@@ -5,16 +5,14 @@
 {% block title %}Редактирование данных студента{% endblock title %}
 
 
-{% block  nav_students %}active{% endblock nav_students %}
+{% block nav_students %}active{% endblock nav_students %}
 
 
 {% block content %}
-
-<h1>Редактирование данных студента</h1>
-<form method='post'>  
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type='submit'>Изменить</button>
-</form>
-
+    <h1>Редактирование данных студента</h1>
+    <form method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Изменить" />
+    </form>
 {% endblock content %}

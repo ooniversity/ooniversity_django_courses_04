@@ -1,4 +1,5 @@
-<div class='well'><h4>{{ block_title }}</h4>
-<a href="{% url 'coaches:detail' instructor.id %}">{{instructor.first_name_field}} {{instructor.last_name_field}}</a>
+<div class='well'>
+    <h4>{{ block_title }}</h4>
+    <a href="{% url 'coaches:detail' instructor.id %}">{{instructor.first_name_field}} {{instructor.last_name_field}}</a>
 </div>
 <p>{{instructor.description}}</p>

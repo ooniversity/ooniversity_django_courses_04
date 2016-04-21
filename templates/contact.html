@@ -5,83 +5,74 @@
 {% block title %}Контакты{% endblock title %}
 
 
-{% block  nav_contact %}active{% endblock nav_contact %}
+{% block nav_contact %}active{% endblock nav_contact %}
 
 
 {% block content %}
-  <div class="container">     
-    <h1>Организаторы курсов</h1>
-    
-    <div class="organized">
-    
-    <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img class="foto"src="{% static 'images/Director.jpg' %}" alt="Director">
-        <div class="caption">
-          <h3>Director</h3>
-          <p><label>Name:&nbsp</label>Brad Pitt</p>
-          <p><label>Skype:&nbsp</label>mikky</p>
-          <p><label>Email:&nbsp</label>bp@gmail.com</p>
-          <p><label>Phone:&nbsp</label>555 333 222</p>
-          
+    <div class="container">
+        <h1>Организаторы курсов</h1>
+        <div class="organized">
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img class="foto" src="{% static 'images/Director.jpg' %}" alt="Director">
+                        <div class="caption">
+                            <h3>Director</h3>
+                            <p><label>Name:&nbsp</label>Brad Pitt</p>
+                            <p><label>Skype:&nbsp</label>mikky</p>
+                            <p><label>Email:&nbsp</label>bp@gmail.com</p>
+                            <p><label>Phone:&nbsp</label>555 333 222</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img class="foto" src="{% static 'images/Founder.jpg' %}" alt="Founder">
+                        <div class="caption">
+                            <h3>Founder</h3>
+                            <p><label>Name:&nbsp</label>Arnold Schwarzenegger</p>
+                            <p><label>Skype:&nbsp</label>zeus</p>
+                            <p><label>Email:&nbsp</label>god@gmail.com</p>
+                            <p><label>Phone:&nbsp</label>777 777 777</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img class="foto" src="{% static 'images/Manager.jpg' %}" alt="manager">
+                        <div class="caption">
+                            <h3>Manager</h3>
+                            <p><label>Name:&nbsp</label>George Clooney</p>
+                            <p><label>Skype:&nbsp</label>fknwork</p>
+                            <p><label>Email:&nbsp</label>gc@gmail.com</p>
+                            <p><label>Phone:&nbsp</label>111 222 333</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
-    </div>
-    </div>
-    
-    
-    <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img class="foto"src="{% static 'images/Founder.jpg' %}" alt="Founder">
-        <div class="caption">
-          <h3>Founder</h3>
-          <p><label>Name:&nbsp</label>Arnold Schwarzenegger</p>
-          <p><label>Skype:&nbsp</label>zeus</p>
-          <p><label>Email:&nbsp</label>god@gmail.com</p>
-          <p><label>Phone:&nbsp</label>777 777 777</p>
-          
+
+        <div class='company'>
+            <h2 data-toggle="tooltip" data-placement="bottom" title="Состав">Состав компании</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><span class="badge">22</span>
+                    Руководящий состав
+                </li>
+                <li class="list-group-item"><span class="badge">1</span>
+                    Трудящийся состав
+                </li>
+                <li class="list-group-item"><span class="badge">15</span>
+                    Бездельники
+                </li>
+            </ul>
         </div>
-      </div>
     </div>
-    </div>
-    
-    
-    <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img class="foto"src="{% static 'images/Manager.jpg' %}" alt="manager">
-        <div class="caption">
-          <h3>Manager</h3>
-          <p><label>Name:&nbsp</label>George Clooney</p>
-          <p><label>Skype:&nbsp</label>fknwork</p>
-          <p><label>Email:&nbsp</label>gc@gmail.com</p>
-          <p><label>Phone:&nbsp</label>111 222 333</p>
-          
-        </div>
-      </div>
-    </div>
-    </div>
-  
-  </div>
-  
-  <div class='company'>
-  <h2 data-toggle="tooltip" data-placement="bottom" title="Состав">Состав компании</h2>
-    <ul class="list-group">
-      <li class="list-group-item">
-        <span class="badge">22</span>
-         Руководящий состав
-      </li>
-      <li class="list-group-item">
-        <span class="badge">1</span>
-         Трудящийся состав
-      </li>
-      <li class="list-group-item">
-        <span class="badge">15</span>
-         Бездельники
-      </li>
-     
-    </ul>
-  </div>
 {% endblock content %}
