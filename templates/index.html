@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Welcome!</title>
-    <meta charset="UTF-8" />
-    <!-- Bootstrap -->
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
-    <!--Own css-->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  </head>
+{% extends "base.html" %}
 
+{% block title%}Welcome!{% endblock%}
 
-  <body>
-    <nav class="navbar navbar-default">
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="container">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>  
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
-          </ul>          
-        </div>
-    </nav>
+{% block status_index %}active{% endblock %}
+
+{% block content %}
 
     <div class="jumbotron">
       <h2 align="center"><b>Norway university</b></h2>
@@ -39,17 +22,11 @@
       </thead>
       {% for item in courses_list %}
       <tr>
-        <td><a href="{% url 'courses:detail' item.id %}">{{ item.name }}</a></td>
-        <td>{{ item.short_description }}</td>
+        <td><a href="{% url 'courses:detail' item.id %}">{{ item.name|upper }}</a></td>
+        <td>{{ item.short_description|title|truncatechars:32 }}</td>
       </tr>
       {% endfor %}
       
     </table>
 
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+{% endblock content %}

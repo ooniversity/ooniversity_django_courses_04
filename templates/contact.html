@@ -1,37 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Our contacts</title>
-    <meta charset="UTF-8" />
-    <!-- Bootstrap -->
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
-    <!--Own css-->
-	  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  </head>
+{% extends "base.html" %}
+
+{% block title%}Our contacts{% endblock%}
+
+{% block status_contact %}active{% endblock %}
 
 
-  <body class="body">
-    <nav class="navbar navbar-default">
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="container">
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'index' %}">Main</a></li>
-            <li class="active"><a href="{% url 'contact' %}">Contacts</a></li> 
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
-          </ul>          
-        </div>
-    </nav>
-    
-    <table  class="jumbotron" align="center">
-      <tr><td><img class="logo" src="{% static 'images/logo.png' %}" alt="Python" /></td></tr>
-    </table> 
+{% block content %}
+
 
     <h1 class="header">PyBursa contacts</h1>
 
-    <div class="block_double">
-      <h4 class="founder">Founder</h4>
-      <div class="new">
+    <div>
+      <h4>Founder</h4>
+      <div>
       	<p><strong>Name: </strong>Павел Обод</p>
       	<p><strong>Skype: </strong>azaless</p>
       	<p><strong>E-mail: </strong><a href="mailto:">itbursa100@gmail.com</a></p>
@@ -39,9 +20,9 @@
       </div>
     </div>
 
-    <div class="block_single">
-      <h4 class="director">Director</h4>
-      <div class="inside">
+    <div>
+      <h4>Director</h4>
+      <div>
       	<p><strong>Name: </strong>Дария Михалевич</p>
       	<p><strong>Skype: </strong>darka.darka.darka.darka.</p>
       	<p><strong>E-mail: </strong><a href="mailto:">daria.mykhalevych@gmail.com</a></p>
@@ -49,8 +30,8 @@
       </div>
     </div>
 
-    <div class="block_dotted">
-      <h4 class="manager">Manager</h4>
+    <div>
+      <h4>Manager</h4>
       <div>
       	<p><strong>Name: </strong>Алена Чайка</p>
       	<p><strong>Skype: </strong>alena.itbursa</p>
@@ -61,18 +42,6 @@
 
     <hr />
 
-    <p class="back"><i>Please contact us via <a href="http://pybursa.com">PyBursa.com</a></i></p>
+    <p><i>Please contact us via <a href="http://pybursa.com">PyBursa.com</a></i></p>
 
-    <nav>
-      <ul class="pager">
-        <li><a href="{% url 'index' %}">Previous</a></li>
-        <li><a href="{% url 'students:list_view' %}">Next</a></li>
-      </ul>
-    </nav>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+{% endblock content %}
