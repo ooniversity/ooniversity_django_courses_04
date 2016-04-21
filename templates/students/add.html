@@ -13,13 +13,13 @@
 {% block content %}
  
 <h3 class="cl_h1">Create new student</h3>
-
-<div class="container">
+ 
  <form method="post">
  {% csrf_token %}
  {{form.as_p}}		
- <input type="submit">
+ <input type="submit" value="Create">
  </form>
-</div>
+
+
 {% endblock content %}
 
