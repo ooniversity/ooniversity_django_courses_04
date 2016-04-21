@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="Description" content="Py">
+     <title>{% block title %}Base Template{% endblock %}</title>
+
+    <!-- Bootstrap -->
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  
+ 
+  </head>
+  <body>
+ 
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+         <ul class="nav navbar-nav menu_large_font_my">
+            <li class="{% block nav_class_main %}{% endblock %}"><a  href="{% url 'index' %}">Main</a></li>
+            <li class="{% block contact_class_main %}{% endblock %}"> <a href="{% url 'contact' %}">Contacts</a></li>
+            <li class="{% block students_class_main %}{% endblock %}"> 
+              <a href="{% url 'students:list_by_course' %}{% block students_by_course %}{% endblock %}">Students</a></li>
+            <li class="{% block nav_class_quad_results %}{% endblock %}"> <a href="{% url 'results' %}">Quad results</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+
+        </div><!-- /.container-fluid -->
+     </nav>
+
+
+{% block content %}{% endblock content %}
+
+
+	<div class="container">
+	  <div class="row ">
+	    <footer class="footer">
+	        <div class="footer_div">
+	          <p>
+	          <img src="{% static 'images/python.png' %}" alt="footer image" class= "img_resized" >
+	          &copy; 2016 
+	          <img src="{% static 'images/slowpk.png' %}" alt="footer image" class= "img_resized"> 
+	          </p>
+	        </div>
+	    </footer>
+	  </div>
+	</div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  </body>
+</html>
