@@ -4,19 +4,19 @@
 {% load staticfiles %}
 
 
-{% block title %}PyBursa-Add Students{% endblock title %}
+{% block title %}PyBursa-Add Course{% endblock title %}
 
 
-{% block active_menu_students %}active{% endblock active_menu_students %}
+{% block active_menu_main %}active{% endblock active_menu_main %}
 
 
 {% block content %}
 <div class="container">
   <div class="col-md-8">
-  <h2>Создание нового студента</h2>
+  <h2>Создание нового курса</h2>
   <form method="post">
     {% csrf_token %}
-    {{ add_form.as_p }}
+    {{ form.as_p }}
     <input type="submit" value="Создать"/>
   </form>
 </div>

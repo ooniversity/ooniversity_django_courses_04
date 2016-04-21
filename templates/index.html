@@ -14,6 +14,7 @@
 	<!-- Content begin -->
 	<div class="container" id="Content">
 	  <div class="col-md-8">
+        <a href="{% url 'courses:add' %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Добавить курс</button></a>
 	      <h1>OONIVERSITY</h1>
 	      <h4>Мы специализируемся на модных языках програмирования. Принципиальное наше отличие от других курсов - максимум практики и жесткая система обязательных домашних заданий.</h4>
 	  </div>
@@ -31,6 +32,12 @@
 				<td>
 				  {{i.short_description|title}}
 				</td>
+                <td>
+                    <a href="{% url 'courses:edit' i.id %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Изменить курс</button></a>
+                </td>
+                <td>
+                    <a href="{% url 'courses:remove' i.id %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span> Удалить курс</button></a>
+                </td>
 			  </tr>
               {% endfor %}
 			</tbody>
