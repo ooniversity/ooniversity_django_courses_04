@@ -51,7 +51,6 @@ def create(request):
 
 
 def remove(request, student_id):
-
     student_inst = get_object_or_404(Student, id=student_id)    
     if request.method == 'POST':
         messages.success(request, u'Info on %s %s has been sucessfully deleted.' % (student_inst.name, student_inst.surname))
@@ -60,8 +59,7 @@ def remove(request, student_id):
     return render(request,'students/remove.html', {'student': student_inst})
 
 
-def edit(request, student_id):
-    
+def edit(request, student_id):    
     student_inst = get_object_or_404(Student, id=student_id)    
     if request.method == 'POST':
         form = StudentModelForm(request.POST, instance = student_inst)
