@@ -55,7 +55,7 @@ def add_lesson(request, pk):
         add_form = LessonModelForm(request.POST)
         if add_form.is_valid():
             a = add_form.cleaned_data['subject']
-            #add_form.save()
+            add_form.save()
             msg = "Lesson {0} has been successfully added.".format(a)
             messages.success(request, msg)
             return redirect('courses:detail', course_id=pk)
