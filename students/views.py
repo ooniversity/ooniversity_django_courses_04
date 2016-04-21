@@ -32,9 +32,10 @@ def edit(request, student_id):
 	edit_st = Student.objects.get(id=student_id)
 	if request.method == 'POST':
 		form = StudentModelForm(request.POST, instance=edit_st)
-		if form.is_valid:
+		if form.is_valid():
 			form.save()
 			messages.success(request, 'Данные изменены')
+			return redirect('students:edit', student_id)
 	else:
 		form = StudentModelForm(instance=edit_st)
 	return render(request, 'students/edit.html', {'form':form})
