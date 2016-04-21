@@ -1,6 +1,16 @@
 ﻿{% extends 'base.html' %}
 {% block title %}Редактирование курса{% endblock title %}
 {% block content %}
+{% if messages %}
+  <br>
+	<ul class="messages">
+	  {% for message in messages %}
+		<li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	  {% endfor %}
+	</ul>
+  <br>
+{% endif %}
+
 <br>
 <h1>Редактирование курса</h1>
 <br>
@@ -10,4 +20,4 @@
   {{ form.as_p }}
   <input type="submit" value="Изменить"/>
 </form>
-{% endblock %}
+{% endblock content %}
