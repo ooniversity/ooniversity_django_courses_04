@@ -14,6 +14,11 @@
 	<!-- Content begin -->
 	<div class="container" id="Content">
 	  <div class="col-md-8">
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
         <a href="{% url 'courses:add' %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Добавить курс</button></a>
 	      <h1>OONIVERSITY</h1>
 	      <h4>Мы специализируемся на модных языках програмирования. Принципиальное наше отличие от других курсов - максимум практики и жесткая система обязательных домашних заданий.</h4>
