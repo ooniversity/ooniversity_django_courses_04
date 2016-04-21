@@ -6,14 +6,12 @@
 
 
 {% block content %}
-      <div class="page-header">
-        <h2>Студент {{student.name}} {{student.surname}} будет удален</h2>
+  <div class="page-header">
+    <h2>Студент {{ student.name }} {{ student.surname }} будет удален</h2>
         <!--h4>Ниже предоставлен список студентов курса</h4-->
-      </div>
+  </div>
 <form method="post">
-     {% csrf_token %}
-	
-	<input type="Submit" value="Удалить" />
+     {% csrf_token %}    
+    <input type="Submit" value="Удалить"/>
 </form>
-
 {% endblock content %}
