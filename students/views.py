@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages
+
 from students.models import Student
 from courses.models import Course
 from students.forms import StudentModelForm
@@ -46,7 +47,7 @@ def edit(request, student_id):
     if request.method == "POST":
         form = StudentModelForm(request.POST, instance=student)
         if form.is_valid():
-            application = form.save()
+            form.save()
             messages.success(request, "Info on the student has been sucessfully changed.")
             return redirect('students:list_view')
     else:

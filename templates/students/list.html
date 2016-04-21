@@ -17,7 +17,7 @@
         </div>
       {% endfor %}
     {% endif %}
-
+<p><a href="{% url 'students:add' %}" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить нового студента</a></p>
 <h1>Список студентов</h1>
   
 <table class="table" >
@@ -43,20 +43,13 @@
                 {% endfor %}
             </td>
             <td>
-                <form action="{% url 'students:edit' stud.id %}">
-                    <input type="submit" value="Изменить"/>
-                </form>
+                <a href="{% url 'students:edit' stud.id %}"><span class="glyphicon glyphicon-edit"></span></a>
             </td>
             <td>
-                <form action="{% url 'students:remove' stud.id %}">
-                    <input type="submit" value="Удалить студента"/>
-                </form>
+                <a href="{% url 'students:remove' stud.id %}"><span class="glyphicon glyphicon-remove"></span></a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-<form  action="{% url 'students:add' %}">
-<button type="submit" class="btn btn-primary">Добавить нового студента</button>
-</form>
 {% endblock content %}
