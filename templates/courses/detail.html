@@ -3,8 +3,16 @@
 
 {% block title %}Pybursa - Курсы детали {% endblock title %}
 
-
 {% block content %}
+
+{% if messages %}
+<div class = "alert alert-success" role="alert">
+   {% for message in messages %}
+      {{ message }}
+   {% endfor %}
+</div>
+{% endif %}
+
 
 <div class="container">
     <div class="jumbotron">
