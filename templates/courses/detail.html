@@ -27,23 +27,39 @@
 
     <h2 align="center">Преподаватели</h2>
     <h4>Учитель</h4>
-
+{%  if course.coach %} 
     <div class="container">
       <div class="jumbotron">
+
          <a href="{%  url 'coaches:detail' course.coach.id %}">{{course.coach.first_name_field}} {{course.coach.last_name_field}}</a>
         <p>{{course.coach.description}}</p>
       </div>
     </div>
+{%  else %}
+    <div class="container">
+          <div class="jumbotron">
+            <p>В данном курсе нет преподавателей</p>
+          </div>
+        </div>    
+{%  endif %}
 
     <h4>Ассистент</h4>
 
+{%  if course.assistant %} 
     <div class="container">
       <div class="jumbotron">
-        <a href="{%  url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name_field}} {{course.assistant.last_name_field}}</a>
+
+         <a href="{%  url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name_field}} {{course.assistant.last_name_field}}</a>
         <p>{{course.assistant.description}}</p>
-          
-      </div>  
+      </div>
     </div>
+{%  else %}
+    <div class="container">
+          <div class="jumbotron">
+            <p>В данном курсе нет ассистента</p>
+          </div>
+        </div>    
+{%  endif %}
 <br />
 <br />
 
