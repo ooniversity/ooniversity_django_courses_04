@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+
+
+{% block title %}Pybursa - Новое занятие {% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% load staticfiles %}
+
+
+{% block content %}
+    <div class="container">
+          <form method="post">
+            {% csrf_token %}          
+	    {{ form.as_p }}
+            <input type="submit" value="Создать"/>
+		<br />
+		<br />
+          </form>
+    </div>
+    <hr>
+{% endblock content %}
