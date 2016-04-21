@@ -1,17 +1,9 @@
 ﻿{% extends 'base.html' %}
 {% block title %}Редактирование курса{% endblock title %}
 {% block content %}
-{% if messages %}
-  <br>
-	<ul class="messages">
-	  {% for message in messages %}
-		<li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-	  {% endfor %}
-	</ul>
-  <br>
-{% endif %}
 
-<br>
+{% include "include/messages_include.html" with messages=messages%}
+
 <h1>Редактирование курса</h1>
 <br>
 <br> 
