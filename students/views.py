@@ -2,11 +2,9 @@
 from django.shortcuts import render, redirect
 from students.models import Student
 from courses.models import Course
+from forms import StudentModelForm
 from django.contrib import messages
 from django.template import RequestContext
-from students.forms import StudentModelForm
-from django import forms
-
 
 def create(request):
 	if request.method == "POST":
@@ -21,8 +19,8 @@ def create(request):
 
 	return render(request,'students/add.html', {"form":form})
 
-def edit(request,id):
-	student_inst=Student.objects.get(pk=id)
+def edit(request,student_id):
+	student_inst=Student.objects.get(id=student_id)
 	if request.method == 'POST':
 		form = StudentModelForm(request.POST, instance=student_inst)
 		if form.is_valid():
@@ -36,8 +34,8 @@ def edit(request,id):
 	return render(request,"students/edit.html",{"form":form})
   
 
-def remove(request,id):
-    student=Student.objects.get(pk=id)
+def remove(request,student_id):
+    student=Student.objects.get(id=student_id)
     if request.method == 'POST':
         student.delete()
         messages = u"Info on %s %s has been sucessfully deleted." %(student.name, student.surname)
