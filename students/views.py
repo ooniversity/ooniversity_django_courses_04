@@ -7,20 +7,20 @@ from django.contrib import messages
 from django.template import RequestContext
 
 def create(request):
-	if request.method == "POST":
+	if request.method == 'POST':
 		form = StudentModelForm(request.POST)
 		if form.is_valid():
 			student = form.save()
 			message = u"Student %s %s has been successfully added." %(student.name, student.surname)
 			messages.success(request, message)
-			return redirect("students:list_view")
-	else:	
+			return redirect('students:list_view')
+	else:
 		form = StudentModelForm()
 
-	return render(request,'students/add.html', {"form":form})
+	return render(request, 'students/add.html', {'form':form})
 
-def edit(request,student_id):
-	student_inst=Student.objects.get(id=student_id)
+def edit(request,id):
+	student_inst=Student.objects.get(pk=id)
 	if request.method == 'POST':
 		form = StudentModelForm(request.POST, instance=student_inst)
 		if form.is_valid():
@@ -34,8 +34,8 @@ def edit(request,student_id):
 	return render(request,"students/edit.html",{"form":form})
   
 
-def remove(request,student_id):
-    student=Student.objects.get(id=student_id)
+def remove(request,id):
+    student=Student.objects.get(pk=id)
     if request.method == 'POST':
         student.delete()
         messages = u"Info on %s %s has been sucessfully deleted." %(student.name, student.surname)
