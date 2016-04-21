@@ -14,13 +14,7 @@
 
 
 {% block content %}
-  {% if messages %}
-    {% for message in messages %}
-      <div class="jumbotron">
-        <h4>{{ message }}</h4>
-      </div>
-    {% endfor %}
-  {% endif %}
+  {% include "include/inc_message.html" %}
   <div class="jumbotron">
     <div class="text-center">
       <h2>{{ course.name }}</h2>

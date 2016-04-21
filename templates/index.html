@@ -11,13 +11,7 @@
 
 
 {% block content %}
-  {% if messages %}
-    {% for message in messages %}
-      <div class="jumbotron">
-        <h4>{{ message }}</h4>
-      </div>
-    {% endfor %}
-  {% endif %}
+  {% include "include/inc_message.html" %}
   <p><a href="{% url 'courses:add' %}" role="button" class="btn btn-default">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить новый курс</a></p>
   <div class="container-fluid">
@@ -46,8 +40,8 @@
                     <tr>
                       <th>Курс</th>
                       <th>Краткое описание</th>
-                      <td>edit</td>
-                      <td>remove</td>
+                      <th>edit</th>
+                      <th>remove</th>
                      </tr>
                   </thead>
                   <tbody>

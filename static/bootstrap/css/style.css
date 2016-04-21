@@ -66,6 +66,10 @@ tr
 {
     text-align: center;
 }
+th
+{
+    text-align: center;
+}
 table
 {
     background:rgba(255,255,255,0.5);

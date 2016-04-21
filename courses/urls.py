@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls import patterns, url
 from courses import views
+
+from django.conf.urls import patterns, url
 
 
 urlpatterns = patterns(
