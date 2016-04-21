@@ -4,6 +4,11 @@
 {% block title %}Изменение курса{% endblock %}
 
 
+{% block nav_index %}button9{% endblock %}
+{% block nav_contact %}button9{% endblock %}
+{% block nav_students %}button9{% endblock %}
+
+
 {% block content %}
 
 {% if messages %}
@@ -23,4 +28,5 @@
     {{ form.as_p }}
     <input type="submit" value="Изменить">
   </form>
+  
 {% endblock content %}

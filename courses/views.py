@@ -28,10 +28,10 @@ def edit(request, pk):
     if form.is_valid():
       course = form.save()
       messages.success(request, 'The changes have been saved.')
-      return redirect('course:edit', course.id)
+      return redirect('courses:edit', course.id)
   else:
     form = CourseModelForm(instance=course)
-  return render(request, 'course/edit.html', {'form': form})
+  return render(request, 'courses/edit.html', {'form': form})
 
 def remove(request, pk):
     course = get_object_or_404(Course, pk=pk)
