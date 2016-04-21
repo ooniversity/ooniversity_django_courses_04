@@ -12,6 +12,15 @@
 
 {% block content %}
 <div class="container">
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
   <h1>Преподаватели</h1>
   
 {% include "include/coach_include.html" with title="Учитель" instructor=cours.coach %}
@@ -21,6 +30,8 @@
   <h2>{{cours.name}}</h2>
   <p>{{cours.description|truncatechars:32}}</p>
   <h3 class="cl_h1">План курса</h3>
+
+  <a href="{% url 'courses:add-lesson' cours.id %}">Add lesson</a>
   <br>
   <table class="table">
     <tr>

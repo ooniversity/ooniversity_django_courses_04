@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Add lesson{% endblock title %}
+
+
+{% block naw_class_index %}active{% endblock %}
+
+
+{% block content %}
+ 
+<h3 class="cl_h1">Create new lesson</h3>
+ 
+ <form method="post">
+ {% csrf_token %}
+ {{add_les.as_p}}		
+ <input type="submit" value="Create">
+ </form>
+
+
+{% endblock content %}
+
