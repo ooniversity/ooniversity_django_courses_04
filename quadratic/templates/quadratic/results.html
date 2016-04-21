@@ -1,13 +1,10 @@
+<h3>Квадратное уравнение a*x+b*x+c=0</h3>
 
-<h4>Квадратное уравнение a*x+b*x+c=0</h4>
-<ul>
-    {% for k in args %}
-    <li>{{ k.0.var_name}} = {{ k.1.value }} </li>
-        {{k.1.er_type}}
-    {% endfor %}
-</ul>
-
-{% if not errors_in_args%}
-    <p>Дискриминант: {{ result.0 }}</p>
-    <p>{{ result.1 }}</p>
+<form method="get">
+  {{ form.as_p }}
+  <input type="submit" value="Решить"/>
+</form>
+{% if not error %}
+  <p>Дискриминант: {{ d }}</p>
+  <p>{{ res_message }}</p>
 {% endif %}
