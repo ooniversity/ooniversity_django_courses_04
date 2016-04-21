@@ -10,12 +10,12 @@
 {% block content %}
     <div class="container">
       <h1>{{ course.name }}</h1>
-      <p>{{ course.description|truncatechars:32 }}</p>         
+      <p>{{ course.description|truncatechars:32 }}</p>
     </div>
 	<div class="container" id="id2">
 	<h3>Преподаватели</h3>
 {% include "include/coach_include.html" with block_title="Учитель" instructor=course.coach %}
-{% include "include/coach_include.html" with block_title="Ассистент" instructor=course.assistant %}	
+{% include "include/coach_include.html" with block_title="Ассистент" instructor=course.assistant %}
 	</div>
 	<div class="container" id="id2">
 	<h3>План курса</h3>
@@ -26,14 +26,14 @@
 		   <td>описание</td>
 		  </tr>
 		</thead>
-		<tbody>		
+		<tbody>
 		{% for i in lesson %}
 		  <tr>
 		    <td>{{ i.subject }}</td>
 		    <td>{{ i.description }}</td>
 		  </tr>
 		{% endfor %}
-	   </tbody>	
+	   </tbody>
 	  </table>
 	</div>
-{% endblock content %}    
+{% endblock content %}

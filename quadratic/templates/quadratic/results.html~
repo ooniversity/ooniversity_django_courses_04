@@ -14,12 +14,14 @@
   </head>
   <body>    
     <div class ="container" id="id2">
+	  <p></p>
 	  <p>Квадратное уравнение a*x*x + b*x + c = 0</p>  
 	  <form method="get">
 	  	{% csrf_token %}
 		{{ form.as_p }}
 		<input type="submit" value="Решить" />
 	  </form>
+	  <p></p>
 	  <p>{{ str_d }}</p>
 	  <p>{{ results }}</p>        
     </div>
