@@ -1,71 +1,53 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ItBursa</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="page-header">
-        <nav class="navbar navbar-inverse">
-            <div class="container">
-                <div class="navbar-header"><a class="navbar-brand navbar-link" href="http://itbursa.com/">ItBursa </a>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                </div>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{% url 'index' %}">Main </a></li>
-                        <li><a href="{% url 'contact' %}">Contacts</a></li>
-                        <li><a href="{% url 'students:list_view' %}">Students</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
+
+{% block title %}Pybursa - Студенты {% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock %}
+
+
 {% block content %}
-     <div class="container">
-	<h2>Список студентов</h2>
-     <div>
-  <div class="container">
-      <div class="table-responsive">
-      <table class="table table-striped">
-        <tr>
-        	<th>#</th>
-        	<th>Фамилия имя</th>
-        	<th>адрес</th>
-        	<th>Skype</th>
-        	<th>курсы</th>
-        </tr>
-      	{% for i in students %}
-        <tr>
-          <td>{{ i.id }}</td>
-          <td><a href="{% url 'students:detail' i.id %}">{{i.surname}} {{ i.name }}</a></td>
-          <td>{{ i.address}}</td>
-	  <td>{{ i.skype }}</td>
-          <td> {% for course in i.courses.all %}
-                  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
-                {% endfor %}</td>
-	 </tr>	
-		{% endfor %}
+<div class="container">
+    <a href="/students/add/" class="btn btn-success" role="button">
+       <span class="glyphicon glyphicon-plus"></span> 
+       Добавить нового студента
+    </a>
+  <h2>Список студентов</h2>
+   
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-striped">
+            <tr>
+              <th>#</th>
+        <th>Фамилия имя</th>
+        <th>адрес</th>
+        <th>Skype</th>
+        <th>курсы</th>
+            </tr>
+        {% for i in students %}
+      <tr>
+        <td>{{ i.id }}</td>
+        <td><a href="{% url 'students:detail' i.id %}">{{i.surname}} {{ i.name }}</a></td>
+        <td>{{ i.address}}</td>
+        <td>{{ i.skype }}</td>
+        <td> {% for course in i.courses.all %}
+          <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
+          {% endfor %}</td>
+        <td>
+          <button class="btn btn-success" type="button">
+            <a href="{% url 'students:edit' i.id %}">Изменить</a>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-success" type="button">
+            <a href="{% url 'students:remove' i.id %}">Удалить</a>                    
+          </button>
+        </td>
+      </tr> 
+      {% endfor %}
       </table>   
     </div>
-  </div>
-
-
-{% endblock content %}
-
-    <hr>
-    <div class="container">
-        <footer class="footer">
-            <p>Copyright @ 2016 Sergpo </p>
-        </footer>
     </div>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-</body>
-</html>
+</div>
+{% endblock content %} 

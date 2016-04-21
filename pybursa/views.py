@@ -7,7 +7,7 @@ from courses.models import Course
 
 def course_descripts(request):
     courses = Course.objects.all()
-    return render(request, 'index.html', {'courses': courses})
+    return render(request, 'index.html', {'courses': courses} )
 
 def contact(request):
 	return render(request, 'contact.html')
