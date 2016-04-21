@@ -4,7 +4,7 @@ from courses.models import Course, Lesson
 from forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
 from django.template import RequestContext
-
+ 
 
 def create(request):
 	if request.method == 'POST':
