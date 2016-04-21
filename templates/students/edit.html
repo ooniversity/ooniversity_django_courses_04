@@ -14,7 +14,7 @@
 <form method='post'>  
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Изменить"/>
+    <button type='submit'>Изменить</button>
 </form>
 
 {% endblock content %}

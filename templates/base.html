@@ -18,13 +18,7 @@
          <li role="presentation" class="{% block  nav_contact %}{% endblock nav_contact %}"><a href="{% url 'contact' %}">Контакты</a></li>
          <li role="presentation" class="{% block  nav_students %}{% endblock nav_students %}"><a href="{% url 'students:list_view' %}{% block get_course %}{% endblock get_course %}">Студенты</a></li>
     </ul>
-    {% if messages %}
-      {% for message in messages %}
-        <div class="alert alert-success" role="alert">
-          {{ message }}
-        </div>
-      {% endfor %}
-    {% endif %}
+    
   {% block content %}
   {% endblock content %}
     </div>
