@@ -11,6 +11,15 @@
 
 
 {% block content %}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="jumbotron">
+        <h4>{{ message }}</h4>
+      </div>
+    {% endfor %}
+  {% endif %}
+  <p><a href="{% url 'courses:add' %}" role="button" class="btn btn-default">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить новый курс</a></p>
   <div class="container-fluid">
     <div class="page-header">
       <h3><b>OONIVERCITY</b></h3>
@@ -37,6 +46,8 @@
                     <tr>
                       <th>Курс</th>
                       <th>Краткое описание</th>
+                      <td>edit</td>
+                      <td>remove</td>
                      </tr>
                   </thead>
                   <tbody>
@@ -44,6 +55,16 @@
                     <tr>
                       <td><a href={% url 'courses:detail' course.id %}>{{ course.name|upper }}</a></td>
                       <td>{{ course.short_description|title }}</td>
+                      <td>
+                        <a href="{% url 'courses:edit' course.id %}">
+                          <button class="btn btn-primary" type="button">
+                          <span class="glyphicon glyphicon-pencil"></span>Изменить</button></a>
+                      </td>
+                      <td>
+                        <a href="{% url 'courses:remove' course.id %}">
+                          <button class="btn btn-primary" type="button">
+                          <span class="glyphicon glyphicon-remove"></span>Удалить</button></a>
+                      </td>
                     </tr>
                   {% endfor %}
                   </tbody>

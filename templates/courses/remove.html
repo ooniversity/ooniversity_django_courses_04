@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Remove lesson{% endblock title %}
+
+
+{% block active_main %}active{% endblock active_main %}
+
+
+{% block content %}
+  <div class="main">
+    <div class="container">
+      <div class="col-lg-12">
+        <h3>Курс {{ name }} будет удален</h3>
+        <h2>Вы действительно хотите удалить курс {{ name }}?</h2>
+        <form method="post">
+          {% csrf_token %}
+          <input type="submit" value="Удалить" class="btn btn-danger" />
+          <a href="{% url 'index' %}" role="button" class="btn btn-success">Нет</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
