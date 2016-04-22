@@ -22,9 +22,9 @@
   <h3 class="text-center">Преподаватели</h3>
   {% include 'include/courses_include.html' with teacher_about='Coach' teacher=course.coach %}
   {% include 'include/courses_include.html' with teacher_about='Assistant' teacher=course.assistant %}
-  <h3>План курса</h3>
   <p><a href="{% url 'courses:add-lesson' course.id %}"  role="button" class="btn btn-default">
     <span class="glyphicon glyphicon-plus"></span>Добавить занятие</a></p>
+  <h3>План курса</h3>
   <div class="navbar">
     <div class="navbar-inner">
       <div class="container-fluid">
