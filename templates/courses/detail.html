@@ -1,14 +1,27 @@
 {% extends "base.html" %}
-{% block title %}PyBursa - Main Page{% endblock title %}
+{% block title %}Details about the course{% endblock title %}
 
 
 {% block nav_class_index %}active{% endblock %}
 
 
 {% block content %}
+
+<br>
+{% if messages %}
+<div class="well well-sm">
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    </div>
+{% endif %}
+<br>
+
   <div class="jumbotron">
-        <h1>{{course.name}}</h1>
-      <p>{{course.description|truncatechars:32}}</p>
+        <h1>{{ course.name }}</h1>
+      <p>{{ course.description|truncatechars:32 }}</p>
     </div>
     
     <div><h4><b>Преподаватели</b></h4></div>
@@ -19,18 +32,21 @@
   </div>
 	   
   <div>
-    <a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.first_name_field}} {{course.coach.last_name_field}}</a>
-      <p>{{course.coach.description}}</p>
+    <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.first_name_field }} {{ course.coach.last_name_field }}</a>
+      <p>{{ course.coach.description }}</p>
   </div>
 
    <div class="well well-sm">
    <h5><b>Ассистент</b></h5> 
   </div>
   <div>   
-     <a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name_field}} {{course.assistant.last_name_field}}</a>    
-      <p>{{course.assistant.description}}</p>
+     <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.first_name_field }} {{ course.assistant.last_name_field }}</a>    
+      <p>{{ course.assistant.description }}</p>
   </div>   
     
+<br>
+<a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-plus-sign"></span> Добавить занятие</a>
+<br>
 
 <div class="page-header">
   <h3>План курса</h3>
@@ -48,11 +64,12 @@
     <tbody>
     {% for lesson in lessons %}
         <tr class="info">
-            <td>{{lesson.order}}</td>
-            <td>{{lesson.subject}}</td>
-            <td>{{lesson.description}}</td>
+            <td>{{ lesson.order }}</td>
+            <td>{{ lesson.subject }}</td>
+            <td>{{ lesson.description }}</td>
         </tr>
     {% endfor %}
     </tbody>
 </table>
 {% endblock content %}
+
