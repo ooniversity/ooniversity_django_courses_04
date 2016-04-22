@@ -35,7 +35,7 @@ def create(request):
         if form.is_valid():
             form.save()
             messages.set_level(request, messages.SUCCESS)
-            messages.success(request, 'Student {0} {1} has been successfully added.'.format(form.cleaned_data.get('name'), form.cleaned_data.get('surname')))
+            messages.success(request, u'Student {0} {1} has been successfully added.'.format(form.cleaned_data.get('name'), form.cleaned_data.get('surname')))
             return redirect('students:list_view')
     else:
         form = StudentModelForm()
@@ -60,9 +60,9 @@ def remove(request, pk):
     if request.method == 'POST':
         student.delete()
         messages.set_level(request, messages.SUCCESS)
-        messages.success(request, 'Info on {0} {1} has been sucessfully deleted.'.format(student.name, student.surname))
+        messages.success(request, u'Info on {0} {1} has been sucessfully deleted.'.format(student.name, student.surname))
         return redirect('students:list_view')
     else:
         messages.set_level(request, messages.WARNING)
-        messages.warning(request, 'Are you sure you want to delete {0} {1}'.format(student.name, student.surname))
+        messages.warning(request, u'Are you sure you want to delete {0} {1}'.format(student.name, student.surname))
     return render(request, 'students/remove.html')

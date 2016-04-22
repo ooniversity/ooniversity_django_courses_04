@@ -7,10 +7,25 @@
 {% block content %}
 <div class="row">
   <div class="col-lg-12">
+    {% if messages %}
+      <div class="alert alert-success">
+        <ul class="messages">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+              {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                {{ message }}
+              {%endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
     <h1 class="page-header text-center">DjBursa</h1>
     <h2 id="main-description">Description</h2>
     <p>Lorem ipsum vivamus maecenas integer nulla sit, curabitur ultricies massa porttitor nulla donec. Vitae elementum duis lectus diam sapien elementum lorem orci, sit porttitor eros. Sodales, magna auctor, enim quam vulputate vitae molestie, commodo ultricies urna. Porta ut enim rutrum, fusce: lectus nibh duis leo nam donec duis vitae urna mauris adipiscing sed, cursus eros ut et. Arcu massa sed enim amet gravida tellus risus vulputate in: lectus: duis malesuada fusce sodales. Amet quisque sagittis adipiscing donec metus commodo quisque magna ligula bibendum sed sodales massa mattis, et tempus eu ligula integer non pellentesque maecenas <a class="anchorjs-link" href="#main-program">unic program</a>.</p>
     <p>List our courses</p>
+    <p><a href="{% url 'courses:add' %}" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить новый курс</a></p>
     <table class="table table-hover">
       <thead class="thead-inverse">
         <tr>
@@ -23,7 +38,7 @@
         {% for course in courses %}
         <tr>
         <td>{{ forloop.counter }}</td>
-        <td><a href="{% url 'courses:detail' course_id=course.id %}">{{ course.name|upper }}</a></td>
+        <td><a href="{% url 'courses:detail' course_id=course.id %}">{{ course.name|upper }}</a> <a href="{% url 'courses:edit' course.id %}"><span class="glyphicon glyphicon-edit"></span></a> <a href="{% url 'courses:remove' course.id %}"><span class="glyphicon glyphicon-remove"></span></a></td>
           <td>{{ course.short_description|title }}</td>
         </tr>
         {% endfor %}
