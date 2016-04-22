@@ -5,20 +5,18 @@
 	<title>Quadratic equastion</title>
 </head>
 <body>
-	<p>
-		{{ headertext }}
-		<br></p>
-	<ul>
-		<li>{{a_selfname}}{{ a }}</li>
-		<i>{{ a_alert }}</i>
-		<li>{{b_selfname}}{{ b }}</li>
-		<i>{{ b_alert }}</i>
-		<li>{{c_selfname}}{{ c }}</li>
-		<i>{{ c_alert }}</i>
-	</ul>
-	<p>{{discr_selfname}}{{ discr }}</p>
-	<p>
-		{{ discr_alert }}{{ oneroot }}{{x1_selfname}}{{firstroot}}{{x2_selfname}}{{secondroot}}
-	</p>
+  <div>
+    <h3 style="text-align: center">Квадратное уравнение a*x*x + b*x + c = 0</h3><br>
+    <div class="container">
+      <form method="get">
+        {{ form.as_p }}
+        <br><input type="submit" value="Решить"/>
+      </form>
+    </div>
+    {% if result %}
+      <p>Дискриминант: {{ d }}</p>
+      <p>{{ result }}</p>
+    {% endif %}
+  </div>
 </body>
 </html>
