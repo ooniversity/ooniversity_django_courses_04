@@ -6,6 +6,19 @@
 
 
 {% block content %}
+
+<br>
+{% if messages %}
+<div class="well well-sm">
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    </div>
+{% endif %}
+<br>
+
 <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
       <h1>Курсы от ITBursa</h1>
@@ -18,6 +31,9 @@
 бесконечное блуждание по сети в поисках крупиц информации, из которых
 трудно собрать общую картину.</p>
       </div>
+<br>
+<a href="{% url 'courses:add' %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-plus-sign"></span> Добавить новый курс</a>
+<br>
 
 <div class="page-header">
     <h3>Наши курсы</h3>
@@ -29,13 +45,21 @@
         <tr class="success">
             <th>Курс</th>
             <th>Описание</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
     {% for id_cour, content_cour in course.items %}
         <tr class="info">
-            <td><a href="{% url 'courses:detail' id_cour %}">{{content_cour.0|upper}}</a></td>
-            <td>{{content_cour.1|title}}</td>
+            <td><a href="{% url 'courses:detail' id_cour %}">{{ content_cour.0|upper }}</a></td>
+            <td>{{ content_cour.1|title }}</td>
+            <td>
+               <a href="{% url 'courses:edit' id_cour %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-pencil"></span>Изменить</a>
+            </td>
+            <td>
+               <a href="{% url 'courses:remove' id_cour %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-remove"></span>Удалить</a>
+            </td>
         </tr>
     {% endfor %}
     </tbody>

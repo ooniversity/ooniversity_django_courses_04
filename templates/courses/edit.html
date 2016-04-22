@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Редактирование данных курса{% endblock title %}
+
+
+{% block nav_class_student %}active{% endblock %}
+
+
+{% block content %}
+
+<br>
+{% if messages %}
+<div class="well well-sm">
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    </div>
+{% endif %}
+<br>
+  <div class="page-header">
+    <h2>Редактирование данных курса</h2>
+        <!--h4>Ниже предоставлен список студентов курса</h4-->
+  </div>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Изменить"/>
+</form>
+{% endblock content %}
