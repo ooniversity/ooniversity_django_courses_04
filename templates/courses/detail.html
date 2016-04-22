@@ -1,78 +1,32 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Список студентов</title>
+{% extends "base.html" %}
 
-    <!-- Bootstrap -->
-    {% load static %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'css/starter-template.css' %}" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-         <img id = "brand-image" alt = "Website logo" src = "{% static 'images/logo.png' %}">&nbsp;    	
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          	<!--/.<a class="navbar-brand" href="#">PyBursa</a>
-          		<img id = "brand-image" alt = "Website logo" src = "../static/images/logo.png">-->
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-          	<li><a href="#">PyBursa</a></li>
-            <li><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
 
-        <div class="container">     
+{% load static %}
+
+
+{% block title %}Course information{% endblock title %}
+
+
+{% block get_course %}?course_id={{course.id}}{% endblock get_course %}
+
+
+{% block content %}
+
+
+<div class="container">     
     <div class="jumbotron">
         <h1>{{course.name}}</h1>
-      <p>{{course.description}}</p>
+      <p>{{course.description|truncatechars:32}}</p>
     </div>
     
 
     <div class="jumbotron">
         <h2>Преподаватели</h2>
-    <div class='well'>
-    <h4>Учитель</h4>
-    
-     <p><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.first_name_field}} {{course.coach.last_name_field}}</a></p>
-    </div>
-    <p>{{course.coach.description}}</p>
+        
+    	<p>{% include "include/course_include.html" with block_title="Учитель" instructor=course.coach %}</p>
 
-   <div class='well'><h4>Ассистент</h4>
-    
-    <a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name_field}} {{course.assistant.last_name_field}}</a>
-    </div>
-    <p>{{course.assistant.description}}</p>
-    
-    
+    	<p>{% include "include/course_include.html" with block_title="Ассистент" instructor=course.assistant %}</p>
+       
   </div>
  
-  <footer class="footer">
-      <div class="container">
-        <p class="text-muted">&copy; 2016 PyBursa Company, Inc.</p>
-      </div>
-    </footer>
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-  </body>
-</html>
+{% endblock content %}
