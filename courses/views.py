@@ -26,15 +26,14 @@ def edit(request,id):
 		form = CourseModelForm(request.POST, instance=course_inst)
 		if form.is_valid():
 			course= form.save()
-
 			message = u"The changes has been saved."
 			messages.success(request, message)
 			return redirect('courses:detail',course.id)
 	else:
 		form = CourseModelForm(instance=course_inst)
 	
-	return render(request,"courses/edit.html",{"form":form})
-  
+	return render(request,'courses/edit.html',{'form':form})
+   
 
 def remove(request,id):
     course = Course.objects.get(pk=id)
@@ -43,8 +42,8 @@ def remove(request,id):
         course.delete()
         message = u"Course %s  has been deleted." %(course.name)
         messages.success(request, message)
-        return redirect("index")
-    return render(request,"courses/remove.html",{"course":course})
+        return redirect('index')
+    return render(request, 'courses/remove.html', {'course':course})
 
 
 def add_lesson(request,id):
