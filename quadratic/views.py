@@ -3,7 +3,6 @@ from django.shortcuts import render
 
 from quadratic.forms import QuadraticForm
 
-form = QuadraticForm()
 
 def quadratic_results(request):
     if request.method == 'GET':
