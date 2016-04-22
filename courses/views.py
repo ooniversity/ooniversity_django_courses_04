@@ -39,7 +39,6 @@ def edit(request,id):
 def remove(request,id):
     course = Course.objects.get(pk=id)
     if request.method == 'POST':
-
         course.delete()
         message = u"Course %s  has been deleted." %(course.name)
         messages.success(request, message)
