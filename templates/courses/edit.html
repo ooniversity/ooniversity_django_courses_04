@@ -1,24 +1,20 @@
-{% extends "base.html" %}
-
-
-{% block title %}Pybursa Course edit{% endblock title %}
-
-
-{% block nav_class_students %}active{% endblock %}
-
-
-{% load staticfiles %}
-
-
+{{% extends 'base.html' %}
+{% block title %}Редактирование курса{% endblock title %}
 {% block content %}
 
-<div class="page-header"><h3 class="text-center">Редактирование данных о курсе</h3></div>
-	<div class="container">
-		<form method="post">
-			{% csrf_token %}           
-			{{ form.as_p }}
-			<input type="submit" value="Изменить"/>
-		</form>
-	</div>
-</br>
+{% if messages %}
+<div class = "alert alert-success" role="alert">
+   {% for message in messages %}
+      {{ message }}
+   {% endfor %}
+</div>
+{% endif %}
+  <h1>Редактирование курса</h1>
+  <br>
+  <br> 
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Изменить"/>
+  </form>
 {% endblock content %}
