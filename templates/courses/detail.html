@@ -6,6 +6,23 @@
 
 {% block content %}
 <div class="row">
+  <div class="col-lg-12">
+    {% if messages %}
+    <div class="alert alert-success">
+      <ul class="messages">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+          {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            {{ message }}
+          {%endif %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<div class="row">
   <div class="col-lg-12 text-center">
     <h1>{{ course.name }}</h1>
     <p>{{ course.description|truncatechars:32 }}</p>
@@ -24,6 +41,7 @@
 <div class="row">
   <div class="col-lg-12">
     <p><em>Сourse Program</em></p>
+    <p><a href="{% url 'courses:add_lesson' course.id %}" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить новое занятие</a></p>
     <table class="table">
       <thead class="thead-inverse">
         <tr>

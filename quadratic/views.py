@@ -21,12 +21,12 @@ from quadratic.forms import QuadraticForm
 
 def quadratic_results(request):
     form = QuadraticForm()
-    if not request.GET.get('a') is None:
+    if request.GET:
         form = QuadraticForm(request.GET)
         if form.is_valid():
-            a = int(request.GET.get('a'))
-            b = int(request.GET.get('b'))
-            c = int(request.GET.get('c'))
+            a = form.cleaned_data['a']
+            b = form.cleaned_data['b']
+            c = form.cleaned_data['c']
             discr = ''
             result_answer = ''
             d = b**2 - 4*a*c
@@ -45,5 +45,4 @@ def quadratic_results(request):
                           {'discriminant': discr,
                           'result_answer': result_answer,
                           'form': form})
-        return render(request, 'quadratic/results.html', {'form': form})
     return render(request, 'quadratic/results.html', {'form': form})
