@@ -63,7 +63,10 @@
           {{form.as_p}}
           <input type = "submit" value = "Решить"/>
         </form>
-     
+        {% if not form.errors and d != None %}
+        <p>Дискриминант: {{d}}</p>
+        <p>{{result_message}}</p>
+        {% endif%}    
 
 
       </div>
