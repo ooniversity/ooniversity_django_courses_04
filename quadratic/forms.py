@@ -8,7 +8,6 @@ class QuadraticForm(forms.Form):
     c = forms.IntegerField(label="коэффициент c")
 
     def clean_a(self):
-        # if self.is_valid():
         data = self.cleaned_data['a']
         if data == 0:
             raise forms.ValidationError("коэффициент при первом слагаемом уравнения не может быть равным нулю")
