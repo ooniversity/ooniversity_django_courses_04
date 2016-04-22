@@ -23,8 +23,7 @@
 }
 
 .table {
-    border: double;
-    border-color: #a5a5a5
+    border: double #a5a5a5;
 }
 
 .media-text {
