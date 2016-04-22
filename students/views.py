@@ -11,7 +11,7 @@ def create(request):
 		form = StudentModelForm(request.POST)
 		if form.is_valid():
 			application = form.save()
-			message = u'Student %s %s has been succesfully added.' % (application.name, application.surname)
+			message = u'Student %s %s has been successfully added.' % (application.name, application.surname)
 			messages.success(request, message)
 			return redirect('students:list_view')
 	else:
@@ -25,7 +25,7 @@ def edit(request, id):
 		form = StudentModelForm(request.POST, instance=application)
 		if form.is_valid():
 			application = form.save()
-			message = u'Info on the student has been sucessfully changed.'
+			message = u'Info on the student has been successfully changed.'
 			messages.success(request, message)
 			#return redirect('students:edit')
 	else:
