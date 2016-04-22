@@ -12,14 +12,14 @@ def detail(request, course_id):
 
 def add(request):
 	if request.method == 'POST':
-		add_cours = CourseModelForm(request.POST)
-		if add_cours.is_valid():
-			new_cours = add_cours.save()
+		form = CourseModelForm(request.POST)
+		if form.is_valid():
+			new_cours = form.save()
 			messages.success(request, 'Course %s has been successfully added' % new_cours.name)
 			return redirect ('/')
 	else:
-		add_cours = CourseModelForm()
-	return render(request, 'courses/add.html', {'add_cours':add_cours})
+		form = CourseModelForm()
+	return render(request, 'courses/add.html', {'form':form})
 
 
 def edit(request, course_id):
