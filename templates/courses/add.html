@@ -4,22 +4,17 @@
 {% load staticfiles %}
 
 
-{% block title %}Add cours{% endblock title %}
+{% block title %}Add course{% endblock title %}
 
 
 {% block naw_class_index %}active{% endblock %}
 
 
 {% block content %}
- 
 <h3 class="cl_h1">Create new cours</h3>
- 
- <form method="post">
- {% csrf_token %}
- {{add_cours.as_p}}		
- <input type="submit" value="Create">
- </form>
 
-
+<form method="post">
+	{% csrf_token %}
+ {{add_cours.as_p}}
+	<input type="submit" value="Create"></form>
 {% endblock content %}
-
