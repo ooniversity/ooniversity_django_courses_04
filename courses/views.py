@@ -4,7 +4,7 @@ from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 
 def detail(request, id):
-    course = Course.objects.get(id=int(id))
+    course = Course.objects.get(id=id)
     lessons = Lesson.objects.filter(course=course)
     return render(request, 'courses/detail.html', {'course': course, 'lessons': lessons})
 
@@ -27,7 +27,7 @@ def add_lesson(request,id):
             lesson = form.save()
             message = "Lesson {} has been successfully added."
             messages.success(request, message.format(lesson.subject))
-            return redirect('courses:detail', lesson.course)
+            return redirect('courses:detail', lesson.course.id)
     else:
         form = LessonModelForm(initial={'course': id})
         return render(request, "courses/add_lesson.html", {"form": form})
