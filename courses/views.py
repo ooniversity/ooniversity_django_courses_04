@@ -22,7 +22,7 @@ def add(request):
     return render(request, "courses/add.html", {"form": form})
 
 def add_lesson(request,id):
-    course = Course.objects.get(id=int(id))
+    course = Course.objects.get(id=id)
     if request.method == 'POST':
         form = LessonModelForm(request.POST)
         if form.is_valid():
@@ -32,7 +32,7 @@ def add_lesson(request,id):
             messages.success(request, message.format(lesson['subject']))
             return redirect('courses:detail', lesson['course'])
     else:
-        form = LessonModelForm(initial={'course':course})
+        form = LessonModelForm(initial={'course': course})
     return render(request, "courses/add_lesson.html", {"form": form})
 
 def edit(request, id):
@@ -43,7 +43,7 @@ def edit(request, id):
             form.save()
             message = "The changes have been saved."
             messages.success(request, message)
-            return render(request, "courses/edit.html", {"form": form})
+            return redirect("courses:edit", id)
     else:
         form = CourseModelForm(instance=course_data)
     return render(request, "courses/edit.html", {"form": form})
