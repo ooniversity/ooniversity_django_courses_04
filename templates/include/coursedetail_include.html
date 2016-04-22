@@ -1,0 +1,18 @@
+    <table class="my_table">
+    <thead>
+      <tr>
+        <th class="my_fistcolsize my_transparensy07">Coach</th>
+        <th class="my_fistcolsize my_transparensy07">Assistant</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><h3><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.first_name_field}} {{course.coach.last_name_field}}</a></h3>
+        <p>{{course.coach.description}}</p>
+        </td>
+        <td><h3><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name_field}} {{course.assistant.last_name_field}}</a></h3>
+        <p>{{course.assistant.description}}</p>
+        </td>
+      </tr>
+    </tbody>
+    </table>
