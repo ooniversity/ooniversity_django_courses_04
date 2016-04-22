@@ -40,9 +40,10 @@ def edit(request, id):
     if request.method == 'POST':
         form = CourseModelForm(request.POST, instance=course_data)
         if form.is_valid():
-            course_data = form.save()
+            form.save()
             message = "The changes have been saved."
             messages.success(request, message)
+        return redirect('index')
     else:
         form = CourseModelForm(instance=course_data)
     return render(request, "courses/edit.html", {"form": form})
