@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
-from django.shortcuts import get_object_or_404, render, redirect
+# encoding: utf-8
+from django.shortcuts import render, redirect
 from courses.models import Course, Lesson
-from forms import CourseModelForm, LessonModelForm
+from courses.forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
-from django.template import RequestContext
- 
 
 def create(request):
 	if request.method == 'POST':
@@ -21,28 +19,27 @@ def create(request):
 
 
 def edit(request, id):
-    course_inst = Course.objects.get(pk=id)
+
+    kurs = Course.objects.get(pk = id)
     if request.method == 'POST':
-        form = CourseModelForm(request.POST, instance=course_inst)
+        form = CourseModelForm(request.POST, instance = kurs)
         if form.is_valid():
-            course = form.save()
-            message = u"The changes has been saved."
-            messages.success(request, message)
-            return redirect('courses:edit', course.id)
+            kurs = form.save()
+            messages.success(request, u'The changes have been saved.')
+            return redirect('courses:edit', kurs.id)
+                
     else:
-        form = CourseModelForm(instance=course_inst)
-
-    return render(request, 'courses/edit.html', {'form': form})
-
+        form = CourseModelForm(instance = kurs)
+    return render(request,"courses/edit.html",{"form": form})
 
 def remove(request, id):
-    course = Course.objects.get(pk=id)
+
+    kurs = Course.objects.get(pk = id)
     if request.method == 'POST':
-        course.delete()
-        message = u"Course %s  has been deleted." % course.name
-        messages.success(request, message)
+        kurs.delete()
+        messages.success(request, u'Course %s has been deleted.'%kurs.name)
         return redirect('index')
-    return render(request, 'courses/remove.html', {'course': course})
+    return render(request,"courses/remove.html", {"course": kurs})
 
 
 
