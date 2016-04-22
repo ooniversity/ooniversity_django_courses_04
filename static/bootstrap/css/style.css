@@ -47,6 +47,10 @@
 {
     text-align: center;
 }
+.btn-default {
+    background-color: #c2c5ff;
+    border-color: #8c8c8c;
+}
 .img-center
 {
     text-align: center;
