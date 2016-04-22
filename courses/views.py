@@ -15,11 +15,11 @@ def add(request):
 		form = CourseModelForm(request.POST)
 		if form.is_valid():
 			new_cours = form.save()
-			messages.success(request, 'Course %s has been successfully added' % new_cours.name)
+			messages.success(request, 'Course %s has been successfully added.' % new_cours.name)
 			return redirect('/')
 	else:
 		form = CourseModelForm()
-	return render(request, 'courses/add.html', {'form':form})
+	return render(request, 'courses/add.html', {'form': form})
 
 
 def edit(request, course_id):
@@ -39,7 +39,7 @@ def remove(request, course_id):
 	remove_cours = Course.objects.get(id=course_id)
 	if request.method == 'POST':
 		remove_cours.delete()
-		messages.success(request, 'Course %s has been deleted' % remove_cours.name)
+		messages.success(request, 'Course %s has been deleted.' % remove_cours.name)
 		return redirect('/')
 	return render(request, 'courses/remove.html', {'remove_cours':remove_cours})
 
