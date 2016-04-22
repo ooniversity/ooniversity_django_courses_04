@@ -16,7 +16,7 @@ def create(request):
 			return redirect('students:list_view')
 	else:
 		form = StudentModelForm()
-	return render(request,'students/add.html', {'form': form})	
+	return render(request,'students/add.html', {'form':form})	
 
 
 def edit(request, id):
@@ -30,7 +30,7 @@ def edit(request, id):
 			#return redirect('students:edit')
 	else:
 		form = StudentModelForm(instance=application)
-	return render(request,'students/edit.html', {'form': form})
+	return render(request,'students/edit.html', {'form':form})
 
 
 def remove(request, id):
