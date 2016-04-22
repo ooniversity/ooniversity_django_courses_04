@@ -13,7 +13,7 @@
 			<div class="alert alert-success" role="alert">{{ message }}</div>
 		{% endfor %}
 	{% endif %}	 
-	<h2>Редактирование студента</h2>
+	<h2>Редактирование данных студента</h2>
 	<form method='post'>
 		{% csrf_token %}
 		{{ form.as_p }}
