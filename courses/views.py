@@ -34,7 +34,7 @@ def edit(request,id):
 	
 	return render(request, 'courses/edit.html',{'form':form})
    
-
+ 
 def remove(request,id):
     course = Course.objects.get(pk = id)
     if request.method == 'POST':
