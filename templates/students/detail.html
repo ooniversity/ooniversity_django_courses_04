@@ -1,9 +1,16 @@
-{% extends 'students/base.html' %}
+{% extends 'base.html' %}
 
-{% block page_header %}{{ student }}{% endblock %}
+{% block title%}Students{% endblock%}
 
-{% block table_content %}
+{% block status_student %}active{% endblock %}
 
+{% block content %}
+
+    <div>
+      <h3>{{ student }}</h3>
+    </div>
+    
+    <table class="table">
         <tr>
           <td>Birth date</td>
           <td>{{ student.date_of_birth|date:"N j, Y" }}</td>
@@ -35,6 +42,7 @@
               <a href="{% url 'courses:detail' course.id %}">{{ course }}</a> <br/> 
             {% endfor %}
           </td>
-        </tr>        
+        </tr> 
+    </table>       
     
-{% endblock table_content %}
+{% endblock content %}

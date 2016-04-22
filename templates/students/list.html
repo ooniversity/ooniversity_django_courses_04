@@ -1,8 +1,16 @@
-{% extends 'students/base.html' %}
+{% extends 'base.html' %}
 
-{% block page_header %}Students list{% endblock %}
+{% block title%}Students{% endblock%}
 
-{% block table_content %}
+{% block status_student %}active{% endblock %}
+
+{% block content %}
+
+    <div>
+      <h3>Students list</h3>
+    </div>
+
+    <table class="table">
       <thead>
         <tr>
           <th>#</th>
@@ -27,4 +35,7 @@
         </tr>
         {% endfor %}
         </tbody>
-{% endblock table_content %} 
+
+    </table>
+
+{% endblock content %} 
