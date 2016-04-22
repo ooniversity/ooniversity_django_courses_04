@@ -33,7 +33,7 @@ def edit(request,id):
 		form = CourseModelForm(instance=course_inst)
 	
 	return render(request,'courses/edit.html',{'form':form})
-  
+   
 
 def remove(request,id):
     course = Course.objects.get(pk=id)
