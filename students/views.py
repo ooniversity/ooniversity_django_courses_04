@@ -50,6 +50,7 @@ def edit(request, pk):
             form.save()
             messages.set_level(request, messages.SUCCESS)
             messages.success(request, 'Info on the student has been sucessfully changed.')
+            redirect('students:edit', pk=pk)
     else:
         form = StudentModelForm(instance=student)
     return render(request, 'students/edit.html', {'form': form})
