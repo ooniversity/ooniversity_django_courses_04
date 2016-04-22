@@ -5,18 +5,12 @@
 	<title>Quadratic equastion</title>
 </head>
 <body>
-  <div>
-    <h3 style="text-align: center">Квадратное уравнение a*x*x + b*x + c = 0</h3><br>
-    <div class="container">
-      <form method="GET">
-        {{ form.as_p }}
-        <br><input type="submit" value="Решить"/>
-      </form>
-    </div>
-    {% if result %}
-      <p>Дискриминант: {{ d }}</p>
-      <p>{{ result }}</p>
-    {% endif %}
-  </div>
+  <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+  <form method="get">
+    {{ form.as_p }}
+    <input type="submit" value="Решить" />
+  </form>
+  <p>{{disc.message}}{{disc.value}}</p>
+  <p>{{text_result.message}}{{text_result.value}}</p>
 </body>
 </html>
