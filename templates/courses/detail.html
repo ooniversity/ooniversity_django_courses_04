@@ -13,6 +13,15 @@
 			</ul>
 			{% endif %}
 			{% include "include/course_detail_include.html" with courses=course %}
+			<h2>Coaches</h2>
+			<div class="panel panel-warning">
+				<h3 class="panel-body">Coach</h3>
+				<div><h3><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.username}} {{course.coach.user.last_name}}</a></h3></div>
+				<div><p>{{course.coach.description}}</p></div>
+				<h3 class="panel-body">Asistant</h3>
+				<div><h3><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.user.username}} {{course.assistant.user.last_name}}</a></h3></div>
+				<div><p>{{course.assistant.description}}</p></div>
+			</div>
 			<h2 class="blockquote-reverse text-uppercase">Course containe lessons:</h2>
 			<a class="btn btn-primary"href="{% url 'courses:add-lesson' course.id %}">Add new lesson</a>
 			<table class="table">
@@ -30,14 +39,5 @@
 				{% endfor %}
 				</tbody>
 			</table>
-			<h2>Coaches</h2>
-			<div class="panel panel-warning">
-				<h3 class="panel-body">Coach</h3>
-				<div><h3><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.username}} {{course.coach.user.last_name}}</a></h3></div>
-				<div><p>{{course.coach.description}}</p></div>
-				<h3 class="panel-body">Asistant</h3>
-				<div><h3><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.user.username}} {{course.assistant.user.last_name}}</a></h3></div>
-				<div><p>{{course.assistant.description}}</p></div>
-			</div>
 		</div>
 {% endblock content %}
