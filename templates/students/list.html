@@ -8,6 +8,16 @@
 {% block nav_class_studs %}active{% endblock %}
 
 {% block content %}
+
+    <button class="btn btn-primary add_student"
+            type="button">
+            <a href="{% url 'students:create' %}">
+            <span class="glyphicon glyphicon-plus">Добавить нового студента</span>
+            </a>
+    </button>
+
+
+
     <h1 class="list_name_page">Список студентов</h1>
     <div class="container">
       <table class="table table-condensed">
@@ -18,6 +28,8 @@
             <th style="width:20%"><span class="text-muted">адрес</span></th>
             <th style="width:10%"><span class="text-muted">skype</span></th>
             <th><span class="text-muted">курсы</span></th>
+            <th><span class="text-muted"></span></th>
+            <th><span class="text-muted"></span></th>
           </tr>
         </thead>
         <tbody>
@@ -30,9 +42,16 @@
             <td>{{ student.skype }}</td>
             <td>
               {% for courses in student.courses.all %}
-                <p><a class="styled_links" href={% url 'courses:detail' courses.id %}>{{ courses }}</a></p>
+                <p><a class="styled_links" href="{% url 'courses:detail' courses.id %}">{{ courses }}</a></p>
               {% endfor %}
             </td>
+            <td><a href="{% url 'students:edit' student.id %}">
+                <span class="glyphicon glyphicon-pencil"></span>Изменить</a><br>
+            </td>
+            <td><a href="{% url 'students:remove' student.id %}">
+          <span class="glyphicon glyphicon-remove"></span>Удалить</a><br>
+            </td>
+
           </tr>
         {% endfor %}
         </tbody>

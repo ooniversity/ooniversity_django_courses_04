@@ -4,6 +4,12 @@ body {
   background-color:#282828;
 }
 
+.page_header{
+  color:#FFFFFF;
+  text-align: center;
+  padding-top: 5px;
+
+}
 
  h2.Description_title,.Description, .ul_course_items{
   color:#FFFFFF;
@@ -137,8 +143,8 @@ h3.well-sm, h2.Description_title, table.table-condensed{
 /*-------------------------student_list--------------------------------*/
 
 .list_name_page {
-  padding-top: 20px;
-  padding-left: 7%;
+  padding-top: 5px;
+  padding-left: 9%;
   padding-bottom: 1%;
   text-align: left;
 }
@@ -171,6 +177,31 @@ a:hover {
 a{
   color: #FFFFFF;
   text-decoration: underline;
+}
+
+.add_student{
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.create_form{
+  margin-top: 5%;
+  margin-left: 10%;
+  padding-bottom: 4%;
+  background-color: #639897;
+  width: 40%;
+  border-radius: 20px;
+  border: 10px solid #639897;
+}
+
+.btn_create{
+  width: 20%;
+}
+
+.create_form input {
+  position:absolute;
+  /*width: 10%;*/
+  margin-right: 15%;
 }
 /*-------------------------student_detail--------------------------------*/
 .student_info{
@@ -230,17 +261,20 @@ hr.my_hr{
   width: 18%;
   /*padding:3px;*/
   margin-top: 29%;
-  margin-left: -9%;
+  margin-left: -5%;
 }
 
 
 .contact_me > h4 >a:hover{
-  color: #E95C00;
+  color: #FFF;
 }
 .contact_me > h4 >a:visited{
-  color: #FFFFFF;
+  color: #6CA3D3;
 }
 
+.contact_me > h4 >a{
+  color: #6CA3D3;
+}
 
 /*a.contact_me{
   color: #FFFFFF;
