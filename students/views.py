@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
 from django.contrib import messages
-
 from students.models import Student
 from courses.models import Course
 from students.forms import StudentModelForm
@@ -16,6 +15,7 @@ def create(request):
 			return redirect('students:list_view')
 	else:
 		form = StudentModelForm()
+
 	return render(request,'students/add.html', {'form':form})	
 
 
@@ -25,11 +25,11 @@ def edit(request, id):
 		form = StudentModelForm(request.POST, instance=application)
 		if form.is_valid():
 			application = form.save()
-			message = u'Info on the student has been successfully changed.'
-			messages.success(request, message)
-			#return redirect('students:edit')
+			message = u'Info on the student has been sucessfully changed.'
+			messages.success(request, message)			
 	else:
 		form = StudentModelForm(instance=application)
+
 	return render(request,'students/edit.html', {'form':form})
 
 
