@@ -14,4 +14,4 @@ class Student(models.Model):
     courses = models.ManyToManyField(Course)   # курсы, на которых учится студент
 
     def __unicode__(self):
-        return self.name
+        return '%s %s' % (self.name, self.surname)
