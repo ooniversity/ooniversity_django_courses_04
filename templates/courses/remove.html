@@ -1,11 +1,10 @@
 {% extends "base.html" %}
-{% block title %}Remove student{% endblock title %}
-{% block active_nav_students %}active{% endblock active_nav_students %}
+{% block title %}Remove course{% endblock title %}
 {% block content %}
 <div class="row">
 	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-	<h1>Are you sure whant to delete {{ student_data }}?</h1>
+	<h1>Are you sure whant to delete {{ course_data }}?</h1>
 		<form method="post">
 			{% csrf_token %}
 			<input type="submit" value="Delete"></input>	

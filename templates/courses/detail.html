@@ -5,8 +5,16 @@
 	<div class="row">
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
 		<div class="lead col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			{% if messages %}
+			<ul class="messages">
+				{% for message in messages %}
+				<li><div class="alert alert-success">{{ message }}</div></li>
+				{% endfor %}
+			</ul>
+			{% endif %}
 			{% include "include/course_detail_include.html" with courses=course %}
 			<h2 class="blockquote-reverse text-uppercase">Course containe lessons:</h2>
+			<a class="btn btn-primary"href="{% url 'courses:add-lesson' course.id %}">Add new lesson</a>
 			<table class="table">
 				<tbody>
 					<tr>
@@ -19,7 +27,6 @@
 						<td>{{lesson.order}}</td>
 						<td>{{lesson.subject}}</td>
 						<td>{{lesson.description}}</td>
-					</tr>
 				{% endfor %}
 				</tbody>
 			</table>
