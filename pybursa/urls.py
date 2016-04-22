@@ -14,7 +14,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^polls/', include('polls.urls', namespace="polls")),
 # quadratic test
-    url(r'^quadratic/results/', include('quadratic.urls')),
+    url(r'^quadratic/results/', include('quadratic.urls', namespace='quadratic')),
 #DJ adm stuff
     url(r'^courses/', include('courses.urls', namespace="courses")),
     url(r'^students/', include('students.urls', namespace="students")),   
