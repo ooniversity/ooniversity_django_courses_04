@@ -35,8 +35,8 @@ def edit(request, id):
     return render(request, 'courses/edit.html', {'form': form})
 
 
-def remove(request, course_id):
-    course = Course.objects.get(pk=course_id)
+def remove(request, id):
+    course = Course.objects.get(pk=id)
     if request.method == 'POST':
         course.delete()
         message = u"Course %s  has been deleted." % course.name
