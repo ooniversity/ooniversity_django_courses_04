@@ -36,7 +36,8 @@ def edit(request, pk):
             messages.set_level(request, messages.SUCCESS)
             messages.success(request, 'The changes have been saved.')
             redirect('courses:edit', pk=pk)
-    form = CourseModelForm(instance=course)
+    else:
+        form = CourseModelForm(instance=course)
     return render(request, 'courses/edit.html', {'form': form})
 
 
