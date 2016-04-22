@@ -4,9 +4,6 @@ from quadratic.forms import QuadraticForm
 
 
 def quadratic_results(request):
-    """
-    The solution of the quadratic equation
-    """
     text = {}
     if request.GET:
         form = QuadraticForm(request.GET)
@@ -33,4 +30,4 @@ def quadratic_results(request):
     else:
         form = QuadraticForm()
     text.update(dict(form=form))
-    return render(request, "results.html",  text)
+    return render(request, "quadratic/results.html",  text)
