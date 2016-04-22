@@ -30,6 +30,7 @@
                 <th>адрес</th>
                 <th>skype</th>
                 <th>курсы</th>
+                <th>Изменить/Удалить</th>
             </tr>
         </thead>
         <tbody>
@@ -37,13 +38,13 @@
                 <tr class="info">
                     <td>{{forloop.counter}}</td>
                     <td>
-                        <a href="{% url 'students:detail' stud.id %}">{{stud.surname}} {{stud.name}}</a>
+                        <a href="{% url 'students:detail' stud.id %}">{{ stud.surname }} {{ stud.name }}</a>
                     </td>
                     <td>{{stud.address}}</td>
                     <td>{{stud.skype}}</td>
                     <td>
                         {% for course in stud.courses.all %}
-                            <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a></p>
+                            <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></p>
                         {% endfor %}
                     </td>
                     <td>
