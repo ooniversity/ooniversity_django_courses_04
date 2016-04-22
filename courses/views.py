@@ -12,28 +12,25 @@ def add(request):
     if request.method == 'POST':
         form = CourseModelForm(request.POST)
         if form.is_valid():
-            form.save()
-            course = request.POST
+            course = form.save()
             message = "Course {} has been successfully added."
-            messages.success(request, message.format(course['name']))
+            messages.success(request, message.format(course.name))
             return redirect('index')
     else:
         form = CourseModelForm()
     return render(request, "courses/add.html", {"form": form})
 
 def add_lesson(request,id):
-    course = Course.objects.get(id=id)
     if request.method == 'POST':
         form = LessonModelForm(request.POST)
         if form.is_valid():
-            form.save()
-            lesson = request.POST
+            lesson = form.save()
             message = "Lesson {} has been successfully added."
-            messages.success(request, message.format(lesson['subject']))
-            return redirect('courses:detail', lesson['course'])
+            messages.success(request, message.format(lesson.subject))
+            return redirect('courses:detail', id)
     else:
-        form = LessonModelForm(initial={'course': course})
-    return render(request, "courses/add_lesson.html", {"form": form})
+        form = LessonModelForm(initial={'course': id})
+        return render(request, "courses/add_lesson.html", {"form": form})
 
 def edit(request, id):
     course_data = Course.objects.get(id=id)
