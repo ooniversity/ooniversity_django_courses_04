@@ -23,6 +23,9 @@
             {% include "include/course_include.html" with block_title="Ассистент" instructor=course.assistant %}
 
         </div>
+        <p><a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-primary" role="button">
+            <span class="glyphicon glyphicon-plus"></span>Добавить занятие
+        </a></p>
         <table class="table">
             <thead>
                 <tr class="success">
@@ -34,7 +37,7 @@
             <tbody>
                 {% for lesson in lessons %}
                     <tr class="info">
-                        <td>{{lesson.order}}</td>
+                        <td>{{forloop.counter}}</td>
                         <td>{{lesson.subject}}</td>
                         <td>{{lesson.description}}</td>
                     </tr>

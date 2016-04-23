@@ -9,14 +9,6 @@
 
 
 {% block content %}
-    <br/>
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-success" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
     <p><a href="{% url 'students:add' %}" class="btn btn-primary" role="button">
         <span class="glyphicon glyphicon-plus"></span>Добавить нового студента
     </a></p>
