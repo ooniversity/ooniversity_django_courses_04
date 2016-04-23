@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block title %}PyBursa - Remove course{% endblock title %}
+
+
+{% block jambotron_content %}
+<div class="jumbotron">
+  <h1>Remove course</h1>
+  <h2>Description</h2>
+  <p>
+    Course "{{ course.name }}" will be deleted :(
+  </p>
+</div>
+{% endblock jambotron_content %}
+
+
+{% block inline_content %}
+If You are confident in this action, click "Delete" button
+{% endblock inline_content %}
+
+
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" value="Delete" />
+</form>
+{% endblock content %}
