@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Quadratic equation{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <div class="well">
+  <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+    <form method="get">
+      {{ form.as_p }}
+      <input type="submit" value="Решить"/>
+    </form>
+      {% if not error %}
+        <p></p>
+        <p>Дискриминант: {{ d }}</p>
+        <p>{{ result_message }}</p>
+      {% endif %}
+  </div>
+</div>
+{% include "include/copyright_include.html" with current_year="2016" %}
+{% endblock content %}
