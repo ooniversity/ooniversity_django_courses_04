@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Add lesson{% endblock %}
+
+{% block status_index %}active{% endblock %}
+
+{% block content %}
+
+<h3>Adding lesson</h3>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" />
+</form>
+
+{% endblock content %} 
