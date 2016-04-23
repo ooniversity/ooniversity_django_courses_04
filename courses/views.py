@@ -12,7 +12,7 @@ def detail(request,course_id):
     lesson = Lesson.objects.filter(course = course_id)
     return render(request, 'courses/detail.html',
            {"course":course,
-            "lessons":lessons,
+            "lessons":lesson,
             })
 
 def add(request):

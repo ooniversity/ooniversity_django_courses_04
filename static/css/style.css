@@ -94,6 +94,12 @@ h3.well-sm, h2.Description_title, table.table-condensed{
   color: #FFF;
 }
 
+.add_course{
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-bottom: 2%;
+}
+
 /*-------------------------Contacts--------------------------------*/
 .organizers {
   padding: 20px 15px;
