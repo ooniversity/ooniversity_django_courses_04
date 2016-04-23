@@ -1,1 +1,3 @@
-Здесь размещаем html файлы. Например index.html, contact.html
+ooniversity_django_courses_04
+
+
