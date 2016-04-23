@@ -33,6 +33,7 @@ def edit(request, course_id):
         if form.is_valid():
             form.save()
             messages.success(request, "The changes have been saved.")
+            return redirect('courses:edit', course_id)
     else:
         form = CourseModelForm(instance=update_record)
 
@@ -60,4 +61,4 @@ def add_lesson(request, course_id):
     else:
         form = LessonModelForm(initial={'course': course_id})
 
-    return render(request, 'courses/add-lesson.html', {"form": form})
+    return render(request, 'courses/add_lesson.html', {"form": form})
