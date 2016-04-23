@@ -1,17 +1,15 @@
 # encoding: utf-8
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render, redirect
+from django.contrib import messages
 
 from courses.models import Course, Lesson
-from coaches.models import Coach
 from courses.forms import CourseModelForm, LessonModelForm
 
 
 
 def detail(request,course_id):
-    course = get_object_or_404(Course, pk=course_id)
-    lessons = Lesson.objects.filter(course=course).order_by('order')
+    course = Course.objects.get(id=course_id)
+    lesson = Lesson.objects.filter(course = course_id)
     return render(request, 'courses/detail.html',
            {"course":course,
             "lessons":lessons,
