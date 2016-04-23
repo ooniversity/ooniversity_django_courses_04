@@ -1,30 +1,16 @@
 from django.shortcuts import render
-
 from students.models import Student
 
 
 def list_view(request):
-    students_list = []
-    student_info = {}
-
-    if request.GET:
-        course_id = request.GET['course_id']
-        students_set = Student.objects.filter(courses=course_id)
+    if request.GET.get('course_id') is None:
+        student = Student.objects.all()
+        return render(request, 'students/list.html', {'students': student})
     else:
-        students_set = Student.objects.all()
-    for student in students_set:
-        student_info['id'] = student.id
-        student_info['full_name'] = student.surname + ' ' + student.name
-        student_info['address'] = student.address
-        student_info['skype'] = student.skype
-        student_info['courses'] = student.courses.all()
-        students_list.append(student_info)
-        student_info = {}
-    return render(request, 'students/list.html', {'students_list': students_list})
+        student = Student.objects.filter(courses=request.GET.get('course_id'))
+        return render(request, 'students/list.html', {'students': student})
 
 
-def detail(request, id):
-    student = Student.objects.get(id=id)
-    student_courses = student.courses.all()
-    print student.date_of_birth
-    return render(request, 'students/detail.html', {'student': student, 'courses': student_courses})
+def detail(request, student_id):
+        student = Student.objects.get(id=student_id)
+        return render(request, 'students/detail.html', {'students': student})

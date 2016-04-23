@@ -1,26 +1,27 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
+
 class Coach(models.Model):
-    class Meta:
-        verbose_name_plural = "Coaches"
-    
-    GENDER_CHOICES = (
-    	(u"M", u"Male"),
-    	(u"F", u"Female"),
-    	)
     user = models.OneToOneField(User)
     date_of_birth = models.DateField()
-    gender = models.CharField(max_length=2, choices=GENDER_CHOICES)
-    phone = models.CharField(max_length=20)
-    address = models.CharField(max_length=100)
-    skype = models.CharField(max_length=35)
-    description = models.TextField() 
+    gender = models.CharField(max_length=1, choices=(
+        ('M', 'Male'),
+        ('F', 'Female')
+    ))
+    phone = models.CharField(max_length=15)
+    address = models.CharField(max_length=255)
+    skype = models.CharField(max_length=50)
+    description = models.TextField()
 
-    def __unicode__(self):              # __unicode__ on Python 2
-        return self.user.get_username()
+    def __unicode__(self):              # __str__ on Python 3
+        return self.user.username
 
-    def usname(self):              # __unicode__ on Python 2
-        return self.user.get_full_name()
+    def name(self):
+        return self.user.first_name
+    name.short_description = 'name'
+
+    def last_name(self):
+        return self.user.last_name
+    last_name.short_description = 'last_name'
