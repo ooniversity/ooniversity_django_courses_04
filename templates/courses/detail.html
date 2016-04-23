@@ -1,75 +1,48 @@
-  {% load staticfiles %}
-
- 
- {%  extends "base.html" %}
+{% extends "base.html" %}
+{% load static %}
 
 
- {%  block title %}Courses{% endblock title %}
+{% block title %}Информация о курсе{% endblock title %}
 
 
- {%  block nav_class_contact %}active{% endblock%}
-
- 
- {%  block content %}
+{% block get_course %}?course_id={{course.id}}{% endblock get_course %}
 
 
-   <div class="container">     
-      <div class="jumbotron">
-         <h2>{{course.name}}</h2>
-         <p>{{course.description|truncatechars:32}}</p>
-      </div>
-    </div>
-
-    <h2 align="center">Преподаватели</h2>
-
-{%  include "include/coach_include.html" with coach="Преподаватель" teacher=course.coach error_desc="преподавателей" %}
-
-    
-
-    <h4>Ассистент</h4>
-
-{%  if course.assistant %} 
+{% block content %}
     <div class="container">
-      <div class="jumbotron">
+        <div class="jumbotron">
+            <h1>{{course.name}}</h1>
+            <p>{{course.description|truncatechars:32}}</p>
+        </div>
 
-         <a href="{%  url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name_field}} {{course.assistant.last_name_field}}</a>
-        <p>{{course.assistant.description}}</p>
-      </div>
+        <div class="jumbotron">
+            <h2>Преподаватели</h2>
+
+            {% include "include/course_include.html" with block_title="Учитель" instructor=course.coach %}
+
+            {% include "include/course_include.html" with block_title="Ассистент" instructor=course.assistant %}
+
+        </div>
+        <p><a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-primary" role="button">
+            <span class="glyphicon glyphicon-plus"></span>Добавить занятие
+        </a></p>
+        <table class="table">
+            <thead>
+                <tr class="success">
+                    <th>#</th>
+                    <th>Тема</th>
+                    <th>Описание</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for lesson in lessons %}
+                    <tr class="info">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{lesson.subject}}</td>
+                        <td>{{lesson.description}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-{%  else %}
-    <div class="container">
-          <div class="jumbotron">
-            <p>В данном курсе нет ассистента</p>
-          </div>
-        </div>    
-{%  endif %}
-<br />
-<br />
-
-<h3 align="center">План</h3>
-
-    <div class="container"> 
-      <table class="table">
-        {% for lesson in lessons %}
-          <tr>
-            <td>{{lesson.subject}}</td>
-            <td>{{lesson.description}}</td>
-          </tr>
-        {% endfor %}
-      </table>
-    </div>
-  {%  endblock content %}  
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+{% endblock content %}

@@ -1,36 +1,48 @@
 <!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>
+            {% block title %}{% endblock title %}
+        </title>
+        <!-- Bootstrap -->
+        {% load static %}
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="common">
+            <ul class="nav nav-pills">
+                <li role="presentation" class="{% block  nav_index %}{% endblock nav_index %}">
+                    <a href="{% url 'index' %}">Главная</a>
+                </li>
+                <li role="presentation" class="{% block  nav_contact %}{% endblock nav_contact %}">
+                    <a href="{% url 'contact' %}">Контакты</a>
+                </li>
+                <li role="presentation" class="{% block  nav_students %}{% endblock nav_students %}">
+                    <a href="{% url 'students:list_view' %}{% block get_course %}{% endblock get_course %}">Студенты</a>
+                </li>
+            </ul>
 
- 
- <html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{%  block title %}pyBursa{%  endblock title %}</title>
- {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel
-    ="stylesheet">
+            <br/>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
 
-  </head>
-  <body>
+            {% block content %}
+            {% endblock content %}
 
-        <nav class="navbar navbar-default navbar-static-top">
-          <ul class="nav nav-justified">
-            <li class="{%  block nav_class_index %}{% endblock %}">
-            <a href="{% url 'index' %}">Главная </a></li>
-            <li class="{%  block nav_class_contact %}{% endblock%}">
-            <a href="{% url 'contact' %}">Контакты </a></li>
-            <li class="{%  block nav_class_students %}{% endblock%}">
-            <a href="{% url 'students:list_view' %}">Студенты </a></li>
-          </ul>
-        </nav>
-
-
-  {%  block content %}  
-    
-  {%  endblock content %}  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="%{ static 'js/bootstrap.min.js' %}"></script>
+    </body>
 </html>
