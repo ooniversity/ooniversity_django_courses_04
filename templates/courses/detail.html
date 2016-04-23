@@ -14,13 +14,13 @@
    <div class="container">     
       <div class="jumbotron">
          <h2>{{course.name}}</h2>
-         <p>{{course.short_description}}</p>
+         <p>{{course.short_description|truncatechars:32}}</p>
       </div>
     </div>
 
     <h2 align="center">Преподаватели</h2>
 
-{%  include "include/coach_include.html" with coach="Преподаватель" teacher=course.coach  %}
+{%  include "include/coach_include.html" with coach="Преподаватель" teacher=course.coach error_desc="преподавателей" %}
 
     
 
