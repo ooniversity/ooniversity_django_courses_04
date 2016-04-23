@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}PyBursa - Add Student{% endblock title %}
+
+{% block nav_class_students %}active{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="well">
+    <h2>Add new student</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Create" />
+    </form>
+  </div>
+</div>
+{% include "include/copyright_include.html" with current_year="2016" %}
+{% endblock content %}

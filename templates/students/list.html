@@ -14,6 +14,21 @@
     </div>
 
     <div class="container">
+      <div class="well">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+        <a href="{% url 'students:add' %}">
+            <button type="button" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>&nbsp;<span>Add new student</span>
+            </button>
+        </a>
+      </div>
+    </div>
+
+    <div class="container">
       <div class="row">
         <div class="main-container">
           <h4>Students List</h4>
@@ -42,6 +57,20 @@
                         <a href="{% url 'courses:detail' course_id=course.id %}">{{ course.name }}</a>
                         <br />
                       {% endfor %}
+                    </td>
+                    <td>
+                      <a href="{% url 'students:edit' student.id %}">
+                          <button type="button" class="btn btn-primary">
+                              <span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit
+                          </button>
+                      </a>
+                    </td>
+                    <td>
+                      <a href="{% url 'students:remove' student.id %}">
+                          <button type="button" class="btn btn-primary">
+                              <span class="glyphicon glyphicon-remove"></span>&nbsp; Remove
+                          </button>
+                      </a>
                     </td>
                 </tr>
                 {% endfor %}
