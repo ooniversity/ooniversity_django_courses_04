@@ -20,7 +20,7 @@ def detail(request, pk):
 
 
 def create(request):
-    if request.method == "post":
+    if request.method == "POST":
         form = StudentModelForm(request.POST)
         if form.is_valid():
             student = form.save()
@@ -33,7 +33,7 @@ def create(request):
 
 def edit(request, pk):
     student = get_object_or_404(Student, pk=pk)
-    if request.method == "post":
+    if request.method == "POST":
         form = StudentModelForm(request.POST, instance=student)
         if form.is_valid():
             student = form.save()
@@ -46,7 +46,7 @@ def edit(request, pk):
 
 def remove(request, pk):
     student = get_object_or_404(Student, pk=pk)
-    if request.method == "post":
+    if request.method == "POST":
         student.delete()
         messages.success(request, u'Студент {} {} был удален.'.format(student.name, student.surname))
         return redirect('students:list')
