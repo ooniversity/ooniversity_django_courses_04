@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
+
+from quadratic.forms import QuadraticForm
 
 
 class Equation(object):
@@ -20,120 +23,42 @@ class Equation(object):
 
 
 def quadratic_results(request):
-    if str(request.GET.get('a')).isdigit():
-        argument_a = int(request.GET.get('a'))
-    else:
-        try:
-            argument_a = int(request.GET.get('a'))
-        except ValueError:
-            argument_a = str(request.GET.get('a'))
-
-    if str(request.GET.get('b')).isdigit():
-        argument_b = int(request.GET.get('b'))
-    else:
-        try:
-            argument_b = int(request.GET.get('b'))
-        except ValueError:
-            argument_b = str(request.GET.get('b'))
-
-    if str(request.GET.get('c')).isdigit():
-        argument_c = int(request.GET.get('c'))
-    else:
-        try:
-            argument_c = int(request.GET.get('c'))
-        except ValueError:
-            argument_c = str(request.GET.get('c'))
-
-    if type(argument_a) == int and type(argument_b) == int and type(argument_c) == int:
-        equation_inst = Equation(argument_a, argument_b, argument_c)
-        if equation_inst.get_discriminant() < 0:
-            discriminant = equation_inst.get_discriminant()
-
-            parameters = {
-                'a': argument_a,
-                'b': argument_b,
-                'c': argument_c,
-                'discr': discriminant,
-            }
-            return render(request, 'results.html', parameters)
-        else:
-            discriminant = equation_inst.get_discriminant()
-            x1 = equation_inst.get_eq_root()
-            x2 = equation_inst.get_eq_root(order=2)
-            if x1 == x2:
-                if type(argument_a) == str:
-                    err_str_a = True
-                else:
-                    err_str_a = False
-                if type(argument_b) == str:
-                    err_str_b = True
-                else:
-                    err_str_b = False
-                if type(argument_c) == str:
-                    err_str_c = True
-                else:
-                    err_str_c = False
-
-                parameters = {
-                    'a': argument_a,
-                    'b': argument_b,
-                    'c': argument_c,
-                    'erra': err_str_a,
-                    'errb': err_str_b,
-                    'errc': err_str_c,
-                    'discr': discriminant,
-                    'x1': x1,
-                }
-                return render(request, 'results.html', parameters)
+    parameters = {}
+    error = True
+    if request.GET:
+        form = QuadraticForm(request.GET)
+        if form.is_valid():
+            error = False
+            a = form.cleaned_data.get('a')
+            b = form.cleaned_data.get('b')
+            c = form.cleaned_data.get('c')
+            d = b ** 2 - 4 * a * c
+            if d < 0:
+                result_message = u"Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
+            elif d == 0:
+                x = (-b + d ** (1 / 2.0)) / 2.0 * a
+                result_message = u"Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {}.".format(x)
             else:
-                if type(argument_a) == str:
-                    err_str_a = True
-                else:
-                    err_str_a = False
-                if type(argument_b) == str:
-                    err_str_b = True
-                else:
-                    err_str_b = False
-                if type(argument_c) == str:
-                    err_str_c = True
-                else:
-                    err_str_c = False
-
-                discriminant = equation_inst.get_discriminant()
-                parameters = {
-                    'a': argument_a,
-                    'b': argument_b,
-                    'c': argument_c,
-                    'erra': err_str_a,
-                    'errb': err_str_b,
-                    'errc': err_str_c,
-                    'discr': discriminant,
-                    'x1': x1,
-                    'x2': x2,
-                }
-                return render(request, 'results.html', parameters)
+                x1 = (-b + d ** (1 / 2.0)) / 2.0 * a
+                x2 = (-b - d ** (1 / 2.0)) / 2.0 * a
+                result_message = u"Дискриминант равен нулю, квадратное уравнение имеет два действительных корня: x1 = {}, x2 = {}.".format(x1, x2)
+            parameters.update({'d': d, 'result_message': result_message})
+        else:
+            error = True
     else:
-        if type(argument_a) == str:
-            err_str_a = True
-        else:
-            err_str_a = False
-        if type(argument_b) == str:
-            err_str_b = True
-        else:
-            err_str_b = False
-        if type(argument_c) == str:
-            err_str_c = True
-        else:
-            err_str_c = False
+        form = QuadraticForm()
 
-        discriminant = None
-        parameters = {
-            'a': argument_a,
-            'b': argument_b,
-            'c': argument_c,
-            'erra': err_str_a,
-            'errb': err_str_b,
-            'errc': err_str_c,
-            'discr': discriminant,
-        }
-        return render(request, 'results.html', parameters)
+    parameters['error'] = error
+    parameters['form'] = form
+    return render(request, 'quadratic/results.html', parameters)
+
+
+def quadratic_results_form(request):
+    form = QuadraticForm(request.GET)
+    if form.is_valid():
+        data = form.cleaned_data
+
+    parameters = {
+        'form': form,
+    }
+    return render(request, 'quadratic/results.html', parameters)
