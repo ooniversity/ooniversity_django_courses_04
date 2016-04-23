@@ -1,10 +1,6 @@
 {% extends "base.html" %}
-
-
 {% block title %}Pybursa - Учитель {% endblock title %}
-
 {% block content %}
-
   <!-- Default panel contents -->
 <div class="container">
    	<h2>{{coach.user.first_name}} {{ coach.user.last_name }}</h2>
@@ -13,7 +9,7 @@
       <table class="table table-striped">
         <tr>
         	<th>дата рождения</th>
-        	<th>{{coach.date_of_birth}}</th>
+        	<th>{{coach.date_of_birth|date:"j F, Y"}}</th>
         </tr>
         <tr>
             <th>адрес</th>
@@ -49,9 +45,7 @@
                {% endfor %}
              </td>
         </tr>        
-		
-      </table>   
+	      </table>   
     </div>
 </div>
-
 {% endblock content %}
