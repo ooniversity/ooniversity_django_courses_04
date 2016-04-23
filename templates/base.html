@@ -27,7 +27,17 @@
                 </li>
             </ul>
 
-            {% block content %}{% endblock content %}
+            <br/>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+            {% block content %}
+            {% endblock content %}
 
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

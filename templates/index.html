@@ -48,17 +48,29 @@
             <tr class="success">
                 <th>Курс</th>
                 <th>Описание</th>
+                <th>Изменить/Удалить</th>
             </tr>
         </thead>
         <tbody>
             {% for course_id, course_data in course.items %}
                 <tr class="info">
                     <td>
-                        <a href="{% url 'courses:detail' course_id %}">{{course_data.0|upper}}</a>
+                        <a href="{% url 'courses:detail' course_id %}">{{course_data.name|upper}}</a>
                     </td>
-                    <td>{{course_data.1|title}}</td>
+                    <td>{{course_data.short_description|title}}</td>
+                    <td>
+                        <a href="{% url 'courses:edit' course_id %}">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <a href="{% url 'courses:remove' course_id %}">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+    <p><a href="{% url 'courses:add' %}" class="btn btn-primary" role="button">
+        <span class="glyphicon glyphicon-plus"></span>Добавить новый курс
+    </a></p>
 {% endblock content %}
