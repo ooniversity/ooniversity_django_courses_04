@@ -1,116 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>students-details</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% load static %}
-  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="../static/js/bootstrap.js"></script>
-</head>
-<body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-    <a class="navbar-brand" href="{% url 'index' %}">
-        <img alt="Brand" src="../static/images/small_logo.png"  width="30px">
-      </a>
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa students detail{% endblock title %}
+
+
+{% block nav_class_contact %}active{% endblock %}
+
+
+{% block page_main_header %}Makhno Yuryi{% endblock %}
+
+
+{% block content %}
+<div class="col-lg-12">
+  <div class="col-md-6">
+    <img src="../static/images/Makhno.png" class="img-responsive" alt="photo" width="150" height="75">
+    <br>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th width="30%">Student card</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Surname</td>
+            <td>Makhno</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Yuryi</td>
+          </tr>
+          <tr>
+            <td>Patronymic</td>
+            <td>Aleksandrovich  </td>
+          </tr>
+          <tr>
+            <td>Birth Date</td>
+            <td>24-08-1988</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>Ukrain, Kiev, ul. Berezhanskaya, 9</td>
+          </tr>
+          <tr>
+            <td>E-mail</td>
+            <td>makhno_y@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Skype</td>
+            <td>makhno_y</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <ul class="nav navbar-nav">
-      <li><a href="{% url 'index' %}">Main</a></li>
-      <li><a href="{% url 'contact' %}">Contacts</a></li>
-      <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
+  </div>
+  <div class="col-md-6">
+    <p class="lead emotional">Perfomance: Introduction to Python</p>
+    <ul class="task-list list-unstyled">
+      <li>
+        <p>Problem Task <span class="label label-danger">23%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" style="width:23%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Tests<span class="label label-warning">60%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Average Grade <span class="label label-success">93%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100" style="width: 93%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Rating<span class="label label-warning">GOOD</span></p>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger" role="progressbar" style="width:35%">
+            BAD
+          </div>
+          <div class="progress-bar progress-bar-warning" role="progressbar" style="width:35%">
+            GOOD
+          </div>
+          <div class="progress-bar progress-bar-success" role="progressbar" style="width:30%">
+            EXCELLENT
+          </div>
+        </div>
+      </li>
     </ul>
   </div>
-</nav>
-<div class="container">
-  <div class="main-container">
-    <div class="profile-info">
-      <div class="row">
-				<div class="col-lg-10 col-lg-push-1">
-          <h4>Floyd Mayweather</h4>
-						<div class="media">
-							<div class="media-left">
-								<img class="media-object" src="../static/images/Floyd_Mayweather.jpg" width="180px" alt="profile_picture">
-							</div>
-							<div class="media-body">
-							<div class="profile-data">
-				        <p><span>Surname:</span>Mayweather</p>
-				        <p><span>Name:</span>Floyd</p>
-				        <p><span>Patronymic:</span>Floyd</p>
-				        <p><span>Birth Date:</span>1979-02-24</p>
-				        <p><span>Address:</span>Grand Rapids, Michigan, U.S.</p>
-				        <p><span>E-mail:</span>pretty_boy@gmail.com</p>
-				        <p><span>Skype:</span>pretty_boy</p>
-				        <p><span>Average Grade:</span>58</p>
-				        <p><span>Rating:</span>3</p>
-				      </div>
-						</div>
-							<div class="media-right">
-									<img class="media-object" src="../static/images/achievement.png" width="100px" alt="logo">
-							</div>
-					</div>
-        		<h6>Finished courses:</h6>
-							<div>No data available</div>
-						<h6>Courses in progress:</h6>
-							<div>PyBursa Corps</div>
-						<div class="progress">
-							<div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-								90%
-							</div>
-						</div>
-           <table class="table">
-            <thead>
-              <tr>
-                <th class="width-md">Topic</th>
-                <th>Tests</th>
-                <th>Problem Task1</th>
-                <th>Problem Task2</th>
-                <th>Grade</th>
-								<th>Process</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Основы Python</td>
-                <td>100</td>
-                <td>100</td>
-                <td>100</td>
-                <td>100</td>
-								<td><span class="label label-success">finished</span></td>
-              </tr>
-              <tr>
-                <td>Функции и модульность</td>
-                <td>100</td>
-                <td>100</td>
-                <td>100</td>
-                <td>100</td>
-								<td><span class="label label-success">finished</span></td>
-              </tr>
-              <tr>
-                <td>Библиотеки и пакетный менеджер</td>
-                <td>100</td>
-                <td>100</td>
-                <td>100</td>
-                <td>100</td>
-								<td><span class="label label-success">finished</span></td>
-              </tr>
-              <tr>
-                <td>Классы и ООП, основы</td>
-                <td>100</td>
-                <td>75</td>
-                <td>0</td>
-                <td>58</td>
-								<td><span class="label label-info">in progress</span></td>
-              </tr>
-            </tbody>
-          </table>
+    <div class="col-md-6">
+    <p class="lead emotional">Perfomance: Web Development with Python</p>
+    <ul class="task-list list-unstyled">
+      <li>
+        <p>Problem Task <span class="label label-danger">23%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" style="width:23%">
+          </div>
         </div>
-      </div>
-    </div>
+      </li>
+      <li>
+        <p>Tests<span class="label label-warning">60%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Average Grade <span class="label label-success">93%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100" style="width: 93%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Rating<span class="label label-danger">BAD</span></p>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger" role="progressbar" style="width:35%">
+            BAD
+          </div>
+          <div class="progress-bar progress-bar-warning" role="progressbar" style="width:35%">
+            GOOD
+          </div>
+          <div class="progress-bar progress-bar-success" role="progressbar" style="width:30%">
+            EXCELLENT
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
-</body>
-</html>
+<a href="{% url 'student_list' %}" class="btn btn-info" role="button" style="margin-left: 28px;">Back</a>
+{% endblock content %}
