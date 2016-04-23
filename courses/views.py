@@ -30,7 +30,8 @@ def edit(request, id):
 		if form.is_valid():
 			application = form.save()
 			message = u'The changes have been saved.'
-			messages.success(request, message)			
+			messages.success(request, message)
+			return redirect('courses:edit', application.id)			
 	else:
 		form = CourseModelForm(instance=application)
 
