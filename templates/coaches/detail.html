@@ -5,11 +5,11 @@
 
 
 {% block jambotron_content %}
-    <div class="jumbotron">
-      <h1>{{ coach.first_name_field }} {{ coach.last_name_field }}</h1>
-      <h2>Description</h2>
-      <p>Detail information of selected coach</p>
-    </div>
+<div class="jumbotron">
+  <h1>{{ coach.first_name_field }} {{ coach.last_name_field }}</h1>
+  <h2>Description</h2>
+  <p>Detail information of selected coach</p>
+</div>
 {% endblock jambotron_content %}
 
 
@@ -17,67 +17,60 @@
 
 
  {% block content %}
-    <table class="my_table">
-      <thead>
-        <tr>
-          <th class="my_fistcolsize my_transparensy07" style="text-align: left">
-            Date of birth</th>
-          <td>{{ coach.date_of_birth|date:"j F, Y" }}</td>
-        </tr>
-      </thead>
-      <tr>
-        <th class="my_secondcolsize my_transparensy07" style="text-align: left">
-          Address</th>
-        <td>{{ coach.address }}</td>
-      </tr>
-      <tr>
-        <th class="my_secondcolsize my_transparensy07" style="text-align: left">
-          Email</th>
-        <td>{{ coach.email }}</td>
-      </tr>
-      <tr>
-        <th class="my_secondcolsize my_transparensy07" style="text-align: left">
-          Skype nickname</th>
-        <td>{{ coach.skype }}</td>
-      </tr>
-      <tr>
-        <th class="my_secondcolsize my_transparensy07" style="text-align: left">
-          Phone</th>
-        <td>{{ coach.phone }}</td>
-      </tr>
-      <tr>
-        <th class="my_secondcolsize my_transparensy07" style="text-align: left">
-          Courses coach</th>
-        {% for course in teacher %}
-        <td>
-          <p>
-            <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
-          </p>
-          <p>
-            Course studets:
-            <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
-              <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
-            </a>
-          </p>
-        </td>
-        {% endfor %}
-      </tr>
-      <tr>
-        <th class="my_secondcolsize my_transparensy07" style="text-align: left">
-          Courses assistant</th>
-        {% for course in assistant %}
-        <td>
-          <p>
-            <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
-          </p>
-          <p>
-            Course studets:
-            <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
-              <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
-            </a>
-          </p>
-        </td>
-        {% endfor %}
-      </tr>
-    </table>
+<table class="my_table">
+  <thead>
+    <tr>
+      <th class="my_fistcolsize my_transparensy07" style="text-align: left">Date of birth</th>
+      <td>{{ coach.date_of_birth|date:"j F, Y" }}</td>
+    </tr>
+  </thead>
+  <tr>
+    <th class="my_secondcolsize my_transparensy07" style="text-align: left">Address</th>
+    <td>{{ coach.address }}</td>
+  </tr>
+  <tr>
+    <th class="my_secondcolsize my_transparensy07" style="text-align: left">Email</th>
+    <td>{{ coach.email }}</td>
+  </tr>
+  <tr>
+    <th class="my_secondcolsize my_transparensy07" style="text-align: left">Skype nickname</th>
+    <td>{{ coach.skype }}</td>
+  </tr>
+  <tr>
+    <th class="my_secondcolsize my_transparensy07" style="text-align: left">Phone</th>
+    <td>{{ coach.phone }}</td>
+  </tr>
+  <tr>
+    <th class="my_secondcolsize my_transparensy07" style="text-align: left">Courses coach</th>
+    {% for course in teacher %}
+    <td>
+      <p>
+        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+      </p>
+      <p>
+        Course studets:
+        <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+          <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+        </a>
+      </p>
+    </td>
+    {% endfor %}
+  </tr>
+  <tr>
+    <th class="my_secondcolsize my_transparensy07" style="text-align: left">Courses assistant</th>
+    {% for course in assistant %}
+    <td>
+      <p>
+        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+      </p>
+      <p>
+        Course studets:
+        <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+          <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+        </a>
+      </p>
+    </td>
+    {% endfor %}
+  </tr>
+</table>
 {% endblock content %}

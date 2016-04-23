@@ -8,13 +8,13 @@
 
 
 {% block jambotron_content %}
-    <div class="jumbotron">
-      <h1>PyBursa</h1>
-      <h2>Description</h2>
-      <p>
-        Programming course at the cool languages for those who really want to start creating!
-      </p>
-    </div>
+<div class="jumbotron">
+  <h1>PyBursa</h1>
+  <h2>Description</h2>
+  <p>
+    Programming course at the cool languages for those who really want to start creating!
+  </p>
+</div>
 {% endblock jambotron_content %}
 
 
@@ -22,26 +22,58 @@
 
 
 {% block content %}
-    <table class="my_table">
-      <thead>
-        <tr>
-          <th class="my_fistcolsize my_transparensy07">#</th>
-          <th class="my_fistcolsize my_transparensy07">Course</th>
-          <th class="my_secondcolsize my_transparensy07">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for course in courses %}
-        <tr>
-          <td>
-            {{ forloop.counter }}
-          </td>
-          <td>
-            <a href="{% url "courses:detail" course.id %}">{{ course.name|upper }}</a>
-          </td>
-          <td>{{ course.short_description|title }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+<table>
+  <tr>
+    <td>
+      <a href="{% url 'courses:add' %}" class="btn btn-info btn-block" role="button">
+        <span class="glyphicon glyphicon-plus"></span>
+        Add course
+      </a>
+    </td>
+    <td style="color: gray">
+      {% if messages %}
+           {% for message in messages %}
+      <h3>{{ message }}</h3>
+      {% endfor %}
+         {% endif %}
+    </td>
+  </tr>
+</table>
+<p>
+  <table class="my_table">
+    <thead>
+      <tr>
+        <th class="my_fistcolsize my_transparensy07">#</th>
+        <th class="my_secondcolsize my_transparensy07">Course</th>
+        <th class="my_secondcolsize my_transparensy07">Description</th>
+        <th colspan="2"class="my_fistcolsize my_transparensy07">User actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for course in courses %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>
+          <a href="{% url "courses:detail" course.id %}">{{ course.name|upper }}</a>
+        </td>
+        <td>{{ course.short_description|title }}</td>
+        <td>
+          <a href="{% url 'courses:edit' course.id %}"
+             class="btn btn-info btn-xs" role="button">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Edit
+          </a>
+        </td>
+        <td>
+          <a href="{% url 'courses:remove' course.id %}"
+             class="btn btn-warning btn-xs" role="button">
+            <span class="glyphicon glyphicon-remove"></span>
+            Remove
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</p>
 {% endblock content %}

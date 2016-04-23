@@ -8,11 +8,11 @@
 
 
 {% block jambotron_content %}
-    <div class="jumbotron">
-      <h1>PyBursa Students List</h1>
-      <h2>Are You next?</h2>
-      <p>Below is list of students. Final - May 2016</p>
-    </div>
+<div class="jumbotron">
+  <h1>PyBursa Students List</h1>
+  <h2>Are You next?</h2>
+  <p>Below is list of students. Final - May 2016</p>
+</div>
 {% endblock jambotron_content %}
 
 
@@ -20,51 +20,52 @@
 
 
 {% block content %}
-    <div>
-      <table class="my_table">
-        <tr>
-          <th class="my_firstcolsize_st my_transparensy07">No</th>
-          <th class="my_secondcolsize_st my_transparensy07">Surname</th>
-          <th class="my_thirdcolsize_st my_transparensy07">Name</th>
-          <th class="my_fourscosize_st my_transparensy07">Address</th>
-          <th class="my_fifthcolsize_st my_transparensy07">Skype</th>
-        </tr>
-        <tr>
-          <td>
-            <a href="{% url 'student_detail' %}">1</a></td>
-            <td>Sergey</td>
-            <td>Chernish</td>
-            <td>Ukraine, Kharkov, Pushkinskaya st., 82</td>
-            <td>Sergey.Chernish</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Pavel</td>
-            <td>Volya</td>
-            <td>Ukraine, Kharkov, Ivanova st., 22, 4</td>
-            <td>Volya.abo.Nevolya</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Chuk</td>
-            <td>Norrice</td>
-            <td>Ukraine, Kharkov, Moskovskiy ave., 182, 7</td>
-            <td>IamImmortal</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Van</td>
-            <td>Dam</td>
-            <td>Ukraine, Kharkov, Sumskaya st.52, 56</td>
-            <td>A_VanNeDam</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Sergey</td>
-            <td>Shnur</td>
-            <td>Ukraine, Kharkov, Gettruda st., 5, 3</td>
-            <td>Leningrad</td>
-          </tr>
-        </table>
-      </div>
+<div>
+  <table class="my_table">
+    <tr>
+      <th class="my_firstcolsize_st my_transparensy07">No</th>
+      <th class="my_secondcolsize_st my_transparensy07">Surname</th>
+      <th class="my_thirdcolsize_st my_transparensy07">Name</th>
+      <th class="my_fourscosize_st my_transparensy07">Address</th>
+      <th class="my_fifthcolsize_st my_transparensy07">Skype</th>
+    </tr>
+    <tr>
+      <td>
+        <a href="{% url 'student_detail' %}">1</a>
+      </td>
+      <td>Sergey</td>
+      <td>Chernish</td>
+      <td>Ukraine, Kharkov, Pushkinskaya st., 82</td>
+      <td>Sergey.Chernish</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Pavel</td>
+      <td>Volya</td>
+      <td>Ukraine, Kharkov, Ivanova st., 22, 4</td>
+      <td>Volya.abo.Nevolya</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Chuk</td>
+      <td>Norrice</td>
+      <td>Ukraine, Kharkov, Moskovskiy ave., 182, 7</td>
+      <td>IamImmortal</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Van</td>
+      <td>Dam</td>
+      <td>Ukraine, Kharkov, Sumskaya st.52, 56</td>
+      <td>A_VanNeDam</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Sergey</td>
+      <td>Shnur</td>
+      <td>Ukraine, Kharkov, Gettruda st., 5, 3</td>
+      <td>Leningrad</td>
+    </tr>
+  </table>
+</div>
 {% endblock content %}

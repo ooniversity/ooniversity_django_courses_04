@@ -5,13 +5,11 @@
 
 
 {% block jambotron_content %}
-    <div class="jumbotron">
-      <h1>{{ course.name }}</h1>
-      <h2>Description</h2>
-      <p>
-        {{ course.description|truncatechars:32 }}
-      </p>
-    </div>
+<div class="jumbotron">
+  <h1>{{ course.name }}</h1>
+  <h2>Description</h2>
+  <p>{{ course.description|truncatechars:32 }}</p>
+</div>
 {% endblock jambotron_content %}
 
 
@@ -22,12 +20,29 @@
 
 
 {% include "include/coursedetail_include.html" %}
+<div class="my_jumbotron my_transparensy07" title="The material that will be taught on the course">
+  <h2>Program</h2>
+</div>
 
-    <div class="my_jumbotron my_transparensy07" title="The material that will be taught on the course">
-      <h2>Program</h2>
-    </div>
-
-   <table class="my_table">
+<table>
+  <tr>
+    <td>
+      <a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-info btn-block" role="button">
+        <span class="glyphicon glyphicon-plus"></span>
+        Add lesson
+      </a>
+    </td>
+    <td style="color: gray">
+      {% if messages %}
+           {% for message in messages %}
+      <h3>{{ message }}</h3>
+      {% endfor %}
+         {% endif %}
+    </td>
+  </tr>
+</table>
+<p>
+  <table class="my_table">
     <thead>
       <tr>
         <th class="my_fistcolsize my_transparensy07">#</th>
@@ -44,5 +59,6 @@
       </tr>
       {% endfor %}
     </tbody>
-    </table>
+  </table>
+</p>
 {% endblock content %}

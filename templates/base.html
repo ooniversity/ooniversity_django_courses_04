@@ -7,9 +7,7 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta name="description" content="">
   <meta name="author" content="">
-
   {% load staticfiles %}
-
   <link rel="icon" href="{% static "images/favicon.ico" %}">
 
   <title>{% block title %}PyBursa{% endblock title %}</title>
@@ -23,9 +21,7 @@
   <!-- Custom styles for this template -->
   <link href="{% static "css/navbar.css" %}" rel="stylesheet">
   <!-- Personal styles for this project -->
-  <link href="{% static "css/style.css" %}" rel="stylesheet">
-
-</head>
+  <link href="{% static "css/style.css" %}" rel="stylesheet"></head>
 
 <body>
 
@@ -57,20 +53,12 @@
         </div>
       </div>
     </nav>
-
-
-{% block jambotron_content %}{% endblock jambotron_content %}
-
-
+    {% block jambotron_content %}{% endblock jambotron_content %}
     <div class="my_jumbotron my_transparensy07" title="The material that will be taught on the course">
       <h2>{% block inline_content %}{% endblock inline_content %}</h2>
     </div>
-
-
-{% block content %}{% endblock content %}
-    
-
-    </div>
+    {% block content %}{% endblock content %}
+  </div>
 
   <!-- /container -->
 
