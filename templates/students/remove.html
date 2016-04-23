@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Remove student{% endblock %}
+
+{% block status_student %}active{% endblock %}
+
+{% block content %}
+
+<h3>Student {{ name }} {{ surname }} will be removed.</h3>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Remove" />
+</form>
+
+{% endblock content %}

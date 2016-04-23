@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit student{% endblock %}
+
+{% block status_student %}active{% endblock %}
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+<h3>Updating new student</h3>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update" />
+</form>
+
+{% endblock content %} 
