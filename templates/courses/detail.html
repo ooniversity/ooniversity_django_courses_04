@@ -2,7 +2,7 @@
  {%  extends "base.html" %}
 
 
- {%  block title %}Main{% endblock title %}
+ {%  block title %}Courses{% endblock title %}
 
 
  {%  block nav_class_contact %}active{% endblock%}
@@ -14,7 +14,7 @@
    <div class="container">     
       <div class="jumbotron">
          <h2>{{course.name}}</h2>
-         <p>{{course.short_description|truncatechars:32}}</p>
+         <p>{{course.description|truncatechars:32}}</p>
       </div>
     </div>
 
