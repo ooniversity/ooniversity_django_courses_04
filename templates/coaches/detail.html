@@ -1,3 +1,5 @@
+  {% load staticfiles %}
+
  
  {%  extends "base.html" %}
 
@@ -17,7 +19,7 @@
     <tbody>
         <tr class="info">
             <td>дата рождения</td>
-            <td>{{coach.date_of_birth|date:"D d M Y"}}</td>
+            <td>{{coach.date_of_birth|date:"d M, Y"}}</td>
         </tr>
                 <tr class="info">
             <td>адрес</td>
