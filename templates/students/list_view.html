@@ -13,18 +13,23 @@
  
 {%  block content %}
 
+    <p><a href="{% url 'students:add' %}" class="btn btn-primary" >
+        <span class="glyphicon glyphicon-plus"></span>Добавить нового студента
+    </a></p>
+
 
     <div class="container">
       <h2>Список студентов:</h2>
     </div>  
     <div class="container"> 
       <table class="table">
-        <tr>
+        <tr class="info">
           <th>#</th>
           <th>фамилия имя</th>
           <th>адрес</th>
           <th>skype</th>
           <th>курсы</th>
+          <th>Изменить/Удалить</th>
         </tr>
       {% for student in students %}
         <tr>
@@ -37,7 +42,13 @@
               <p><a href="{% url 'courses:detail' course.id %}">{{course}}</a></p>
             {%  endfor %}  
           </td>
-      {%  endfor %}    
+          <td>
+            <a href="{% url 'students:edit' student.id %}">
+                <span class="glyphicon glyphicon-edit"></span>
+            </a>
+            
+          </td> 
+      {%  endfor %}     
         </tr>
       </table>
     </div>

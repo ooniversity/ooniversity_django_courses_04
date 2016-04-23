@@ -1,0 +1,20 @@
+{%  extends 'base.html' %}
+
+{%  load staticfiles %}
+
+{%  block title %}Изменить студента{%  endblock %}
+
+{%  block nav_class_students %}active{% endblock%}
+
+
+{%  block content %}
+	<h1>Изменить студета</h1>
+	<form method="post">
+		{% csrf_token %}
+        {{ form.as_p }}
+		<input type="submit" value="Изменить" />
+	</form>
+
+{%  endblock content %}
+
+
