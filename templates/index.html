@@ -92,18 +92,7 @@
                <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper}}</a></td>
                <td>{{ course.short_description|title}}</td>
            
-       <td>
-          <button class="btn btn-success" type="button">
-			<span class="glyphicon glyphicon-pencil"></span>
-            <a href="{% url 'courses:edit' course.id %}">Изменить</a>
-          </button>
-        </td>
-        <td>
-          <button class="btn btn-success" type="button">
-			<span class="glyphicon glyphicon-trash"></span>
-            <a href="{% url 'courses:remove' course.id %}">Удалить</a>                    
-          </button>
-        </td>
+       
 </tr>
         {% endfor %}
 {% endblock content %}
