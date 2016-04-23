@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block title %}Students PyBursa{% endblock title %}
+
+
+{% block nav_class_student %}active{% endblock %}
+
+{% block content %}
+  <div class="main_font">     
+  <h1>{% block titlt_page %}{% endblock titlt_page %}</h1>   
+    <div class="container-fluid">       
+      <table class="table">
+        <thead class="table-bordered">
+{% block page_content %}{% endblock page_content %}
+        </tbody>
+      </table>
+    </div>          
+  </div>
+{% endblock content %}      

@@ -11,7 +11,21 @@
 {% block content %}
 
 
-  <div class="main_font">     
+  <div class="main_font">
+
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+  {% endif %}
+
+
+    <a href="{% url 'students:add' %}">
+      <button type="button" class="btn btn-default">
+      Добавить нового студента
+      </button>
+    </a>    
   <h1>Список студентов</h1>   
     <div class="container-fluid">       
       <table class="table">
@@ -33,6 +47,16 @@
             {% for course in student.courses.all %} 
             <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br/></a>
             {% endfor %}
+            <a href="{% url 'students:edit' student.id %}">
+              <button type="button" class="btn btn-default">
+              Изменить
+              </button>
+            </a> 
+            <a href="{% url 'students:remove' student.id %}">
+              <button type="button" class="btn btn-default">
+              Удалить
+              </button>
+            </a>
             </td>
           {% endfor %}  
           </tr>

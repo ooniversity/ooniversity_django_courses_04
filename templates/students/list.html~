@@ -11,31 +11,46 @@
 {% block content %}
 
 
-  <div class="main_font">     
+  <div class="main_font">
+    <a href="{% url 'students:add' %}">
+      <button type="button" class="btn btn-default">
+      Добавить нового студента
+      </button>
+    </a>    
   <h1>Список студентов</h1>   
     <div class="container-fluid">       
       <table class="table">
         <thead class="table-bordered">
-              <tr>
-                <th>Фамилия Имя</th>
-                <th>Адрес</th>
-                <th>Skype</th>
-                <th>Курсы</th>
-              </tr>
-            </thead>
-            <tbody class="table-bordered">
-              {% for student in students %}
-                <tr>
-                  <td><a href="{% url 'students:detail' student.id %}">{{ student.name }} {{ student.surname }}</a></td>
-                  <td>{{ student.address }}</td>
-                  <td>{{ student.skype }}</td>
-                  <td>
-                  {% for course in student.courses.all %} 
-                  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br/></a>
-                  {% endfor %}
-                  </td>
-              {% endfor %}  
-                </tr>
+          <tr>
+            <th>Фамилия Имя</th>
+            <th>Адрес</th>
+            <th>Skype</th>
+            <th>Курсы</th>
+          </tr>
+        </thead>
+        <tbody class="table-bordered">
+          {% for student in students %}
+          <tr>
+            <td><a href="{% url 'students:detail' student.id %}">{{ student.name }} {{ student.surname }}</a></td>
+            <td>{{ student.address }}</td>
+            <td>{{ student.skype }}</td>
+            <td>
+            {% for course in student.courses.all %} 
+            <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br/></a>
+            {% endfor %}
+            <a href="{% url 'students:edit' student.id %}">
+              <button type="button" class="btn btn-default">
+              Изменить
+              </button>
+            </a> 
+            <a href="{% url 'students:remove' student.id %}">
+              <button type="button" class="btn btn-default">
+              Удалить
+              </button>
+            </a>
+            </td>
+          {% endfor %}  
+          </tr>
         </tbody>
       </table>
     </div>          
