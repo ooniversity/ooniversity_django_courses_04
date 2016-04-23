@@ -8,13 +8,11 @@
 
 
 {% block jambotron_content %}
-    <div class="jumbotron">
-      <h1>Students </h1>
-      <h2>Description</h2>
-      <p>
-        Students list on our School! Enjoy!
-      </p>
-    </div>
+<div class="jumbotron">
+  <h1>Students</h1>
+  <h2>Description</h2>
+  <p>Students list on our School! Enjoy!</p>
+</div>
 {% endblock jambotron_content %}
 
 
@@ -22,7 +20,25 @@
 
 
 {% block content %}
-   <table class="my_table">
+<table>
+  <tr>
+    <td>
+      <a href="{% url 'students:add' %}" class="btn btn-info btn-block" role="button">
+        <span class="glyphicon glyphicon-plus"></span>
+        Add student
+      </a>
+    </td>
+    <td style="color: gray">
+      {% if messages %}
+           {% for message in messages %}
+      <h3>{{ message }}</h3>
+      {% endfor %}
+         {% endif %}
+    </td>
+  </tr>
+</table>
+<p>
+  <table class="my_table">
     <thead>
       <tr>
         <th class="my_fistcolsize my_transparensy07">#</th>
@@ -30,6 +46,7 @@
         <th class="my_secondcolsize my_transparensy07">Address</th>
         <th class="my_secondcolsize my_transparensy07">Skype</th>
         <th class="my_secondcolsize my_transparensy07">Courses</th>
+        <th colspan="2"class="my_secondcolsize my_transparensy07">User actions</th>
       </tr>
     </thead>
     <tbody>
@@ -37,17 +54,32 @@
       <tr>
         <td>{{ forloop.counter }}</td>
         <td>
-          <a href="{% url 'students:detail' student.id %}">
-            {{ student.surname }} {{ student.name }}</a></td>
+          <a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a>
+        </td>
         <td>{{ student.address }}</td>
         <td>{{ student.skype }}</td>
         <td>
-            {% for student in student.courses.all %}
-            <a href="{% url 'courses:detail' student.id %}">{{ student }}</a>
-            {% endfor %}
+          {% for student in student.courses.all %}
+          <a href="{% url 'courses:detail' student.id %}">{{ student }}</a>
+          {% endfor %}
+        </td>
+        <td>
+          <a href="{% url 'students:edit' student.id %}"
+             class="btn btn-info btn-xs" role="button">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Edit
+          </a>
+        </td>
+        <td>
+          <a href="{% url 'students:remove' student.id %}"
+             class="btn btn-warning btn-xs" role="button">
+            <span class="glyphicon glyphicon-remove"></span>
+            Remove
+          </a>
         </td>
       </tr>
       {% endfor %}
     </tbody>
-    </table>
+  </table>
+</p>
 {% endblock content %}
