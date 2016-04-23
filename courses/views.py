@@ -12,6 +12,7 @@ def detail(request, course_id):
 
     return render(request, 'courses/detail.html', {'details': course_details, 'lesson': lesson})
 
+
 def add(request):
     if request.method == "POST":
         form = CourseModelForm(request.POST)
@@ -49,6 +50,7 @@ def remove(request, course_id):
         return redirect("index")
 
     return render(request, 'courses/remove.html', {"name": course_name})
+    
 
 def add_lesson(request, course_id):
     if request.method == "POST":
