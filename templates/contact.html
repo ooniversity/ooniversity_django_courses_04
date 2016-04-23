@@ -1,72 +1,111 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    {% load staticfiles %}
-    <meta charset="utf-8">
-    <title>Contacts</title>
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <ul class="nav navbar-nav">        
-        <li><a href="{% url 'index' %}">Main</a></li>
-        <li><a href="{% url 'contact' %}">Contacts</a></li> 
-        <li><a href="{% url 'student_list' %}">Students</a></li>
-      </ul>            
-    </nav>
-    <div class="container">
-        <div id="Margin"></div>
+{% extends "base.html" %}
+
+
+{% block title %}Pybursa - контакты{% endblock title %}
+
+
+{% block nav_class_contact %}active{% endblock %}
+
+
+{% load staticfiles %}
+{% block content %}
+
     <div class="jumbotron">
+
       <h1 class="organization">Организаторы курса</h1>
+
       <h3 class="director">Director</h3>
+
         <div class="info">
+
           <div class="NameDir">Name: Павел Обод</div>
+
           <div class = 'skype'>Skype: azaless </div>
+
             <div class="email">Email: itbursa100@gmail.com </div>
+
             <div class="phone">Phone: +38 050 123 45 67</div>
+
         </div>
+
       <h3 class="manager">Manager</h3>
+
         <div>
+
             <div class="NameMan"> Name: Алена Чайка </div>
+
             <div class = 'skype'>Skype: alena.itbursa </div>
+
             <div class="email"> Email: alena.itbursa@gmail.com </div>
+
             <div class="phone">Phone: +38 063 625 07 55</div>
+
         </div>
+
       <h3 class="founder">Founder</h3>
+
         <div>
+
         <div class="NameFoun">Name: Дария Михалевич </div>
+
             <div class = 'skype'> Skype: darka.darka.darka.darka </div>
+
             <div class="email">Email: daria.mykhalevych@gmail.com </div>
+
             <div class="phone">Phone: +38 096 469 15 57 </div>   
+
         </div>
+
        </div>
+
       <div class="jumbotron">
+
     <h3>Наши успехи</h3>
+
     <ul class="list-group">
+
       <li class="list-group-item"><span class="badge">85</span>Начинающий разработчик</li>
+
       <li class="list-group-item"><span class="badge">33</span>Опытный разработчик</li>
+
       <li class="list-group-item"><span class="badge">9</span>Senior</li>
+
     </ul>
+
     </div>
+
       <div class="btn-group" data-toggle="buttons">
+
   <label class="btn btn-primary"> <input type="checkbox"> Написать нам </label>
+
   <label class="btn btn-primary"> <input type="checkbox"> Позвонить нам </label>
+
   <label class="btn btn-primary"> <input type="checkbox"> Donate </label>
+
 </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
       
+
     
 
+
+
 <nav>
+
       <ul class="pager">
+
         <li><a href="{% url 'index' %}">Previous</a></li>
+
         <li><a href="{% url 'student_list' %}">Next</a></li>
+
       </ul>
+
     </nav>
+
    <div class="alert alert-success" role="alert">Please contact us <strong><a href="http://pybursa.com">PyBursa.com</a></strong></div>
-    <p class="navbar-text navbar-right">
-Website development <a href="https://www.google.com/intl/ru/mail/help/about.html" class="navbar-link">Constantin</a></p>
-   </body>
-</html>
+
+  {% endblock content %}
