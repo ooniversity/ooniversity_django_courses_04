@@ -9,11 +9,12 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('coaches', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Student',
+            name='Coach',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('date_of_birth', models.DateField()),
@@ -27,5 +28,12 @@ class Migration(migrations.Migration):
             options={
             },
             bases=(models.Model,),
+        ),
+        migrations.RemoveField(
+            model_name='student',
+            name='user',
+        ),
+        migrations.DeleteModel(
+            name='Student',
         ),
     ]
