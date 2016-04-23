@@ -19,8 +19,7 @@ def add(request):
         form = CourseModelForm(request.POST)
         if form.is_valid():
             application = form.save()
-            message = u"Course %s has \
-                       been successfully added." % application.name
+            message = u"Course %s has been successfully added." % application.name
             messages.success(request, message)
             return redirect('/')
     else:
@@ -57,8 +56,7 @@ def add_lesson(request, course_id):
         form = LessonModelForm(request.POST)
         if form.is_valid():
             lesson = form.save()
-            message = u"Lesson %s has \
-                        been successfully added." % lesson.subject
+            message = u"Lesson %s has been successfully added." % lesson.subject
             messages.success(request, message)
             return redirect("courses:detail", lesson.course.id)
     else:
