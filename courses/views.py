@@ -22,19 +22,19 @@ def add(request):
     return render(request, 'courses/add.html', {'form':form})
 
 def edit(request, course_id):
-    course = get_object_or_404(Course, id=course_id)
+    course = get_object_or_404(Course, id = course_id)
     if request.method == "POST":
-        form = CourseModelForm(request.POST, instance=course)
+        form = CourseModelForm(request.POST, instance = course)
         if form.is_valid():
-            form.save()
+            course_form = form.save()
             messages.success(request, u"The changes have been saved.")
-            return render(request, 'courses/edit.html', {'form':form})
+            return redirect('courses:edit', course_form.id)
     else:
-        form = CourseModelForm(instance=course)
+        form = CourseModelForm(instance = course)
     return render(request, 'courses/edit.html', {'form':form})
 
 def remove(request, course_id):
-    course = get_object_or_404(Course, id=course_id)
+    course = get_object_or_404(Course, id  =course_id)
     if request.method == "POST":
         message =  u"Course %s has been deleted." % course.name
         course.delete()
@@ -50,7 +50,7 @@ def add_lesson(request, course_id):
             lesson = form.save()
             message =  u"Lesson %s has been successfully added." % lesson.subject
             messages.success(request, message)
-            return redirect('/courses/%d' % lesson.course.id)
+            return redirect("courses:detail", lesson.course.id)
     else:
-        form = LessonModelForm(initial={'course':course_id})
+        form = LessonModelForm(initial = {'course':course_id})
     return render(request, 'courses/add_lesson.html', {'form':form})
