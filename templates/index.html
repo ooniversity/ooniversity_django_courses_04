@@ -30,6 +30,14 @@
           <tr>
             <td style="width:17%"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a class="styled_links" href={% url 'courses:detail' course.id %}>{{ course.name|upper }}</a></td>
             <td style="width:50%">{{ course.short_description|title }}</td>
+            <td>
+             <a href="{% url 'courses:edit' course.id %}">
+             <span class="glyphicon glyphicon-pencil"></span>Изменить</a><br>
+             </td>
+           <td>
+             <a href="{% url 'courses:remove' course.id %}">
+             <span class="glyphicon glyphicon-remove"></span>Удалить</a><br>
+         </td>
           </tr>
         {% endfor %}
         </tbody>
