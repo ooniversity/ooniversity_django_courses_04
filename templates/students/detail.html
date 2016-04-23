@@ -1,45 +1,61 @@
-  {% extends "base.html" %}
-
-  {% load staticfiles %}
+{% extends "base.html" %}
 
 
-  {% block title %}{{ student.name }} {{ student.surname }}{% endblock title %}
-  
-  {% block nav_active_students %}active{% endblock %}
+{% load staticfiles %}
 
-        
-  {% block content %}
-  <h2 id = "header_table">{{ student.name }} {{ student.surname}}</h2>
-     <div class="table-responsive">
-      <table class="table table-striped">
-        <tr>
-            <td>дата рождения</td>
-            <td>{{ student.date_of_birth }}</td>
-        </tr>
-        <tr>
-            <td>адрес</td>
-            <td>{{ student.address }}</td>
-        </tr>
-        <tr>
-            <td>почта</td>
-            <td>{{ student.email }}</td>
-        </tr>
-        <tr>
-            <td>логин Skype</td>
-            <td>{{ student.skype }}</td>
-        </tr>
-        <tr>
-            <td>телефон</td>
-            <td>{{ student.phone }}</td>
-        </tr>
-        <tr>
-            <td>курсы</td>
-            <td> {% for course in student.courses.all %}
-                  <a href={% url 'courses:detail' course.id %}>{{ course.name }}<br></a>
-            {% endfor %}</td>
-        </tr>
 
-      </table>   
+{% block title %}PyBursa detail info Students{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock %}
+
+
+{% block page_main_header %}{{ students.name }} {{ students.surname }}{% endblock %}
+
+
+{% block content %}
+<div class="col-lg-12">
+  <div class="col-md-6">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th width="30%">student card</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>birth date</td>
+            <td>{{ students.date_of_birth }}</td>
+          </tr>
+          <tr>
+            <td>address</td>
+            <td>{{ students.address }}</td>
+          </tr>
+          <tr>
+            <td>email</td>
+            <td>{{ students.email }}</td>
+          </tr>
+          <tr>
+            <td>login skype</td>
+            <td>{{ students.skype }}</td>
+          </tr>
+          <tr>
+            <td>phone</td>
+            <td>{{ students.phone }}</td>
+          </tr>
+          <tr>
+            <td>courses</td>
+            <td>
+              {% for course in students.courses.all %}
+              <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
+              {% endfor %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-  {% endblock content %}
+  </div>
+  <div class="col-md-6"></div>
+</div>
+{% endblock content %}

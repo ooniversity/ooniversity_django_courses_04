@@ -1,83 +1,72 @@
-    {% extends "base.html" %}
-
-    {% load staticfiles %}
+{% extends "base.html" %}
 
 
-    {% block title %}Students PyBursa{% endblock title %}
-
-    {% block nav_active_students %}active{% endblock %}
+{% load staticfiles %}
 
 
-    {% block content %}
-        <h2 id = "header_table">Студенты курса PyBursa</h2>
-          <p> В таблице предоставленны данные на 01.04.2016 год</p>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Surname</th>
-                  <th>Name</th>
-                  <th>Address</th>
-                  <th>Skype</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><a href="{% url 'student_detail' %}">1</a></td>
-                  <td>Persianova</td>
-                  <td>Olena</td>
-                  <td>Украина, г.Харьков, ул.Иванова 10</td>
-                  <td>persianova_0</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Bogdanov</td>
-                  <td>Victor</td>
-                  <td>Украина, г.Харьков, ул.Иванова 11</td>
-                  <td>bogdanov_v</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Ivanov</td>
-                  <td>Oleg</td>
-                  <td>Украина, г.Харьков, ул.Иванова 12</td>
-                  <td>ivanov_o</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Stapanenko</td>
-                  <td>Anna</td>
-                  <td>Украина, г.Харьков, ул.Иванова 13</td>
-                  <td>stepanenko_a</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Zhukov</td>
-                  <td>Dima</td>
-                  <td>Украина, г.Харьков, ул.Иванова 14</td>
-                  <td>zhukov_d</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>Vinokurova</td>
-                  <td>Alla</td>
-                  <td>Украина, г.Харьков, ул.Иванова 15</td>
-                  <td>vinokurova_a</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>Leonova</td>
-                  <td>Natalia</td>
-                  <td>Украина, г.Харьков, ул.Иванова 15</td>
-                  <td>leonova_n</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+{% block title %}PyBursa Organizers{% endblock title %}
 
 
+{% block nav_class_contact %}active{% endblock %}
+
+
+{% block page_main_header %}List all students PyBursa{% endblock %}
+
+
+{% block page_header_description %}The graduates of 2016:{% endblock %}
+
+
+{% block content %}
+<div class="col-lg-12">
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th width="5%">No</th>
+          <th>Surname</th>
+          <th>Name</th>
+          <th width="40%">Address</th>
+          <th>Skype</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="{% url 'student_detail' %}">1</a></td>
+          <td>Makhno</td>
+          <td>Yuryi</td>
+          <td>Ukrain, Kiev, ul. Berezhanskaya, 9</td>
+          <td>makhno_y</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Haharo</td>
+          <td>Denys</td>
+          <td>Ukrain, Harkov, prosp. Gagarina, 41/2</td>
+          <td>haharo_d</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Povazhniuk</td>
+          <td>Serhei</td>
+          <td>Ukrain, Harkov, ul. Sumskaya, 124</td>
+          <td>povajnuk_s</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Tokar</td>
+          <td>Ruslan</td>
+          <td>Ukrain, Nikolaev, ul. Sovetskaya, 13/4</td>
+          <td>tokar_r</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Volinskyi</td>
+          <td>Bohdan</td>
+          <td>Ukrain, Nikolaev, prosp. Oktyabrskiy, 342/2</td>
+          <td>volinskiy_b</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 {% endblock content %}

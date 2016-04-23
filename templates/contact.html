@@ -1,92 +1,48 @@
-    {% extends "base.html" %}
-
-    {% load staticfiles %}
+{% extends "base.html" %}
 
 
-    {% block title %}Contacts PyBursa{% endblock title %}
-   
-    {% block nav_active_contact %}active{% endblock %}
+{% load staticfiles %}
 
 
-    {% block content %}
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-  
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <div class="container">
-            <div class="carousel-caption">
-              <img class="img-circle" src="../static/images/py.jpg" alt="Generic placeholder image" width="100" height="100">
-         <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Director</h3>
-            </div>
-            <div class="panel-body director">   
-              <ul>
-                <li class = "name">Name: Татьяна Орехова</li>
-                <li>Skype: Tatyana_Oriekhova</li>
-                <li>Email: to096540848@gmail.com</li>
-                <li>Phone: +38 099 186 64 75</li>
-              </ul>
-            </div>
-            </div>
-            </div>
-          </div>
-        </div>
+{% block title %}PyBursa contact{% endblock title %}
 
-        <div class="item">
-         <div class="container">
-            <div class="carousel-caption">
-              <img class="img-circle" src="../static/images/py.jpg" alt="Generic placeholder image" width="100" height="100">
-              <div class="panel panel-default">
-              <div class="panel-heading">
-              <h3 class="panel-title">Manager</h3>
-              </div>
-              <div class="panel-body manager">
-              <ul>
-                <li class = "name">Name:  Дария Михалевич</li>
-                <li>Skype: darka.darka.darka.darka.</li>
-                <li>Email: daria.mykhalevych@gmail.com</li>
-                <li>Phone: +38 096 469 15 57 </li>
-              </ul>
-            </div>
-            </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="item">
-         <div class="container">
-            <div class="carousel-caption">
-                <img class="img-circle" src="../static/images/py.jpg" alt="Generic placeholder image" width="100" height="100">
-                <div class="panel panel-default">
-                <div class="panel-heading">
-                <h3 class="panel-title">Founder</h3>
-                </div>
-                <div class="panel-body founder">
-                <ul>
-                  <li class = "name">Name: Павел Обод</li>
-                  <li>Skype: azaless </li>
-                  <li>Email: itbursa100@gmail.com </li>
-                  <li>Phone: +38 097 145 75 83</li>
-                </ul>
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div><!-- /.carousel -->
+{% block nav_class_contact %}active{% endblock %}
 
+
+{% block page_main_header %}PyBursa organizers{% endblock %}
+
+
+{% block content %}
+<div class="col-lg-12">
+  <div class="row">
+    <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="position"><h3>Director</h3></div>
+      <ul class="list-group">
+        <li class="list-group-item">Name: Ivan Voloboev</li>
+        <li class="list-group-item">Skype: vanelin</li>
+        <li class="list-group-item">Email: voloboev@gmail.com</li>
+        <li class="list-group-item">Phone: 0673338778</li>
+      </ul>
+    </div>
+    <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="position"><h3>Founder</h3></div>
+      <ul class="list-group">
+        <li class="list-group-item">Name: Max Payne</li>
+        <li class="list-group-item">Skype: madmax</li>
+        <li class="list-group-item">Email: madmax@gmail.com</li>
+        <li class="list-group-item">Phone: 0669996666</li>
+      </ul>
+    </div>
+    <div class="info-block col-lg-4 col-md-4 col-sm-4 col-xs-12">
+      <div class="position"><h3>Manager</h3></div>
+      <ul class="list-group">
+        <li class="list-group-item">Name: Mary Monahova</li>
+        <li class="list-group-item">Skype: mary777</li>
+        <li class="list-group-item">Email: mary@gmail.com</li>
+        <li class="list-group-item">Phone: 0501346549</li>
+      </ul>
+    </div>
+  </div>
+</div>
 {% endblock content %}
