@@ -7,8 +7,9 @@
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 <ul>
     <form method='get'>
+        {% csrf_token %} 
         {{ form.as_p }}
-        <input type="submit"></input>
+        <input type="submit" value="Решить" />
     </form>
 
     {% if results %}
