@@ -1,48 +1,38 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
-
+from forms import QuadraticForm
 
 
 # Create your views here.
 def quadratic_results(request):
 
-	a = request.GET['a']
-	b = request.GET['b']
-	c = request.GET['c']
-    
-	try:
-		int(a)
-		int(b)
-		int(c)
-	except:
-		context = {'a': a, 'b': b, 'c': c, 'd': '', 'x1': 1, 'x2': 2}
-		return render(request, 'results.html', context)
-	
-	if a != '0' and b and c:
-		d = get_discr(a, b, c)
-	else:
-		d = ''
+    context = {}
+    if request.method == 'GET':
+        form = QuadraticForm(request.GET)
+        if form.is_valid():
+            a = form.cleaned_data['a']
+            b = form.cleaned_data['b']
+            c = form.cleaned_data['c']
+            d = int(b ** 2 - 4 * a * c)
+            if d > 0:
+                text = "Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f" % (get_results(a, b, d), get_results(a, b, d, 2))
+            elif d == 0:
+                text = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %0.1f" % (get_results(a, b, d))
+            else:
+                text = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
+            context['d'] = str(d)
+            context['results'] = text
+    else:
+        form = QuadraticForm()
 
-	if d >= '0' and a and b:
-		x1 = get_results(a, b, d)
-		x2 = get_results(a, b, d, 2)
-	elif d == '0' and a and b:
-		x1 = x2 = get_results(a, b, d)
-	else:
-		x1 = x2 = 1
 
-	context = {'a': a, 'b': b, 'c': c, 'd': d, 'x1': x1, 'x2': x2}
-
-	return render(request, 'results.html', context)
+    context['form'] = form
+    return render(request, 'quadratic/results.html', context)
 
 
 def get_results(a, b, d, order=1):
     if order == 1:
-    	x = (-int(b) + int(d)**(1/2.0)) / 2*int(a)
+        x = (-b + d**(1/2.0)) / 2*a
     else:
-    	x = (-int(b) - int(d)**(1/2.0)) / 2*int(a)
-    return str(x)
-
-
-def get_discr(a, b, c):
-	return str(int(b)**2 - 4*int(a)*int(c))
+        x = (-b - d**(1/2.0)) / 2*a
+    return x
