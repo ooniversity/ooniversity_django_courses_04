@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
-from forms import QuadraticForm
+from quadratic.forms import QuadraticForm
 
 
 # Create your views here.
