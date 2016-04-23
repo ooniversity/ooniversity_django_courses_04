@@ -23,7 +23,7 @@ def quadratic_results(request):
                 text = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %0.1f" % (x)
             else:
                 text = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
-            context['d'] = d
+            context['d'] = "Дискриминант: %i" % d
             context['results'] = text
     else:
         form = QuadraticForm()
@@ -31,12 +31,3 @@ def quadratic_results(request):
 
     context['form'] = form
     return render(request, 'quadratic/results.html', context)
-
-'''
-def get_results(a, b, d, order=1):
-    if order == 1:
-        x = (-b + d**(1/2.0)) / 2*a
-    else:
-        x = (-b - d**(1/2.0)) / 2*a
-    return x
-'''

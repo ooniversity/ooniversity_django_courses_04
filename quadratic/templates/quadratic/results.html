@@ -6,14 +6,13 @@
 
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 <ul>
-    <form method='get'>
-        {% csrf_token %} 
+    <form method="get"> 
         {{ form.as_p }}
         <input type="submit" value="Решить" />
     </form>
 
     {% if results %}
-      <p>Дискриминант: {{ d }}</p>
+      <p>{{ d }}</p>
       <p>{{ results }}</p>
     {% endif %}
 </ul>
