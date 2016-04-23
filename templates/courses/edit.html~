@@ -1,7 +1,7 @@
 ﻿{% extends "base.html" %}
 
 
-{% block title %}Edit of courses{% endblock title %}
+{% block title %}Edit of student{% endblock title %}
 
 
 {% block nav_class_student %}active{% endblock %}
