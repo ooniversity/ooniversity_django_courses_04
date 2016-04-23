@@ -5,6 +5,12 @@
 {% block student_link %}{% url 'students:list_view' %}?course_id={{ details.id }}{% endblock %}
 
 {% block content %}
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
     <div class="jumbotron">
         <h2 align="center"><b>{{ details.name }}</b></h2>
         <p>{{ details.description|truncatechars:32 }}</p>
@@ -18,6 +24,13 @@
 
 
     <h3>Course plan</h3>
+
+    <hr/>
+
+    <div>
+        <p><a class="btn btn-primary" href="{% url 'courses:add_lesson' details.id %}" role="button">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add lesson</a></p>
+    </div>
 
     <table class="table">
       <thead>

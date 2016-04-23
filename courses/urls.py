@@ -2,7 +2,6 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 from courses import views
-import students
 
 urlpatterns = patterns('',
     # Examples:
@@ -11,7 +10,10 @@ urlpatterns = patterns('',
     #url(r'^$', views.index, name='index'),
     url(r'^(?P<course_id>\d+)/$', views.detail, name='detail'),
 
-    url(r'^students/', include('students.urls', namespace='students')),
+    url(r'^add/', views.add, name='add'),
+    url(r'^edit/(?P<course_id>\d+)/', views.edit, name='edit'),
+    url(r'^remove/(?P<course_id>\d+)/', views.remove, name='remove'),
+    url(r'^(?P<course_id>\d+)/add_lesson/$', views.add_lesson, name='add_lesson'),
     
     url(r'^admin/', include(admin.site.urls)),
 )
