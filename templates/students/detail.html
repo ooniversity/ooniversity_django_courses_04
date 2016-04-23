@@ -1,22 +1,15 @@
- {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
+ {%  extends "base.html" %}
 
-    <link href="{% static 'css/bootstrap.css' %}" rel
-    ="stylesheet">
-  </head>
-  <body>
-    <div class="common">
-      <nav class="navbar navbar-default">
-        <a href="{% url 'index' %}">Main </a>
-        <a href="{% url 'contact' %}">Contacts</a>  
-        <a href="{% url 'students:list_view' %}">Students</a>
-    </nav>
+
+ {%  block title %}Main{% endblock title %}
+
+
+ {%  block nav_class_students %}active{% endblock %}
+
+ 
+ {%  block content %}
+
+
     <div class="container">
       <h2>{{student.name}} {{student.surname}}</h2>
     </div>
@@ -54,9 +47,12 @@
       </table>
     </div>
     </div>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+  {%  endblock content %}  
+
+
+
+
+
+
+
+

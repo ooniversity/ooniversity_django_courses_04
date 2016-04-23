@@ -1,49 +1,46 @@
- {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
+ 
+ {%  extends "base.html" %}
 
-    <link href="{% static 'css/bootstrap.css' %}" rel
-    ="stylesheet">
-  </head>
-  <body>
-    <div class="common">
-      <nav class="navbar navbar-default">
-        <a href="{% url 'index' %}">Main </a>
-        <a href="{% url 'contact' %}">Contacts</a>  
-        <a href="{% url 'students:list_view' %}?course_id={{course.id}}">Students</a>
-    </nav>
 
-    <div class="container">     
+ {%  block title %}Main{% endblock title %}
+
+
+ {%  block nav_class_contact %}active{% endblock%}
+
+ 
+ {%  block content %}
+
+
+   <div class="container">     
       <div class="jumbotron">
          <h2>{{course.name}}</h2>
-         <p>{{course.short_description}}</p>
+         <p>{{course.short_description|truncatechars:32}}</p>
       </div>
     </div>
 
     <h2 align="center">Преподаватели</h2>
-    <h4>Учитель</h4>
 
-    <div class="container">
-      <div class="jumbotron">
-         <a href="{%  url 'coaches:detail' course.coach.id %}">{{course.coach.first_name_field}} {{course.coach.last_name_field}}</a>
-        <p>{{course.coach.description}}</p>
-      </div>
-    </div>
+{%  include "include/coach_include.html" with coach="Преподаватель" teacher=course.coach error_desc="преподавателей" %}
+
+    
 
     <h4>Ассистент</h4>
 
+{%  if course.assistant %} 
     <div class="container">
       <div class="jumbotron">
-        <a href="{%  url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name_field}} {{course.assistant.last_name_field}}</a>
+
+         <a href="{%  url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name_field}} {{course.assistant.last_name_field}}</a>
         <p>{{course.assistant.description}}</p>
-          
-      </div>  
+      </div>
     </div>
+{%  else %}
+    <div class="container">
+          <div class="jumbotron">
+            <p>В данном курсе нет ассистента</p>
+          </div>
+        </div>    
+{%  endif %}
 <br />
 <br />
 
@@ -59,9 +56,18 @@
         {% endfor %}
       </table>
     </div>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+  {%  endblock content %}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
