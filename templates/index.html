@@ -1,69 +1,39 @@
-    {% extends "base.html" %}
-
-    {% load staticfiles %}
+{% extends "base.html" %}
 
 
-    {% block title %}Courses{% endblock title %}
-
-    {% block nav_active_index %}active{% endblock %}
+{% load staticfiles %}
 
 
-    {% block content %}
+{% block title %}PyBursa Description{% endblock title %}
 
-     {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% block page_main_header %}PyBursa teaches programming and web development{% endblock %}
+
+
+{% block page_header_description %}With our courses you will learn programming through hands-on, interesting examples that are useful and fun! Launch your development career with a proven program, written by PyBursa professionals.{% endblock %}
+
+
+{% block content %}
+<div class="col-lg-12">
+  <h2 id="program-course-to-python">Program</h2>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Short description</th>
+       </tr>
+    </thead>
+    <tbody>
+    {% for course in courses %}
+      <tr>
+        <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
+        <td>{{ course.short_description|title }}</td>
+      </tr>
     {% endfor %}
-</ul>
-{% endif %}
-
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-        <div class="container">
-          <h1>ItBursa</h1>
-            <p>Лучшие it курсы</p>
-        </div>
-        </div>
-          <div class="panel-body">
-            <p class = "text-info">Курсы ItBursa начали работу в 2014 году. Мы специализируемся на «модных» языках программирования. Принципиальное наше отличие от других курсов – максимум практики и жесткая система обязательных домашних заданий. Преподаватели – опытные практикующие разработчики, они помогают участникам в ходе курсов создать реальные проекты и получить практические навыки, применимые к работе. Домашние задания на наших курсах обязательны и их невыполнение приводит к исключению с курсов. Таким образом, мы готовим не просто «слушателей» курсов, а настоящих специалистов, способных создавать пусть простые, но рабочие проекты.</p>
-            <p class="btn btn-lg btn-primary" role="button">Посмотреть наши контакты &raquo;</p>
-          </div>
-        </div>
-        </div>
-
-    <div class="panel panel-success" style="margin-left: 20px; width: 1100px;">
-  <!-- Default panel contents -->
-    <div class="panel-heading">
-    	<h2>Выбирай курс на котором будешь учиться!</h2>
-    </div>
-    <div class="panel-body">
-     <form>
-        <button><a href="{% url 'courses:add' %}" style=  "text-decoration: none;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить новый курс</a></button>
-      </form>
-      <!-- List group -->
-      <div class="table-responsive">
-      <table class="table table-striped">
-        <tr>
-        	<th>Курсы</th>
-        	<th>Описание</th>
-          <th></th>
-          <th></th>
-        </tr>
-      	{% for i in courses %}
-        <tr>
-			    <td><a href="{% url 'courses:detail' i.id %}">{{ i.name|upper }}</a></td>
-			    <td>{{ i.short_description|title }}</td>
-          <td><button><a href="{% url 'courses:edit' i.id %}" style=  "text-decoration: none;"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Изменить</a></button>
-          </td>
-          <td><button><a href="{% url 'courses:remove' i.id %}" style=  "text-decoration: none;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Удалить</a></button>
-          </td>
-		    </tr>	
-		    {% endfor %}
-      </table>
-    </div>
-    </div>
-    </div> <!-- /container -->
-
-  {% endblock content %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

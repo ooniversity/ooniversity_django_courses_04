@@ -1,58 +1,48 @@
-  {% extends "base.html" %}
-
-  {% load staticfiles %}
+{% extends "base.html" %}
 
 
-  {% block title %}Students Course {{ course.id }}{% endblock title %}
-  
-  {% block nav_active_students %}active{% endblock %}
-        
+{% load staticfiles %}
 
-  {% block content %}
 
- {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+{% block title %}PyBursa students list{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock %}
+
+
+{% block page_main_header %}List students PyBursa{% endblock %}
+
+
+{% block content %}
+<div class="col-lg-12">
+  <div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th width="5%">#</th>
+        <th>Surname Name</th>
+        <th width="40%">Address</th>
+        <th>skype</th>
+        <th>Courses</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in students %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td><a href="{% url 'students:detail' item.id %}">
+          {{ item.name }} {{ item.surname }}</a></td>
+        <td>{{ item.address }}</td>
+        <td>{{ item.skype }}</td>
+        <td>
+         {% for course in item.courses.all %}
+        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
+        {% endfor %}
+        </td>
+      </tr>
     {% endfor %}
-</ul>
-{% endif %}
-
-<form>
-  <button><a href="{% url 'students:add' %}" style=  "text-decoration: none;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить нового студента</a></button>
-</form>
-
-
-  <!-- Default panel contents -->
-
-  <h2 id = "header_table">Список студентов</h2>
-     <div class="table-responsive">
-      <table class="table table-striped">
-        <tr>
-            <th>#</th>
-            <th>фамилия имя</th>
-            <th>адрес</th>
-            <th>skype</th>
-            <th>курсы</th>
-            <th></th>
-            <th></th>
-        </tr>
-        {% for i in students %}
-        <tr>
-           <td>{{ forloop.counter }}</td>
-           <td><a href="{% url 'students:detail' i.id %}">{{i.surname}} {{ i.name }}</a></td>
-           <td>{{ i.address }}</td>
-           <td>{{ i.skype }}</td>
-           <td> {% for course in i.courses.all %}
-                  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
-                {% endfor %}</td>
-            <td><button><a href="{% url 'students:edit' i.id %}" style=  "text-decoration: none;"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Изменить</a></button>
-            </td>
-            <td><button><a href="{% url 'students:remove' i.id %}" style=  "text-decoration: none;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Удалить</a></button>
-            </td>
-    </tr> 
-    {% endfor %}
-      </table>   
-    </div>
-
+    </tbody>
+  </table>
+</div>
+</div>
 {% endblock content %}

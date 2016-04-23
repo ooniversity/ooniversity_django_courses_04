@@ -1,95 +1,143 @@
-    {% extends "base.html" %}
-
-    {% load staticfiles %}
-
-   {% block title %}Persianova Olena{% endblock title %}
-
-   {% block nav_active_students %}active{% endblock %}
+{% extends "base.html" %}
 
 
-    {% block content %}
-        <h2>Persianova Olena</h2>
-           <img src="../static/images/images.jpg">
+{% load staticfiles %}
 
-           <h6>Student's card</h6>
-          <div id = 'stud_detail' class="table-responsive">
-            <table class="table table-striped">
-              <tbody>
-                <tr>
-                  <td>Surname</td>
-                  <td>Persianova</td>
-                </tr>
-                <tr>
-                  <td>Name</td>
-                  <td>Olena</td>
-                </tr>
-                <tr>
-                  <td>Patronymic</td>
-                  <td>Ola</td>
-                </tr>
-                <tr>
-                  <td>Rating</td>
-                  <td>15</td>
-                </tr>
-                <tr>
-                  <td>Average Grade</td>
-                  <td>100</td>
-                </tr>
-                <tr>
-                  <td>Package</td>
-                  <td>Standart</td>
-                </tr>
-                <tr>
-                  <td>Birth Date</td>
-                  <td>07/01/1989</td>
-                </tr>
-                <tr>
-                  <td>Address</td>
-                  <td>Украина, г.Харьков, ул.Иванова 10</td>
-                </tr>
-                <tr>
-                  <td>E-mail</td>
-                  <td>navka@mail.com</td>
-                </tr>
-                <tr>
-                  <td>Skype</td>
-                  <td>persianova_0</td>
-                </tr>
 
-              </tbody>
-            </table>
+{% block title %}PyBursa students detail{% endblock title %}
+
+
+{% block nav_class_contact %}active{% endblock %}
+
+
+{% block page_main_header %}Makhno Yuryi{% endblock %}
+
+
+{% block content %}
+<div class="col-lg-12">
+  <div class="col-md-6">
+    <img src="../static/images/Makhno.png" class="img-responsive" alt="photo" width="150" height="75">
+    <br>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th width="30%">Student card</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Surname</td>
+            <td>Makhno</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Yuryi</td>
+          </tr>
+          <tr>
+            <td>Patronymic</td>
+            <td>Aleksandrovich  </td>
+          </tr>
+          <tr>
+            <td>Birth Date</td>
+            <td>24-08-1988</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>Ukrain, Kiev, ul. Berezhanskaya, 9</td>
+          </tr>
+          <tr>
+            <td>E-mail</td>
+            <td>makhno_y@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Skype</td>
+            <td>makhno_y</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <p class="lead emotional">Perfomance: Introduction to Python</p>
+    <ul class="task-list list-unstyled">
+      <li>
+        <p>Problem Task <span class="label label-danger">23%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" style="width:23%">
           </div>
         </div>
-      </div>
-    </div>
-
-
-        <h6>Performance</h6>
-          <div id = 'stud_perf' class="table-responsive">
-            <table class="table table-striped">
-            <thead>
-                <tr>
-                  <th>Course</th>
-                  <th>Week</th>
-                  <th>Tests</th>
-                  <th>Problem Task</th>
-                  <th>Average Grade</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>PY104 Введение в Python</td>
-                  <td>Week 1</td>
-                  <td>Tests 01_01</td>
-                  <td>Testr of String</td>
-                  <td>100%</td>
-                </tr>
-
-              </tbody>
-            </table>
+      </li>
+      <li>
+        <p>Tests<span class="label label-warning">60%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
           </div>
         </div>
-      </div>
-    </div>
-
-    {% endblock content %}
+      </li>
+      <li>
+        <p>Average Grade <span class="label label-success">93%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100" style="width: 93%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Rating<span class="label label-warning">GOOD</span></p>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger" role="progressbar" style="width:35%">
+            BAD
+          </div>
+          <div class="progress-bar progress-bar-warning" role="progressbar" style="width:35%">
+            GOOD
+          </div>
+          <div class="progress-bar progress-bar-success" role="progressbar" style="width:30%">
+            EXCELLENT
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+    <div class="col-md-6">
+    <p class="lead emotional">Perfomance: Web Development with Python</p>
+    <ul class="task-list list-unstyled">
+      <li>
+        <p>Problem Task <span class="label label-danger">23%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" style="width:23%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Tests<span class="label label-warning">60%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Average Grade <span class="label label-success">93%</span></p>
+        <div class="progress progress-xs">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100" style="width: 93%">
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Rating<span class="label label-danger">BAD</span></p>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger" role="progressbar" style="width:35%">
+            BAD
+          </div>
+          <div class="progress-bar progress-bar-warning" role="progressbar" style="width:35%">
+            GOOD
+          </div>
+          <div class="progress-bar progress-bar-success" role="progressbar" style="width:30%">
+            EXCELLENT
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<a href="{% url 'student_list' %}" class="btn btn-info" role="button" style="margin-left: 28px;">Back</a>
+{% endblock content %}
