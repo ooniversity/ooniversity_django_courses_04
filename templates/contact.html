@@ -1,78 +1,63 @@
-{% extends "base.html" %}
-{% load static %}
+{%  extends "base.html" %}
 
 
-{% block title %}Контакты{% endblock title %}
+{% load staticfiles %}
 
 
-{% block nav_contact %}active{% endblock nav_contact %}
+{%  block title %}Contacts{% endblock title %}
 
 
-{% block content %}
-    <div class="container">
-        <h1>Организаторы курсов</h1>
-        <div class="organized">
+{%  block nav_class_contact %}active{% endblock%}
 
-            <div class="row">
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img class="foto" src="{% static 'images/Director.jpg' %}" alt="Director">
-                        <div class="caption">
-                            <h3>Director</h3>
-                            <p><label>Name:&nbsp</label>Brad Pitt</p>
-                            <p><label>Skype:&nbsp</label>mikky</p>
-                            <p><label>Email:&nbsp</label>bp@gmail.com</p>
-                            <p><label>Phone:&nbsp</label>555 333 222</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+ 
+{%  block content %}
 
-            <div class="row">
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img class="foto" src="{% static 'images/Founder.jpg' %}" alt="Founder">
-                        <div class="caption">
-                            <h3>Founder</h3>
-                            <p><label>Name:&nbsp</label>Arnold Schwarzenegger</p>
-                            <p><label>Skype:&nbsp</label>zeus</p>
-                            <p><label>Email:&nbsp</label>god@gmail.com</p>
-                            <p><label>Phone:&nbsp</label>777 777 777</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img class="foto" src="{% static 'images/Manager.jpg' %}" alt="manager">
-                        <div class="caption">
-                            <h3>Manager</h3>
-                            <p><label>Name:&nbsp</label>George Clooney</p>
-                            <p><label>Skype:&nbsp</label>fknwork</p>
-                            <p><label>Email:&nbsp</label>gc@gmail.com</p>
-                            <p><label>Phone:&nbsp</label>111 222 333</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+   <div class="container">     
+      
+         <ul>
+      <li>
+        <h4>Director</h4>
+        <p>
+        Name: Director of the World <br />
+        Skype: director.skype <br />
+        Email: directro@gamil.com <br />
+        Phone: +380500000000 <br />
+        </p>
+      </li>
 
-        </div>
+      <li>
+        <h4>Manager</h4>
+        <p>
+        Name: Manager of the World <br />
+        Skype: manager.skype <br />
+        Email: manager@gamil.com <br />
+        Phone: +380500000001 <br />
+        </p>
+      </li>
 
-        <div class='company'>
-            <h2 data-toggle="tooltip" data-placement="bottom" title="Состав">Состав компании</h2>
-            <ul class="list-group">
-                <li class="list-group-item"><span class="badge">22</span>
-                    Руководящий состав
-                </li>
-                <li class="list-group-item"><span class="badge">1</span>
-                    Трудящийся состав
-                </li>
-                <li class="list-group-item"><span class="badge">15</span>
-                    Бездельники
-                </li>
-            </ul>
-        </div>
-    </div>
-{% endblock content %}
+      <li>
+        <h4>Founder</h4>
+        <p>
+        Name: Founder of the World <br />
+        Skype: founder.skype <br />
+        Email: founder@gamil.com <br />
+        Phone: +380500000002 <br />
+        </p>
+      </li>
+    </ul>
+      </div>
+    
+
+   </div>
+  {%  endblock content %}  
+
+
+
+
+
+
+
+
+
+
