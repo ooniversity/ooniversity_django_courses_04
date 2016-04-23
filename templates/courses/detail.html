@@ -8,7 +8,12 @@
 
 
 {% block content %}
-    <div class="container">
+	{% if messages %}	
+		{% for message in messages %}
+			<div class="alert alert-success" role="alert">{{ message }}</div>
+		{% endfor %}
+	  {% endif %}
+    <div class="container">	  
       <h1>{{ course.name }}</h1>
       <p>{{ course.description|truncatechars:32 }}</p>
     </div>
@@ -19,6 +24,8 @@
 	</div>
 	<div class="container" id="id2">
 	<h3>План курса</h3>
+	<button class="btn btn-primary" type="button"><a href="{% url 'courses:add-lesson' course.id %}" style="color:white">
+		<span class="glyphicon glyphicon-plus"></span>Добавить занятие</a></button>
 	  <table class="table">
 		<thead id="id2">
 		  <tr>

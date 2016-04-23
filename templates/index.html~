@@ -13,7 +13,15 @@
       <p>Мы специализируемся на "модных" языках программирования. Принципиальное наше отличие от</p>   
       <p>других курсов - максимум практики и жесткая система обязательных домашних заданий.</p>    
 	</div>	
+	<p></p>
 	<div class="container" id="id2">
+	{% if messages %}	
+		{% for message in messages %}
+			<div class="alert alert-success" role="alert">{{ message }}</div>
+		{% endfor %}
+	{% endif %}
+	<button class="btn btn-primary" type="button"><a href="{% url 'courses:add' %}" style="color:white">
+		<span class="glyphicon glyphicon-plus"></span>Добавить новый курс</a></button>
 	<h3>Выбирай на каком курсе ты хочешь учиться!</h3>
 	  <table class="table">
 		<thead id="id2">
@@ -32,4 +40,4 @@
 	   </tbody>	
 	  </table>
 	</div>
-{%  endblock content %}
+{% endblock content %}

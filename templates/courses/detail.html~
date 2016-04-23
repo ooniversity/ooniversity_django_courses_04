@@ -9,16 +9,23 @@
 
 {% block content %}
     <div class="container">
+	  {% if messages %}	
+		{% for message in messages %}
+			<div class="alert alert-success" role="alert">{{ message }}</div>
+		{% endfor %}
+	  {% endif %}
       <h1>{{ course.name }}</h1>
-      <p>{{ course.description|truncatechars:32 }}</p>         
+      <p>{{ course.description|truncatechars:32 }}</p>
     </div>
 	<div class="container" id="id2">
 	<h3>Преподаватели</h3>
 {% include "include/coach_include.html" with block_title="Учитель" instructor=course.coach %}
-{% include "include/coach_include.html" with block_title="Ассистент" instructor=course.assistant %}	
+{% include "include/coach_include.html" with block_title="Ассистент" instructor=course.assistant %}
 	</div>
 	<div class="container" id="id2">
 	<h3>План курса</h3>
+	<button class="btn btn-primary" type="button"><a href="{% url 'courses:add-lesson' course.id %}" style="color:white">
+		<span class="glyphicon glyphicon-plus"></span>Добавить занятие</a></button>
 	  <table class="table">
 		<thead id="id2">
 		  <tr>
@@ -26,14 +33,14 @@
 		   <td>описание</td>
 		  </tr>
 		</thead>
-		<tbody>		
+		<tbody>
 		{% for i in lesson %}
 		  <tr>
 		    <td>{{ i.subject }}</td>
 		    <td>{{ i.description }}</td>
 		  </tr>
 		{% endfor %}
-	   </tbody>	
+	   </tbody>
 	  </table>
 	</div>
-{% endblock content %}    
+{% endblock content %}
