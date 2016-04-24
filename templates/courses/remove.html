@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}PyBursa - Remove Course{% endblock title %}
+
+{% block nav_class_main %}active{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="well">
+    <h2>Course {{ name }} will be removed</h2>
+    <form method="post">
+      {% csrf_token %}
+      <input type="submit" value="Remove" />
+    </form>
+  </div>
+</div>
+{% include "include/copyright_include.html" with current_year="2016" %}
+{% endblock content %}

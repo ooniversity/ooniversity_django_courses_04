@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}PyBursa - Edit Course{% endblock title %}
+
+{% block nav_class_main %}active{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="well">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+    <h2>Edit course detail</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Edit" />
+    </form>
+  </div>
+</div>
+{% include "include/copyright_include.html" with current_year="2016" %}
+{% endblock content %}
