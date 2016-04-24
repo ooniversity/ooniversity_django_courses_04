@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}Remove a course{% endblock title %}
+
+
+{% block content %}
+    <h1>Course {{ course.name }} will be deleted</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Remove course" />
+    </form>
+{% endblock content %}

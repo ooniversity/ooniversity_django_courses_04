@@ -10,7 +10,9 @@
 
 {% block content %}
 
-    <div class="container">
+<p><a href="{% url 'courses:add' %}" class="btn btn-primary" role="button">
+        <span class="glyphicon glyphicon-plus"></span>Add new course
+    </a></p>
 
       <div class="starter-template">
         <h1>Курсы Python от PyBursa</h1>
@@ -27,6 +29,9 @@
         <tr class="success">
             <th>Курс</th>
             <th>Описание</th>
+            <th>Изменить</th>
+            <th>Удалить</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -34,6 +39,16 @@
         <tr class="info">
             <td><a href="{% url 'courses:detail' course_id %}">{{course_data.0|upper}}</a></td>
             <td>{{course_data.1}}</td>
+            <td>
+               <a href="{% url 'courses:edit' course_id %}">
+               <button class="btn btn-primary" type="button">
+               <span class="glyphicon glyphicon-pencil"></span>Edit</button></a>
+            </td>
+            <td>
+                <a href="{% url 'courses:remove' course_id %}">
+                <button class="btn btn-primary" type="button">
+                <span class="remove"></span>Delete</button></a>
+            </td>
         </tr>
     {% endfor %}
     </tbody>
