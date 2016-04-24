@@ -4,6 +4,11 @@
 {% block course_students %}?course_id={{ course.id }}{% endblock %}
 
 {% block content %}
+{% if messages %}
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+{% endif %}
             <div class="page-header">
                 <h2>{{ course.name }}</h2>
                 <h3>{{ course.description }}</h3>
@@ -33,6 +38,7 @@
                     <tr><td>{{ course.assistant.description }}</td></tr>
             </table>
 		<h4>Course Plan</h4>
+                <p><button><a href="{% url 'courses:add-lesson' course.id %}"><span class="glyphicon glyphicon-plus" aria-hidden="true">Add new lesson</span></a></button></p>
             <table>
                 <thead>
                 <tr>

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Delete Course{% endblock %}
+{% block index_class_nav %}active{% endblock %}
+
+
+{% block content %}
+<h2>Course {{ item.name }} is going to be deleted!</h2> 
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_table }}
+  <input name="submit" type="submit" value="Delete">
+</form>
+{% endblock content %}
