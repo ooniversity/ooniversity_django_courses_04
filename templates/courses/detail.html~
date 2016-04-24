@@ -11,9 +11,17 @@
 {% block content %}
     <div class="main_font">
 
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} 
+
       {% for course in courses %}
-      <h1><a href="{% url 'students:list_view' %}?course_id={{course.id}}">{{course.name}}</a></h1>        
-        <p>{{course.description|truncatechars:35}}</p>      
+      <h1><a href="{% url 'students:list_view' %}?course_id={{course.id}}">{{ course.name }}</a></h1>        
+        <p>{{ course.description|truncatechars:35 }}</p>      
           <div class="container-fluid">
 
 
@@ -21,10 +29,18 @@
 
 {% include 'include/coach_include.html' with block_title='Ассистент' instructor=course.assistant %}
         
-         {% endfor %}             
+            
              
          
-          <h2>План курса</h2>     
+          <h2>План курса</h2>
+
+          <a href="{% url 'courses:add-lesson' course.id %}">
+            <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          Добавить занятие
+            </button>
+          </a>  
+         {% endfor %}     
           <table class="table">
             <thead class="table-bordered">
               <tr>
@@ -36,9 +52,9 @@
             <tbody class="table-bordered">
               {% for lesson in lessons %}
                 <tr>
-                  <td>{{lesson.order}}</td>
-                  <td>{{lesson.subject}}</td>
-                  <td>{{lesson.description}}</td>
+                  <td>{{ lesson.order }}</td>
+                  <td>{{ lesson.subject }}</td>
+                  <td>{{ lesson.description }}</td>
                 </tr>
               {% endfor %}             
             </tbody>

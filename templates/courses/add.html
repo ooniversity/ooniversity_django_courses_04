@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block title %}Main PyBursa{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% block content %}
+
+  <h2>Создание нового курса</h2>
+
+  <form method="post">
+  {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Создать"/>
+  </form>
+
+
+{% endblock content %}
