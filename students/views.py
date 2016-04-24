@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages
 
@@ -6,31 +5,32 @@ from students.models import Student
 from courses.models import Course
 from students.forms import StudentModelForm
 
-def list_view(request):
-	course_id = request.GET.get('course_id')
-
-	if course_id:
-		students = Student.objects.filter(courses__id=course_id)
-	else:
-		students = Student.objects.all()	
-	return render(request, 'students/list_view.html', locals())
-
 def detail(request, student_id):
-	student = Student.objects.get(id=student_id)
-	student_courses = student.courses.all()
-	return render(request, 'students/detail.html', locals())
+    student = get_object_or_404(Student, id=int(student_id))
+    student_courses_list = student.courses.all()
+    return render(request, 'students/detail.html', {'student':student, 'students_courses':student_courses_list})
+
+def list_view(request):
+    if request.GET:
+        course_id = int(request.GET['course_id'])
+        course = get_object_or_404(Course, id=course_id)
+        list_of_students = course.student_set.all()
+    else:
+        list_of_students = Student.objects.all()
+
+    return render(request, 'students/list.html', {'students_list': list_of_students})
 
 def create(request):
     if request.method == "POST":
-    	form = StudentModelForm(request.POST)
-    	if form.is_valid():
-    		application = form.save()
-    		message = u"Student %s %s has been successfully added." % (application.name, application.surname)
-    		messages.success(request, message)
-    		return redirect('students:list_view')
+        form = StudentModelForm(request.POST)
+        if form.is_valid():
+            application = form.save()
+            message =  u"Student %s %s has been successfully added." % (application.name, application.surname)
+            messages.success(request, message)
+            return redirect('students:list_view')
     else:
-        form = StudentModelForm()	
-    return render(request, 'students/add.html', {'form':form}) 
+        form = StudentModelForm()
+    return render(request, 'students/add.html', {'form':form})
 
 def remove(request, student_id):
     student = get_object_or_404(Student, id=student_id)
@@ -44,13 +44,12 @@ def remove(request, student_id):
 
 def edit(request, student_id):
     student = get_object_or_404(Student, id=student_id)
-    students = Student.objects.all()
     if request.method == "POST":
         form = StudentModelForm(request.POST, instance=student)
         if form.is_valid():
             form.save()
-            messages.success(request, "Студент  был изменен.")
-            return render(request, 'students/list_view.html', locals())
+            messages.success(request, u"Info on the student has been sucessfully changed.")
+            return render(request, 'students/edit.html', {'form':form})
     else:
         form = StudentModelForm(instance=student)
     return render(request, 'students/edit.html', {'form':form})
