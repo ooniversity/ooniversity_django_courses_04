@@ -9,6 +9,7 @@ class CourseModelForm(forms.ModelForm):
 class LessonModelForm(forms.ModelForm):
     class Meta:
         model = Lesson
+        #initial={'course': }
 
 
 

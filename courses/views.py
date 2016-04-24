@@ -42,7 +42,7 @@ def remove(request, courses__id):
 
 def add_lesson(request, courses__id):
     if request.method == 'POST':
-        form = LessonModelForm(request.POST, initial={'course':courses__id})
+        form = LessonModelForm(request.POST)
         if form.is_valid():
             lessons = form.save()
             messages.success(request, "Lesson %s has been successfully added." % lessons.subject)
