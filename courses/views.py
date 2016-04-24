@@ -27,7 +27,7 @@ def edit(request, courses__id):
         if form.is_valid():
             courses = form.save()
             messages.success(request, 'The changes have been saved.')
-            return redirect('/')
+            return redirect('courses:edit', courses__id)
     else:
         form = CourseModelForm(instance=courses)
     return render(request, 'courses/edit.html', {'form':form})
@@ -46,8 +46,7 @@ def add_lesson(request, courses__id):
         if form.is_valid():
             lessons = form.save()
             messages.success(request, 'Lesson %s has been successfully added.' %lessons.subject)
-            return redirect('/courses/courses__id/')
+            return redirect('courses:detail', courses__id)
     else:
         form = LessonModelForm(initial={'course':courses__id})
-#initial={'course':courses__id}
     return render(request, 'courses/add_lesson.html', {'form':form})
