@@ -1,5 +1,4 @@
 from django import forms
-
 from courses.models import Course, Lesson
 
 class CourseModelForm(forms.ModelForm):
@@ -8,4 +7,4 @@ class CourseModelForm(forms.ModelForm):
 
 class LessonModelForm(forms.ModelForm):
     class Meta:
-        model = Lesson
+        model = Lesson        
