@@ -28,5 +28,26 @@
     	<p>{% include "include/course_include.html" with block_title="Ассистент" instructor=course.assistant %}</p>
        
   </div>
- 
+ <p><a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-primary" role="button">
+            <span class="glyphicon glyphicon-plus"></span>Add lesson
+        </a></p>
+        <table class="table">
+            <thead>
+                <tr class="success">
+                    <th>#</th>
+                    <th>Тема</th>
+                    <th>Описание</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for lesson in lessons %}
+                    <tr class="info">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{lesson.subject}}</td>
+                        <td>{{lesson.description}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock content %}
