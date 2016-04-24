@@ -25,65 +25,136 @@
         <ul>
         <li>Красивое лучше, чем уродливое.</li>
 <li>Явное лучше, чем неявное.</li>
+
 <li>Простое лучше, чем сложное.</li>
+
 <li>Сложное лучше, чем запутанное.</li>
+
 <li>Плоское лучше, чем вложенное.</li>
+
 <li>Разреженное лучше, чем плотное.</li>
+
 <li>Читаемость имеет значение.</li>
+
 <li>Особые случаи не настолько особые, чтобы нарушать правила.</li>
+
 <li>При этом практичность важнее безупречности.</li>
+
 <li>Ошибки никогда не должны замалчиваться.</li>
+
 <li>Если не замалчиваются явно.</li>
+
 <li>Встретив двусмысленность, отбрось искушение угадать.</li>
+
 <li>Должен существовать один — и, желательно, только один — очевидный способ сделать это.</li>
+
 <li>Хотя он поначалу может быть и не очевиден, если вы не голландец.</li>
+
 <li>Сейчас лучше, чем никогда.</li>
+
 <li>Хотя никогда зачастую лучше, чем прямо сейчас.</li>
+
 <li>Если реализацию сложно объяснить — идея плоха.</li>
+
 <li>Если реализацию легко объяснить — идея, возможно, хороша.</li>
+
 <li>Пространства имён — отличная штука! Будем делать их побольше!</li>
+
         </ul>
+
             </div>
+
        </div>                
+
 <div class="jumbotron">
+
     <h3>Тема и количество недель</h3>
+
     <ul class="list-group">
+
       <li class="list-group-item"><span class="badge">3</span>Основы Python</li>
+
       <li class="list-group-item"><span class="badge">1</span>HTML/CSS</li>
+
       <li class="list-group-item"><span class="badge">5</span>Django</li>
+
     </ul>
+
     </div>
+
       <div class="btn-group" data-toggle="buttons">
+
   <label class="btn btn-primary"> <input type="checkbox"> Написать нам </label>
+
   <label class="btn btn-primary"> <input type="checkbox"> Позвонить нам </label>
+
   <label class="btn btn-primary"> <input type="checkbox"> Donate </label>
+
 </div>
+
+    
+
     <nav>
+
       <ul class="pager">
+
         <li><a href="{% url 'contact' %}">Next</a></li>
+
     </nav>
+
         <div class="alert alert-success" role="alert">Please go to <strong><a href="contact.html">Contacts page</a></strong></div>
+
 <div class="jumbotron">
+
 {% include "include/index_desc_include.html" %}
+
 <div class="panel-heading">
+
   <br>
+
     <h2>Доступные курсы</h2>
+
    <br>
+
 </div>
+
 <div class="panel-body">
+
    <div class="table-responsive">
+
     <table class="table">
+
         <thead>
+
            <tr>
+
               <th>Курс</th>
+
               <th>Описание</th>
+
            </tr>
+
         </thead>
-       {% for course in courses %}
-        <tr>
-        <td>{{ forloop.counter }}</td>
-        <td><a href="{% url 'courses:detail' course_id=course.id %}">{{ course.name|upper }}</a> 
-          <td>{{ course.short_description|title }}</td>
-        </tr>
+
+      {% for course in courses %}
+        <tbody>
+           <tr>
+               <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper}}</a></td>
+               <td>{{ course.short_description|title}}</td>
+           
+       <td>
+          <button class="btn btn-success" type="button">
+			<span class="glyphicon glyphicon-pencil"></span>
+            <a href="{% url 'courses:edit' course.id %}">Изменить</a>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-success" type="button">
+			<span class="glyphicon glyphicon-trash"></span>
+            <a href="{% url 'courses:remove' course.id %}">Удалить</a>                    
+          </button>
+        </td>
+</tr>
         {% endfor %}
+
 {% endblock content %}
