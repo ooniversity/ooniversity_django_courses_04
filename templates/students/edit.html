@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Edit student{% endblock %}
+{% block students_class_nav %}active{% endblock %}
+
+{% block content %}
+  {% if messages %}
+      {% for message in messages %}
+      <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+      {% endfor %}
+  {% endif %}
+
+<h2>Edit student's data</h2>
+<form method="post">
+{% csrf_token %}
+  {{ form.as_p }}
+  <input name="submit" type="submit" value="Edit">
+</form>
+{% endblock content %}
