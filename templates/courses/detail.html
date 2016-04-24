@@ -33,18 +33,21 @@
              
          
           <h2>План курса</h2>
-
-          <a href="{% url 'courses:add-lesson' course.id %}">
-            <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить занятие
-            </button>
-          </a>  
-         {% endfor %}     
+  
+     
           <table class="table">
             <thead class="table-bordered">
               <tr>
                 <th>#</th>
-                <th>Тема</th>
+                <th>
+                <a href="{% url 'courses:add-lesson' course.id %}">
+                  <button type="button" class="btn btn-default">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить занятие
+                  </button>
+                </a>
+                {% endfor %}
+                Тема 
+                </th>
                 <th>Описание</th>
               </tr>
             </thead>
