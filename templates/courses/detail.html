@@ -1,48 +1,70 @@
-{% extends "base.html" %}
-{% load static %}
+{%  extends "base.html" %}
 
 
-{% block title %}Информация о курсе{% endblock title %}
+{% load staticfiles %}
+
+ 
+{%  block title %}Courses{% endblock title %}
 
 
-{% block get_course %}?course_id={{course.id}}{% endblock get_course %}
+{%  block nav_class_students %}active{% endblock%}
+
+ 
+{%  block content %}
 
 
-{% block content %}
-    <div class="container">
-        <div class="jumbotron">
-            <h1>{{course.name}}</h1>
-            <p>{{course.description|truncatechars:32}}</p>
-        </div>
-
-        <div class="jumbotron">
-            <h2>Преподаватели</h2>
-
-            {% include "include/course_include.html" with block_title="Учитель" instructor=course.coach %}
-
-            {% include "include/course_include.html" with block_title="Ассистент" instructor=course.assistant %}
-
-        </div>
-        <p><a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-primary" role="button">
-            <span class="glyphicon glyphicon-plus"></span>Добавить занятие
-        </a></p>
-        <table class="table">
-            <thead>
-                <tr class="success">
-                    <th>#</th>
-                    <th>Тема</th>
-                    <th>Описание</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for lesson in lessons %}
-                    <tr class="info">
-                        <td>{{forloop.counter}}</td>
-                        <td>{{lesson.subject}}</td>
-                        <td>{{lesson.description}}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+   <div class="container">     
+      <div class="jumbotron">
+         <h2>{{course.name}}</h2>
+         <p>{{course.description|truncatechars:188}}</p>
+      </div>
     </div>
-{% endblock content %}
+
+    <h2 align="center">Преподаватели</h2>
+
+    <h4>Учитель</h4>
+  {%  include "include/coach_include.html" with coach="Преподаватель" teacher=course.coach error="учителей" %}
+    
+    <h4>Ассистент</h4>
+
+{%  include "include/coach_include.html" with coach="Ассистент" teacher=course.assistant error="ассистентов" %}
+<br />
+<br />
+
+<h3 align="center">План курса</h3>
+<a href="{% url 'courses:add_lesson' %}" class="btn btn-primary" >
+<span class="glyphicon glyphicon-plus"></span>Добавить занятие</a>
+
+  <div class="container"> 
+    <table class="table">
+      {% for lesson in lessons %}
+        <tr>
+          <td>{{lesson.subject}}</td>
+          <td>{{lesson.description}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <p>
+
+    <a href="{% url 'courses:edit' course.id %}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>Редактировать</a>
+  </p>     
+
+  <p>
+    <a href="{% url 'courses:remove' course.id %}" class="btn btn-primary" ><span class="glyphicon glyphicon-minus"></span>Удалить курс</a>
+  </p>
+{%  endblock content %}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
