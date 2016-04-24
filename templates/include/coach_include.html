@@ -1,12 +1,8 @@
-    {{coach}}
-      <div class="container">
+{{coach}}
+    <div class="container">
       <div class="jumbotron">
-    {%  if {{teacher}} %}
-     <a href="{%  url 'coaches:detail' course.coach.id %}">
-     {{teacher.first_name_field}} {{teacher.last_name_field}}</a>
-     <p>{{teacher.description}}</p>
-    {% else %} 
-		<p>В данном курсе нет {{error_desc}}</p> 
-	{%  endif %}		        
+
+         <a href="{%  url 'coaches:detail' course.coach.id %}">{{teacher.first_name_field}} {{teacher.last_name_field}}</a>
+        <p>{{teacher.description}}</p>
       </div>
     </div>
