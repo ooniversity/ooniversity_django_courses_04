@@ -1,16 +1,7 @@
 {% extends "base.html" %}
-
-
 {% block title %}Pybursa {{ course.name }}{% endblock title %}
-
-
-
 {% block nav_class_index %}active{% endblock %}
-
-
 {% block content %}
-
-
 {% if messages %}
 	<div class = "alert alert-success" role="alert">
 		{% for message in messages %}
@@ -18,13 +9,11 @@
 		{% endfor %}
 	</div>
 {% endif %}
-
 <div class="container">
 	<div class="jumbotron">
 		<h1>{{course.name}}</h1>
 	<p>{{course.description|truncatechars:32}}</p>
 </div>
-
 <div class="jumbotron">
 	<h2>Преподаватели</h2>
 		<div><h4>Учитель</h4>
@@ -45,11 +34,9 @@
 <div class="container">
 	<a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-success" role="button">
 		<span class="glyphicon glyphicon-plus"></span> 
-		Добавить новое занятие
+		Добавить новый урок
 	</a>
 </div> 
-
-
 <div class="container">
 	<div class="table-responsive">
 		<table class="table table-hover table-condensed">
