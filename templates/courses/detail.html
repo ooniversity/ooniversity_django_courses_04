@@ -17,10 +17,17 @@
 
     <div class="container">
       <div class="row">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
         <div class="main-container">
           <div>
             <h3>{{ course.name }}</h3>
             <span>{{ course.description|truncatechars:32 }}</span>
+            <br />
+            <a href="{% url 'courses:add_lesson' course.id %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Lesson</button></a>
             <h5>Coach: <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.first_name }} {{ course.coach.last_name }}</a></h5>
             <span>{{ course.coach.description }}</span>
             <h5>Assistants: <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.first_name }} {{ course.assistant.last_name }}</a></h5>

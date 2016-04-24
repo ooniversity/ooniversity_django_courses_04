@@ -13,6 +13,16 @@
       </div>
     </div>
 
+    {% if messages %}
+    <div class="container">
+      <div class="well">
+        {% for message in messages %}
+          <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
     <div class="container">
       <div class="well">
         <p>
@@ -40,6 +50,12 @@ Nam ne copiosae delicata, id latine ornatus inciderint vel, eam ad modus inani n
             <tr>
               <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
               <td>{{ course.short_description|title }}</td>
+              <td>
+                <a href="{% url 'courses:edit' course.id %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit Course</button></a>
+              </td>
+              <td>
+                <a href="{% url 'courses:remove' course.id %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span>&nbsp;Remove Course</button></a>
+              </td>
             </tr>
             {% endfor %}
           </tbody>
