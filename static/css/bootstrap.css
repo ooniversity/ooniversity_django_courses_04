@@ -4963,8 +4963,6 @@ a.badge:focus {
   padding-bottom: 30px;
   margin-bottom: 30px;
   color: inherit;
-  background-color: #1446F2;
-  background: url("../images/big_logo.png") no-repeat right;
   background-size: contain;
 }
 .jumbotron h1,

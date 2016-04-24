@@ -156,3 +156,34 @@
 .my_table_stperf td {
 	vertical-align: top;
 }
+
+.header-container {
+	width: 100%;
+	height: 500px;
+	border-left: none;
+	border-right: none;
+	position: relative;
+	padding:  20px;
+}
+
+.video-container {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	width: 100%;
+	overflow:  hidden;
+}
+
+video {
+	position: absolute;
+	z-index: -1;
+	opacity: 0.5;
+	width:  120%;
+	height: 100%;
+}
+
+.headerpic {
+  background: url("../images/big_logo.png") no-repeat right;
+  background-size: contain;
+}
