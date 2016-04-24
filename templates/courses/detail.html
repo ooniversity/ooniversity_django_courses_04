@@ -42,9 +42,9 @@
         </tr>
       </thead>
       <tbody>
-        {% for lesson in course.lesson_set.all %}
+        {% for lesson in lessons %}
           <tr>
-            <td>{{ lesson.order }}</td>
+            <td>{{ forloop.counter }}</td>
             <td>{{ lesson.subject }}</td>
             <td>{{ lesson.description }}</td>
           </tr>

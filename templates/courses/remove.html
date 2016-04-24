@@ -1,16 +1,14 @@
 {% extends "base.html" %}
- 
-
-{% block title %}Delete of course{% endblock title %}
+{% load static %}
  
  
-{% block nav_class_student %}{% endblock %}
+{% block title %}Удаление курса{% endblock title %}
  
  
-{% block content %}	 
-	<h2>Курс {{ ap.name }} будет удален</h2>
- 	<form method="post">
-		{% csrf_token %}		
- 		<input type="submit" value="Удалить"> 
-	</form>
-{% endblock content %}	
+{% block content %}
+    <h1>Курс {{ course.name }} будет удален</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Удалить" />
+    </form>
+{% endblock content %} 	
