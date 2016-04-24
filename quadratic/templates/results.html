@@ -1,59 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Results - Quadratic</title>
-<meta name="description" content="Quadratic">
-{% load staticfiles %}
-<link rel="icon" href="{% static '../static/images/favicon.ico' %}">
-<!-- Bootstrap core CSS -->
-<link href="{% static '../static/css/bootstrap.css' %}" rel="stylesheet">
-<!-- Custom styles for this template -->
-<link href="{% static '../static/css/style.css' %}" rel="stylesheet">
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-</head>
-<body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="{% url 'home' %}">Main</a></li>
-        <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li><a href="{% url 'student_list' %}">Students</a></li>
-        <li class="active"> <a href="{% url 'quadratic_results' %}">Quadratic</a> </li>
-      </ul>
-    </div> 
-  </div>
-</nav>
-<div class="container">
-  <div class="starter-template">
-    <h1 class="desc">Results - Quadratic</h1>
-    <h2> Квадратное уравнение a*x*x+b*x+c=0 </h2>    
-    <div class="alert alert-success" role="alert">a = {{a.0}}<br />{{a.1}}</div>
-    <div class="alert alert-info" role="alert">b = {{b.0}}<br />{{b.1}}</div>
-    <div class="alert alert-warning" role="alert">c = {{c.0}}<br />{{c.1}}</div>
-          <div class="jumbotron">
-              {{result|linebreaksbr}}
-          </div>
-  </div>
-</div> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="{% static '../static/js/bootstrap.js' %}"></script>   
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block quadratic_active %}active{% endblock %}
+
+{% block title %}Results - Quadratic{% endblock title %}
+
+{% block content %}
+  <h1 class="desc">Results - Quadratic</h1>
+  <h2> Квадратное уравнение a*x*x+b*x+c=0 </h2> 
+<p>
+<form method="get">
+  {{ form.as_p }}
+  <input type="submit" value="Решить">
+</form>
+</p>
+{%if d != '' %}Дискриминант: {{ d }}<br>
+{% if d > 0 %}Квадратное уравнение имеет два действительных корня: x1 = {{ x1|floatformat:1 }}, x2 = {{ x2|floatformat:1 }}<br>
+{% elif d == 0 %}Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x1|floatformat:1 }}<br>
+{% else %}Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.<br>
+{% endif %}
+{% endif %}
+
+{% endblock %}   
