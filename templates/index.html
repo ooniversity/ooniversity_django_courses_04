@@ -20,6 +20,8 @@
       </div>
     </div>
 
+    <h2 align="center">Выбери курс, где тебя угораздит учиться:</h2><br />
+
     <div class="container"> 
       <table class="table">
       {% for course in courses %}
@@ -31,4 +33,8 @@
       </table>
     </div>
     </div>
+
+    <p><a href="{% url 'courses:add' %}" class="btn btn-primary" >
+        <span class="glyphicon glyphicon-plus"></span>Добавить курс
+    </a></p>
   {%  endblock content %}  

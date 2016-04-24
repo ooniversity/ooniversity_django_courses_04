@@ -16,49 +16,44 @@
    <div class="container">     
       <div class="jumbotron">
          <h2>{{course.name}}</h2>
-         <p>{{course.description|truncatechars:32}}</p>
+         <p>{{course.description|truncatechars:188}}</p>
       </div>
     </div>
 
     <h2 align="center">Преподаватели</h2>
 
-{%  include "include/coach_include.html" with coach="Преподаватель" teacher=course.coach error_desc="преподавателей" %}
-
+    <h4>Учитель</h4>
+  {%  include "include/coach_include.html" with coach="Преподаватель" teacher=course.coach error="учителей" %}
     
-
     <h4>Ассистент</h4>
 
-{%  if course.assistant %} 
-    <div class="container">
-      <div class="jumbotron">
-
-         <a href="{%  url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name_field}} {{course.assistant.last_name_field}}</a>
-        <p>{{course.assistant.description}}</p>
-      </div>
-    </div>
-{%  else %}
-    <div class="container">
-          <div class="jumbotron">
-            <p>В данном курсе нет ассистента</p>
-          </div>
-        </div>    
-{%  endif %}
+{%  include "include/coach_include.html" with coach="Ассистент" teacher=course.assistant error="ассистентов" %}
 <br />
 <br />
 
-<h3 align="center">План</h3>
+<h3 align="center">План курса</h3>
+<a href="{% url 'courses:add_lesson' %}" class="btn btn-primary" >
+<span class="glyphicon glyphicon-plus"></span>Добавить занятие</a>
 
-    <div class="container"> 
-      <table class="table">
-        {% for lesson in lessons %}
-          <tr>
-            <td>{{lesson.subject}}</td>
-            <td>{{lesson.description}}</td>
-          </tr>
-        {% endfor %}
-      </table>
-    </div>
-  {%  endblock content %}  
+  <div class="container"> 
+    <table class="table">
+      {% for lesson in lessons %}
+        <tr>
+          <td>{{lesson.subject}}</td>
+          <td>{{lesson.description}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <p>
+
+    <a href="{% url 'courses:edit' course.id %}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>Редактировать</a>
+  </p>     
+
+  <p>
+    <a href="{% url 'courses:remove' course.id %}" class="btn btn-primary" ><span class="glyphicon glyphicon-minus"></span>Удалить курс</a>
+  </p>
+{%  endblock content %}  
 
 
 

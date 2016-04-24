@@ -2,7 +2,7 @@
 {%  extends "base.html" %}
 
 
-{% load staticfiles %}
+{% load static %}
 
 
 {%  block title %}Students{% endblock title %}
@@ -33,7 +33,7 @@
         </tr>
       {% for student in students %}
         <tr>
-          <td>{{student.id}}</td>
+          <td>{{forloop.counter}}</td>
           <td><a href="{% url 'students:detail' student.id %}">{{student.surname}} {{student.name}}</a></td>
           <td>{{student.address}}</td>
           <td>{{student.skype}}</td>
@@ -44,9 +44,12 @@
           </td>
           <td>
             <a href="{% url 'students:edit' student.id %}">
-                <span class="glyphicon glyphicon-edit"></span>
+              <span class="glyphicon glyphicon-edit"></span> 
             </a>
-            
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'students:remove' student.id %}">
+              <span class="glyphicon glyphicon-remove"></span> 
+            </a>
           </td> 
       {%  endfor %}     
         </tr>
