@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block title %}Main PyBursa{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% block content %}
+
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <h2>Редактирование данных студента</h2>
+
+  <form method="post">
+  {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Изменить"/>
+  </form>
+
+
+{% endblock content %}
