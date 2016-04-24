@@ -1,4 +1,4 @@
-{{coach}}
+{%  if teacher %}
     <div class="container">
       <div class="jumbotron">
 
@@ -6,3 +6,10 @@
         <p>{{teacher.description}}</p>
       </div>
     </div>
+{%  else %} 
+	<div class="container">
+	<div class="jumbotron">
+	<p>В данном курсе нет учителей</p>
+	</div>
+	</div>
+{% endif %}
