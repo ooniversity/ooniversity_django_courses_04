@@ -23,17 +23,17 @@
     <h2 align="center">Преподаватели</h2>
 
     <h4>Учитель</h4>
-  {%  include "include/coach_include.html" with coach="Преподаватель" teacher=course.coach %}
+  {%  include "include/coach_include.html" with coach="Преподаватель" teacher=course.coach error="учителей" %}
     
     <h4>Ассистент</h4>
 
-{%  include "include/coach_include.html" with coach="Ассистент" teacher=course.assistant %}
+{%  include "include/coach_include.html" with coach="Ассистент" teacher=course.assistant error="ассистентов" %}
 <br />
 <br />
 
 <h3 align="center">План курса</h3>
-<a href="{% url 'students:add' %}" class="btn btn-primary" >
-<span class="glyphicon glyphicon-plus"></span>Добавить нового студента</a>
+<a href="{% url 'courses:add_lesson' %}" class="btn btn-primary" >
+<span class="glyphicon glyphicon-plus"></span>Добавить занятие</a>
 
   <div class="container"> 
     <table class="table">

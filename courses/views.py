@@ -5,7 +5,7 @@ from django.contrib import messages
 
 
 from courses.models import Course, Lesson
-from courses.forms import CourseModelForm
+from courses.forms import CourseModelForm, LessonModelForm
 
 def detail(request, course_id):
 	course = get_object_or_404(Course, id=int(course_id))
@@ -46,3 +46,15 @@ def edit(request, course_id):
     else:
         form = CourseModelForm(instance=course)
     return render(request, 'courses/edit.html', {'form':form})
+
+def add_lesson(request):
+    if request.method == "POST":
+        form = LessonModelForm(request.POST)
+        if form.is_valid():
+            lesson = form.save()
+            message = u"Lesson %s has been successfully added." % (lesson.subject)
+            messages.success(request, message)
+            return redirect('courses:detail', lesson.course.id )
+    else:
+        form = LessonModelForm()    
+    return render(request, 'courses/add_lesson.html', {'form':form})       
