@@ -58,6 +58,13 @@
         {% endfor %}
       </table>
     </div>
+    <p>
+      <a href="{% url 'courses:edit' course.id %}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>Редактировать</a>
+    </p>     
+
+    <p>
+      <a href="{% url 'courses:remove' course.id %}" class="btn btn-primary" ><span class="glyphicon glyphicon-minus"></span>Удалить курс</a>
+    </p>
   {%  endblock content %}  
 
 

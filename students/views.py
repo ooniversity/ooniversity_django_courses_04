@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages
 
@@ -31,18 +32,6 @@ def create(request):
         form = StudentModelForm()	
     return render(request, 'students/add.html', {'form':form}) 
 
-def edit(request, student_id):
-    student = get_object_or_404(Student, id=student_id)
-    if request.method == "POST":
-        form = StudentModelForm(request.POST, instance=student)
-        if form.is_valid():
-            form.save()
-            messages.success(request, u"Info on the student has been sucessfully changed.")
-            return render(request, 'students/edit.html', {'form':form})
-    else:
-        form = StudentModelForm(instance=student)
-    return render(request, 'students/edit.html', {'form':form})
-
 def remove(request, student_id):
     student = get_object_or_404(Student, id=student_id)
     if request.method == "POST":
@@ -51,6 +40,17 @@ def remove(request, student_id):
         messages.success(request, message)
         return redirect('students:list_view')
     else:
-        return render(request, 'students/remove.html', {'student':student})    
+        return render(request, 'students/remove.html', {'student':student})
 
-
+def edit(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+    students = Student.objects.all()
+    if request.method == "POST":
+        form = StudentModelForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Студент  был изменен.")
+            return render(request, 'students/list_view.html', locals())
+    else:
+        form = StudentModelForm(instance=student)
+    return render(request, 'students/edit.html', {'form':form})
