@@ -1,40 +1,76 @@
-{%  extends "base.html" %}
+{% extends "base.html" %}
+{% load static %}
 
 
-{% load staticfiles %}
+{% block title %}Курсы программирования на Python{% endblock title %}
 
 
-{%  block title %}Main{% endblock title %}
+{% block nav_index %}active{% endblock nav_index %}
 
 
-{%  block nav_class_index %}active{% endblock %}
-
- 
-{%  block content %}
-
-
-    <div class="container">     
-      <div class="jumbotron">
-         <h2>Урюпинское ПТУ</h2>
-         <p>ПТУ — помоги тупому устроиться; послали тупого учиться. Имеющая прочную связь с производством система профессионального образования, которая почти без изменений дошла до наших дней была благополучно развалена после проклятущего совка, сформирована после победы пролетариата в революции 1917 года в целях увеличения количества и качества этого самого пролетариата, выпилена после развала совка как ненужный кусок ненужного производства рабочих человеков. При раннем совке эти учреждения официально назывались «Сельское профессионально-техническое училище (СПТУ)» либо «Городское профессионально-техническое училище (ГПТУ)» (неофициально: путяга, Господь послал тупых учиться, шарага, каблуха, хабзайка, чушок, гопа, хмызня, лапшак, рогатник, рогачка, бурса, бурситет, фазанка; последнее — от сталинских ФЗУ, фабрично-заводских училищ).</p>
-      </div>
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Курсы PyBursa</h1>
+            <img class="blog" src="{% static 'images/python.jpg' %}">
+            <p>Разнообразный и богатый опыт сложившаяся структура организации позволяет
+                выполнять важные задания по разработке дальнейших направлений развития. Таким
+                образом реализация намеченных плановых заданий представляет собой интересный
+                эксперимент проверки модели развития. Значимость этих проблем настолько
+                очевидна, что новая модель организационной деятельности играет важную роль в
+                формировании системы обучения кадров, соответствует насущным потребностям.
+                Разнообразный и богатый опыт постоянное информационно-пропагандистское
+                обеспечение нашей деятельности представляет собой интересный эксперимент
+                проверки модели развития.</p>
+        </div>
     </div>
 
-    <h2 align="center">Выбери курс, где тебя угораздит учиться:</h2><br />
-
-    <div class="container"> 
-      <table class="table">
-      {% for course in courses %}
-        <tr>
-          <td><a href="{% url 'courses:detail' course.id %}">{{course.name|upper}}</a></td>
-          <td>{{course.short_description|title}}</td>
-        </tr>
-      {% endfor %}
-      </table>
+    <div class="jumbotron">
+        <h2
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Техники максимального дзена">Program</h2>
+        <p>В нашем курсе вы можете овладеть следующими техниками и узнать такие полезные
+            вещи, как:</p>
+        <ul>
+            <li>Разведение кактусов в условиях крайнего севера.</li>
+            <li>Техники глажения шнурков различных расцветок.</li>
+            <li>Мужчина или огурец? Что полезнее на кухне?</li>
+            <li>Народные методики увеличения груди с помощью капусты: компрессы, отвары,
+                спиртовые настойки.</li>
+            <li>Пивная диета - правда или враки?</li>
+            <li>и многое другое...</li>
+        </ul>
     </div>
-    </div>
 
-    <p><a href="{% url 'courses:add' %}" class="btn btn-primary" >
-        <span class="glyphicon glyphicon-plus"></span>Добавить курс
+    <table class="table">
+        <thead>
+            <tr class="success">
+                <th>Курс</th>
+                <th>Описание</th>
+                <th>Изменить/Удалить</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course_id, course_data in course.items %}
+                <tr class="info">
+                    <td>
+                        <a href="{% url 'courses:detail' course_id %}">{{course_data.name|upper}}</a>
+                    </td>
+                    <td>{{course_data.short_description|title}}</td>
+                    <td>
+                        <a href="{% url 'courses:edit' course_id %}">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <a href="{% url 'courses:remove' course_id %}">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="{% url 'courses:add' %}" class="btn btn-primary" role="button">
+        <span class="glyphicon glyphicon-plus"></span>Добавить новый курс
     </a></p>
-  {%  endblock content %}  
+{% endblock content %}
