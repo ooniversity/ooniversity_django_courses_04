@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block student_active %}active{% endblock %}
+{% block title %}Редактирование студента{% endblock title %}
+{% block content %}
+<h1>Изменение данных о студенте</h1>
+ <form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Изменить"/>
+</form>
+{% endblock %}
