@@ -3,8 +3,11 @@ from courses.models import Course
 
 
 def index(request):
-    courses = Course.objects.all()
-    return render(request, 'index.html', {'courses': courses})
+    course_dict = dict()
+    for one_course in Course.objects.all():
+         
+        course_dict[one_course.id] = one_course
+    return render(request, 'index.html', {'course':course_dict})
 
 
 def contact(request):
