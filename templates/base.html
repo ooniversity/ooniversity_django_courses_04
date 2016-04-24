@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}MyBursa | Main Template{% endblock %}</title>
+{% load staticfiles %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+
+  </head>
+
+  <body>
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+            <ul class="nav nav-tabs">
+              <li class="{% block index_class_nav %}{% endblock %}"><a href="{% url 'index' %}">Main</a></li>
+              <li class="{% block contact_class_nav %}{% endblock %}"><a href="{% url 'contact' %}">Contacts</a></li>
+              <li class="{% block students_class_nav %}{% endblock %}"><a href="{% url 'students:list_view' %}{% block course_students %}{% endblock course_students %}">Students</a></li>
+              <li class="{% block quadratic_class_nav %}{% endblock %}"><a href="{% url 'results' %}">Equation</a></li>
+            </ul>
+      </nav>
+
+
+{% block content %}{% endblock content %}
+
+     </div> <!-- /container -->
+    </div><!-- /jumbotron -->
+    
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

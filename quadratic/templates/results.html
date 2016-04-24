@@ -1,11 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Quadratic{% endblock %}
+{% block quadratic_class_nav %}active{% endblock %}
+
+{% block content %}
 <h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
-<ul>
-    <li>a = {{ coeff_a }}</li>
-    <p>{{result_a}}</p>
-    <li>b = {{ coeff_b }}</li>
-    <p>{{result_b}}</p>
-    <li>c = {{ coeff_c }}</li>
-    <p>{{result_c}}</p>
-</ul>
+<form method="get">
+  {{ form.as_p }}
+  <input name="submit" type="submit" value="Решить">
+</form>
+
 <p>{{ result_discr }}</p>
 <p>{{ result_message }}</p>
+
+{% endblock content %}
