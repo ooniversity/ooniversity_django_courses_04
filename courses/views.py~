@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from courses.models import Course, Lesson
 from django.contrib import messages
-from courses.forms import CourseModelForm
+from courses.forms import CourseModelForm, LessonModelForm
 
 def course_detail(request, id_course):
 	lesson = Lesson.objects.filter(course_id=id_course)
