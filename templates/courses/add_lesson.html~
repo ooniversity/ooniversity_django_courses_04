@@ -2,15 +2,13 @@
 {% load staticfiles %}
 
 
-{% block title %}Main PyBursa{% endblock title %}
+{% block title %}Add lesson{% endblock title %}
 
-
-{% block nav_class_index %}active{% endblock %}
 
 
 {% block content %}
 
-  <h2>Создание нового курса</h2>
+  <h2>Создание нового занятия</h2>
 
   <form method="post">
   {% csrf_token %}
