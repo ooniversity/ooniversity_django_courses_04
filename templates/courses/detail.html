@@ -7,6 +7,8 @@
 
 {% block nav_class_index %}active{% endblock %}
 
+{% block students_list %}{% url 'students:list_view' %}?course_id={{ course.id }}{% endblock students_list %}
+
 
 {% block content %}
 
