@@ -64,12 +64,12 @@ class StudentDeleteView(DeleteView):
 		context['title'] = u'Student info suppression'
 		return context
 
-	def form_valid(self, form):
-		application = form.save()
-		message = u'Info on %s %s has been sucessfully deleted.' % (application.name, application.surname)
-		messages.success(self.request, message)
-		print "DELETE MY OBJECT!"
-		return super(StudentDeleteView, self).form_valid(form)
+	#def form_valid(self, form):
+	#	application = form.save()
+	#	message = u'Info on %s %s has been sucessfully deleted.' % (application.name, application.surname)
+	#	messages.success(self.request, message)
+	#	print "DELETE MY OBJECT!"
+	#	return super(StudentDeleteView, self).form_valid(form)
 
 def create(request):	
 	if request.method == 'POST':
