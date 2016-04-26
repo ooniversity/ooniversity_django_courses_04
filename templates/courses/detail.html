@@ -5,25 +5,25 @@
 {% block title %}Информация о курсе{% endblock title %}
 
 
-{% block get_course %}?course_id={{course.id}}{% endblock get_course %}
+{% block get_course %}?course_id={{ co_urse.id }}{% endblock get_course %}
 
 
 {% block content %}
     <div class="container">
         <div class="jumbotron">
-            <h1>{{course.name}}</h1>
-            <p>{{course.description|truncatechars:32}}</p>
+            <h1>{{ co_urse.name }}</h1>
+            <p>{{ co_urse.description|truncatechars:32 }}</p>
         </div>
 
         <div class="jumbotron">
             <h2>Преподаватели</h2>
 
-            {% include "include/course_include.html" with block_title="Учитель" instructor=course.coach %}
+            {% include "include/course_include.html" with block_title="Учитель" instructor=co_urse.coach %}
 
-            {% include "include/course_include.html" with block_title="Ассистент" instructor=course.assistant %}
+            {% include "include/course_include.html" with block_title="Ассистент" instructor=co_urse.assistant %}
 
         </div>
-        <p><a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-primary" role="button">
+        <p><a href="{% url 'courses:add-lesson' co_urse.id %}" class="btn btn-primary" role="button">
             <span class="glyphicon glyphicon-plus"></span>Добавить занятие
         </a></p>
         <table class="table">
@@ -35,11 +35,11 @@
                 </tr>
             </thead>
             <tbody>
-                {% for lesson in lessons %}
+                {% for lesson in co_urse.lesson_set.all %}
                     <tr class="info">
-                        <td>{{forloop.counter}}</td>
-                        <td>{{lesson.subject}}</td>
-                        <td>{{lesson.description}}</td>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ lesson.subject }}</td>
+                        <td>{{ lesson.description }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
