@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}{{ student.name }} {{ student.surname }}{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block active_students %}active{% endblock active_students %}
@@ -12,7 +12,7 @@
 
 {% block content %}
   <div class="row marketing">
-    <h3>{{ students.name }} {{ students.surname }}</h3>
+    <h3>{{ title }}</h3>
     <div class="container-fluid">
       <div class="media">
         <div class="caption">
@@ -23,28 +23,28 @@
             <tbody>
               <tr>
                 <td>дата рождения</td>
-                <td>{{ students.date_of_birth }}</td>
+                <td>{{ student.date_of_birth }}</td>
               </tr>
               <tr>
                 <td>адрес</td>
-                <td>{{ students.address }}</td>
+                <td>{{ student.address }}</td>
               </tr>
               <tr>
                 <td>почта</td>
-                <td>{{ students.email }}</td>
+                <td>{{ student.email }}</td>
               </tr>
               <tr>
                 <td>логин Skype</td>
-                <td>{{ students.skype }}</td>
+                <td>{{ student.skype }}</td>
               </tr>
               <tr>
                 <td>телефон</td>
-                <td>{{ students.phone }}</td>
+                <td>{{ student.phone }}</td>
               </tr>
               <tr>
                 <td>курсы</td>
                 <td>
-                  {% for course in students.courses.all %}
+                  {% for course in student.courses.all %}
                     <a href={% url 'courses:detail' course.id %}>{{ course.name }}<br></a>
                   {% endfor %}
                 </td>

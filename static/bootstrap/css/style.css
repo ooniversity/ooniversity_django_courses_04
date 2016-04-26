@@ -24,6 +24,7 @@
 
 .table {
     border: double #a5a5a5;
+    border-collapse:collapse;
 }
 
 .media-text {
