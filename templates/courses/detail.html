@@ -5,17 +5,21 @@
 
   {% block title %}Course {{ course.name }}{% endblock title %}
 
+  {% block course_students %}?course_id={{ course.id }}{% endblock course_students %}
+
   {% block nav_active_index %}active{% endblock %}
 
   
   {% block content %}
 
  {% if messages %}
-<ul class="messages">
+  <ul class="messages">
     {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    <div class="alert alert-success" role="alert">
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    </div>
     {% endfor %}
-</ul>
+  </ul>
 {% endif %}
 
 

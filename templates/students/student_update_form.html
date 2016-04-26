@@ -3,7 +3,7 @@
     {% load staticfiles %}
 
 
-    {% block title %}Delete Student{% endblock title %}
+    {% block title %}{{ title }}{% endblock title %}
 
     {% block nav_active_students %}active{% endblock %}
 
@@ -13,15 +13,19 @@
  {% if messages %}
 <ul class="messages">
     {% for message in messages %}
+    <div class="alert alert-success" role="alert">
     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    </div>
     {% endfor %}
 </ul>
 {% endif %}
-   <h2>Студент {{ app.full_name }} будет удален!</h2> 
+
+<h2>Редактирование данных студента</h2>
+
 <form method="post">
   {% csrf_token %}
-  {{ form.as_table }}
-  <input type="submit" value="Удалить!"/>
+  {{ form.as_p }}
+  <input type="submit" value="Редактировать"/>
 </form>
 
 {% endblock content %}

@@ -11,12 +11,14 @@
     {% block content %}
 
      {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+      <ul class="messages">
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        </div>
+        {% endfor %}
+      </ul>
+    {% endif %}
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="panel panel-primary">
