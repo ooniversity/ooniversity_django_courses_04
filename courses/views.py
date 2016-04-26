@@ -6,7 +6,7 @@ from django.views.generic.detail import DetailView
 from django.contrib import messages
 from django.shortcuts import render, redirect
 
-from courses.models import Course, Lesson
+from courses.models import Course
 from courses.forms import LessonModelForm
 
 
