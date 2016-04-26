@@ -10,7 +10,7 @@
 {% block active_main %}active{% endblock active_main %}
 
 
-{% block course_students %}?course_id={{ course.id }}{% endblock course_students %}
+{% block course_students %}?course_id={{ course_detail.id }}{% endblock course_students %}
 
 
 {% block content %}
@@ -20,9 +20,9 @@
     <h4>{{ course.description|truncatechars:32 }}</h4>
   </div>
   <h3 class="text-center">Преподаватели</h3>
-  {% include 'include/courses_include.html' with teacher_about='Coach' teacher=course.coach %}
-  {% include 'include/courses_include.html' with teacher_about='Assistant' teacher=course.assistant %}
-  <p><a href="{% url 'courses:add-lesson' course.id %}"  role="button" class="btn btn-default">
+  {% include 'include/courses_include.html' with teacher_about='Coach' teacher=object.coach %}
+  {% include 'include/courses_include.html' with teacher_about='Assistant' teacher=object.assistant %}
+  <p><a href="{% url 'courses:add-lesson' object.id %}"  role="button" class="btn btn-default">
     <span class="glyphicon glyphicon-plus"></span>Добавить занятие</a></p>
   <h3>План курса</h3>
   <div class="navbar">
@@ -38,7 +38,7 @@
               </tr>
             </thead>
             <tbody>
-              {% for lesson in lesson %}
+              {% for lesson in lessons_list %}
                 <tr>
                   <td>{{ lesson.order }}</td>
                   <td>{{ lesson.subject }}</td>
