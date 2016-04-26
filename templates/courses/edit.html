@@ -1,8 +1,8 @@
 ﻿{% extends 'base.html' %}
-{% block title %}Редактирование курса{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 {% block content %}
 {% include "include/messages_include.html" with messages=messages %}
-  <h1>Редактирование курса</h1>
+  <h1>{{ title }}</h1>
   <br>
   <br> 
   <form method="post">
