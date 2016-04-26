@@ -4,13 +4,13 @@
 {% load staticfiles %}
 
 
-{% block title %}{{ course_detail }}{% endblock title %}
+{% block title %}{{ course }}{% endblock title %}
 
 
 {% block active_main %}active{% endblock active_main %}
 
 
-{% block course_students %}?course_id={{ course_detail.id }}{% endblock course_students %}
+{% block course_students %}?course_id={{ course.id }}{% endblock course_students %}
 
 
 {% block content %}
@@ -38,7 +38,7 @@
               </tr>
             </thead>
             <tbody>
-              {% for lesson in course_detail.lesson_set.all %}
+              {% for lesson in course.lesson_set.all %}
                 <tr>
                   <td>{{ forloop.counter }}</td>
                   <td>{{ lesson.subject }}</td>
