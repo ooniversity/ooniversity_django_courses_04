@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from courses.models import Lesson, Course
 from django.contrib import messages
-from forms import CourseModelForm, LessonModelForm
+from forms import  LessonModelForm
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
@@ -53,26 +53,9 @@ class CourseUpdateView(UpdateView):
         return super(CourseUpdateView, self).form_valid(form)
 
 
-"""
-
-def edit(request, pk):
-    edit_app = Course.objects.get(id=pk)
-    if request.method == 'POST':
-        edit_form = CourseModelForm(request.POST, instance=edit_app)
-        if edit_form.is_valid():
-            edit_form.save()
-            msg = "The changes have been saved."
-            messages.success(request, msg)
-            return redirect('courses:edit', edit_app.id)
-    else:
-        edit_form = CourseModelForm(instance=edit_app)
-    return render(request, 'courses/edit.html', {'edit_form': edit_form})
-"""
-
-
 class CourseDeleteView(DeleteView):
     model = Course
-    context_object_name = 'course'
+    success_url = reverse_lazy('index')
     template_name = 'courses/remove.html'
 
     def get_context_data(self, **kwargs):
