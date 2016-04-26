@@ -34,9 +34,11 @@
         </tr>
         <tr class="success">
             <td class="email_c">Course</td>
+            <td>
             {% for item in student.courses.all %}
-                <td><a href="{% url 'courses:detail' item.id %}">{{ item.name }}</a></td>
+                <a href="{% url 'courses:detail' item.id %}">{{ item.name }}</a></br>
             {% endfor %}
+            </td>
         </tr>
         </tbody>
     </table>
