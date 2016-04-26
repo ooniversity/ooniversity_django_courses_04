@@ -12,7 +12,7 @@ from courses.forms import LessonModelForm
 
 class CourseDetailView(DetailView):
     model = Course
-    context_object_name = 'course_detail'
+    context_object_name = 'course'
     template_name = 'courses/detail.html'
 
 
@@ -33,7 +33,6 @@ class CourseCreateView(CreateView):
 
 class CourseUpdateView(UpdateView):
     model = Course
-    fields = '__all__'
     template_name = 'courses/edit.html'
 
     def form_valid(self, form):
