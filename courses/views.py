@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect
 from courses.models import Lesson, Course
 from django.contrib import messages
 from forms import CourseModelForm, LessonModelForm
+from django.views.generic.detail import DetailView
 
+
+class CourseDetailView(DetailView):
+    model = Course
 
 def detail(request, course_id):
     cours_table = Course.objects.get(id=course_id)
