@@ -38,13 +38,13 @@ class StudentCreateView(CreateView):
     success_url = reverse_lazy('students:list_view')
 
     def form_valid(self, form):
-        messages.success(self.request, "Student %s %s has been successfully added."
+        messages.success(self.request, u"Student %s %s has been successfully added."
                          % (form.cleaned_data['name'], form.cleaned_data['surname']))
         return super(StudentCreateView, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super(StudentCreateView, self).get_context_data(**kwargs)
-        context['title'] = "Student registration"
+        context['title'] = u"Student registration"
         return context
 
 
@@ -53,12 +53,12 @@ class StudentUpdateView(UpdateView):
     fields = '__all__'
 
     def form_valid(self, form):
-        messages.success(self.request, "Info on the student has been sucessfully changed.")
+        messages.success(self.request, u"Info on the student has been sucessfully changed.")
         return super(StudentUpdateView, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)
-        context['title'] = "Student info update"
+        context['title'] = u"Student info update"
         return context
 
 
@@ -68,13 +68,13 @@ class StudentDeleteView(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         student = self.get_object()
-        messages.success(self.request, "Info on %s %s has been sucessfully deleted."
+        messages.success(self.request, u"Info on %s %s has been sucessfully deleted."
                          % (student.name, student.surname))
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
-        context['title'] = "Student info suppression"
+        context['title'] = u"Student info suppression"
         return context
 
 '''
@@ -103,7 +103,7 @@ def create(request):
             return redirect("students:list_view")
     else:
         form = StudentModelForm()
-    return render(request, "students/$_add.html", {'form': form})
+    return render(request, "students/!_old_add.html", {'form': form})
 
 
 def edit(request, student_id):
