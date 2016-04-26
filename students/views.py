@@ -3,6 +3,21 @@ from django.shortcuts import render, redirect
 from students.models import Student
 from forms import StudentModelForm
 from django.contrib import messages
+from django.views.generic.list import ListView
+
+
+
+class StudentListView(ListView):
+	model = Student
+	context_object_name = 'deskr'
+	def get_queryset(self):
+		if self.request.GET:
+			deskr = Student.objects.filter(courses__id=int(self.request.GET['course_id']))
+		else:
+			deskr = Student.objects.all()
+		return deskr
+
+
 
 
 def list_view(request):
