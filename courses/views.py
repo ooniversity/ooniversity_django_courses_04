@@ -6,6 +6,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
+
 class CourseDetailView(DetailView):
     model = Course
     context_object_name = 'course'
@@ -21,7 +22,6 @@ class CourseCreateView(CreateView):
     model = Course
     template_name = 'courses/add.html'
     success_url = reverse_lazy('index')
-    context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
         context = super(CourseCreateView, self).get_context_data(**kwargs)
@@ -38,17 +38,19 @@ class CourseCreateView(CreateView):
 class CourseUpdateView(UpdateView):
     model = Course
     template_name = 'courses/edit.html'
-    context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
-        context = super(CourseCreateView, self).get_context_data(**kwargs)
-        context['title'] = u"Course creation"
+        context = super(CourseUpdateView, self).get_context_data(**kwargs)
+        context['title'] = u"Course update"
         return context
+
+    def get_success_url(self):
+        return reverse_lazy('courses:edit', kwargs={'pk': self.object.pk})
 
     def form_valid(self, form):
         msg = "The changes have been saved."
         messages.success(self.request, msg)
-        return super(CourseUpdateView, self)
+        return super(CourseUpdateView, self).form_valid(form)
 
 
 """
@@ -65,7 +67,7 @@ def edit(request, pk):
     else:
         edit_form = CourseModelForm(instance=edit_app)
     return render(request, 'courses/edit.html', {'edit_form': edit_form})
-""""
+"""
 
 
 class CourseDeleteView(DeleteView):
@@ -80,7 +82,7 @@ class CourseDeleteView(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         msg = super(CourseDeleteView, self).delete(request, *args, **kwargs)
-        messages.success(self.request, u"Course %s has been deleted." % self.object.full_name)
+        messages.success(self.request, u"Course %s has been deleted." % self.object.name)
         return msg
 
 

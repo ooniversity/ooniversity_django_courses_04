@@ -16,7 +16,7 @@
     {% endif %}
     <form method="post">
     {% csrf_token %}
-        {{ edit_form.as_p }}
+        {{ form.as_p }}
         <input type="submit" value="Сохранить">
     </form>
 {% endblock content %}
