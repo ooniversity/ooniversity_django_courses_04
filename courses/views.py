@@ -46,8 +46,6 @@ class CourseUpdateView(UpdateView):
     model = Course    
     template_name = "courses/edit.html"
     context_object_name = "course"
-    #class_form = CourseModelForm
-    #success_url = reverse('index')
 
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
@@ -58,12 +56,8 @@ class CourseUpdateView(UpdateView):
     def form_valid(self, form):
         curs = form.save()
         messages.success(self.request, u'The changes have been saved.')
+        self.success_url = reverse('courses:edit', kwargs={'pk': curs.id})
         return super(CourseUpdateView, self).form_valid(form)
-
-    def get_success_url(self):
-        pk = self.kwargs['pk']
-        self.success_url = reverse('courses:edit', kwargs={'pk': pk})
-        return self.success_url
 
 
 class CourseDeleteView(DeleteView):
