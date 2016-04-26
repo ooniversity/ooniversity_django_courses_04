@@ -7,12 +7,12 @@
     <tbody>
     <tr class="success">
         <td>
-            <a href="{% url 'coaches:detail' course_table.coach.id %}">
-                {{ course_table.coach.first_name }} {{ course_table.coach.last_name }}</a>
+            <a href="{% url 'coaches:detail' course.coach.id %}">
+                {{ course.coach.first_name }} {{ course.coach.last_name }}</a>
         </td>
     </tr>
     <tr class="success">
-        <td>{{ course_table.coach.description }}</td>
+        <td>{{ course.coach.description }}</td>
     </tr>
 </table>
 </div>
@@ -25,11 +25,11 @@
         </thead>
         <tbody>
         <tr class="success">
-            <td><a href="{% url 'coaches:detail' course_table.assistant.id %}">
-                {{ course_table.assistant.first_name }} {{ course_table.assistant.last_name }}</a></td>
+            <td><a href="{% url 'coaches:detail' course.assistant.id %}">
+                {{ course.assistant.first_name }} {{ course.assistant.last_name }}</a></td>
         </tr>
         <tr class="success">
-            <td>{{ course_table.assistant.description }}</td>
+            <td>{{ course.assistant.description }}</td>
         </tr>
     </table>
 </div>

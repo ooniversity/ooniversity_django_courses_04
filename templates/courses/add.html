@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 
-{% block title %}Add Course{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 
@@ -11,7 +11,7 @@
 {% block content %}
     <form method="post">
     {% csrf_token %}
-        {{ form_add_course.as_p }}
+        {{ form.as_p }}
         <input type="submit" value="Создать">
     </form>
 {% endblock content %}
