@@ -19,7 +19,7 @@
     <h2>{{ course.name }}</h2>
     <h4>{{ course.description|truncatechars:32 }}</h4>
   </div>
-  <h3 class="text-center">Преподаватели</h3>
+  <h3 class="text-center">Преподаватели </h3>
   {% include 'include/courses_include.html' with teacher_about='Coach' teacher=object.coach %}
   {% include 'include/courses_include.html' with teacher_about='Assistant' teacher=object.assistant %}
   <p><a href="{% url 'courses:add-lesson' object.id %}"  role="button" class="btn btn-default">
