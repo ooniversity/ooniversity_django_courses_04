@@ -13,11 +13,16 @@
 {% block content %}
 <div class="container">
   <div class="col-md-8">
-  <h2>Создание нового студента</h2>
+  {% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">{{ message }}</div>
+  {% endfor %}
+  {% endif %}
+  <h3>{{ title }}</h3>
   <form method="post">
     {% csrf_token %}
-    {{ add_form.as_p }}
-    <input type="submit" value="Создать"/>
+    {{ form.as_p }}
+    <input type="submit" value="Сохранить"/>
   </form>
 </div>
 {% include "include/panel_include.html" %}
