@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.core.urlresolvers import reverse
 from courses.models import Course
 
 
@@ -16,3 +17,6 @@ class Student(models.Model):
     def __unicode__(self):
         full_name = "%s %s" % (self.name, self.surname)
         return full_name
+
+    def get_absolute_url(self):
+        return reverse('students:edit', kwargs={'pk': self.pk})
