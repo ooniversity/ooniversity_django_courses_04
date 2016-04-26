@@ -14,7 +14,6 @@ class StudentListView(ListView):
     """
     model = Student
     template_name = 'students/list.html'
-    context_object_name = 'stud'
 
     def get_queryset(self):
         try:
