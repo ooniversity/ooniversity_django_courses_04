@@ -8,7 +8,6 @@ from django.views.generic.detail import DetailView
 # from django.shortcuts import render, redirect
 
 from students.models import Student
-from courses.models import Course
 # from students.forms import StudentModelForm
 
 
@@ -16,19 +15,20 @@ class StudentListView(ListView):
     model = Student
 
     def get_queryset(self):
+        qs = super(StudentListView, self).get_queryset()
         course_id = self.request.GET.get('course_id', None)
         if course_id:
-            students = Student.objects.filter(courses=Course.objects.get(id=course_id))
-        else:
-            students = Student.objects.all()
-        return students
+            qs = qs.filter(courses = course_id)
+        return qs
 
 
 class StudentDetailView(DetailView):
     model = Student
 
     def get_context_data(self, **kwargs):
+        student = self.get_object()
         context = super(StudentDetailView, self).get_context_data(**kwargs)
+        context['title'] = u"Student %s %s detail" % (student.name, student.surname)
         return context
 
 
