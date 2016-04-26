@@ -5,32 +5,38 @@ from students.forms import StudentModelForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.views.generic import ListView, DetailView, CreateView
+from django.core.urlresolvers import reverse_lazy
+from students.models import Student
 
+class StudentListView(ListView):
+  model = Student
+  def get_queryset(self):
+    qs = super(StudentListView, self).get_queryset()
+    course_id = self.request.GET.get('course_id', None)
+    if course_id:
+      qs = qs.filter(courses__id=course_id)
+    return qs
 
-def list_view(request):
-  course_id = request.GET.get('course_id', None)
-  if course_id:
-    students = Student.objects.filter(courses__id=course_id)
-  else:
-    students = Student.objects.all()
-  return render(request, 'students/list.html', {'students': students})
+class StudentDetailView(DetailView):
+    model = Student
 
+class StudentCreateView(CreateView):
+    model = Student
+    success_url = reverse_lazy('students:list')
 
-def detail(request, pk):
-  student = get_object_or_404(Student, pk=pk)
-  return render(request, 'students/detail.html', {'student': student})
+    def form_valid(self, form):
+        super_valid = super(StudentCreateView, self).form_valid(form)
+        messages.success(self.request,
+                         u'Студент {} {} успешно добавлен.'.format(self.object.name, self.object.surname))
+        return super_valid
 
-
-def create(request):
-  if request.method == "POST":
-    form = StudentModelForm(request.POST)
-    if form.is_valid():
-      form.save()
-      messages.success(request, u'Student {} {} has been successfully added'.format(form.cleaned_data.get('name'), form.cleaned_data.get('surname')))
-      return redirect('students:list_view')
-  else:
-    form = StudentModelForm()
-  return render(request, 'students/add.html', {'form': form})
+    def get_context_data(self, **kwargs):
+        context = super(StudentCreateView, self).get_context_data(**kwargs)
+        context.update({
+            "title": u'Создание нового студента'
+        })
+        return context
 
 def edit(request, pk):
   student = get_object_or_404(Student, pk=pk)
