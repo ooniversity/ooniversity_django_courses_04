@@ -75,11 +75,3 @@ class StudentDeleteView(DeleteView):
         context["title"] = "Student info suppression"
         return context
 
-def remove(request, id):
-    """ Удаление студента с подтверждением """
-    std = Student.objects.get(pk = id)
-    if request.method == 'POST':
-        messages.success(request, u'Info on %s %s has been sucessfully deleted.'%(std.name, std.surname))
-        std.delete()
-        return redirect('students:list_view')
-    return render(request,"students/remove.html", {"student": std})
