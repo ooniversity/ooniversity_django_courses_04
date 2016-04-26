@@ -53,7 +53,7 @@ class StudentCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentCreateView, self).get_context_data(**kwargs)
-        context['page_title'] = u"Student registration"
+        context['title'] = u"Student registration"
         return context
 
     def form_valid(self, form):
