@@ -9,6 +9,7 @@ from courses.models import Course, Lesson
 class CourseDetailView(DetailView):
     model = Course
     template_name = "courses/detail.html"
+    success_url = reverse_lazy('index')
 
     def get_context_data(self,**kwargs):
         context = super(CourseDetailView,self).get_context_data(**kwargs)
@@ -16,7 +17,6 @@ class CourseDetailView(DetailView):
         pk = self.kwargs['pk']
         context["lessons"] = Lesson.objects.filter(course_id = pk)
         return context
-
 
 class CourseCreateView(CreateView):
     model = Course
@@ -58,12 +58,12 @@ class CourseUpdateView(UpdateView):
 
 class CourseDeleteView(DeleteView):
     model = Course
-    success_url = reverse_lazy('index')
     template_name = "courses/remove.html"
+    success_url = reverse_lazy('index')
 
-    def get_context_data(self, **kwargs):
-        context = super(CourseDeleteView, self).get_context_data(**kwargs)
-        context['title'] = "Course deletion"
+    def get_context_data(self,**kwargs):
+        context = super(CourseDeleteView,self).get_context_data(**kwargs)
+        context["title"] = "Course deletion"
         return context
 
     def form_valid(self, form):
@@ -75,6 +75,7 @@ class CourseDeleteView(DeleteView):
 
 class LessonCreateView(CreateView):
     model = Lesson
+    template_name = "courses/add-lesson.html"
 
     def get_context_data(self, **kwargs):
         context = super(LessonCreateView, self).get_context_data(**kwargs)
