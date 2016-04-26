@@ -5,10 +5,10 @@ from courses.forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
 
 
-def detail(request, num):
+def detail(request, pk):
     """ Информация о курсах """
-    course = Course.objects.get(pk = int(num))
-    lessons_list = Lesson.objects.filter(course_id = int(num))
+    course = Course.objects.get(pk = pk)
+    lessons_list = Lesson.objects.filter(course_id = pk)
     return render(request, "courses/detail.html", {"course": course, "lessons_list": lessons_list})
 
 def add(request):
@@ -31,7 +31,7 @@ def edit(request, id):
         if form.is_valid():
             kurs = form.save()
             messages.success(request, u'The changes have been saved.')
-            return redirect('courses:edit', kurs.id)
+            return redirect('courses:detail', kurs.id)
                 
     else:
         form = CourseModelForm(instance = kurs)
