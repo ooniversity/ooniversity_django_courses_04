@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Editions{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block nav_students %}active{% endblock nav_students %}
@@ -18,7 +18,7 @@
     {% endif %}
     <form method="post">
         {% csrf_token %}
-        <p>{{ edit_form.as_p }}</p>
+        <p>{{ form.as_p }}</p>
         <input type="submit" value="Сохранить">
     </form>
 {% endblock content %}
