@@ -11,11 +11,13 @@
 {% block content %}
 
  {% if messages %}
-<ul class="messages">
+  <ul class="messages">
     {% for message in messages %}
+    <div class="alert alert-success" role="alert">
     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    </div>
     {% endfor %}
-</ul>
+  </ul>
 {% endif %}
 
 <h2>Редактирование данных о курсе</h2>

@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
+from django.contrib import messages
+
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
-from django.contrib import messages
+
 
 def detail(request, course_id):
     course = Course.objects.get(id=course_id)
