@@ -88,6 +88,11 @@ class LessonCreateView(CreateView):
     template_name = 'courses/add_lesson.html'
 
     def get_context_data(self, **kwargs):
+        pk = self.kwargs['pk']
+        lesson = Lesson()
+        lesson.course = get_object_or_404(Course, pk=pk)
+        lesson.order = Lesson.objects.filter(course=lesson.course).count() + 1
+        kwargs['form'] = LessonModelForm(instance=lesson)
         context = super(LessonCreateView, self).get_context_data(**kwargs)
         context['title'] = u'Создание нового занятия'
         return context
@@ -98,7 +103,8 @@ class LessonCreateView(CreateView):
         return super(LessonCreateView, self).form_valid(form)
 
     def get_success_url(self):
-        return reverse('courses:detail', kwargs={'pk': 1})
+        pk = self.kwargs['pk']
+        return reverse('courses:detail', kwargs={'pk': pk})
 
 
 def detail(request, course_id):
