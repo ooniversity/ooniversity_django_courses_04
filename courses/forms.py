@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-from courses.models import Course, Lesson
 from django import forms
+
+from courses.models import Course, Lesson
 
 
 class CourseModelForm(forms.ModelForm):

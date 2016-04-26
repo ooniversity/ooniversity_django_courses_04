@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
-from courses.models import Course, Lesson
 from django.contrib import messages
+
+from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 
 

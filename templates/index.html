@@ -11,13 +11,7 @@
 
 
 {% block content %}
-  {% if messages %}
-    {% for message in messages %}
-      <div class="jumbotron">
-        <h4>{{ message }}</h4>
-      </div>
-    {% endfor %}
-  {% endif %}
+  {% include "include/inc_message.html" %}
   <p><a href="{% url 'courses:add' %}" role="button" class="btn btn-default">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить новый курс</a></p>
   <div class="container-fluid">
@@ -39,37 +33,35 @@
       <div class="navbar">
         <div class="navbar-inner">
           <div class="container-fluid">
-            <div class="jumbotron" style="background:rgba(255,255,255,0.3);">
-              <div class="media">
-                <table class="table table-striped table-bordered" border="1" cellpadding="4">
-                  <thead>
-                    <tr>
-                      <th>Курс</th>
-                      <th>Краткое описание</th>
-                      <td>edit</td>
-                      <td>remove</td>
-                     </tr>
-                  </thead>
-                  <tbody>
-                  {% for course in courses %}
-                    <tr>
-                      <td><a href={% url 'courses:detail' course.id %}>{{ course.name|upper }}</a></td>
-                      <td>{{ course.short_description|title }}</td>
-                      <td>
-                        <a href="{% url 'courses:edit' course.id %}">
-                          <button class="btn btn-primary" type="button">
-                          <span class="glyphicon glyphicon-pencil"></span>Изменить</button></a>
-                      </td>
-                      <td>
-                        <a href="{% url 'courses:remove' course.id %}">
-                          <button class="btn btn-primary" type="button">
-                          <span class="glyphicon glyphicon-remove"></span>Удалить</button></a>
-                      </td>
-                    </tr>
-                  {% endfor %}
-                  </tbody>
-                </table>
-              </div>
+            <div class="media">
+              <table class="table table-striped table-bordered" border="1" cellpadding="4">
+                <thead>
+                  <tr>
+                    <th>Курс</th>
+                    <th>Краткое описание</th>
+                    <th>edit</th>
+                    <th>remove</th>
+                   </tr>
+                </thead>
+                <tbody>
+                {% for course in courses %}
+                  <tr>
+                    <td><a href={% url 'courses:detail' course.id %}>{{ course.name|upper }}</a></td>
+                    <td>{{ course.short_description|title }}</td>
+                    <td>
+                      <a href="{% url 'courses:edit' course.id %}">
+                        <button class="btn btn-primary" type="button">
+                        <span class="glyphicon glyphicon-pencil"></span>Изменить</button></a>
+                    </td>
+                    <td>
+                      <a href="{% url 'courses:remove' course.id %}">
+                        <button class="btn btn-primary" type="button">
+                        <span class="glyphicon glyphicon-remove"></span>Удалить</button></a>
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
