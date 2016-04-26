@@ -22,7 +22,7 @@
 				<div><h3><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.user.username}} {{course.assistant.user.last_name}}</a></h3></div>
 				<div><p>{{course.assistant.description}}</p></div>
 			</div>
-			<h2 class="blockquote-reverse text-uppercase">Course containe lessons:</h2>
+			<h2 class="blockquote-reverse text-uppercase">Course contain lessons:</h2>
 			<a class="btn btn-primary"href="{% url 'courses:add-lesson' course.id %}">Add new lesson</a>
 			<table class="table">
 				<tbody>
