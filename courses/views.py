@@ -3,6 +3,68 @@ from django.shortcuts import render, redirect
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
+
+
+class CourseDetailView(DetailView):
+	model = Course
+	template_name = 'course'
+	context_object_name = 'courses/detail.html'
+
+
+
+class CourseCreateView(CreateView):
+	model = Course
+	template_name = 'course'
+	context_object_name = 'courses/add.html'
+	success_url = reverse_lazy('index')
+
+	def get_context_data(self,**kwargs):
+		context = super(CourseCreateView, self).get_context_data(**kwargs)
+		context['title'] = u"Course creation"
+		return context
+
+	def form_valid(self,form):
+		student = form.save()
+		messages.success(self.request, u" Course %s has been successfully added." %(course.name))
+		return super(CourseCreateView, self).form_valid(form)
+
+class CourseUpdateView(UpdateView):
+	model = Course
+	template_name = 'course'
+	context_object_name = 'courses/edit.html'
+	success_url = reverse_lazy('edit')
+	class_form = CourseModelForm
+
+	def get_context_data(self,**kwargs):
+		context = super(CourseUpdateView, self).get_context_data(**kwargs)
+		context["pk"] = self.kwargs['pk']
+		context['title'] = u"Course update"
+		return context
+
+	def form_valid(self,form):
+		student = form.save()
+		messages.success(self.request, u'The changes have been saved.')
+		return super(CourseUpdateView, self).form_valid(form)
+
+
+class CourseDeleteView(UpdateView):
+	model = Course
+	template_name = 'course'
+	context_object_name = 'courses/remove.html'
+	success_url = reverse_lazy('edit')
+
+	def get_context_data(self,**kwargs):
+		context = super(CourseDeleteView, self).get_context_data(**kwargs)
+		context['title'] = u"Course deletion"
+		return context
+
+	def delete(self, request, *args, **kwargs):
+		messages.success(self.request, u'Course %s has been deleted.'.format(self.object.name))
+		return super (CourseDeleteView, self).delete(request, *args, **kwargs)
 
 def create(request):
 	if request.method == 'POST':
