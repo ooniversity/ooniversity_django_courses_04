@@ -12,11 +12,12 @@ from students.models import Student
 class StudentListView(ListView):
   model = Student
   def get_queryset(self):
-    qs = super(StudentListView, self).get_queryset()
     course_id = self.request.GET.get('course_id', None)
     if course_id:
-      qs = qs.filter(courses__id=course_id)
-    return qs
+        students = Student.objects.filter(courses=Course.objects.get(id=course_id))
+    else:
+        students = Student.objects.all()
+    return students
 
 class StudentDetailView(DetailView):
   model = Student
