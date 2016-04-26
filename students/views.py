@@ -8,8 +8,6 @@ from django.views.generic.detail import DetailView
 # from django.shortcuts import render, redirect
 
 from students.models import Student
-
-
 # from students.forms import StudentModelForm
 
 
@@ -40,13 +38,13 @@ class StudentCreateView(CreateView):
 
     def form_valid(self, form):
         message = super(StudentCreateView, self).form_valid(form)
-        messages.success(self.request, "Student %s %s has been successfully added."
+        messages.success(self.request, u"Student %s %s has been successfully added."
                          % (self.object.name, self.object.surname))
         return message
 
     def get_context_data(self, **kwargs):
         context = super(StudentCreateView, self).get_context_data(**kwargs)
-        context['title'] = "Student registration"
+        context['title'] = u"Student registration"
         return context
 
 
@@ -70,15 +68,11 @@ class StudentDeleteView(DeleteView):
     model = Student
     success_url = reverse_lazy('students:list_view')
 
-    def delete(self, request, *args, **kwargs):
-        student = self.get_object()
-        messages.success(self.request, u"Info on %s %s has been sucessfully deleted."
-                         % (student.name, student.surname))
-        return super(StudentDeleteView, self).delete(request, *args, **kwargs)
-
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
-        context['title'] = u"Student info suppression"
+        messages.success(self.request, "Info on %s %s has been sucessfully deleted."
+                         % (self.object.name, self.object.surname))
+        context['title'] = "Student info suppression"
         return context
 
 
