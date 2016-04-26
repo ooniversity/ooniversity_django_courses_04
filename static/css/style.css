@@ -70,5 +70,8 @@ table, td {
 table {
     border-collapse: separate;
     border-spacing: 0;
+}
 
-
+.row {
+	min-height: 600px;
+}

@@ -5,6 +5,11 @@ from courses.models import Course
 from forms import StudentModelForm
 from django.contrib import messages
 from django.template import RequestContext
+from django.views.generic.detail import DetailView
+
+class StudentDetailView(DetailView):
+	model = Student
+
 
 def create(request):
 	if request.method == 'POST':
@@ -42,6 +47,8 @@ def remove(request,id):
         messages.success(request, message)
         return redirect('students:list_view')
     return render(request,"students/remove.html",{"student":student})
+
+
 
 def detail(request, student_id):
     student = Student.objects.get(id=student_id)
