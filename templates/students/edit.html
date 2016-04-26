@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}DjBursa - Редактирование данных студента{% endblock title %}
+{% block title %}DjBursa - {{ title }}{% endblock title %}
 
 {% block nav_students %}active{% endblock nav_students %}
 
@@ -17,7 +17,7 @@
       {% endfor %}
   </ul></div>
   {% endif %}
-  <h3>Редактирование данных студента</h3>
+  <h3>{{ title }}а</h3>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

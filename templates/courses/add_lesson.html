@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}DjBursa - Создание нового занятия{% endblock title %}
+{% block title %}DjBursa - {{ title }}{% endblock title %}
 
 {% block content %}
 <div class="row">
   <div class="col-lg-12">
-    <h3>Создание нового занятия</h3>
+    <h3>{{ title }}</h3>
     <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
