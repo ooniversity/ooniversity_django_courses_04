@@ -34,7 +34,6 @@ class StudentDetailView(DetailView):
 
 class StudentCreateView(CreateView):
     model = Student
-    fields = '__all__'
     success_url = reverse_lazy('students:list_view')
 
     def form_valid(self, form):
@@ -50,7 +49,6 @@ class StudentCreateView(CreateView):
 
 class StudentUpdateView(UpdateView):
     model = Student
-    fields = '__all__'
 
     def form_valid(self, form):
         messages.success(self.request, u"Info on the student has been sucessfully changed.")
