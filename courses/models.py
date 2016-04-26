@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 
 from coaches.models import Coach
@@ -22,3 +23,4 @@ class Lesson(models.Model):
 
     def __unicode__(self):
         return self.subject
+
