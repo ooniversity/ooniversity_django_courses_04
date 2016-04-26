@@ -9,18 +9,20 @@ from django.views.generic import ListView, DetailView, CreateView, CreateView, U
 from django.core.urlresolvers import reverse_lazy
 from students.models import Student
 
+
 class StudentDetailView(DetailView):
   model = Student
+
 
 class StudentListView(ListView):
   model = Student
   def get_queryset(self):
-    qs = super(StudentListView, self).get_queryset()
     course_id = self.request.GET.get('course_id', None)
     if course_id:
-      qs = qs.filter(courses__id=course_id)
+      qs = Student.objects.filter(courses=Course.objects.get(id=course_id))
+    else:
+      qs = Student.objects.all()
     return qs
-
 
 
 class StudentCreateView(CreateView):
