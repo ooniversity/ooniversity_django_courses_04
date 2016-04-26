@@ -13,7 +13,6 @@ class StudentListView(ListView):
     Output list of the students
     """
     model = Student
-    template_name = 'students/list.html'
 
     def get_queryset(self):
         try:
@@ -29,7 +28,6 @@ class StudentDetailView(DetailView):
     Class for output info about student
     """
     model = Student
-    template_name = 'students/detail.html'
 
 
 class StudentCreateView(CreateView):
@@ -37,7 +35,6 @@ class StudentCreateView(CreateView):
     For add students
     """
     model = Student
-    template_name = 'students/add.html'
     success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
@@ -57,7 +54,6 @@ class StudentUpdateView(UpdateView):
     For updating information about student
     """
     model = Student
-    template_name = 'students/edit.html'
     success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
@@ -71,13 +67,11 @@ class StudentUpdateView(UpdateView):
         return super(StudentUpdateView, self).form_valid(form)
 
 
-
 class StudentDeleteView(DeleteView):
     """
     For delete student from DB
     """
     model = Student
-    template_name = 'students/remove.html'
     success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
