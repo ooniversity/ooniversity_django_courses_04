@@ -11,7 +11,6 @@ from django.core.urlresolvers import reverse_lazy
 from students.models import Student
 
 
-
 class StudentListView(ListView):
     model = Student
     template_name = 'students/list.html'
@@ -59,7 +58,7 @@ class StudentCreateView(CreateView):
 
     def form_valid(self, form):
         student = form.save()
-        msg = 'Студент {0} был добавлен.'.format(student.full_name)
+        msg = u'Студент {0} был добавлен.'.format(student.full_name)
         messages.success(self.request, msg)
         return super(StudentCreateView, self).form_valid(form)
 
@@ -91,7 +90,7 @@ class StudentUpdateView(UpdateView):
         return context
 
     def form_valid(self, form):
-        msg = 'Данные изменены.'
+        msg = u'Данные изменены.'
         messages.success(self.request, msg)
         return super(StudentUpdateView, self).form_valid(form)
 """
