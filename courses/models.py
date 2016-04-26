@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from coaches.models import Coach
+from django.core.urlresolvers import reverse
 
 class Course(models.Model):
     """ Модель для курсов """
@@ -25,7 +26,8 @@ class Lesson(models.Model):
     def __unicode__(self):
         return  self.subject
 
-
+    def get_absolute_url(self):
+        return reverse("courses:detail", self.pk)
 
 
 

@@ -1,9 +1,0 @@
-﻿{% extends 'base.html' %}
-{% block student_active %}active{% endblock %}
-{% block title %}Информация о студенте{% endblock title %}
-{% block content %}
-  <h1>{{ student.surname }} {{ student.name }}</h1>
-  <br>
-  {% include 'include/studentinf_include.html'%}
-  <br>
-{% endblock content %}
