@@ -6,7 +6,7 @@
 
 
 {% block content %}
-	<h1>Редактирование курса</h1>
+	<h1>{{ title }}</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
