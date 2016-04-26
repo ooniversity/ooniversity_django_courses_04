@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}DjBursa - Удаление данных курса{% endblock title %}
+{% block title %}DjBursa - {{ title }}{% endblock title %}
 
 {% block content %}
 <div class="row">
@@ -19,6 +19,7 @@
       </ul>
     </div>
   {% endif %}
+  <h3>{{ title }}</h3>
   <form method="post">
     {% csrf_token %}
     <p><input type="submit" value="Удалить"></p>

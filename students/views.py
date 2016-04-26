@@ -1,13 +1,85 @@
-from django.utils.datastructures import MultiValueDictKeyError
-
+# -*- coding: utf-8 -*-
 from django.contrib import messages
+from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from django.shortcuts import render
+from django.utils.datastructures import MultiValueDictKeyError
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
+from django.views.generic.edit import DeleteView
+from django.views.generic.edit import UpdateView
+from django.views.generic.list import ListView
 
 from courses.models import Course
 from students.forms import StudentModelForm
 from students.models import Student
+
+
+class StudentListView(ListView):
+    model = Student
+
+    def get_queryset(self):
+        course_id = self.request.GET.get('course_id', None)
+        if course_id:
+            qs = Student.objects.filter(courses__id=course_id)
+        else:
+            qs = Student.objects.all()
+        return qs
+
+
+class StudentDetailView(DetailView):
+    model = Student
+
+
+class StudentCreateView(CreateView):
+    model = Student
+    success_url = reverse_lazy('students:list_view')
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentCreateView, self).get_context_data(**kwargs)
+        context['title'] = 'Student registration'
+        context['btn_name'] = u'Создать'
+        return context
+
+    def form_valid(self, form):
+        messages.set_level(self.request, messages.SUCCESS)
+        messages.success(self.request, u'Student {0} {1} has been successfully added.'.format(form.cleaned_data.get('name'), form.cleaned_data.get('surname')))
+        return super(StudentCreateView, self).form_valid(form)
+
+
+class StudentUpdateView(UpdateView):
+    model = Student
+    success_url = reverse_lazy('students:list_view')
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentUpdateView, self).get_context_data(**kwargs)
+        context['title'] = 'Student info update'
+        context['btn_name'] = u'Изменить'
+        return context
+
+    def form_valid(self, form):
+        messages.set_level(self.request, messages.SUCCESS)
+        messages.success(self.request, 'Info on the student has been sucessfully changed.')
+        return super(StudentUpdateView, self).form_valid(form)
+
+
+class StudentDeleteView(DeleteView):
+    model = Student
+    success_url = reverse_lazy('students:list_view')
+
+    def get_context_data(self, **kwargs):
+        messages.set_level(self.request, messages.WARNING)
+        messages.warning(self.request, u'Are you sure you want to delete "{0} {1}"?'.format(kwargs['object'].name, kwargs['object'].surname))
+        context = super(StudentDeleteView, self).get_context_data(**kwargs)
+        context['title'] = 'Student info suppression'
+        return context
+
+    def delete(self, request, *args, **kwargs):
+        student = Student.objects.get(pk=kwargs['pk'])
+        messages.set_level(self.request, messages.SUCCESS)
+        messages.success(request, u'Info on {0} {1} has been sucessfully deleted.'.format(student.name, student.surname))
+        return super(StudentDeleteView, self).delete(request, *args, **kwargs)
 
 
 def list_view(request):
