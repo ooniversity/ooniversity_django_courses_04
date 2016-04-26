@@ -10,7 +10,7 @@
 {% block active_menu_main %}active{% endblock active_menu_main %}
 
 
-{% block students_href %}{% url 'students:list_view' %}?course_id={{cur_course.id}}{% endblock students_href %}
+{% block students_href %}{% url 'students:list_view' %}?course_id={{ course.id }}{% endblock students_href %}
 
 
 {% block content %}
@@ -22,9 +22,9 @@
             <div class="alert alert-success" role="alert">{{ message }}</div>
         {% endfor %}
         {% endif %}
-	      <h1>{{cur_course.name}}</h1>
-	      <h5>{{cur_course.description|truncatechars:32}}</h5>
-          <a href="{% url 'courses:add_lesson' cur_course.id %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Добавить занятие</button></a>
+	      <h1>{{ course.name }}</h1>
+	      <h5>{{ course.description|truncatechars:32 }}</h5>
+          <a href="{% url 'courses:add_lesson' course.id %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Добавить занятие</button></a>
           <h3>План курса</h3>
 	  </div>
       <div class="col-md-8">
@@ -32,16 +32,16 @@
           <!-- Default panel contents -->
           <div class="panel-heading">Учитель</div>
             <div class="panel-body">
-              <a href="{% url 'coaches:detail' cur_course.coach.id %}"><h3>{{cur_course.coach.user.first_name}}</h3></a>
-	          <h5>{{cur_course.coach.description}}</h5>
+              <a href="{% url 'coaches:detail' course.coach.id %}"><h3>{{ course.coach.user.first_name }}</h3></a>
+	          <h5>{{ course.coach.description }}</h5>
 		    </div>
 		</div>
         <div class="panel panel-info">
           <!-- Default panel contents -->
           <div class="panel-heading">Ассистент</div>
             <div class="panel-body">
-              <a href="{% url 'coaches:detail' cur_course.assistant.id %}"><h3>{{cur_course.assistant.user.first_name}}</h3></a>
-	          <h5>{{cur_course.assistant.description}}</h5>
+              <a href="{% url 'coaches:detail' course.assistant.id %}"><h3>{{ course.assistant.user.first_name }}</h3></a>
+	          <h5>{{ course.assistant.description }}</h5>
 		    </div>
 		</div>
 	  </div>
@@ -54,13 +54,13 @@
 			  <th>Описание</th>
 			</thead>
 			<tbody>
-              {% for i in cur_lesson %}
+              {% for i in course.lesson_set.all %}
 			  <tr>
-				<td>{{i.order}}</td>
+				<td>{{ i.order }}</td>
 				<td>
-				  {{i.subject}}
+				  {{ i.subject }}
 				</td>
-                <td>{{i.description}}</td>
+                <td>{{ i.description }}</td>
 			  </tr>
               {% endfor %}
 			</tbody>
