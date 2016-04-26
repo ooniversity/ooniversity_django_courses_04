@@ -13,6 +13,7 @@ class CourseDetailView(DetailView):
     model = Course
     template_name = "courses/detail.html"
     context_object_name = "course"
+    success_url = reverse_lazy('index')
 
     def get_context_data(self,**kwargs):
         context = super(CourseDetailView,self).get_context_data(**kwargs)
@@ -46,6 +47,7 @@ class CourseUpdateView(UpdateView):
     template_name = "courses/edit.html"
     context_object_name = "course"
     class_form = CourseModelForm
+    #success_url = get_success_url()
 
     def get_context_data(self,**kwargs):
         context = super(CourseUpdateView,self).get_context_data(**kwargs)
@@ -60,7 +62,7 @@ class CourseUpdateView(UpdateView):
 
     def get_success_url(self):
         pk = self.kwargs['pk']
-        return reverse('courses:detail', kwargs={'pk': pk})
+        return reverse('courses:edit', kwargs={'pk': pk})
 
 
 class CourseDeleteView(DeleteView):
