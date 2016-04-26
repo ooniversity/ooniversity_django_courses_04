@@ -6,20 +6,25 @@ from django.contrib import messages
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse, reverse_lazy
 
 
 class CourseDetailView(DetailView):
 	model = Course
-	template_name = 'course'
-	context_object_name = 'courses/detail.html'
+	template_name = 'courses/detail.html'
+	context_object_name = 'course'
 
-
+	def get_context_data(self, **kwargs):
+		context = super(CourseDetailView,self).get_context_data(**kwargs)
+		context["title"] = "Course detail"
+		pk = self.kwargs['pk']
+		context["lesson"] = Lesson.objects.filter(course_id = pk)
+		return context
 
 class CourseCreateView(CreateView):
 	model = Course
-	template_name = 'course'
-	context_object_name = 'courses/add.html'
+	template_name = 'courses/add.html'
+	context_object_name = 'course'
 	success_url = reverse_lazy('index')
 
 	def get_context_data(self,**kwargs):
@@ -28,17 +33,15 @@ class CourseCreateView(CreateView):
 		return context
 
 	def form_valid(self,form):
-		student = form.save()
+		course = form.save()
 		messages.success(self.request, u" Course %s has been successfully added." %(course.name))
 		return super(CourseCreateView, self).form_valid(form)
 
 class CourseUpdateView(UpdateView):
 	model = Course
-	template_name = 'course'
-	context_object_name = 'courses/edit.html'
-	success_url = reverse_lazy('edit')
-	class_form = CourseModelForm
-
+	template_name = 'courses/edit.html'
+	context_object_name = 'course'
+	
 	def get_context_data(self,**kwargs):
 		context = super(CourseUpdateView, self).get_context_data(**kwargs)
 		context["pk"] = self.kwargs['pk']
@@ -46,15 +49,18 @@ class CourseUpdateView(UpdateView):
 		return context
 
 	def form_valid(self,form):
-		student = form.save()
+		course = form.save()
 		messages.success(self.request, u'The changes have been saved.')
 		return super(CourseUpdateView, self).form_valid(form)
 
+	def get_success_url(self):
+		pk = self.kwargs['pk']
+		return reverse('courses:edit', kwargs={'pk': pk})
 
 class CourseDeleteView(UpdateView):
 	model = Course
-	template_name = 'course'
-	context_object_name = 'courses/remove.html'
+	template_name = 'courses/remove.html'
+	context_object_name = 'course'
 	success_url = reverse_lazy('edit')
 
 	def get_context_data(self,**kwargs):
