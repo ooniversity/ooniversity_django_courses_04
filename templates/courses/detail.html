@@ -38,7 +38,7 @@
               </tr>
             </thead>
             <tbody>
-              {% for lesson in lessons_list %}
+              {% for lesson in course_detail.lesson_set.all %}
                 <tr>
                   <td>{{ lesson.order }}</td>
                   <td>{{ lesson.subject }}</td>
