@@ -15,7 +15,7 @@ class StudentListView(ListView):
     model = Student
 
     def get_context_data(self):
-        context = super(StudentListView,self).get_context_data()
+        context = super(StudentListView, self).get_context_data()
         context["course"] = Course.objects.all()
         return context
 
@@ -38,8 +38,8 @@ class StudentCreateView(CreateView):
     success_url = reverse_lazy('students:list_view')
     form_class = StudentModelForm
 
-    def get_context_data(self,**kwargs):
-        context = super(StudentCreateView,self).get_context_data(**kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(StudentCreateView, self).get_context_data(**kwargs)
         context["title"] = "Student registration"
         return context
     
@@ -54,8 +54,8 @@ class StudentUpdateView(UpdateView):
     model = Student
     success_url = reverse_lazy('students:list_view')
 
-    def get_context_data(self,**kwargs):
-        context = super(StudentUpdateView,self).get_context_data(**kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(StudentUpdateView, self).get_context_data(**kwargs)
         context["title"] = "Student info update"
         return context
     
@@ -70,8 +70,8 @@ class StudentDeleteView(DeleteView):
     model = Student
     success_url = reverse_lazy('students:list_view')
 
-    def get_context_data(self,**kwargs):
-        context = super(StudentDeleteView,self).get_context_data(**kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(StudentDeleteView, self).get_context_data(**kwargs)
         context["title"] = "Student info suppression"
         return context
 
