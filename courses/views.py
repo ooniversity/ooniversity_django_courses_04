@@ -7,8 +7,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy, reverse
 
 class CourseDetailView(DetailView):
-    template_name = 'courses/detail.html'
     model = Course
+    template_name = 'courses/detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
@@ -17,8 +17,8 @@ class CourseDetailView(DetailView):
 
 class CourseCreateView(CreateView):
     model = Course
-    template_name = 'courses/add.html'
     form_class = CourseModelForm
+    template_name = 'courses/add.html'
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):
@@ -35,9 +35,9 @@ class CourseCreateView(CreateView):
         return context
 
 class CourseUpdateView(UpdateView):
-    template_name = 'courses/edit.html'
-    form_class = CourseModelForm
     model = Course
+    form_class = CourseModelForm
+    template_name = 'courses/edit.html'
     
     def get_success_url(self):
          return reverse("courses:edit", kwargs={'pk': self.kwargs['pk']})
@@ -55,8 +55,8 @@ class CourseUpdateView(UpdateView):
         return context
 
 class CourseDeleteView(DeleteView):
-    template_name = 'courses/remove.html'
     model = Course
+    template_name = 'courses/remove.html'
     success_url = reverse_lazy('index')
 
     def delete(self, request, *args, **kwargs):
