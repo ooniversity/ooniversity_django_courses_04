@@ -1,7 +1,7 @@
 # encoding: utf-8
-from django.shortcuts import render, redirect
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.views.generic.detail import DetailView
@@ -50,7 +50,7 @@ class CourseUpdateView(UpdateView):
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
         context["title"] = "Course update"
-        context["pk"] = self.kwargs['pk']
+        #context["pk"] = self.kwargs['pk']
         return context
     
     def form_valid(self, form):

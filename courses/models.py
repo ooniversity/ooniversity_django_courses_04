@@ -4,6 +4,7 @@ from django.db import models
 from coaches.models import Coach
 from django.core.urlresolvers import reverse_lazy
 
+
 class Course(models.Model):
     """ Модель для курсов """
     name = models.CharField(verbose_name = 'Name', max_length = 200)
