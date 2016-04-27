@@ -1,30 +1,37 @@
 ﻿{% extends 'base.html' %}
+﻿{% load staticfiles %}
 {% block title %}{{ title }}{% endblock title %}
 {% block content %}
 {% include "include/messages_include.html" with messages=messages %}
 
-	<h1>{{ course.name }}</h1>
-	<br>
-	<p>{{ course.description|truncatechars:32 }}</p>
-	<br>
-	<a href="{% url 'courses:edit' course.id %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-pencil"></span> Изменить</a>
-    <br> 
-	<h3>Преподаватели</h3>
-	<br>
-    {% include "include/coach_include.html" with teacher="Учитель" instructor=course.coach %}
-	<br>
-    {% include "include/coach_include.html" with teacher="Ассистент" instructor=course.assistant %}
-	<br>
-	<h3>План курса</h3>
-	<br>
-    <a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-plus-sign"></span> Добавить занятие</a>
+	<h1 class="page-header text-center">{{ course.name }}
+    <a href="{% url 'courses:edit' course.id %}" class="btn btn-primary btn-xs" role="button">
+                <span class="glyphicon glyphicon-pencil"></span> Изменить</a>
+    </h1>
 
-    <table id="ind_t1" class="table table-striped">
+	<h4>{{ course.description|truncatechars:32 }}</h4>
+	<br>
+
+	<h2  class="text-center">Преподаватели</h2>
+	<br>
+    {% include "include/coach_include.html" with teacher="<b>Учитель</b>" instructor=course.coach %}
+	<br>
+    {% include "include/coach_include.html" with teacher="<b>Ассистент</b>" instructor=course.assistant %}
+	<br>
+	<h3 class="text-center">План курса
+        <a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-primary btn-xs" role="button">
+            <span class="glyphicon glyphicon-plus-sign"></span> Добавить занятие</a>
+    </h3>
+	<br>
+
+
+    <table id="ind_t1" class="table">
     <tbody>
       <tr>
         <th >#</th>
         <th >Тема</th>
-        <th>Описание</th>
+        <th>Описание    
+        </th>
       </tr>
       {% for lesson in lessons_list %}
       <tr>
@@ -35,18 +42,20 @@
       {% endfor %}
     </tbody>
 	</table>
+
   <div class="pagination">
     <span class="step-links">
         {% if page.has_previous %}
-            <a href="?page={{ page.previous_page_number }}">previous</a>
+            <a class="btn btn-primary btn-xs" role="button" 
+                    href="?page={{ page.previous_page_number }}">prev</a>
         {% endif %}
-
         <span class="current">
-            Page {{ page.number }} of {{ page.paginator.num_pages }}.
+          <div class="btn btn-primary btn-xs" role="button"> Page {{ page.number }} of {{ page.paginator.num_pages }}
+          </div>
         </span>
-
         {% if page.has_next %}
-            <a href="?page={{ page.next_page_number }}">next</a>
+            <a class="btn btn-primary btn-xs" role="button" 
+                    href="?page={{ page.next_page_number }}">next</a>
         {% endif %}
     </span>
 </div>

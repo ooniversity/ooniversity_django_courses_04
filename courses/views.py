@@ -21,24 +21,17 @@ class MixinAuthor(object):
 class MixinPaginator(MultipleObjectMixin):
     """
     Реализация пагинатора, при отсутствии таковой возможности в CBV класса родителя
+    (можно было реализовать через Paginator, но нет)
     """
     object_list = None
     
-    def get_paginator(self, queryset, per_page, orphans, allow_empty_first_page):
-        pag = super(MixinPaginator, self).get_paginator(queryset, per_page, orphans, allow_empty_first_page)
-        #self.get_context_data(self.kwargs)
-        return pag
-    
-    def paginate_queryset(self, queryset, page_size):
-        preq = super(MixinPaginator, self).paginate_queryset(queryset, page_size)
-        #self.get_context_data(**self.kwargs)
-        return preq
-    
-    def get_context_data(self, **kwargs):
-        context = super(MixinPaginator, self).get_context_data(**kwargs)
-        context["paginator"] = self.object_list
-        return context
-        
+    def get_paginator(self, queryset, per_page, orphans, allow_empty_first_page, context):
+        paginator_obj = super(MixinPaginator, self).get_paginator(
+                queryset, per_page, orphans, allow_empty_first_page)
+        page = self.request.GET.get('page',1)
+        context["page"] = paginator_obj.page(page)
+        return paginator_obj.page(page)
+  
         
 class CourseDetailView(DetailView, MixinPaginator):
     """ Информация о курсах """
@@ -51,15 +44,14 @@ class CourseDetailView(DetailView, MixinPaginator):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         context["title"] = "Course detail"
         pk = self.kwargs['pk']
-        paginator_obj = self.get_paginator(Lesson.objects.filter(course__id = pk), 5, 0, True)
-        page = self.request.GET.get('page',1)
-        context["lessons_list"] = paginator_obj.page(page)
-        context["page"] = paginator_obj.page(page)
+        context["lessons_list"] = self.get_paginator(
+                 Lesson.objects.filter(course__id = pk), 3, 0, True, context)
         return context
 
     def get_request(self):
         req = super(CourseDetailView, self).get_request()
         return req    
+
 
 class CourseCreateView(CreateView):
     """ Создание нового курса """

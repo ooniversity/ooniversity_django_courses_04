@@ -3,16 +3,16 @@
 {% block title %}Главная. Описание курса PyBursa{% endblock title %}
 {% block content %}
 {% include "include/messages_include.html" with messages=messages %}
-<h1>ItBursa</h1><br>
+<h1 class="page-header text-center">ItBursa</h1><br>
 <h3>Description</h3>
-<p>Мы специализируемся на модных языках программирования</p>
+<h4>Мы специализируемся на модных языках программирования</h4>
 <br>
-<br> 
-<a href="{% url 'courses:add' %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-plus-sign"></span> Добавить новый курс</a>
+<h3 class="text-center">Выбирай свой курс!
+    <a href="{% url 'courses:add' %}" class="btn btn-primary btn-xs" role="button">
+    <span class="glyphicon glyphicon-plus-sign"></span> Добавить новый курс</a>
+</h3>
 <br>
-<h3>Выбирай свой курс!</h3>
-<br>
-<table class="table table-striped">
+<table class="table">
   <tbody>
     <tr>
       <th >Курс</th>
