@@ -76,6 +76,32 @@ class CourseDeleteView(DeleteView):
 		return super(CourseDeleteView, self).delete(request, *args, **kwargs)
 
 
+class LessonCreateView(CreateView):
+	model = Lesson
+	template_name = "courses/add_lesson.html"
+	
+	def get(self, request, *args, **kwargs):
+		course = Course.objects.get(pk=self.kwargs['pk'])		
+		form = LessonModelForm(initial={'course':course})
+		return render(request, self.template_name, {'form':form})	
+
+	def get_context_data(self, **kwargs):
+		context = super(LessonCreateView, self).get_context_data(**kwargs)
+		context['title'] = u'Lesson creation'		
+		return context
+
+	def form_valid(self, form):
+		application = form.save()
+		message = u'Lesson %s has been successfully added.' % (application.subject)
+		messages.success(self.request, message)
+		return super(LessonCreateView, self).form_valid(form)
+
+	def get_success_url(self):
+		pk = self.kwargs['pk']
+		self.success_url = reverse('courses:detail', kwargs={'pk':pk})
+		return self.success_url
+
+
 def course_detail(request, id_course):
 	lesson = Lesson.objects.filter(course_id=id_course)
 	course = Course.objects.get(id=id_course)
