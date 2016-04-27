@@ -4,7 +4,7 @@
 {% block title %}Additional of course{% endblock title %}
 
 
-{% block nav_class_index %}active{% endblock %}
+{% block nav_class_index %}{% endblock %}
 
 
 {% block content %}	 

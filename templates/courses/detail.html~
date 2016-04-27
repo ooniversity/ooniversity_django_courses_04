@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 
 
-{% block title %}Course detail page{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block course_id %}?course_id={{ course.id }}{% endblock %}
 
 
 {% block content %}
-    <div class="container">
-	  {% if messages %}	
+	{% if messages %}	
 		{% for message in messages %}
 			<div class="alert alert-success" role="alert">{{ message }}</div>
 		{% endfor %}
 	  {% endif %}
+    <div class="container">	  
       <h1>{{ course.name }}</h1>
       <p>{{ course.description|truncatechars:32 }}</p>
     </div>
