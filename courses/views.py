@@ -12,7 +12,7 @@ from django.core.urlresolvers import reverse_lazy
 
 class CourseDetailView(DetailView):
     model = Course
-    template_name = 'courses/detail.html'
+#    template_name = 'courses/detail.html'
 
 
 class CourseCreateView(CreateView):
