@@ -4,14 +4,14 @@
 {% load staticfiles %}
 
 
-{% block title %}Edit Course{% endblock title %}
+{% block title %}{{title}}{% endblock title %}
 
 
 {% block naw_class_index %}active{% endblock %}
 
 
 {% block content %}
-<h3 class="cl_h1">{{title}}</h3>
+<h3 class="cl_h1"></h3>
 {% if messages %}
 <ul class="messages">
 	{% for message in messages %}

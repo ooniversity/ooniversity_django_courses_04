@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Remove student{% endblock title %}
+{% block title %}{{title}}{% endblock title %}
 
 
 {% block naw_class_students %}active{% endblock %}
@@ -15,7 +15,7 @@
 
  <form method="post">
  {% csrf_token %}
- <p> {{title}}</p>
+ <p> Курс {{ course.name }} будет удален</p>
  <input type="submit" value = "Delete">
  </form>
 </div>
