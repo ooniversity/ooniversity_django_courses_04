@@ -1,7 +1,19 @@
-from django.shortcuts import get_object_or_404, render
+#from django.shortcuts import get_object_or_404, render
+from django.views.generic.detail import DetailView
 
 from coaches.models import Coach
 
-def detail(request, coach_id):
-    coach = get_object_or_404(Coach, id=int(coach_id))
-    return render(request, 'coaches/detail.html', {'coach': coach})
+class MixinCoachContext(object):
+    def get_context_data(self, **kwargs):
+        context = super(MixinCoachContext, self).get_context_data(**kwargs)
+        coach = self.get_object()
+        context['title'] = "%s %s" % (coach.first_name_field(), coach.last_name_field())
+        return context	
+
+class CoachDetailView(MixinCoachContext, DetailView):
+    model = Coach
+    template_name = 'coaches/detail.html'
+
+#def detail(request, coach_id):
+#    coach = get_object_or_404(Coach, id=int(coach_id))
+#    return render(request, 'coaches/detail.html', {'coach': coach})
