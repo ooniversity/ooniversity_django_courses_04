@@ -34,7 +34,7 @@ class StudentCreateView(CreateView):
     return super_valid
   def get_context_data(self, **kwargs):
     context = super(StudentCreateView, self).get_context_data(**kwargs)
-    context.update({ "title": u'Создание нового студента' })
+    context.update({ "title": u'Student registration' })
     return context
 
 class StudentUpdateView(UpdateView):
@@ -45,7 +45,7 @@ class StudentUpdateView(UpdateView):
     return super(StudentUpdateView, self).form_valid(form)
   def get_context_data(self, **kwargs):
     context = super(StudentUpdateView, self).get_context_data(**kwargs)
-    context.update({ "title": u'Редактирование данных студента' })
+    context.update({ "title": u'Student info update' })
     return context
 
 class StudentDeleteView(DeleteView):
@@ -55,3 +55,7 @@ class StudentDeleteView(DeleteView):
     delete_super = super(StudentDeleteView, self).delete(request, *args, **kwargs)
     messages.success(self.request, u'Студент {} {} был удален.'.format(self.object.name, self.object.surname))
     return delete_super
+  def get_context_data(self, **kwargs):
+    context = super(StudentDeleteView, self).get_context_data(**kwargs)
+    context.update({ "title": u'Student info suppression' })
+    return context

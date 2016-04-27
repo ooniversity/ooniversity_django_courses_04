@@ -9,3 +9,4 @@ urlpatterns = patterns('',
     url(r'^edit/(?P<pk>\d+)/$', views.StudentUpdateView.as_view(), name='edit'),
     url(r'^remove/(?P<pk>\d+)/$', views.StudentDeleteView.as_view(), name='remove'),
 )
+#self.kwargs['pk.']
