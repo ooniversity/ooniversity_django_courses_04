@@ -21,6 +21,8 @@ class MixinAuthor(object):
 class MixinPaginator(MultipleObjectMixin):
     """
     Реализация пагинатора, при отсутствии таковой возможности в CBV класса родителя
+    В контекст добавляю 'page' c содержанием текущей страницы (для модуля pagin_include.html) 
+    Возвращаю объекты текущей страницы
     (можно было реализовать через Paginator, но нет)
     """
     object_list = None
@@ -28,7 +30,9 @@ class MixinPaginator(MultipleObjectMixin):
     def get_paginator(self, queryset, per_page, orphans, allow_empty_first_page, context):
         paginator_obj = super(MixinPaginator, self).get_paginator(
                 queryset, per_page, orphans, allow_empty_first_page)
-        page = self.request.GET.get('page',1)
+        page = int(self.request.GET.get('page',1))
+        #проверка допустимого диапазона страниц        
+        page = page if page < paginator_obj.num_pages else paginator_obj.num_pages
         context["page"] = paginator_obj.page(page)
         return paginator_obj.page(page)
   
@@ -44,6 +48,7 @@ class CourseDetailView(DetailView, MixinPaginator):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         context["title"] = "Course detail"
         pk = self.kwargs['pk']
+        #получаю объекты страницы пагинатора
         context["lessons_list"] = self.get_paginator(
                  Lesson.objects.filter(course__id = pk), 3, 0, True, context)
         return context
@@ -80,7 +85,6 @@ class CourseUpdateView(MixinAuthor, UpdateView):
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
         context["title"] = "Course update"
-        #context["pk"] = self.kwargs['pk']
         return context
     
     def form_valid(self, form):
