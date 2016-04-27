@@ -13,8 +13,7 @@ class StudentDetailView(DetailView):
 	model = Student
 
 class StudentListView(ListView):
-	model = Student
-	#context_object_name = "students"
+	model = Student	
 	
 	def get_queryset(self):
 		if self.request.GET:

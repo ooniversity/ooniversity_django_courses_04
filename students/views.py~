@@ -14,7 +14,7 @@ class StudentDetailView(DetailView):
 
 class StudentListView(ListView):
 	model = Student
-	context_object_name = "students"
+	#context_object_name = "students"
 	
 	def get_queryset(self):
 		if self.request.GET:

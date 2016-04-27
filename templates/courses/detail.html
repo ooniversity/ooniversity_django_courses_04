@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block title %}Course detail page{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block course_id %}?course_id={{ course.id }}{% endblock %}
@@ -34,7 +34,7 @@
 		  </tr>
 		</thead>
 		<tbody>
-		{% for i in lesson %}
+		{% for i in lessons %}
 		  <tr>
 		    <td>{{ i.subject }}</td>
 		    <td>{{ i.description }}</td>
