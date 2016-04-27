@@ -11,7 +11,7 @@
 
 
 {% block content %}
-<h3 class="cl_h1">Edit student</h3>
+<h3 class="cl_h1">{{title}}</h3>
 {% if messages %}
 <ul class="messages">
 	{% for message in messages %}
@@ -22,7 +22,7 @@
 
 <form method="post">
 	{% csrf_token %}
- {{edit_cours.as_p}}
+ {{form.as_p}}
 	<input type="submit" value="Edit">
 </form>
 {% endblock content %}

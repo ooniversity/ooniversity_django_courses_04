@@ -10,7 +10,7 @@
 {% block naw_class_students %}active{% endblock %}
 
 
-{% block student_id %}?course_id={{cours.id}}{% endblock %}
+{% block student_id %}?course_id={{course.id}}{% endblock %}
 
 
 {% block content %}
@@ -26,15 +26,15 @@
 
   <h1>Преподаватели</h1>
   
-{% include "include/coach_include.html" with title="Учитель" instructor=cours.coach %}
+{% include "include/coach_include.html" with title="Учитель" instructor=course.coach %}
 
-{% include "include/coach_include.html" with title="Ассистент" instructor=cours.assistant %} 
+{% include "include/coach_include.html" with title="Ассистент" instructor=course.assistant %} 
 
-  <h2>{{cours.name}}</h2>
-  <p>{{cours.description|truncatechars:32}}</p>
+  <h2>{{course.name}}</h2>
+  <p>{{course.description|truncatechars:32}}</p>
   <h3 class="cl_h1">План курса</h3>
 
-  <p><a href="{% url 'courses:add-lesson' cours.id %}">Add lesson</a></p>
+  <p><a href="{% url 'courses:add-lesson' course.id %}">Add lesson</a></p>
   <br>
   <table class="table">
     <tr>
@@ -42,7 +42,7 @@
       <th>Тема</th>
       <th>Описание</th>
     </tr>
-    {% for a in les%}
+    {% for a in course.lesson_set.all %}
     <tr>
       <td>{{a.order}}</td>
       <td>{{a.subject}}</td>
