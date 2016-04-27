@@ -8,12 +8,19 @@ from django.core.urlresolvers import reverse
 from pybursa.utils import detail_view
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from courses.models import Lesson
 
 
 class CourseDetailView(DetailView):
     model = Course
-#    template_name = 'courses/detail.html'
+    template_name = 'courses/detail.html'
+    context_object_name = 'course'
 
+    def get_context_data(self, **kwargs):
+        course_id = self.kwargs['pk']
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        context['lessons'] = Lesson.objects.filter(course_id=course_id).order_by('order')
+        return context
 
 class CourseCreateView(CreateView):
     model = Course
