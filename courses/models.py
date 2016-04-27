@@ -12,9 +12,6 @@ class Course(models.Model):
     def __unicode__(self):
         return self.name
 
-    def get_absolute_url(self):
-        return reverse('index')
-
 class Lesson(models.Model):
     subject = models.CharField(max_length = 255)
     description = models.TextField()
