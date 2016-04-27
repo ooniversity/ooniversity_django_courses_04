@@ -19,6 +19,7 @@ class CourseCreateView(CreateView):
     model = Course
     template_name = 'courses/add.html'
     form_class = CourseModelForm
+    success_url = reverse_lazy('index')
 
     def form_valid(self, form):
         valid = super(CourseCreateView, self).form_valid(form)
