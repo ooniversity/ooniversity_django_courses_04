@@ -16,6 +16,7 @@ class CourseDetailView(DetailView):
         return context
 
 class CourseCreateView(CreateView):
+    model = Course
     template_name = 'courses/add.html'
     form_class = CourseModelForm
 
