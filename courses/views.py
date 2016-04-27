@@ -83,7 +83,7 @@ class CourseDeleteView(DeleteView):
 		return context
 
 	def form_valid(self, form):
-		course = Course.objects.get(id=pk)
+		course = Course.objects.get(self.pk)
 		course.delete()
 		messages.success(self.request, 'Course %s has been deleted.' % course.name)
 		return super(CourseUpdateView, self).form_valid(form)
