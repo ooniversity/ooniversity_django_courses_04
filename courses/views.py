@@ -3,9 +3,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
-
 from courses.models import Course
-
 from forms import LessonModelForm
 
 
