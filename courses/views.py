@@ -6,22 +6,60 @@ from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import MultipleObjectMixin
 
+class MixinAuthor(object):
+    """
+    добавляю в контекст автора кода (только для реализации миксина)
+    """
+    def get_context_data(self,**kwargs):
+        context = super(MixinAuthor, self).get_context_data(**kwargs)
+        context['code_writer'] = "Проскурин Александр"
+        return context
 
-class CourseDetailView(DetailView):
+        
+class MixinPaginator(MultipleObjectMixin):
+    """
+    Реализация пагинатора, при отсутствии таковой возможности в CBV класса родителя
+    """
+    object_list = None
+    
+    def get_paginator(self, queryset, per_page, orphans, allow_empty_first_page):
+        pag = super(MixinPaginator, self).get_paginator(queryset, per_page, orphans, allow_empty_first_page)
+        #self.get_context_data(self.kwargs)
+        return pag
+    
+    def paginate_queryset(self, queryset, page_size):
+        preq = super(MixinPaginator, self).paginate_queryset(queryset, page_size)
+        #self.get_context_data(**self.kwargs)
+        return preq
+    
+    def get_context_data(self, **kwargs):
+        context = super(MixinPaginator, self).get_context_data(**kwargs)
+        context["paginator"] = self.object_list
+        return context
+        
+        
+class CourseDetailView(DetailView, MixinPaginator):
     """ Информация о курсах """
     model = Course
     template_name = "courses/detail.html"
     context_object_name = "course"
     success_url = reverse_lazy('index')
-
+        
     def get_context_data(self, **kwargs):
-        context = super(CourseDetailView,self).get_context_data(**kwargs)
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
         context["title"] = "Course detail"
         pk = self.kwargs['pk']
-        context["lessons_list"] = Lesson.objects.filter(course_id = pk)
+        paginator_obj = self.get_paginator(Lesson.objects.filter(course__id = pk), 5, 0, True)
+        page = self.request.GET.get('page',1)
+        context["lessons_list"] = paginator_obj.page(page)
+        context["page"] = paginator_obj.page(page)
         return context
 
+    def get_request(self):
+        req = super(CourseDetailView, self).get_request()
+        return req    
 
 class CourseCreateView(CreateView):
     """ Создание нового курса """
@@ -41,7 +79,7 @@ class CourseCreateView(CreateView):
         return super(CourseCreateView, self).form_valid(form)
 
 
-class CourseUpdateView(UpdateView):
+class CourseUpdateView(MixinAuthor, UpdateView):
     """ Редактирование данных существующего курса """
     model = Course    
     template_name = "courses/edit.html"
