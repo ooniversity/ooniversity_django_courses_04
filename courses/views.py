@@ -110,6 +110,30 @@ def remove(request, id):
     return render(request,"courses/remove.html", {"course": kurs})
 
 
+class LessonCreateView(CreateView):
+	model = Lesson
+	template_name = 'courses/add_lesson.html'
+	context_object_name = 'lesson'
+	
+
+	def get(self, request, *args, **kwargs):
+		course=Course.objects.get(pk=kwargs['pk'])
+		form = LessonModelForm(initial = {'course': course})
+		return render(request, self.template_name , {"form":form})	
+
+	def get_context_data(self,**kwargs):
+		context = super(LessonCreateView, self).get_context_data(**kwargs)
+		context['title'] = u"Lesson creation"
+		return context
+
+	def form_valid(self,form):
+		lesson = form.save()
+		messages.success(self.request, u"Lesson %s has been successfully added." %(lesson.subject))
+		return super(LessonCreateView, self).form_valid(form)
+	
+	def get_success_url(self):
+		pk = self.kwargs['pk']
+		return reverse('courses:detail', kwargs={'pk': pk})
 
 def add_lesson(request,id):
 	if request.method == 'POST':
