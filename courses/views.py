@@ -19,12 +19,14 @@ class CourseCreateView(CreateView):
     model = Course
     template_name = 'courses/add.html'
     success_url = reverse_lazy('index')
-
     def form_valid(self, form):
         super_valid = super(CourseCreateView, self).form_valid(form)
-        messages.success(self.request,
-                         u'Курс {} успешно создан..'.format(self.object.name))
+        messages.success(self.request, u'Курс {} успешно создан..'.format(self.object.name))
         return super_valid
+    def get_context_data(self, **kwargs):
+        context = super(CourseCreateView, self).get_context_data(**kwargs)
+        context.update({ "title": u'Course creation' })
+        return context
 
 
 class CourseUpdateView(UpdateView):
