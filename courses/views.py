@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse_lazy, reverse
 
 class CourseDetailView(DetailView):
     model = Course
+    context_object_name = 'course'
     template_name = 'courses/detail.html'
 
     def get_context_data(self, **kwargs):
@@ -15,11 +16,8 @@ class CourseDetailView(DetailView):
         context['lessons'] = Lesson.objects.filter(course=self.kwargs['pk'])
         return context
 
-detail = CourseDetailView.as_view()
-
 class CourseCreateView(CreateView):
     model = Course
-    form_class = CourseModelForm
     template_name = 'courses/add.html'
     success_url = reverse_lazy('index')
 
@@ -36,11 +34,8 @@ class CourseCreateView(CreateView):
         context['title'] = "Course creation"
         return context
 
-add = CourseCreateView.as_view()
-
 class CourseUpdateView(UpdateView):
     model = Course
-    form_class = CourseModelForm
     template_name = 'courses/edit.html'
     
     def get_success_url(self):
@@ -58,8 +53,6 @@ class CourseUpdateView(UpdateView):
         context['title'] = "Course update"
         return context
 
-edit = CourseUpdateView.as_view()
-
 class CourseDeleteView(DeleteView):
     model = Course
     template_name = 'courses/remove.html'
@@ -75,8 +68,6 @@ class CourseDeleteView(DeleteView):
         context = super(CourseDeleteView, self).get_context_data(**kwargs)
         context['title'] = "Course deletion"
         return context
-
-remove =  CourseDeleteView.as_view()
 
 def add_lesson(request,id):
     if request.method == 'POST':
