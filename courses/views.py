@@ -67,6 +67,34 @@ class CourseDetailView(DetailView):
     template_name = "courses/detail.html"
     context_object_name = "co_urse"
 
+class MixinLessonContext(object):
+    def get_context_data(self, **kwargs):
+        context = super(MixinLessonContext, self).get_context_data(**kwargs)
+        context['title'] = u"Lesson creation"
+        return context
+
+class LessonCreateView(MixinLessonContext, CreateView):
+    model = Lesson
+    template_name = "courses/add_lesson.html"
+
+    def form_valid(self, form):
+        lesson = form.save()
+        message =  u"Lesson %s has been successfully added." % lesson.subject
+        messages.success(self.request, message)
+        return super(LessonCreateView, self).form_valid(form)
+
+#def add_lesson(request, course_id):
+#    if request.method == "POST":
+#        form = LessonModelForm(request.POST)
+#        if form.is_valid():
+#            lesson = form.save()
+#            message =  u"Lesson %s has been successfully added." % lesson.subject
+#            messages.success(request, message)
+#            return redirect("courses:detail", lesson.course.id)
+#    else:
+#        form = LessonModelForm(initial = {'course':course_id})
+#    return render(request, 'courses/add_lesson.html', {'form':form})
+
 #def detail(request, course_id):
 #    course_info = get_object_or_404(Course, id=int(course_id))
 #    lesson_list = Lesson.objects.filter(course_id=course_id)
@@ -105,15 +133,3 @@ class CourseDetailView(DetailView):
 #        return redirect('/')
 #    else:
 #        return render(request, 'courses/remove.html', {'course':course})
-
-def add_lesson(request, course_id):
-    if request.method == "POST":
-        form = LessonModelForm(request.POST)
-        if form.is_valid():
-            lesson = form.save()
-            message =  u"Lesson %s has been successfully added." % lesson.subject
-            messages.success(request, message)
-            return redirect("courses:detail", lesson.course.id)
-    else:
-        form = LessonModelForm(initial = {'course':course_id})
-    return render(request, 'courses/add_lesson.html', {'form':form})
