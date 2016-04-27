@@ -15,7 +15,7 @@
 
  <form method="post">
  {% csrf_token %}
- <p> student {{student.name}} будет удален</p>
+ <p> student {{student.name}}{{student.surname}} будет удален</p>
  <input type="submit" value = "Delete">
  </form>
 </div>
