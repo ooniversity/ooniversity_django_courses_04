@@ -72,13 +72,24 @@ class CourseUpdateView(UpdateView):
 #	return render(request, 'courses/edit.html', {'edit_cours':edit_cours})
 
 
-def remove(request, course_id):
-	remove_cours = Course.objects.get(id=course_id)
-	if request.method == 'POST':
-		remove_cours.delete()
-		messages.success(request, 'Course %s has been deleted.' % remove_cours.name)
-		return redirect('/')
-	return render(request, 'courses/remove.html', {'remove_cours':remove_cours})
+
+class CourseDeleteView(DeleteView):
+	model = Course
+	template_name = 'courses/remove.html'
+	success_url = reverse_lazy('index')
+	def get_context_data(self, **kwargs):
+		context = super(CourseDeleteView, self).get_context_data(**kwargs)
+		context['title'] = 'Course deletion'
+		return context
+
+
+#def remove(request, course_id):
+#	remove_cours = Course.objects.get(id=course_id)
+#	if request.method == 'POST':
+#		remove_cours.delete()
+#		messages.success(request, 'Course %s has been deleted.' % remove_cours.name)
+#		return redirect('/')
+#	return render(request, 'courses/remove.html', {'remove_cours':remove_cours})
 
 def add_lesson(request, course_id):
 	if request.method == 'POST':
