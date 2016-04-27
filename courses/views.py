@@ -9,6 +9,10 @@ from pybursa.utils import detail_view
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from courses.models import Lesson
+from django.views.generic.edit import DeleteView
+from courses.forms import CourseModelForm
+from courses.forms import LessonModelForm
+from courses.models import Course
 
 
 class CourseDetailView(DetailView):
@@ -53,12 +57,16 @@ class CourseDeleteView(DeleteView):
     model = Course
     template_name = 'courses/remove.html'
     success_url = reverse_lazy('index')
-    def delete(self, request, *args, **kwargs):
-        delete_super = super(CourseDeleteView, self).delete(request, *args, **kwargs)
-        messages.success(self.request, u'Курс {} был удален.'.format(self.object.name))
-        return delete_super
+    def form_valid(self, form):
+        super_valid = super(CourseDeleteView, self).form_valid(form)
+        messages.success(self.request, u'Курс {} успешно delete..'.format(self.object.name))
+        return super_valid
+#    def delete(self, request, *args, **kwargs):
+ #       delete_super = super(StudentDeleteView, self).delete(request, *args, **kwargs)
+ #       messages.success(self.request, u'Курс был удален.')
+ #       return delete_super
     def get_context_data(self, **kwargs):
-        context = super(CourseUpdateView, self).get_context_data(**kwargs)
+        context = super(CourseDeleteView, self).get_context_data(**kwargs)
         context.update({ "title": u'Course deletion' })
         return context
 
