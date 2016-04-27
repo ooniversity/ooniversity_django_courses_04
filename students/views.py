@@ -51,7 +51,6 @@ class StudentUpdateView(UpdateView):
         return context
 
     def form_valid(self, form):
-        student = form.save()
         messages.success(self.request, "Info on the student has been sucessfully changed.")
         return super(StudentUpdateView, self).form_valid(form)
 
