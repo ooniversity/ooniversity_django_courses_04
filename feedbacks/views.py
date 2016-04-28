@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.core.mail import mail_admins
 from feedbacks.models import Feedback
-from feedbacks.forms import FeedbackModelForm
+from feedbacks.forms import FeedbackForm
 
 
 class FeedbackView(CreateView):
@@ -12,7 +12,7 @@ class FeedbackView(CreateView):
     model = Feedback
     success_url = reverse_lazy('feedback')
     template_name = "feedback.html"
-    form_class = FeedbackModelForm
+    form_class = FeedbackForm
 
     def form_valid(self, form):
         app = form.save()
