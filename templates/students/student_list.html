@@ -38,20 +38,16 @@
         </tr>
     </thead>
     <tbody>
-    {% for classman in students_list %}
+    {% for classman in object_list %}
         <tr class="info">
             <td>{{ classman.id }}</td>
             <td><a href="{% url 'students:detail' classman.id %}">{{ classman.surname }} {{ classman.name }}</a></td>
             <td>{{ classman.address }}</td>
             <td>{{ classman.skype }}</td>
             <td>
-            {% for id_in_course,value in course_list.items %}
-            {% if classman.id == id_in_course %}
-            {% for course in value %}
+            {% for course in classman.courses.all %}
             <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></p>
-            {% endfor %}
-            {% endif %}
-            {% endfor %}
+            {% endfor %}            
             </td>
             <td>
                <a href="{% url 'students:edit' classman.id %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-pencil"></span>Изменить</a>
