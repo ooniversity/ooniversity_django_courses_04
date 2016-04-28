@@ -1,6 +1,8 @@
+from django.contrib import admin
+
 from courses.models import Course
 from courses.models import Lesson
-from django.contrib import admin
+
 
 class LessonInline(admin.TabularInline):
     model = Lesson
