@@ -9,7 +9,6 @@ from feedbacks.models import Feedback
 
 class FeedbackView(CreateView):
     model = Feedback
-    exlude = ['from_email']
     template_name = 'feedback.html'
     success_url = reverse_lazy('feedback')
 
