@@ -12,8 +12,7 @@ from students.forms import StudentModelForm
 
 class SrudentListView(ListView):
     model = Student
-    #context_object_name = 'students'
-    #template_name = 'students/list_view.html'
+
 
     def get_queryset(self):
         course_id = self.request.GET.get('course_id',None)
@@ -24,28 +23,19 @@ class SrudentListView(ListView):
             students = Student.objects.all()    
         return students
 
-''''
-def list_view(request):
-	course_id = request.GET.get('course_id')
-
-	if course_id:
-		students = Student.objects.filter(courses__id=course_id)
-	else:
-		students = Student.objects.all()	
-	return render(request, 'students/list_view.html', locals())
-'''
 
 class StudentDetailView(DetailView):
     model = Student
 
+    def get_context_data(self, **kwargs):
+        student = self.get_object()
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        context['title'] = u"Student %s %s detail" % (student.name, student.surname)
+        return context
 
 
-'''    
-def detail(request, student_id):
-	student = Student.objects.get(id=student_id)
-	student_courses = student.courses.all()
-	return render(request, 'students/detail.html', locals())
-'''    
+
+
 
 class StudentCreateView(CreateView):
     model = Student
@@ -102,7 +92,7 @@ def create(request):
     else:
         form = StudentModelForm()	
     return render(request, 'students/add.html', {'form':form}) 
-'''
+
 def remove(request, student_id):
     student = get_object_or_404(Student, id=student_id)
     if request.method == "POST":
@@ -125,3 +115,19 @@ def edit(request, student_id):
     else:
         form = StudentModelForm(instance=student)
     return render(request, 'students/edit.html', {'form':form})
+
+def list_view(request):
+	course_id = request.GET.get('course_id')
+
+	if course_id:
+		students = Student.objects.filter(courses__id=course_id)
+	else:
+		students = Student.objects.all()	
+	return render(request, 'students/list_view.html', locals())
+
+
+def detail(request, student_id):
+	student = Student.objects.get(id=student_id)
+	student_courses = student.courses.all()
+	return render(request, 'students/detail.html', locals())
+'''    
