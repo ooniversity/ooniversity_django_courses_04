@@ -4,10 +4,8 @@ from students.models import Student
 from students.forms import StudentModelForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.core.urlresolvers import reverse_lazy
-from students.models import Student
 
 
 class StudentDetailView(DetailView):
@@ -51,10 +49,14 @@ class StudentUpdateView(UpdateView):
 class StudentDeleteView(DeleteView):
   model = Student
   success_url = reverse_lazy('students:list')
-  def delete(self, request, *args, **kwargs):
-    delete_super = super(StudentDeleteView, self).delete(request, *args, **kwargs)
-    messages.success(self.request, u'Студент {} {} был удален.'.format(self.object.name, self.object.surname))
-    return delete_super
+  def form_valid(self, form):
+    super_valid = super(StudentDeleteView, self).form_valid(form)
+    messages.success(self.request, u'Студент был удален.')
+    return super_valid
+#  def delete(self, request, *args, **kwargs):
+#    delete_super = super(StudentDeleteView, self).delete(request, **kwargs)
+#    messages.success(self.request, u'Студент {} {} был удален.'.format(self.object.name, self.object.surname))
+#    return delete_super
   def get_context_data(self, **kwargs):
     context = super(StudentDeleteView, self).get_context_data(**kwargs)
     context.update({ "title": u'Student info suppression' })

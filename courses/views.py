@@ -1,18 +1,12 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, get_object_or_404, redirect
-from courses.models import Course
+from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
-from pybursa.utils import detail_view
-from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
-from django.core.urlresolvers import reverse_lazy
-from courses.models import Lesson
-from django.views.generic.edit import DeleteView
-from courses.forms import CourseModelForm
-from courses.forms import LessonModelForm
-from courses.models import Course
 
 
 class CourseDetailView(DetailView):
