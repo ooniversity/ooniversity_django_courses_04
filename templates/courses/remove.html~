@@ -11,10 +11,7 @@
 {% block content %}
 
 
-   <h2>Курс {{ course.name }} будет удален</h2>
-
-
-
+  <h2>Курс {{ course.name }} будет удален</h2>
 
   <form method="post">
   {% csrf_token %}

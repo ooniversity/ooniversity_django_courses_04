@@ -19,7 +19,7 @@
     </ul>
     {% endif %} 
 
-      {% for course in courses %}
+
       <h1><a href="{% url 'students:list_view' %}?course_id={{course.id}}">{{ course.name }}</a></h1>        
         <p>{{ course.description|truncatechars:35 }}</p>      
           <div class="container-fluid">
@@ -36,10 +36,10 @@
 
           <a href="{% url 'courses:add-lesson' course.id %}">
             <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить занятие
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить занятие
             </button>
           </a>  
-         {% endfor %}     
+     
           <table class="table">
             <thead class="table-bordered">
               <tr>
@@ -49,7 +49,7 @@
               </tr>
             </thead>
             <tbody class="table-bordered">
-              {% for lesson in lessons %}
+              {% for lesson in qs %}
                 <tr>
                   <td>{{ lesson.order }}</td>
                   <td>{{ lesson.subject }}</td>
