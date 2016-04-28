@@ -70,7 +70,7 @@ class StudentDeleteView(DeleteView):
 
 ''' end Class-based views '''
 
-
+'''
 def list_view(request):
     if request.GET:
         course_id = int(request.GET['course_id'])
@@ -135,4 +135,4 @@ def edit(request, student_id):
         form = StudentModelForm(instance = student_inst)
     return render(request, 'students/edit.html', {'form': form})
 
-
+'''
