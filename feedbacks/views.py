@@ -15,12 +15,8 @@ class FeedbackView(CreateView):
     model = Feedback
     template_name = "feedback.html"
     success_url = reverse_lazy('feedback')
+    form_class = FeedbackForm
         
-
-    def get(self, request):
-        class_form = FeedbackForm()
-        return render(request, self.template_name, {"form":class_form})
-
     def form_valid(self,form):
         fback = form.save()
         mail_admins(fback.subject, fback.message, fail_silently=False)
