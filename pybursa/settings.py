@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,3 +92,14 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
+EMAIL_HOST = 'localhost'
+
+EMAIL_PORT = 1025
+
+EMAIL_HOST_USER = 'sashpro'
+
+EMAIL_HOST_PASSWORD = ''
+
+EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+
+ADMINS = (("Aleksandr", "sashpro@mailru"),)
