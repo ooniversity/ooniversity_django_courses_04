@@ -41,7 +41,8 @@
                         class="sr-only"></span></a></li>
                 <li class="{% block nav_contact %}{% endblock %}"><a href="{% url 'contact' %}">Contacts</a></li>
                 <li class="{% block nav_students %}{% endblock %}"><a
-                        {% block students_link %}href="{% url 'students:list_view' %}"{% endblock %}>Students</a></li>
+                           {% block students_link %}href="{% url 'students:list_view' %}"{% endblock %}>Students</a></li>
+                <li class="{% block nav_feedback %}{% endblock %}"><a href="{% url 'feedback' %}">Feedback</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
