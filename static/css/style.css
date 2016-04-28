@@ -53,9 +53,9 @@ h3.well-sm, h2.Description_title, table.table-condensed{
   position: fixed;
 }
 
-.index_footer{
+/*.index_footer{
   width: 100%;
-  height: 29px;
+  height: 14px;
   color: #FFFFFF;
   background-color: #1D4859;
   text-align: center;
@@ -67,14 +67,14 @@ h3.well-sm, h2.Description_title, table.table-condensed{
     width: 100%;
     height: 5px;
     background-color: #B2CFEE;
-    bottom: 25px;
+    bottom: 11px;
     position: fixed;
-}
+}*/
 
-.index_footer_text{
+/*.index_footer_text{
   color: #FFF;
   text-align: center;
-}
+}*/
 
 #panel_1{
   width: 10%;
@@ -98,6 +98,12 @@ h3.well-sm, h2.Description_title, table.table-condensed{
   margin-top: 2%;
   margin-left: 5%;
   margin-bottom: 2%;
+}
+
+
+.my_messages{
+  margin-left: 10%;
+  width: 74%;
 }
 
 /*-------------------------Contacts--------------------------------*/
@@ -194,10 +200,10 @@ a{
   margin-top: 5%;
   margin-left: 10%;
   padding-bottom: 4%;
-  background-color: #639897;
+  background-color: #5797B1;
   width: 40%;
   border-radius: 20px;
-  border: 10px solid #639897;
+  border: 5px solid #2083AB;
 }
 
 .btn_create{

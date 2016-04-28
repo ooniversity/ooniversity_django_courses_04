@@ -15,3 +15,4 @@ class Student(models.Model):
 
     def __unicode__(self):
         return '%s %s' % (self.name, self.surname)
+

@@ -14,7 +14,7 @@
 
 
 {% block content %}
-<div class="col-lg-12">
+<div class="col-lg-12 create_form">
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
