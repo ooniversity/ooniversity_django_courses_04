@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from courses.models import Lesson, Course
 from django.contrib import messages
-from forms import  LessonModelForm
+from forms import LessonModelForm
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy

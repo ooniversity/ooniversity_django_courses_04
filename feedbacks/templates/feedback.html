@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block nav_feedback %}active{% endblock nav_feedback %}
+
+
+{% block title %}{{ title }}{% endblock title %}
+
+
+
+{% load staticfiles %}
+
+
+{% block content %}
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <p>Feedback</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Отправить">
+    </form>
+{% endblock content %}
