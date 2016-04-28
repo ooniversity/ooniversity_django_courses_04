@@ -1,15 +1,26 @@
 {% extends "base.html" %}
-{% load static %}
- 
- 
-{% block title %}Редактирование курса{% endblock title %}
- 
- 
+
+
+{% block title %}Редактирование курса - pyBursa{% endblock %}
+
+
 {% block content %}
- 	    <h1>Редактирование курса</h1>
-   <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Изменить" />
-   </form>
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+<div class="page-header">
+  <h2>Редактирование курса</h2>
+</div>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Изменить">
+  </form>
 {% endblock content %}
