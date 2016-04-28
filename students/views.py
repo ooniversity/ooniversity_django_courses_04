@@ -80,25 +80,3 @@ class StudentDeleteView(DeleteView):
             self.request, 'Info on {} has been sucessfully deleted.'.format(self.get_object()))
         return super(StudentDeleteView, self).delete(self, request, *args, **kwargs)
 
-# def edit(request, student_id):
-#     app = get_object_or_404(Student, id=student_id)
-#     if request.method == 'POST':
-#         form = StudentModelForm(request.POST, instance=app)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, u"Info on the student has been sucessfully changed.")
-#     else:
-#         form = StudentModelForm(instance=app)
-#     return render(request, 'students/edit.html', {'form': form})
-
-# def remove(request, student_id):
-#     app = get_object_or_404(Student, id=student_id)
-#     if request.method == 'POST':
-#         app.delete()
-#         msg = u"Info on {} {} has been sucessfully deleted.".format(app.name,
-#                                                                     app.surname)
-#         messages.success(request, msg)
-#         return redirect('students:list_view')
-#     notice = u"The student {} {} will be removed".format(app.name,
-#                                                          app.surname)
-#     return render(request, 'students/remove.html', {'notice': notice})
