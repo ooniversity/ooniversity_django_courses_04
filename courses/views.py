@@ -20,6 +20,7 @@ class CourseDetailView(DetailView):
         context['lessons'] = Lesson.objects.filter(course_id=course_id).order_by('order')
         return context
 
+
 class CourseCreateView(CreateView):
     model = Course
     template_name = 'courses/add.html'
