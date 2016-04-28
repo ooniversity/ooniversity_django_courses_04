@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block nav_class_studs %}active{% endblock %}
+
+
+{% block page_main_header %}Создание нового студента{% endblock %}
+
+
+{% block content %}
+<div class="col-lg-10 create_form">
+  {% if messages %}
+  <div class="alert alert-success my_messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </div>
+  {% endif %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-success" value="Изменить" />
+  </form>
+</div>
+{% endblock %}

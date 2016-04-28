@@ -10,19 +10,13 @@ from django.core.urlresolvers import reverse_lazy
 from students.models import Student
 from students.forms import StudentModelForm
 
-
-# def detail(request, id):
-#     student = Student.objects.get(id=id)
-#     return render(request, 'students/detail.html',
-#              {"student":student})
-
 class StudentDetailView(DetailView):
     model = Student
-    context_object_name = "student"
+    #context_object_name = "student"
 
 class StudentListView(ListView):
     model = Student
-    context_object_name = "students"
+    #context_object_name = "students"
 
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', None)
@@ -51,7 +45,7 @@ class StudentCreateView(CreateView):
 
 class StudentUpdateView(UpdateView):
     model = Student
-    template_name = "students/edit.html"
+    template_name_suffix = '_update_form'
     success_url = reverse_lazy('students:edit')
 
     def get_context_data(self, **kwargs):
