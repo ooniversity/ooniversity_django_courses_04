@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from feedbacks.models import Feedback
+import datetime
 
 class FeedbackModelForm(forms.ModelForm):
-    class Meta:
-        model = Feedback
-        fields = '__all__'
+    
+	create_date = forms.DateTimeField(initial=datetime.datetime.now, widget = forms.DateTimeInput(attrs={'readonly':'readonly'}))
+
+   
+	class Meta:
+		model = Feedback
+        #exclude = ('create_date',)
 

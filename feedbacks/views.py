@@ -17,6 +17,7 @@ class FeedbackView(CreateView):
 	success_url = reverse_lazy('feedback')
 	form_class = FeedbackModelForm
 	
+	
 
 	def form_valid(self,form):
 		feedback = form.save()
