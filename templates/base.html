@@ -18,6 +18,7 @@
             <li class="{% block status_index %}{% endblock %}"><a href="{% url 'index' %}">Main</a></li>
             <li class="{% block status_contact %}{% endblock %}"><a href="{% url 'contact' %}">Contacts</a></li>
             <li class="{% block status_student %}{% endblock %}"><a href="{% block student_link %}{% url 'students:list_view' %}{% endblock %}">Students</a></li>
+            <li class="{% block status_feedback %}{% endblock %}"><a href="{% url 'feedback' %}">Feedback</a></li>
           </ul>          
         </div>
     </nav>
