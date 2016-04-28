@@ -1,0 +1,21 @@
+    {% extends "base.html" %}
+
+    {% load staticfiles %}
+
+
+    {% block title %}Feedback{% endblock title %}
+
+    {% block nav_active_feedback %}active{% endblock %}
+
+
+{% block content %}
+
+<h2>Обратная связь</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Отправить письмо"/>
+</form>
+
+{% endblock content %}
