@@ -3,6 +3,9 @@ from django.contrib import admin
 from pybursa import views
 
 
+from feedbacks.views import FeedbackView
+
+
 urlpatterns = patterns('',
     url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^admin/', include(admin.site.urls)),
@@ -14,7 +17,7 @@ urlpatterns = patterns('',
     url(r'^courses/', include('courses.urls', namespace="courses")),
 	url(r'^students/', include('students.urls', namespace="students")),
 	url(r'^coaches/', include('coaches.urls', namespace="coaches")),
-	url(r'^feedback/', include('feedbacks.urls')),
+	url(r'^feedback/', FeedbackView.as_view(), name = "feedback"),
 )
 
 
