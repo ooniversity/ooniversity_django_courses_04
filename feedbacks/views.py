@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse_lazy,reverse
 from datetime import datetime
 
 from feedbacks.models import Feedback
-from feedbacks.forms import FeedbackModelForm
+from feedbacks.forms import FeedbackForm
 from django.conf import settings
 
 
@@ -15,7 +15,7 @@ class FeedbackView(CreateView):
 	model = Feedback
 	template_name = "feedback.html"
 	success_url = reverse_lazy('feedback')
-	form_class = FeedbackModelForm
+	form_class = FeedbackForm
 	
 	
 
