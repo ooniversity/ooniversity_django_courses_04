@@ -22,16 +22,18 @@
           <ul class="nav navbar-nav" >
             <li role="presentation" class={% block active_main %}{% endblock active_main %}>
               <a href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span>Main</a></li>
-            <li role="presentation" class={% block active_contacts %}{% endblock active_contacts %}>
-              <a href="{% url 'contact' %}"><span class="glyphicon glyphicon-envelope"></span>Contacts</a></li>
             <li role="presentation" class={% block active_students %}{% endblock active_students %}>
               <a href="{% url 'students:list_view' %}{% block course_students %}{% endblock course_students %}">
               <span class="glyphicon glyphicon-user"></span>Students</a></li>
+            <li role="presentation" class={% block active_contacts %}{% endblock active_contacts %}>
+              <a href="{% url 'contact' %}"><span class="glyphicon glyphicon-link"></span>Contacts</a></li>
+            <li role="presentation" class={% block active_feedback %}{% endblock active_feedback %}>
+              <a href="{% url 'feedback' %}"><span class="glyphicon glyphicon-envelope"></span>Feedback</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
             <li role="presentation" class={% block active_quadratic %}{% endblock active_quadratic %}>
               <a href="{% url 'quadratic:results' %}">
               <span class="glyphicon glyphicon-superscript"></span>Quadratic</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
             <li><a href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-cog"></span>Admin</a></li>
             <li class="navbar-nav"><a href="http://www.itbursa.com/pybursa.com" target="_blank">
               <span class="glyphicon glyphicon-education"></span>PyBursa</a></li>
