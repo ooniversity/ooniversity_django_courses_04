@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -14,13 +15,28 @@ class StudentListView(ListView):
     model = Student
 
     def  get_queryset(self):
-        if self.request.GET:
+        if self.request.GET['course_id']:
             course_id = self.request.GET.get('course_id', None)
             course = get_object_or_404(Course, id=course_id)
             list_of_students = course.student_set.all()
         else:
             list_of_students = Student.objects.all()
         return list_of_students
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentListView, self).get_context_data(**kwargs)
+        list_of_students = self.get_queryset()
+        paginator = Paginator(list_of_students, 2)
+        page = self.request.GET.get('page')
+        try:
+            contacts = paginator.page(page)
+        except PageNotAnInteger:
+            contacts = paginator.page(1)
+        except EmptyPage:
+            contacts = paginator.page(paginator.num_pages)
+        context['contacts'] = contacts
+        context['total_pages'] = range(paginator.num_pages)
+        return context
 
 class StudentDetailView(DetailView):
     model = Student

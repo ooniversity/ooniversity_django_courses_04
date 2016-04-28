@@ -26,7 +26,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for stud in object_list %}
+            {% for stud in contacts %}
                 <tr class="info">
                     <td>{{forloop.counter}}</td>
                     <td>
@@ -51,4 +51,22 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if contacts.has_previous %}
+                <a href="?page={{ contacts.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                {% for page in total_pages %}
+                    <a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>  
+                {% endfor %}
+            </span>
+
+            {% if contacts.has_next %}
+                <a href="?page={{ contacts.next_page_number }}">next</a>
+            {% endif %}
+        </span>
+    </div>
 {% endblock content %}
