@@ -5,4 +5,4 @@ class Feedback(models.Model):
 	subject = models.CharField(max_length=1000)
 	message = models.CharField(max_length=4000)
 	from_email = models.EmailField()
-	create_date = models.DateTimeField(auto_now=True)
+	create_date = models.DateTimeField(auto_now_add=True)
