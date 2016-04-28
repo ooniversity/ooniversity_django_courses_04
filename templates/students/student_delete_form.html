@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Remove Student{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block nav_class_students %}active{% endblock %}
@@ -16,7 +16,7 @@
 {% block content %}
 <div class="col-lg-12">
 {% if messages %}
-    <div class="alert alert-success">
+    <div class="alert alert-success my_messages">
         {% for message in messages %}
         <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
         {% endfor %}
