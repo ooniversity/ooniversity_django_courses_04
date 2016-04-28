@@ -59,19 +59,20 @@
   </table>
 </div>
 
- <div class="paginator">
-       <span class="step-links">
-          {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-          {% endif %}
-        <span class="current">
-            Page {{ page_obj.number }} of {{ paginator.num_pages }}
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-        {% endif %}
-        </span>
-    </div>
+<ul class="pagination">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous"><< previous</span></a></li>
+            {% endif %}
+            {% for pg in page_obj.paginator.page_range %}
+                {% if page_obj.number == pg %}
+                    <li class="active"><a href="?page={{ pg }}">{{ pg}}<span class="sr-only">(current)</span></a></li>
+                {% else %}
+                    <li><a href="?page={{ pg }}">{{ pg}}<span class="sr-only">(current)</span></a></li>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" aria-label="Next">next >></span></a></li>
+            {% endif %}
+        </ul>
 
 {% endblock content %}
