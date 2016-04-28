@@ -1,26 +1,61 @@
 # encoding: utf-8
-from django.shortcuts import render, redirect
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import MultipleObjectMixin
 
+class MixinAuthor(object):
+    """
+    добавляю в контекст автора кода (только для реализации миксина)
+    """
+    def get_context_data(self,**kwargs):
+        context = super(MixinAuthor, self).get_context_data(**kwargs)
+        context['code_writer'] = "Проскурин Александр"
+        return context
 
-class CourseDetailView(DetailView):
+        
+class MixinPaginator(MultipleObjectMixin):
+    """
+    Реализация пагинатора, при отсутствии таковой возможности в CBV класса родителя
+    В контекст добавляю 'page' c содержанием текущей страницы (для модуля pagin_include.html) 
+    Возвращаю объекты текущей страницы
+    (можно было реализовать через Paginator, но нет)
+    """
+    object_list = None
+    
+    def get_paginator(self, queryset, per_page, orphans, allow_empty_first_page, context):
+        paginator_obj = super(MixinPaginator, self).get_paginator(
+                queryset, per_page, orphans, allow_empty_first_page)
+        page = int(self.request.GET.get('page',1))
+        #проверка допустимого диапазона страниц        
+        page = page if page < paginator_obj.num_pages else paginator_obj.num_pages
+        context["page"] = paginator_obj.page(page)
+        return paginator_obj.page(page)
+  
+        
+class CourseDetailView(DetailView, MixinPaginator):
     """ Информация о курсах """
     model = Course
     template_name = "courses/detail.html"
     context_object_name = "course"
     success_url = reverse_lazy('index')
-
+        
     def get_context_data(self, **kwargs):
-        context = super(CourseDetailView,self).get_context_data(**kwargs)
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
         context["title"] = "Course detail"
         pk = self.kwargs['pk']
-        context["lessons_list"] = Lesson.objects.filter(course_id = pk)
+        #получаю объекты страницы пагинатора
+        context["lessons_list"] = self.get_paginator(
+                 Lesson.objects.filter(course__id = pk), 3, 0, True, context)
         return context
+
+    def get_request(self):
+        req = super(CourseDetailView, self).get_request()
+        return req    
 
 
 class CourseCreateView(CreateView):
@@ -41,29 +76,22 @@ class CourseCreateView(CreateView):
         return super(CourseCreateView, self).form_valid(form)
 
 
-class CourseUpdateView(UpdateView):
+class CourseUpdateView(MixinAuthor, UpdateView):
     """ Редактирование данных существующего курса """
     model = Course    
     template_name = "courses/edit.html"
     context_object_name = "course"
-    #class_form = CourseModelForm
-    #success_url = reverse('courses:edit')
 
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
         context["title"] = "Course update"
-        context["pk"] = self.kwargs['pk']
         return context
     
     def form_valid(self, form):
         curs = form.save()
         messages.success(self.request, u'The changes have been saved.')
+        self.success_url = reverse('courses:edit', kwargs={'pk': curs.id})
         return super(CourseUpdateView, self).form_valid(form)
-
-    def get_success_url(self):
-        pk = self.kwargs['pk']
-        self.success_url = reverse('courses:edit', kwargs={'pk': pk})
-        return self.success_url
 
 
 class CourseDeleteView(DeleteView):
@@ -82,12 +110,11 @@ class CourseDeleteView(DeleteView):
         messages.success(self.request, u'Course %s has been deleted.'%self.get_object().name)
         return super(CourseDeleteView, self).delete(request, *args, **kwargs)
 
+        
 class LessonCreateView(CreateView):
     """ Добавление нового урока для конкретного курса """
     model = Lesson
-    #success_url = reverse_lazy('index')
     template_name = "courses/add_lesson.html"
-    #context_object_name = "lesson"
     
     def get(self, request, *args, **kwargs):
         course = Course.objects.get(pk = self.kwargs['pk'])
@@ -102,25 +129,5 @@ class LessonCreateView(CreateView):
     def form_valid(self, form):
         lesson = form.save()
         messages.success(self.request, u'Lesson %s has been successfully added.'%(lesson.subject))
-        #messages.success(self.request, u'Course %s has been successfully added.'%(lesson.name))
+        self.success_url = lesson.get_absolute_url()
         return super(LessonCreateView, self).form_valid(form)
-        
-    def get_success_url(self):
-        pk = self.kwargs['pk']
-        self.success_url = reverse('courses:detail', kwargs={'pk': pk})
-        return self.success_url
-
-    
-def add_lesson(request, id):
-    """ Добавление нового урока для конкретного курса """
-    if request.method == 'POST':
-        form = LessonModelForm(request.POST)
-        if form.is_valid():
-            lesson = form.save()
-            messages.success(request, u'Lesson %s has been successfully added.'%(lesson.subject))
-            return redirect('courses:detail', lesson.course.id)
-    else:
-        course=Course.objects.get(pk=id)
-        form = LessonModelForm(initial = {'course': course})
-    return render(request,"courses/add_lesson.html",{"form":form})
-

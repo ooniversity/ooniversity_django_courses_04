@@ -14,7 +14,7 @@
     <link href="{%static 'css/bootstrap.css'%}" rel="stylesheet">
   </head>
 
-  <body>
+  <body class="header">
     <div class="container">
       <nav class="navbar navbar-inverse">
         <ul class="nav navbar-nav">
@@ -22,8 +22,12 @@
 		    <li role="presentation" class={% block contact_active %}{% endblock %}><a href="{% url 'contact' %}">Контакты</a></li>
 		    <li role="presentation" class={% block student_active %}{% endblock %}><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a></li> 
 		    <li role="presentation" class={% block quadratic_active %}{% endblock %}><a href="{% url 'quadratic:results' %}">Уравнение</a></li>
+            <li role="presentation" class={% block feedback_active %}{% endblock %}><a href="{% url 'feedback' %}">Обратная связь</a></li>
+
         </ul>
       </nav>
+    </div>
+    <div class="container">
 	  {% block content %}
       {% endblock content %}
 	</div>

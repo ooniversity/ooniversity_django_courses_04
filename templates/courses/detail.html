@@ -1,39 +1,43 @@
 ﻿{% extends 'base.html' %}
+﻿{% load staticfiles %}
 {% block title %}{{ title }}{% endblock title %}
 {% block content %}
 {% include "include/messages_include.html" with messages=messages %}
+	<h1 class="page-header text-center">{{ course.name }}
+    <a href="{% url 'courses:edit' course.id %}" class="btn btn-primary btn-xs" role="button">
+                <span class="glyphicon glyphicon-pencil"></span> Изменить</a>
+    </h1>
+	<h4>{{ course.description|truncatechars:32 }}</h4>
+	<br>
+	<h2  class="text-center">Преподаватели</h2>
+	<br>
+    {% include "include/coach_include.html" with teacher="<b>Учитель</b>" instructor=course.coach %}
+	<br>
+    {% include "include/coach_include.html" with teacher="<b>Ассистент</b>" instructor=course.assistant %}
+	<br>
+	<h3 class="text-center">План курса
+        <a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-primary btn-xs" role="button">
+            <span class="glyphicon glyphicon-plus-sign"></span> Добавить занятие</a>
+    </h3>
+	<br>
+    <table id="ind_t1" class="table">
+       <tbody>
+          <tr>
+            <th >#</th>
+            <th >Тема</th>
+            <th>Описание    
+            </th>
+          </tr>
+          {% for lesson in lessons_list %}
+          <tr>
+            <td>{{ lesson.order }}</td>
+            <td>{{ lesson.subject }}</td>
+            <td>{{ lesson.description }}</td>
+          </tr>
+          {% endfor %}
+       </tbody>
+    </table>
+    {% include "include/pagin_include.html" with page=page %}
 
-	<h1>{{ course.name }}</h1>
-	<br>
-	<p>{{ course.description|truncatechars:32 }}</p>
-	<br>
-	<a href="{% url 'courses:edit' course.id %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-pencil"></span> Изменить</a>
-    <br> 
-	<h3>Преподаватели</h3>
-	<br>
-    {% include "include/coach_include.html" with teacher="Учитель" instructor=course.coach %}
-	<br>
-    {% include "include/coach_include.html" with teacher="Ассистент" instructor=course.assistant %}
-	<br>
-	<h3>План курса</h3>
-	<br>
-    <a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-plus-sign"></span> Добавить занятие</a>
-
-    <table id="ind_t1" class="table table-striped">
-    <tbody>
-      <tr>
-        <th >#</th>
-        <th >Тема</th>
-        <th>Описание</th>
-      </tr>
-      {% for lesson in lessons_list %}
-      <tr>
-        <td>{{ lesson.order }}</td>
-        <td>{{ lesson.subject }}</td>
-        <td>{{ lesson.description }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-	</table>
 {% endblock content %}
 

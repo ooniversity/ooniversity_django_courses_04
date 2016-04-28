@@ -2,10 +2,17 @@
 from django.shortcuts import render
 from coaches.models import Coach
 from courses.models import Course
+from django.views.generic.detail import DetailView
 
-def detail(request, num):
+
+class CoachDetailView(DetailView):
     """ Информация о преподавателе """
-    coach = Coach.objects.get(pk = int(num))
-    courses_as_coach = Course.objects.filter(coach__id = int(num))
-    courses_as_assistant = Course.objects.filter(assistant__id = int(num))
-    return render(request, "coaches/detail.html", {"coach": coach, "as_coach": courses_as_coach, "as_assistant": courses_as_assistant})
+    model = Coach
+    template_name = "coaches/detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(CoachDetailView,self).get_context_data(**kwargs)
+        context["title"] = u"Информация о преподавателе"
+        return context
+    
+

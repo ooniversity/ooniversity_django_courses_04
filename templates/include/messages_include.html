@@ -1,9 +1,13 @@
 {% if messages %}
-  <br>
-	<ul class="messages">
-	  {% for message in messages %}
-		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-	  {% endfor %}
-	</ul>
-  <br>
+    <div class="alert alert-success">
+      <ul class="messages">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+          {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            {{ message }}
+          {%endif %}</li>
+        {% endfor %}
+      </ul>
+    </div>
 {% endif %}
