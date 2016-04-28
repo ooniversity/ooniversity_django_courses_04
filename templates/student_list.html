@@ -8,20 +8,20 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="PyBursa">
     <meta name="author" content="PyBursa">
-    <link rel="icon" href="../static/images/favicon.png">
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
 
     <title>Students</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href= "{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/jumbotron-narrow.css" rel="stylesheet">
+    <link href= "{% static 'css/jumbotron-narrow.css' %}" rel="stylesheet">
 
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href= "{% static 'css/style.css' %}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -36,9 +36,9 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="index.html">Main</a></li>
-            <li role="presentation"><a href="contact.html">Contacts</a></li>
-            <li role="presentation"><a href="student_list.html">Students</a></li>
+            <li role="presentation" class="active"><a href="{% url 'index' %}">Main</a></li>
+            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
+            <li role="presentation"><a href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Sturdy Python</h3>
@@ -65,7 +65,7 @@
           </thead>
           <tbody>
             <tr>
-              <td><a href="student_detail.html">1</a></td>
+              <td><a href="{% url 'student_detail' %}">1</a></td>
               <td>al-Baghdadi</td>
               <td>    </td>
               <td>Abu-Bakr</td>
@@ -148,8 +148,8 @@
     </div> <!-- /container -->
 
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../static/js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug <script src="../static/js"></script>-->
+    <script src="{% static 'js' %}""../static/js"></script>
   
 
 </body></html>
