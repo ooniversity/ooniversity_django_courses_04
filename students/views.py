@@ -8,7 +8,8 @@ from django.core.urlresolvers import reverse_lazy
 
 class StudentListView(ListView):
     model = Student
-    
+    paginate_by = 2
+
     def get_queryset(self):
         course_id = self.request.GET.get('course_id')
         if course_id:
