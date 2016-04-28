@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -88,3 +89,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+ADMINS = (('cadet', 'cadet@mail.ru'))
+EMAIL_HOST = 'localhost'
+EMAIL_HOST_USER = 'cadet'
+EMAIL_HOST_PASSWORD = 'cadet'
+EMAIL_PORT = 1025
