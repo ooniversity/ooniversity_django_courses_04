@@ -33,7 +33,7 @@ class MixinPaginator(MultipleObjectMixin):
         page = int(self.request.GET.get('page',1))
         #проверка допустимого диапазона страниц        
         page = page if page < paginator_obj.num_pages else paginator_obj.num_pages
-        context["page"] = paginator_obj.page(page)
+        context["page_obj"] = paginator_obj.page(page)
         return paginator_obj.page(page)
   
         

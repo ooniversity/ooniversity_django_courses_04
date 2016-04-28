@@ -13,17 +13,18 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 class StudentListView(ListView):
     """ Просмотр списка всех студентов"""
     model = Student
+    paginate_by = 2
     
-    def get_paginator(self, queryset, page_size):
-        pag = super(StudentListView,self).get_paginator(queryset, page_size)
-        page = int(self.request.GET.get('page',1))
-        page = page if page < pag.num_pages else pag.num_pages
-        return pag.page(page)
+    #def get_paginator(self, queryset, page_size):
+        #pag = super(StudentListView,self).get_paginator(queryset, page_size)
+        #page = int(self.request.GET.get('page',1))
+        #page = page if page < pag.num_pages else pag.num_pages
+        #return pag.page(page)
        
     def get_context_data(self):
         context = super(StudentListView, self).get_context_data()
         context["course"] = Course.objects.all()
-        context["page"] = self.get_paginator(self.get_queryset(), 2)        
+        #context["page_obj"] = self.get_paginator(self.get_queryset(), 2)        
         return context
 
     def get_queryset(self):
