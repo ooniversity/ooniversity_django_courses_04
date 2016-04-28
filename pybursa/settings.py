@@ -20,9 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '+cb0s=+8l9^!(bab#3@vk+2-ocbx$f(y-(s075r%nwg0zdzdjc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -41,7 +41,6 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
-    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -93,11 +92,3 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
-
-ADMINS = (
-    ('Oksana', 'example@gmail.com'),
-    ('Aleksey', 'dixon@gmail.com'),
-)
-
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
