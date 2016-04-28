@@ -16,15 +16,17 @@ class StudentListView(ListView):
 	model = Student
 	paginate_by = 2
 
-class StudentDetailView(DetailView):
-	model = Student
-	
 	def	get_queryset(self):
-		qs =  super(StudentDetailView, self).get_queryset()
+		qs =  super(StudentListView, self).get_queryset()
 		course_id =self.request.GET.get('course_id', None)
 		if course_id:
 			qs = qs.filter(courses__id=course_id)
-		return qs
+		return qs	
+
+class StudentDetailView(DetailView):
+	model = Student
+	
+
 
 class StudentCreateView(CreateView):
 	model = Student
