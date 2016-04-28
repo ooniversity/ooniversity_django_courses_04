@@ -22,6 +22,7 @@
                         <li class="{% block nav_class_index %}{% endblock %}"><a href="{% url 'index' %}">Main</a></li>
                         <li class="{% block nav_class_contact %}{% endblock %}"><a href="{% url 'contact' %}">Contacts</a></li>
                         <li class="{% block nav_class_students %}{% endblock %}"><a href="{% block students_list %}{% url 'students:list_view' %}{% endblock students_list %}">Students</a></li>
+                        <li class="{% block nav_class_feedback %}{% endblock %}"><a href="{% url 'feedback' %}">Feedback</a></li>
                     </ul>
                 </div>
             </div>
