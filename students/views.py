@@ -12,14 +12,14 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 class StudentListView(ListView):
 	model = Student
-	context_object_name = 'deskr'
 	paginate_by = 2
 	def get_queryset(self):
-		if self.request.GET:
-			deskr = Student.objects.filter(courses__id=int(self.request.GET['course_id']))
+		course_id = self.request.GET.get('course_id', None)
+		if course_id:
+			students = Student.objects.filter(courses__id=course_id)
 		else:
-			deskr = Student.objects.all()
-		return deskr
+			students = Student.objects.all()
+		return students
 
 #def list_view(request):
 #	if request.GET:
