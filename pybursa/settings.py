@@ -95,3 +95,4 @@ ADMINS = (('Sara','tets@asd.asd'),('Bob', 'test1@asd.asd'))
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
+EMAIL_USE_TLS = False
