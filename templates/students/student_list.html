@@ -5,7 +5,7 @@
 {% load static %}
 
 
-{%  block title %}Students{% endblock title %}
+{%  block title %}{{ title }}{% endblock title %}
 
 
 {%  block nav_class_students %}active{% endblock %}
@@ -31,7 +31,7 @@
           <th>курсы</th>
           <th>Изменить/Удалить</th>
         </tr>
-      {% for student in students %}
+      {% for student in object_list %}
         <tr>
           <td>{{forloop.counter}}</td>
           <td><a href="{% url 'students:detail' student.id %}">{{student.surname}} {{student.name}}</a></td>
