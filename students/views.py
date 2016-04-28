@@ -13,6 +13,7 @@ class StudentListView(ListView):
     Output list of the students
     """
     model = Student
+    paginate_by = 2
 
     def get_queryset(self):
         try:
