@@ -40,6 +40,9 @@
             <li class="{% block naw_class_students %}{% endblock %}">
               <a href="{% url 'students:list_view' %}{% block student_id %}{% endblock %}">Students</a>
             </li>
+            <li class="{% block naw_class_feedback %}{% endblock %}">
+              <a href="{% url 'feedback' %}">Feedback</a>
+            </li>
           </ul>
         </div>
         <!-- /.navbar-collapse --> </div>
