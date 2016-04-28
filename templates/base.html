@@ -25,6 +25,9 @@
                 <li role="presentation" class="{% block  nav_students %}{% endblock nav_students %}">
                     <a href="{% url 'students:list_view' %}{% block get_course %}{% endblock get_course %}">Студенты</a>
                 </li>
+                <li role="presentation" class="{% block  nav_feedback %}{% endblock nav_feedback %}">
+                    <a href="{% url 'feedback' %}">Обратная связь</a>
+                </li>
             </ul>
 
             <br/>
