@@ -50,5 +50,32 @@
 										{% endfor %}
 								</tbody>
 						</table>
+						<nav>
+								<ul class="pagination">
+										{% if page_obj.has_previous %}
+										<li>
+												<a href="?page={{ page_obj.previous_page_number }}">
+														<span aria-hidden="true"><< previous</span>
+												</a>
+										</li>
+										{% endif %}
+										{% for page in page_obj.paginator.page_range %}
+												{% if page %}
+														{% ifequal page page_obj.number %}
+																<li class="active"><span>{{ page }}</span></li>
+														{% else %}
+																<li><a href="?page={{ page }}">{{ page }}</a></li>
+														{% endifequal %}
+												{% endif %}
+										{% endfor %}
+										{% if page_obj.has_next %}
+										<li>
+												<a href="?page={{ page_obj.next_page_number }}">
+														<span aria-hidden="true">next >></span>
+												</a>
+										</li>
+										{% endif %}
+								</ul>
+						</nav>
 				</div>
 {% endblock content %}
