@@ -2,10 +2,11 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from . import views
+from feedbacks.views import FeedbackView
 
 urlpatterns = patterns('',
     url(r'^$',views.index,name='index'),
-    url(r'^feedback/', views.FeedbackView.as_view(),name='feedback'),
+    url(r'^feedback/', FeedbackView.as_view(),name='feedback'),
     url(r'^contact/$',views.contact,name='contact'),
     url(r'^student_detail/$',views.student_detail,name='student_detail'),
     url(r'^polls/', include('polls.urls', namespace="polls")),
