@@ -93,6 +93,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 EMAIL_HOST = 'localhost'
-EMAIL_PORT = '1025'
-ADMINS = (('Vladyslav', "durov.vlad@gmail.com"), ('Vlad', "durov-vlad-viktor@ya.ru"))
-DEFAULT_FROM_EMAIL = 'root@localhost'
+EMAIL_PORT = 1025
+ADMINS = (('admin', "admin@localhost"),)
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+
