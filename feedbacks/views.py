@@ -4,8 +4,8 @@ from django.core.mail import mail_admins
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.edit import CreateView
 
-
 from feedbacks.models import Feedback
+
 
 class FeedbackView(CreateView):
     model = Feedback
@@ -18,7 +18,8 @@ class FeedbackView(CreateView):
         return context
 
     def form_valid(self, form):
+        data = form.cleaned_data
         messages.set_level(self.request, messages.SUCCESS)
         messages.success(self.request, 'Thank you for your feedback! We will keep in touch with you very soon!')
-        mail_admins(form.cleaned_data.get('subject'), form.cleaned_data.get('message'), fail_silently=False)
+        mail_admins(data.get('subject'), data.get('message'), fail_silently=False)
         return super(FeedbackView, self).form_valid(form)
