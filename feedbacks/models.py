@@ -1,7 +1,9 @@
 # encoding: utf-8
 from django.db import models
 
-class FeedbackForm(models.Model):
+class Feedback(models.Model):
+    """docstring for Feedback"""
+
     name = models.CharField(max_length=200)
     subject = models.CharField(max_length=255)
     message = models.TextField()
