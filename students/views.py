@@ -46,7 +46,7 @@ class StudentCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentCreateView, self).get_context_data(**kwargs)
-        context['title'] = u"Adding New Student"
+        context['title'] = u"Student registration"
         return context
 
 
@@ -59,7 +59,7 @@ class StudentUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)
-        context['title'] = u"Update student information"
+        context['title'] = u"Student info update"
         return context
 
     def get_success_url(self):
@@ -74,7 +74,7 @@ class StudentDeleteView(DeleteView):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
         messages.success(self.request, "Info on %s %s has been sucessfully deleted."
                          % (self.object.name, self.object.surname))
-        context['title'] = "Student info deletion"
+        context['title'] = "Student info suppression"
         return context
 
 
