@@ -100,4 +100,4 @@ EMAIL_HOST_PASSWORD = ''
 
 EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend' 
 
-ADMIN = (("Vitaliy", "svi1976@mail.ru"),)
+ADMINS = (("Vitaliy", "svi1976@mail.ru"),)
