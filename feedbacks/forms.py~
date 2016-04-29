@@ -2,7 +2,7 @@
 from django import forms
 from feedbacks.models import Feedback
 
-class StudentModelForm(forms.ModelForm):
+class FeedbackModelForm(forms.ModelForm):
 	class Meta:
-		model = Student
+		model = Feedback
 	
