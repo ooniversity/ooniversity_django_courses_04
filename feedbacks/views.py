@@ -18,7 +18,7 @@ class FeedbackView(CreateView):
         mail_to = list()
         for name, mail in ADMINS:
             mail_to.append(mail)
-        send_mail(mail_form.subject, mail_form.message, mail_form.from_email, mail_to, fail_silently = False)
+        send_mail(mail_form.subject, mail_form.message, mail_form.from_email, mail_to, fail_silently = True)
         message =  u"Thank you for your feedback! We will keep in touch with you very soon!"
         messages.success(self.request, message)
         return super(FeedbackView, self).form_valid(form)
