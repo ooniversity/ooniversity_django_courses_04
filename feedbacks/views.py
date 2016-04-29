@@ -5,11 +5,11 @@ from django.core.mail import send_mail
 
 from django.views.generic.edit import CreateView
 
-from feedbacks.models import Feedback
+from feedbacks.models import FeedbackForm
 from pybursa.settings import ADMINS
 
 class FeedbackView(CreateView):
-    model = Feedback
+    model = FeedbackForm
     template_name = 'feedback.html'
     success_url = reverse_lazy('feedback')
 
