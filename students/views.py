@@ -13,15 +13,23 @@ class StudentDetailView(DetailView):
 	model = Student
 
 class StudentListView(ListView):
-	model = Student	
+	model = Student
+	paginate_by = 2
 	
+	#def get_queryset(self):
+	#	if self.request.GET:
+	#		course_id = self.request.GET['course_id']
+	#		students = Student.objects.filter(courses=course_id).order_by('id')	
+	#	else:
+	#		students = Student.objects.all()
+	#	return students
 	def get_queryset(self):
-		if self.request.GET:
-			course_id = self.request.GET['course_id']
-			students = Student.objects.filter(courses=course_id).order_by('id')	
-		else:
-			students = Student.objects.all()
-		return students	
+		qs = super(StudentListView, self).get_queryset()
+		course_id = self.request.GET.get('course_id', None)
+		if course_id:
+			qs = qs.filter(courses=course_id)
+		return qs
+	
 
 class StudentCreateView(CreateView):
 	model = Student
