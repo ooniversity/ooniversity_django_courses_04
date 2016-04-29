@@ -20,6 +20,6 @@ class FeedbackView(CreateView):
     def form_valid(self, form):
         data = form.cleaned_data
         messages.set_level(self.request, messages.SUCCESS)
-        messages.success(self.request, 'Thank you for your feedback! We will keep in touch with you very soon!')
+        messages.success(self.request, "Thank you for your feedback! We will keep in touch with you very soon!")
         mail_admins(data.get('subject'), data.get('message'), fail_silently=False)
         return super(FeedbackView, self).form_valid(form)
