@@ -1,26 +1,34 @@
 # encoding: utf-8
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import redirect
+from django.shortcuts import render
+
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+from django.core.urlresolvers import reverse_lazy
 
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
-from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.core.urlresolvers import reverse_lazy
 
 
 class CourseDetailView(DetailView):
     model = Course
+    context_object_name = 'course'
+    template_name = 'courses/detail.html'
+
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView,self).get_context_data(**kwargs)
-        # print "---->>", kwargs
-        context['lessons'] = Lesson.objects.filter(course = kwargs['object'])
+        context["lessons"] = Lesson.objects.filter(course_id = self.object)
         return context
 
 
 class CourseCreateView(CreateView):
     model = Course
+    context_object_name = 'course'
+    template_name = 'courses/add.html'
     success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
@@ -30,15 +38,15 @@ class CourseCreateView(CreateView):
 
     def form_valid(self, form):
         application = form.save()
-        msg = u"Course has been successfully added."
+        msg = u"Course %s has been successfully added." % (application.name)
         messages.success(self.request, msg)
         return super(CourseCreateView, self).form_valid(form)
 
 
 class CourseUpdateView(UpdateView):
     model = Course
-    template_name_suffix = '_update_form'
-    #success_url = reverse_lazy('courses:edit')
+    context_object_name = 'course'
+    template_name = 'courses/edit.html'
 
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
@@ -51,36 +59,45 @@ class CourseUpdateView(UpdateView):
     def form_valid(self, form):
         application = form.save()
         messages.success(
-            self.request, u"Info on the course has been sucessfully changed.")
+            self.request, u"The changes have been saved.")
         return super(CourseUpdateView, self).form_valid(form)
 
 
 class CourseDeleteView(DeleteView):
     model = Course
-    template_name_suffix = '_delete_form'
+    context_object_name = 'course'
+    template_name = 'courses/remove.html'
     success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
         context = super(CourseDeleteView, self).get_context_data(**kwargs)
         context['title'] = u"Course deletion"
-        context['notice'] = u"Курс %s будет удален" % (
+        context['notice'] = u"The cource %s will be removed" % (
             self.object.name)
         return context
 
     def delete(self, request, *args, **kwargs):
         messages.success(
-            self.request, 'Info on {} has been sucessfully deleted.'.format(self.get_object()))
+            self.request, 'Course {} has been deleted.'.format(self.get_object()))
         return super(CourseDeleteView, self).delete(self, request, *args, **kwargs)
 
 
-def add_lesson(request, course_id):
-    if request.method == 'POST':
-        form = LessonModelForm(request.POST)
-        if form.is_valid():
-            application = form.save()
-            msg = u"Lesson %s has been successfully added." % (application.subject)
-            messages.success(request, msg)
-            return redirect('courses:detail', application.course.id)
-    else:
-        form = LessonModelForm(initial = {'course': course_id})
-    return render(request, 'courses/add_lesson.html', {'form': form})
+class LessonCreateView(SuccessMessageMixin, CreateView):
+    model = Lesson
+    context_object_name = 'lessons'
+    template_name = 'courses/add_lesson.html'
+    success_url = reverse_lazy('courses:detail')
+    success_message = "%(subject)s was created successfully"
+
+    def get(self, request, *args, **kwargs):
+        course=Course.objects.get(pk=kwargs['pk'])
+        form = LessonModelForm(initial = {'course': course.id})
+        return render(request, self.template_name , {"form":form})
+
+    def get_success_url(self):
+        return reverse_lazy('courses:detail', kwargs={'pk': self.object.course.id})
+
+    def get_context_data(self, **kwargs):
+        context = super(LessonCreateView, self).get_context_data(**kwargs)
+        context['title'] = u"Lesson creation"
+        return context
