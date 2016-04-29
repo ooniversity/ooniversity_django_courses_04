@@ -14,7 +14,7 @@ class FeedbackView(CreateView):
 
     def get_context_data(self, **kwards):
         context = super(FeedbackView, self).get_context_data(**kwards)
-        context['title'] = 'Обратная связь'
+        context['title'] = 'Feedback'
         return context
 
     def form_valid(self, form):

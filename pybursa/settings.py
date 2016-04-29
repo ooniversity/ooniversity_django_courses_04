@@ -96,5 +96,5 @@ EMAIL_HOST = 'localhost'
 
 EMAIL_PORT = 1025
 
-ADMINS = (('admin', "admin@localhost"),)
+ADMINS = (('Vlad', "durov.vlad@gmail.com"),)
 
