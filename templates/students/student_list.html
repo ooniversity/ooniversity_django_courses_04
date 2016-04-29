@@ -70,6 +70,25 @@
           {% endfor %}
           </tbody>
         </table>
+
+      <div>
+        <ul class="pagination">
+
+          {% for page in paginator.page_range %}
+            {% if page_obj.number == page %}
+              <li class="active">
+                <a href="#" class="disabled">{{ page }}</a>
+              </li>
+            {% else %}
+              <li>
+                <a href="?page={{ page }}" class="disabled">{{ page }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+
+        </ul>
+      </div>
+
       </div>
     </div>
     </div>
