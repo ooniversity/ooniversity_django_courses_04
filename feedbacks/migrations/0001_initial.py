@@ -17,8 +17,8 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=25)),
                 ('subject', models.CharField(max_length=150)),
                 ('message', models.TextField()),
-                ('from_email', models.EmailField(max_length=75)),
-                ('create_date', models.DateField(auto_now=True)),
+                ('from_email', models.EmailField(max_length=75, verbose_name=b'Your Email')),
+                ('create_date', models.DateTimeField(auto_now_add=True)),
             ],
             options={
             },
