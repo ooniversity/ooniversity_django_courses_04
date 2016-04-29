@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}Удаление студента{% endblock title %}
+
+
+{% block nav_students %}active{% endblock nav_students %}
+
+
+{% block content %}
+    <h1><h3>Student {{ object.name }} {{ object.surname }} will be deleted</h3></h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirm delition" />
+    </form>
+{% endblock content %}
