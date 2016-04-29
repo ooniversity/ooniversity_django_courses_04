@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Students {{ course.name }}{% endblock %}
+
+
+{% block active_students %}active{% endblock active_students %}
+
+
+{% block content %}
+  <p><a href="{% url 'students:add' %}" class="btn btn-primary" role="button">
+        <span class="glyphicon glyphicon-plus"></span>Добавить нового студента
+    </a></p>
+    
+<h1>Список студентов</h1>  
+<table class="table">
+        <thead>
+            <tr class="success">
+                <th>#</th>
+                <th>фамилия имя</th>
+                <th>адрес</th>
+                <th>skype</th>
+                <th>курсы</th>
+                <td>изменить</td>
+                <td>удалить</td>
+            </tr>
+        </thead>
+                <tbody>
+                  {% for student in object_list %}
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td><a href="{% url 'students:detail' student.id %}">
+                                    {{ student.name }} {{ student.surname }}</a></td>
+                      <td>{{ student.address }}</td>
+                      <td>{{ student.skype }}</td>
+                      <td>
+                        {% for course in student.courses.all %}
+                          <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
+                        {% endfor %}
+                      </td>
+                      <td>
+                        <a href="{% url 'students:edit' student.id %}">
+                          <button class="btn btn-primary" type="button">
+                          <span class="glyphicon glyphicon-pencil"></span>Изменить</button></a>
+                      </td>
+                      <td>
+                        <a href="{% url 'students:remove' student.id %}">
+                          <button class="btn btn-primary" type="button">
+                        <span class="remove"></span> Удалить</button></a>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}
