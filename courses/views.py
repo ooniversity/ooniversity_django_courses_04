@@ -1,7 +1,10 @@
-from django.shortcuts import get_object_or_404, render, redirect
+from courses.models import Lesson, Course
 from django.contrib import messages
-from courses.models import Course, Lesson
-from courses.forms import CourseModelForm, LessonModelForm
+from forms import CourseModelForm, LessonModelForm
+from django.views.generic.detail import DetailView
+
+class CourseDetailView(DetailView):
+    model = Course
 
 def detail(request, course_id):
     course_info = get_object_or_404(Course, id=int(course_id))
