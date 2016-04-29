@@ -10,12 +10,11 @@
 
 {% block content %}
 
-  <div class="main_font">     
-  <h1>{% block title_page %}{% endblock %}</h1>   
+  <div class="main_font">  
     <div class="container-fluid">       
       <table class="table">
         <thead class="table-bordered">
-        {% for student in students %}
+
         <h1>{{ student.name }} {{ student.surname }}</h1>
 
           <tr>
@@ -42,11 +41,11 @@
             <td>Курсы</td>
             <td>
             {% for course in student.courses.all %} 
-              {{ course.name }}
+              {{ course.name }}</br>
             {% endfor %}
             </td>
           </tr>
-          {% endfor %}
+
 
         </tbody>
       </table>
