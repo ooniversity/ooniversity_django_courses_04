@@ -9,25 +9,27 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from students.models import Student
 from courses.models import Course
-from students.forms import StudentModelForm
+#from students.forms import StudentModelForm
 
 class StudentListView(ListView):
     model = Student
 
-    def  get_queryset(self):
-        if self.request.GET['course_id']:
+    def  get_queryset(self, course_id=None):
+        if course_id != None:
             course_id = self.request.GET.get('course_id', None)
             course = get_object_or_404(Course, id=course_id)
             list_of_students = course.student_set.all()
         else:
             list_of_students = Student.objects.all()
+        print(list_of_students)
         return list_of_students
 
     def get_context_data(self, **kwargs):
         context = super(StudentListView, self).get_context_data(**kwargs)
-        list_of_students = self.get_queryset()
-        paginator = Paginator(list_of_students, 2)
         page = self.request.GET.get('page')
+        course_id = self.request.GET.get('course_id')
+        list_of_students = self.get_queryset(course_id)
+        paginator = Paginator(list_of_students, 2)
         try:
             contacts = paginator.page(page)
         except PageNotAnInteger:
@@ -36,6 +38,7 @@ class StudentListView(ListView):
             contacts = paginator.page(paginator.num_pages)
         context['contacts'] = contacts
         context['total_pages'] = range(paginator.num_pages)
+        context['course_id'] = course_id
         return context
 
 class StudentDetailView(DetailView):
