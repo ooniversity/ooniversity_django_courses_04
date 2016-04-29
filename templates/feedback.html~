@@ -7,7 +7,12 @@
 {% block nav_class_feedback %}active{% endblock %}
 
 
-{% block content %}	 
+{% block content %}
+	{% if messages %}	
+		{% for message in messages %}
+			<div class="alert alert-success" role="alert">{{ message }}</div>
+		{% endfor %}
+	{% endif %}	 
 	<h2>Создание нового сообщения</h2>
 	<form method="post">
 		{% csrf_token %}
