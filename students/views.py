@@ -9,7 +9,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from students.models import Student
 from courses.models import Course
-#from students.forms import StudentModelForm
+from students.forms import StudentModelForm
 
 class StudentListView(ListView):
     model = Student
