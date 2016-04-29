@@ -14,7 +14,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 ''' begin Class-based views '''
 
 class StudentListView(ListView):
-    model = Student    
+    model = Student
+    paginate_by = 2    
 
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', None)
@@ -23,6 +24,7 @@ class StudentListView(ListView):
             students_list.order_by('id')
         else:
             students_list = Student.objects.all()
+            #current_page = Paginator(students_list, 2)
             students_list.order_by('id')
         return students_list
 
