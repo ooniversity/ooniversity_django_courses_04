@@ -34,7 +34,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="{% url 'index' %}">
-            <img class="logo" src="{% static 'img/logo.jpg' %}" />
+            <img class="logo" src="{% static 'img/logo.png' %}" />
           </a>
         </div>
 
@@ -48,9 +48,6 @@
             </li>
             <li class="{% block nav_students %}{% endblock %}">
               <a href="{% url 'students:list' %}{% block students_course %}{% endblock %}">Студенты</a>
-            </li>
-            <li class="{% block nav_feedback %}{% endblock %}">
-              <a href="{% url 'feedback' %}">Обратная связь</a>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
