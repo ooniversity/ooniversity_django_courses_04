@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block title %}{{ page_title }}{% endblock %}
+{% block title %}Сведенья о курсе - pyBursa{% endblock %}
 
 {% block students_course %}?course_id={{ course.id }}{% endblock %}
 
@@ -44,7 +44,7 @@
       <tbody>
         {% for lesson in lessons %}
           <tr>
-            
+            <td>{{ forloop.counter }}</td>
             <td>{{ lesson.subject }}</td>
             <td>{{ lesson.description }}</td>
           </tr>
