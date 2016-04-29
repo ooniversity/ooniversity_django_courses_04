@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
+{% block nav_feedback %}active{% endblock %}
 
-{% block title %}Редактирование курса - pyBursa{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
-
+{% load staticfiles %}
 {% block content %}
-
 {% if messages %}
   {% for message in messages %}
     <div class="alert alert-success">
@@ -14,13 +14,12 @@
     </div>
   {% endfor %}
 {% endif %}
-
 <div class="page-header">
-  <h2>Редактирование курса</h2>
+  <h2>Ждём ваших сообщений</h2>
 </div>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Изменить">
+    <input type="submit" value="Отправить">
   </form>
 {% endblock content %}
