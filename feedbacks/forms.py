@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django import forms
 
-from feedback.models import Feedback
+from feedbacks.models import Feedback
 
 
 class FeedbackForm(forms.ModelForm):
