@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns = patterns('',
     url(r'^$',views.index,name='index'),
+    url(r'^feedback/', views.FeedbackView.as_view(),name='feedback'),
     url(r'^contact/$',views.contact,name='contact'),
     url(r'^student_detail/$',views.student_detail,name='student_detail'),
     url(r'^polls/', include('polls.urls', namespace="polls")),

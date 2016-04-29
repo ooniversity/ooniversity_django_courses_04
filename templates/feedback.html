@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block nav_feedback %}active{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+<div class="alert alert-success my_messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="col-lg-12 create_form">
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" id="btn_feedback_send" class="btn btn-success" value="Отправить" />
+  </form>
+</div>
+
+{% endblock content %}
+
