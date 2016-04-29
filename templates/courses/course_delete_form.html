@@ -4,13 +4,13 @@
 {% load staticfiles %}
 
 
-{% block title %}Edit Course{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block nav_class_index %}active{% endblock %}
 
 
-{% block page_main_header %}Редактирование данных курса{% endblock %}
+{% block page_main_header %}{{ notice }}{% endblock %}
 
 
 {% block content %}
@@ -23,9 +23,8 @@
   </div>
   {% endif %}
   <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <p><input type="submit" value="Изменить"></p>
+  {% csrf_token %}
+  <p><input type="submit" value="Удалить"></p>
   </form>
 </div>
 {% endblock content %}
