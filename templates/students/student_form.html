@@ -10,12 +10,19 @@
 
 {% block content %}
 
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+  {% endif %}
+
   <h2>{{ title }}</h2>
 
   <form method="post">
   {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Создать"/>
+    <input type="submit" value="Сохранить"/>
   </form>
 
 
