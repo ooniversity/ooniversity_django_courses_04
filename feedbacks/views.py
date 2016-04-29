@@ -4,6 +4,7 @@ from feedbacks.models import Feedback
 from django.core.urlresolvers import reverse_lazy 
 from django.core.mail import mail_admins
 from django.contrib import messages
+from django.conf import settings
 
 class FeedbackView(CreateView):
 	model = Feedback
