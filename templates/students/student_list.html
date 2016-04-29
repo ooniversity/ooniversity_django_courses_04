@@ -52,33 +52,37 @@
         </tbody>
     </table>
 
-    <div class="pagination">
-        <span class="step-links">
+    <nav>
+        <ul class="pagination">
             {% if course_id %}
                 {% if contacts.has_previous %}
-                    <a href="?course_id={{ course_id }}&page={{ contacts.previous_page_number }}">previous</a>
+                    <li><a href="?course_id={{ course_id }}&page={{ contacts.previous_page_number }}" aria-label="Previous">previous</a></li>
                 {% endif %}
-                <span class="current">
-                    {% for page in total_pages %}
-                        <a href="?course_id={{ course_id }}&page={{ forloop.counter }}">{{ forloop.counter }}</a>  
-                    {% endfor %}
-                </span>
+                {% for page in total_pages %}
+                    {% if page == contacts.number %}
+                        <li class="active"><a href="?course_id={{ course_id }}&page={{ page }}">{{ page }}</a></li> 
+                    {% else %}
+                        <li><a href="?course_id={{ course_id }}&page={{ page }}">{{ page }}</a></li> 
+                    {% endif %}
+                {% endfor %}
                 {% if contacts.has_next %}
-                    <a href="?course_id={{ course_id }}&page={{ contacts.next_page_number }}">next</a>
+                    <li><a href="?course_id={{ course_id }}&page={{ contacts.next_page_number }}" aria-label="Next">next</a></li>
                 {% endif %}
             {% else %}
                 {% if contacts.has_previous %}
-                    <a href="?page={{ contacts.previous_page_number }}">previous</a>
+                    <li><a href="?page={{ contacts.previous_page_number }}" aria-label="Previous">previous</a></li>
                 {% endif %}
-                <span class="current">
                 {% for page in total_pages %}
-                    <a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>  
+                    {% if page == contacts.number %}
+                        <li class="active"><a href="?page={{ page }}">{{ page }}</a></li> 
+                    {% else %}
+                         <li><a href="?page={{ page }}">{{ page }}</a></li>
+                    {% endif %}     
                 {% endfor %}
-                </span>
                 {% if contacts.has_next %}
-                    <a href="?page={{ contacts.next_page_number }}">next</a>
+                    <li><a href="?page={{ contacts.next_page_number }}" aria-label="Next">next</a></li>
                 {% endif %}
             {% endif %}
-        </span>
-    </div>
+        </ul>
+    </nav>
 {% endblock content %}

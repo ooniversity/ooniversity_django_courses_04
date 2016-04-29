@@ -37,7 +37,7 @@ class StudentListView(ListView):
         except EmptyPage:
             contacts = paginator.page(paginator.num_pages)
         context['contacts'] = contacts
-        context['total_pages'] = range(paginator.num_pages)
+        context['total_pages'] = paginator.page_range
         context['course_id'] = course_id
         return context
 
