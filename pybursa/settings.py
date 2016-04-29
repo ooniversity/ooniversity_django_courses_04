@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,3 +90,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+EMAIL_HOST = 'mx1.mirohost.net'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'pybursa'
+EMAIL_HOST_PASSWORD = 'x9AgUkx6$@m@l#nd'
+EMAIL_USE_TLS = True
+
+ADMINS = (('Olha', "olshilyaeva@gmail.com"))
+
+DEFAULT_FROM_EMAIL = 'test@bursa.com'
