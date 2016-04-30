@@ -1,15 +1,27 @@
 {% extends "base.html" %}
-{% load static %}
 
 
-{% block title %}Редактирование данных студента{% endblock title %}
+{% load staticfiles %}
+
+
+{% block title %}{{ title }}{% endblock title %}
+
+
+{% block active_main %}active{% endblock active_main %}
 
 
 {% block content %}
-    <h1>Редактировать курс</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Изменить" />
-    </form>
+  {% include "include/inc_message.html" %}
+  <div class="main">
+    <div class="container">
+      <div class="col-lg-12">
+        <h3>Редактирование данных курса</h3>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" class="btn btn-success" value="Изменить" />
+        </form>
+      </div>
+    </div>
+  </div>
 {% endblock content %}
