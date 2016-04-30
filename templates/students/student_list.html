@@ -39,21 +39,15 @@
   <nav>
     <ul class="pagination">
       {% if page_obj.has_previous %}
-      <li>
-        <a href="?{{course_prefix}}page={{ page_obj.previous_page_number }}" aria-label="Previous"><< previous
-        </a>
-      </li>
+      <li><a href="?{{ course_prefix }}page={{ page_obj.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">&laquo; previous</span></a></li>
       {% endif %}
       {% for page_num in paginator.page_range %}
       <li {% if page_num == page_obj.number %}class="active"{% endif %}>
-        <a href="?{{course_prefix}}page={{ page_num }}">{{ page_num }}</a>
+        <a href="?{{ course_prefix }}page={{ page_num }}">{{ page_num }}</a>
       </li>
       {% endfor %}
       {% if page_obj.has_next %}
-      <li>
-        <a href="?{{course_prefix}}page={{ page_obj.next_page_number }}" aria-label="Next">next >>
-        </a>
-      </li>
+      <li><a href="?{{ course_prefix }}page={{ page_obj.next_page_number }}" aria-label="Next"><span aria-hidden="true">next &raquo;</span></a></li>
       {% endif %}
     </ul>
   </nav>
