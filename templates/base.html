@@ -34,7 +34,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="{% url 'index' %}">
-            <img class="logo" src="{% static 'img/logo.jpg' %}" />
+            <img class="logo" src="{% static 'img/logo.png' %}" />
           </a>
         </div>
 
@@ -57,16 +57,7 @@
 
     <div class="container theme-showcase" role="main">
 
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-success" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
- 
-    {% block content %}
-    {% endblock content %}
+      {% block content %}{% endblock content %}
 
     </div> <!-- /container -->
 
