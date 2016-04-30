@@ -1,28 +1,39 @@
 # -*- coding: utf-8 -*-
-import math
 from django.shortcuts import render
-from forms import QuadraticForm
+from quadratic.forms import QuadraticForm
+
+
+def get_discr(a, b, c):
+    d = b**2 - 4*a*c
+    return d
+
+
+def get_eq_root(a, b, d, order=1):
+    if order == 1:
+        x = (-b + d**(1/2.0)) / 2*a
+    else:
+        x = (-b - d**(1/2.0)) / 2*a
+    return x
 
 
 def quadratic_results(request):
-    text_result = {}
-    d = x = x1 = x2 = None
+    context = {}
     if request.GET:
         form = QuadraticForm(request.GET)
         if form.is_valid():
-            a = form.cleaned_data['a']
-            b = form.cleaned_data['b']
-            c = form.cleaned_data['c']
-            d = b**2-4*a*c  # discriminant
+            data = form.cleaned_data
+            d = get_discr(**data)
             if d < 0:
-                d = d
+                result_message = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
             elif d == 0:
-                x = (-b+math.sqrt(d))/2*a
+                x = get_eq_root(data['a'], data['b'], d)
+                result_message = "Дискриминант равен нулю, квадратное уравнение имеет один действительных корень: x1 = x2 = {}".format(x)
             else:
-                x1 = (-b+math.sqrt(d))/2*a
-                x2 = (-b-math.sqrt(d))/2*a
-            text_result.update({'discriminant': d, 'x': x, 'x1': x1, 'x2': x2})
+                x1 = get_eq_root(data['a'], data['b'], d)
+                x2 = get_eq_root(data['a'], data['b'], d, order=2)
+                result_message = "Квадратное уравнение имеет два действительных корня: x1 = {}, x2 = {}".format(x1, x2)
+            context.update({'d': d, 'result_message': result_message})
     else:
         form = QuadraticForm()
-    text_result.update({'form': form})
-    return render(request, 'quadratic/results.html', text_result)
+    context.update({'form': form})
+    return render(request, 'quadratic/results.html', context)

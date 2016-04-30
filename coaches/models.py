@@ -1,26 +1,21 @@
-# -*- coding: utf-8 -*-
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
+
 
 class Coach(models.Model):
+
+    GENDER_CHOICES = (
+        (u'M', u'Male'),
+        (u'F', u'Female'),
+    )
+
     user = models.OneToOneField(User)
     date_of_birth = models.DateField()
-    gender = models.CharField(max_length=1, choices=(('M', 'Male'), ('F', 'Female')))
-    phone = models.CharField(max_length=20)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    phone = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
-    skype = models.CharField(max_length=50)
+    skype = models.CharField(max_length=255)
     description = models.TextField()
 
     def __unicode__(self):
-        return self.user.get_username()
-
-    def full_name(self):
-        return self.user.get_full_name()
-
-    def surname(self):
-        return self.user.last_name
-    last_name = property(surname)
-
-    def name(self):
-        return self.user.first_name
-    first_name = property(name)
+        return self.user.username
