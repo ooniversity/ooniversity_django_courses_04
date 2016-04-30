@@ -26,7 +26,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for stud in contacts %}
+            {% for stud in object_list %}
                 <tr class="info">
                     <td>{{forloop.counter}}</td>
                     <td>
@@ -51,34 +51,21 @@
             {% endfor %}
         </tbody>
     </table>
-
-    <div class="pagination">
-        <span class="step-links">
-            {% if course_id %}
-                {% if contacts.has_previous %}
-                    <a href="?course_id={{ course_id }}&page={{ contacts.previous_page_number }}">previous</a>
-                {% endif %}
-                <span class="current">
-                    {% for page in total_pages %}
-                        <a href="?course_id={{ course_id }}&page={{ forloop.counter }}">{{ forloop.counter }}</a>  
-                    {% endfor %}
-                </span>
-                {% if contacts.has_next %}
-                    <a href="?course_id={{ course_id }}&page={{ contacts.next_page_number }}">next</a>
-                {% endif %}
-            {% else %}
-                {% if contacts.has_previous %}
-                    <a href="?page={{ contacts.previous_page_number }}">previous</a>
-                {% endif %}
-                <span class="current">
-                {% for page in total_pages %}
-                    <a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>  
-                {% endfor %}
-                </span>
-                {% if contacts.has_next %}
-                    <a href="?page={{ contacts.next_page_number }}">next</a>
-                {% endif %}
+    <nav>
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li><a href="?{% if course_id %}course_id={{ course_id }}&{% endif %}page={{ page_obj.previous_page_number }}" aria-label="Previous">previous</a></li>
             {% endif %}
-        </span>
-    </div>
+            {% for page in page_obj.paginator.page_range %}
+                {% if page == page_obj.number %}
+                    <li class="active"><a href="?{% if course_id %}course_id={{ course_id }}&{% endif %}page={{ page }}">{{ page }}</a></li> 
+                {% else %}
+                    <li><a href="?{% if course_id %}course_id={{ course_id }}&{% endif %}page={{ page }}">{{ page }}</a></li> 
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li><a href="?{% if course_id %}course_id={{ course_id }}&{% endif %}page={{ page_obj.next_page_number }}" aria-label="Next">next</a></li>
+            {% endif %}
+        </ul>
+    </nav>
 {% endblock content %}
