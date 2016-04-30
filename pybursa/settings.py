@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'quadratic',
     'polls',
     'coaches',
+    'feedbacks'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,3 +92,18 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS =  (os.path.join(BASE_DIR, 'static'), )
 
+#MAIL STUFF
+
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+
+EMAIL_HOST_USER = 'admin'
+
+EMAIL_HOST_PASSWORD = ''
+
+EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+
+ADMINS = (('Oleg', "kachur.oleg@gmail.com"), )
+
+DEFAULT_FROM_EMAIL = "kachur.oleg@gmail.com"
