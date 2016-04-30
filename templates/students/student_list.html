@@ -26,9 +26,7 @@
   <button><a href="{% url 'students:add' %}" style=  "text-decoration: none;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить нового студента</a></button>
 </form>
 
-
   <!-- Default panel contents -->
-
   <h2 id = "header_table">Список студентов</h2>
      <div class="table-responsive">
       <table class="table table-striped">
@@ -54,10 +52,25 @@
             </td>
             <td><button><a href="{% url 'students:remove' i.id %}" style=  "text-decoration: none;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Удалить</a></button>
             </td>
-    </tr> 
-    {% endfor %}
+        </tr> 
+        {% endfor %}
       </table>   
-    </div>
+    
+       <div class="paginator">
+         <span class="step-links">
+           {% if page_obj.has_previous %}
+             <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+           {% endif %}
+         <span class="current">
+            Page {{ page_obj.number }} of {{ paginator.num_pages }}
+          </span>
 
+          {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+          {% endif %}
+            </span>
+       </div>      
+     </div>
+    
 
 {% endblock content %}
