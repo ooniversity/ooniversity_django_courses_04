@@ -227,6 +227,10 @@ a{
 
  /*   width: 100%;*/
 }
+.pag_current_num{
+  font-size: 150%;
+  /*background-color: #007ED6;*/
+}
 
 /*-------------------------student_detail--------------------------------*/
 .student_info{
