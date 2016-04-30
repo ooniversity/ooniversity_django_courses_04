@@ -1,24 +1,22 @@
 {% extends "base.html" %}
-{% block title %}Pybursa - Учитель {% endblock title %}
+{% block title %}Pybursa - Преподаватели {% endblock title %}
 {% block content %}
-  <!-- Default panel contents -->
 <div class="container">
    	<h2>{{coach.user.first_name}} {{ coach.user.last_name }}</h2>
 <div>
       <div class="table-responsive">
       <table class="table table-striped">
         <tr>
-        	<th>дата рождения</th>
-        	<th>{{coach.date_of_birth|date:"j F, Y"}}</th>
+            <th>дата рождения</th>
+            <th>{{coach.date_of_birth|date:"j F, Y"}}</th>
         </tr>
         <tr>
             <th>адрес</th>
             <th>{{coach.address}}</th>
         </tr>
-
         <tr>
             <th>почта</th>
-            <th>{{coach.email}}</th>
+            <th>{{coach.user.email}}</th>
         </tr>
             <th>логин skype</th>
             <th>{{coach.skype}}</th>
@@ -27,7 +25,7 @@
             <th>{{coach.phone}}</th>
         </tr>
             <th>Курсы учитель</th>
-             <td>{% for course in coach.coach_courses.all %}
+             <td>{% for course in teacher %}
                <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a>
                студенты курса 
                <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-info-sign"></span></a>
@@ -37,7 +35,7 @@
         </tr>        
         </tr>
             <th>Курсы ассистент</th>
-             <td>{% for course in coach.assistant_courses.all %}
+             <td>{% for course in cassistant %}
                <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a>
                студенты курса 
                <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-info-sign"></span></a>
@@ -45,7 +43,9 @@
                {% endfor %}
              </td>
         </tr>        
-	      </table>   
+		
+      </table>   
     </div>
-</div>
+
+    <hr>
 {% endblock content %}

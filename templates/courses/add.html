@@ -1,59 +1,24 @@
 {% extends "base.html" %}
-{% block title %}Pybursa {{ course.name }}{% endblock title %}
+
+
+{% block title %}Pybursa New Course{% endblock title %}
+
+
 {% block nav_class_index %}active{% endblock %}
+
+
+{% load staticfiles %}
+
+
 {% block content %}
-{% if messages %}
-	<div class = "alert alert-success" role="alert">
-		{% for message in messages %}
-		{{ message }}
-		{% endfor %}
+
+<div class="page-header"><h3 class="text-center">{{ title }}</h3></div>
+	<div class="container">
+		<form method="post">
+			{% csrf_token %}          
+			{{ form.as_p }}
+            <input type="submit" value="Сохранить"/>
+		</form>
 	</div>
-{% endif %}
-<div class="container">
-	<div class="jumbotron">
-		<h1>{{course.name}}</h1>
-	<p>{{course.description|truncatechars:32}}</p>
-</div>
-<div class="jumbotron">
-	<h2>Преподаватели</h2>
-		<div><h4>Учитель</h4>
-			<a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.first_name}} {{course.coach.last_name}}</a>
-		</div>
-			<p>{{course.coach.description}}</p>
-
-		<div><h4>Ассистент</h4>
-			<a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name}} {{course.assistant.last_name}}</a>
-		</div>
-			<p>{{course.assistant.description}}</p>
-</div>
-
-<div class="container">
-	<h2>План курса</h2>
-</div>
-
-<div class="container">
-	<a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-success" role="button">
-		<span class="glyphicon glyphicon-plus"></span> 
-		Добавить новый урок
-	</a>
-</div> 
-<div class="container">
-	<div class="table-responsive">
-		<table class="table table-hover table-condensed">
-			<tr>
-				<th>#</th>
-				<th>Тема</th>
-				<th>Описание</th>
-			</tr>
-				{% for i in lesson %}
-			<tr>
-				<td>{{ i.order }}</td>
-				<td>{{ i.subject }}</td>
-				<td>{{ i.description }}</td>
-			</tr>
-				{% endfor %}
-			</table>
-		</div>
-	</div>
-</div>
+<hr>
 {% endblock content %}
