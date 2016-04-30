@@ -40,7 +40,7 @@
     <ul class="pagination">
       {% if page_obj.has_previous %}
       <li>
-        <a href="?{{course_prefix}}page={{ page_obj.previous_page_number }}" aria-label="Previous">&laquo; previous
+        <a href="?{{course_prefix}}page={{ page_obj.previous_page_number }}" aria-label="Previous"><< previous
         </a>
       </li>
       {% endif %}
@@ -51,7 +51,7 @@
       {% endfor %}
       {% if page_obj.has_next %}
       <li>
-        <a href="?{{course_prefix}}page={{ page_obj.next_page_number }}" aria-label="Next">next &raquo;
+        <a href="?{{course_prefix}}page={{ page_obj.next_page_number }}" aria-label="Next">next >>
         </a>
       </li>
       {% endif %}
