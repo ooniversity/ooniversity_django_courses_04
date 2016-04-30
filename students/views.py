@@ -15,13 +15,17 @@ class StudentListView(ListView):
     model = Student
     paginate_by = 2
 
+    def get_context_data(self, **kwargs):
+        context = super(StudentListView, self).get_context_data(**kwargs)
+        q = self.request.GET.get('course_id')
+        context['input'] = q
+        return context
+
     def get_queryset(self):
-        try:
-            a = self.request.GET['course_id']
-            stud_at_course = Student.objects.filter(courses__id=a)
-        except MultiValueDictKeyError:
-            stud_at_course = Student.objects.all()
-        return stud_at_course
+        queryset = Student.objects.all()
+        if self.request.GET.get('course_id'):
+            queryset = Student.objects.filter(courses__id=self.request.GET['course_id'])
+        return queryset
 
 
 class StudentDetailView(DetailView):
