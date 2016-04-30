@@ -23,10 +23,11 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
          <ul class="nav navbar-nav menu_large_font_my">
             <li class="{% block nav_class_main %}{% endblock %}"><a  href="{% url 'index' %}">Main</a></li>
-            <li class="{% block contact_class_main %}{% endblock %}"> <a href="{% url 'contact' %}">Contacts</a></li>
+            <li class="{% block contact_class_main %}{% endblock %}"><a href="{% url 'contact' %}">Contacts</a></li>
             <li class="{% block students_class_main %}{% endblock %}"> 
               <a href="{% url 'students:list_view' %}{% block students_by_course %}{% endblock %}">Students</a></li>
-            <li class="{% block nav_class_quad_results %}{% endblock %}"> <a href="{% url 'quadratic:results' %}">Quad results</a></li>
+            <li class="{% block nav_class_quad_results %}{% endblock %}"><a href="{% url 'quadratic:results' %}">Quad results</a></li>
+            <li class="{% block nav_class_feedbacks %}{% endblock %}"><a href="{% url 'feedback' %}">Feedback</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
 
