@@ -35,16 +35,16 @@ class CourseCreateView(CreateView):
         context['title'] = 'Course creation'
         return context
 
-def add(request):
-    if request.method == 'POST':
-        form = CourseModelForm(request.POST)
-        if form.is_valid:
-            item = form.save()
-            messages.success(request, "Course %s has been successfully added." % item.name)
-            return redirect('index')
-    else:
-        form = CourseModelForm()
-    return render(request, "courses/add.html", {'form': form})
+#def add(request):
+#    if request.method == 'POST':
+#        form = CourseModelForm(request.POST)
+#        if form.is_valid:
+#            item = form.save()
+#            messages.success(request, "Course %s has been successfully added." % item.name)
+#            return redirect('index')
+#    else:
+#        form = CourseModelForm()
+#    return render(request, "courses/add.html", {'form': form})
 
 class CourseUpdateView(UpdateView):
     model = Course
