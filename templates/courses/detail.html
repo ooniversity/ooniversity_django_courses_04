@@ -1,19 +1,8 @@
 {% extends "base.html" %}
-
-
 {% block title %}Pybursa {{ title }}{% endblock title %}
-
-
-
 {% block nav_class_index %}active{% endblock %}
-
-
 {% block students_list %}{% url 'students:list_view' %}?course_id={{ object.pk }}{% endblock students_list %}
-
-
 {% block content %}
-
-
 {% if messages %}
 	<div class = "alert alert-success" role="alert">
 		{% for message in messages %}
