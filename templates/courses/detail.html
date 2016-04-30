@@ -4,9 +4,7 @@
 {% block title %}PyBursa - Course Info{% endblock title %}
 
 
-{% block selected_course_students %}
-?course_id={{ course.id }}
-{% endblock selected_course_students %}
+{% block selected_course_students %}?course_id={{ course.id }}{% endblock selected_course_students %}
 
 
 {% block jambotron_content %}
@@ -51,7 +49,7 @@
     <tbody>
       {% for lesson in course.lesson_set.all %}
       <tr>
-        <td>{{ lesson.order }}</td>
+        <td>{{ forloop.counter }}</td>
         <td>{{ lesson.subject }}</td>
         <td>{{ lesson.description }}</td>
       </tr>

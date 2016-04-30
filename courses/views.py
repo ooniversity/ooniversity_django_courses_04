@@ -1,17 +1,29 @@
-from django.core.urlresolvers import reverse_lazy, reverse
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic.detail import DetailView
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse_lazy
+from django.shortcuts import redirect
+from django.shortcuts import render
 
-from courses.models import Course
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
+from django.views.generic.edit import DeleteView
+from django.views.generic.edit import UpdateView
+
 from courses.forms import LessonModelForm
+from courses.models import Course
+from courses.models import Lesson
 
 
 class CourseDetailView(DetailView):
     model = Course
-    context_object_name = 'course'
     template_name = 'courses/detail.html'
+    context_object_name = 'course'
+
+    def get_context_data(self, **kwargs):
+        course_id = self.kwargs['pk']
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        context['lessons'] = Lesson.objects.filter(course_id=course_id).order_by('order')
+        return context
 
 
 class CourseCreateView(CreateView):
