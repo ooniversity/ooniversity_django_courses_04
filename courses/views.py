@@ -5,7 +5,11 @@ from courses.models import Course, Lesson
 
 from courses.forms import CourseModelForm, LessonModelForm
 
+from django.views.generic import DetailView
+
 from django.contrib import messages
+
+
 
 
 def detail(request, course_id):

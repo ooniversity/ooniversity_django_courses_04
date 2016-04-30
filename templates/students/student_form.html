@@ -2,17 +2,17 @@
 {% load staticfiles %}
 
 
-{% block title %}Delete student{% endblock %}
+{% block title %}{{ title }}}{% endblock %}
 
 
 {% block students_class_main %}active{% endblock %}
 
 
 {% block content %}
-<h2>Студент {{ app.full_name }} будет удален!</h2> 
+<h2>Создание нового студента</h2>
 <form method="post">
   {% csrf_token %}
-  {{ form.as_table }}
-  <input type="submit" value="Удалить!"/>
+  {{ form.as_p }}
+  <input type="submit" value="Создать"/>
 </form>
 {% endblock content %}
