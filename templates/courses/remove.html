@@ -1,10 +1,11 @@
 {% extends "base.html" %}
-{% block title %}Delete Course{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 {% block index_class_nav %}active{% endblock %}
 
 
 {% block content %}
-<h2>Course {{ item.name }} is going to be deleted!</h2> 
+<h2>{{ title }}</h2>
+<h3>Course {{ item.name }} is going to be deleted!</h3>
 <form method="post">
   {% csrf_token %}
   {{ form.as_table }}
