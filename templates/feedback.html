@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block title %}PyBursa - Feedback{% endblock title %}
+
+
+{% block nav_class_feedback %}active{% endblock nav_class_feedback %}
+
+
+{% block jambotron_content %}
+<div class="jumbotron headerpic">
+	<h1>Feedback</h1>
+	<h2>Description</h2>
+	<p>We listen to You</p>
+</div>
+{% endblock jambotron_content %}
+
+
+{% block inline_content %}
+Fill all required fields and click "Send" button
+{% endblock inline_content %}
+
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+        {{ form.as_p }}
+	<input type="submit" value="Send" />
+</form>
+{% endblock content %}
