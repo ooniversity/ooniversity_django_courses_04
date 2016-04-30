@@ -1,14 +1,15 @@
 {% extends "base.html" %}
-{% load static %}
- 
- 
-{% block title %}Удаление курса{% endblock title %}
- 
- 
+
+
+{% block title %}Удаление курса - pyBursa{% endblock %}
+
+
 {% block content %}
-    <h1>Курс {{ course.name }} будет удален</h1>
-    <form method="post">
-        {% csrf_token %}
-        <input type="submit" value="Удалить" />
-    </form>
-{% endblock content %} 	
+<div class="page-header">
+  <h4>Курс {{ course.name }} будет удален</h4>
+</div>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Удалить">
+  </form>
+{% endblock content %}
