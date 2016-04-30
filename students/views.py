@@ -20,7 +20,6 @@ class StudentListView(ListView):
     paginate_by = 2
 
     def get_queryset(self):
-
         course_id = self.request.GET.get('course_id', None)
         if course_id:
             students = Student.objects.filter(courses__id=course_id).order_by('id')
