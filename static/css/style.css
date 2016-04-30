@@ -216,6 +216,18 @@ a{
   /*width: 10%;*/
   margin-right: 15%;
 }
+
+.my_pag{
+
+    font-size: 136%;
+    color: #F5F5F5;
+    position: relative;
+    display: block;
+    text-align: center;
+
+ /*   width: 100%;*/
+}
+
 /*-------------------------student_detail--------------------------------*/
 .student_info{
   color: #FFF;
