@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="page-header">
-  <h4>Студент {{ student.name }} {{ student.surname }} будет удален</h4>
+  <h4>{{ title }}</h4>
 </div>
   <form method="post">
     {% csrf_token %}
