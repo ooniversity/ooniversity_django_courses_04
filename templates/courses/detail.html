@@ -4,6 +4,11 @@
 {% block title %}PyBursa - Course Info{% endblock title %}
 
 
+{% block selected_course_students %}
+?course_id={{ course.id }}
+{% endblock selected_course_students %}
+
+
 {% block jambotron_content %}
 <div class="jumbotron headerpic">
   <h1>{{ course.name }}</h1>
