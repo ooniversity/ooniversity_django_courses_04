@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Edit Course{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 {% block index_class_nav %}active{% endblock %}
 
 {% block content %}
@@ -9,7 +9,7 @@
     {% endfor %}
 {% endif %}
 
-<h2>Editing course's data</h2>
+<h2>{{ title }}</h2>
 
 <form method="post">
   {% csrf_token %}
