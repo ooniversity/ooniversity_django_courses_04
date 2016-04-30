@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}MyBursa | Student Detail{% endblock %}
+{% block students_class_nav %}active{% endblock %}
+
+
+{% block content %}
+{% include "include/content_include.html" %}
+            <table>
+                <tbody>
+                <tr>
+                    <td>name:</td>
+                    <td>
+                        {{student.name}} {{student.surname}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>date of birth:</td>
+                    <td>{{student.date_of_birth|date:"d F, Y"}}</td>
+                </tr>
+                <tr>
+                    <td>adress:</td>
+                    <td>{{student.address}}</td>
+                </tr>
+                <tr>
+                    <td>e-mail</td>
+                    <td>{{student.email}}</td>
+                </tr>
+                <tr>
+                    <td>skype:</td>
+                    <td>{{student.skype}}</td>
+                </tr>
+                <tr>
+                    <td>phone:</td>
+                    <td>{{student.phone}}</td>
+                </tr>
+                <tr>
+                    <td>courses</td>
+                    {% for course in student.courses.all %}
+                    <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
+                    {% endfor %}
+                </tr>
+                </tbody>
+            </table>
+{% endblock content %}
