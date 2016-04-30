@@ -1,18 +1,27 @@
-{%  extends 'base.html' %}
-
-{%  load staticfiles %}
-
-{%  block title %}{{title}}{%  endblock %}
+{% extends "base.html" %}
 
 
-{%  block content %}
-	<h1>Добавить нового студета</h1>
-	<form method="post">
-		{%  csrf_token %}
-		{{  form.as_p }}
-		<input type="submit" value="Добавть" />
-	</form>
-
-{%  endblock content %}
+{% load staticfiles %}
 
 
+{% block title %}{{ title }}{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock nav_class_students %}
+
+
+{% block content %}
+  {% include "include/inc_message.html" %}
+  <div class="main">
+    <div class="container">
+      <div class="col-lg-12">
+        <h3>{{ title }}</h3>
+      </div>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-success" value="Save changes">
+      </form>
+    </div>
+  </div>
+{% endblock content %}

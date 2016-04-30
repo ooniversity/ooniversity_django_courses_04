@@ -1,77 +1,67 @@
-  {% load staticfiles %}
-
- 
- {%  extends "base.html" %}
+{% extends 'base.html' %}
 
 
- {%  block title %}Coache{% endblock title %}
+{% load staticfiles %}
 
 
- {%  block nav_class_contact %}active{% endblock%}
-
- 
- {%  block content %}
+{% block title %}{{ coach.first_name }} {{ coach.last_name }}{% endblock title %}
 
 
-    <h1>{{coach.first_name_field}} {{coach.last_name_field}}</h1>
-  
-<table class="table" >
-    <tbody>
-        <tr class="info">
-            <td>дата рождения</td>
-            <td>{{coach.date_of_birth|date:"d M, Y"}}</td>
-        </tr>
-                <tr class="info">
-            <td>адрес</td>
-            <td>{{coach.address}}</td>
-        </tr>
-                <tr class="info">
-            <td>почта</td>
-            <td>{{coach.user.email}}</td>
-        </tr>
-                <tr class="info">
-            <td>логин skype</td>
-            <td>{{coach.skype}}</td>
-        </tr>
-                <tr class="info">
-            <td>телефон</td>
-            <td>{{coach.phone}}</td>
-        </tr>
-                <tr class="info">
-            <td>курсы учитель</td>
-            <td>{% for course in coach.coach_courses.all %}
-            <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a>
-            студенты курса 
-            <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-user"></span></a>
-            </p>
-            {% endfor %}</td>
-        </tr>
-                <tr class="info">
-            <td>курсы ассистент</td>
-            <td>{% for course in coach.assistant_courses.all %}
-            <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a>
-            студенты курса 
-            <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-user"></span></a>
-            </p>
-            {% endfor %}</td>
-        </tr>
-    </tbody>
-</table>
-  {%  endblock content %}  
+{% block active_students %}active{% endblock active_students %}
 
 
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
+{% block content %}
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{ coach.user.first_name }} {{ coach.user.last_name }}</h3>
+    </div>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-hover" style="border: none">
+          <tbody>
+            <tr>
+              <td><strong>дата рождения</strong></td>
+              <td>{{ coach.date_of_birth|date:"d F, Y" }}</td>
+            </tr>
+            <tr>
+              <td><strong>адрес</strong></td>
+              <td>{{ coach.address }}</td>
+            </tr>
+            <tr>
+              <td><strong>почта</strong></td>
+              <td>{{ coach.user.email }}</td>
+            </tr>
+            <tr>
+              <td><strong>логин skype</strong></td>
+              <td>{{ coach.skype }}</td>
+            </tr>
+            <tr>
+              <td><strong>телефон</strong></td>
+              <td>{{ coach.phone }}</td>
+            </tr>
+            <tr>
+              <td><strong>курсы учитель</strong></td>
+              <td>
+                {% for course in teacher %}
+                  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+                  студенты курса: <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+                  <span class="glyphicon glyphicon-education" aria-hidden="true"></span></a><br>
+                {% endfor %}
+              </td>
+            </tr>
+            <tr>
+              <td><strong>курсы асистент</strong></td>
+              <td>
+                {% for course in assistant %}
+                  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+                  студенты курса: <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+                  <span class="glyphicon glyphicon-education" aria-hidden="true"></span></a><br>
+                {% endfor %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

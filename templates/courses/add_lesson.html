@@ -1,18 +1,26 @@
-{%  extends 'base.html' %}
-
-{%  load staticfiles %}
-
-{%  block title %}Добавить занятие{%  endblock %}
+{% extends "base.html" %}
 
 
-{%  block content %}
-	<h1>Добавить новое занятия</h1>
-	<form method="post">
-		{%  csrf_token %}
-		{{  form.as_p }}
-		<input type="submit" value="Добавть" />
-	</form>
-
-{%  endblock content %}
+{% load staticfiles %}
 
 
+{% block title %}Add lesson{% endblock title %}
+
+
+{% block active_main %}active{% endblock active_main %}
+
+
+{% block content %}
+  <div class="main">
+    <div class="container">
+      <div class="col-lg-12">
+        <h3>Создание нового занятия</h3>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" class="btn btn-success" value="Создать" />
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
