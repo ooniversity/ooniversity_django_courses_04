@@ -3,6 +3,9 @@ from django.contrib import messages
 
 from django.core.urlresolvers import reverse_lazy
 
+from django.core.paginator import Paginator
+
+
 from django.shortcuts import redirect
 
 from django.views.generic.list import ListView
@@ -15,6 +18,7 @@ from students.models import Student
 
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
 
 
     def get_queryset(self):
