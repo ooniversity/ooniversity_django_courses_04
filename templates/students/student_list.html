@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block title %}{{ title }}{% endblock title %}
+{% block title %}Pybursa - Студенты {% endblock title %}
 
 
 {% block nav_class_students %}active{% endblock %}
@@ -63,4 +63,19 @@
     </div>
     </div>
 </div>
+<ul class="pagination">
+{% if page_obj.has_previous %}
+        <li>
+              <a href="?{% if request.GET.course_id %}course_id={{ request.GET.course_id }}&{% endif %}page={{ page_obj.previous_page_number }}"><< previous</a>
+        </li>
+{% endif %}
+        <li>
+            <a>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a>
+        </li>
+{% if page_obj.has_next %}
+        <li>
+          <a href="?{% if request.GET.course_id %}course_id={{ request.GET.course_id }}&{% endif %}page={{ page_obj.next_page_number }}">next >></a>
+        </li>
+{% endif %}
+    </ul>
 {% endblock content %} 
