@@ -28,6 +28,11 @@ class StudentListView(ListView):
             qs = Student.objects.all()
         return qs
 
+    def get_context_data(self, **kwargs):
+        context = super(StudentListView, self).get_context_data(**kwargs)
+        course_id = self.request.GET.get('course_id', None)
+        context['course_prefix'] = 'course_id={0}&'.format(course_id) if course_id else ''
+        return context
 
 class StudentDetailView(DetailView):
     model = Student
