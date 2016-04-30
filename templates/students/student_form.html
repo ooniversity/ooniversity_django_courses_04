@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 
-{% block title %}PyBursa - Add student{% endblock title %}
+{% block title %}{{title}}{% endblock title %}
 
 
 {% block jambotron_content %}
 <div class="jumbotron headerpic">
-  <h1>Add new student</h1>
+  <h1>{{jambotron_h1}}</h1>
   <h2>Description</h2>
   <p>Enjoy to our team!</p>
 </div>
@@ -22,6 +22,6 @@ Please fill the appropriate fields and click "Add" button
 <form method="post">
   {% csrf_token %}
       {{ form.as_p }}
-  <input type="submit" value="Add" />
+  <input type="submit" value={{btn_text}} />
 </form>
 {% endblock content %}

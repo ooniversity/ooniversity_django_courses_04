@@ -1,31 +1,28 @@
 {% extends "base.html" %}
 
 
-{% block title %}PyBursa - Edit student{% endblock title %}
+{% block title %}{{title}}{% endblock title %}
 
 
 {% block jambotron_content %}
 <div class="jumbotron headerpic">
-  <h1>Edit student</h1>
+  <h1>Remove student</h1>
   <h2>Description</h2>
   <p>
-    Editing student infocard
+    Student {{ student.name }} {{ student.surname }} will be deleted :(
   </p>
 </div>
 {% endblock jambotron_content %}
 
 
 {% block inline_content %}
-Check Your changes and click "Change" button
+If You are confident in this action, click "Delete" button
 {% endblock inline_content %}
 
 
 {% block content %}
-
-
 <form method="post">
   {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Change" />
+  <input type="submit" value="Delete" />
 </form>
 {% endblock content %}
