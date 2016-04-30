@@ -6,19 +6,21 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from students.models import Student
 from students.forms import StudentModelForm
 
 class StudentDetailView(DetailView):
     model = Student
-    #context_object_name = "student"
+
 
 class StudentListView(ListView):
     model = Student
-    #context_object_name = "students"
+    paginate_by = 2
 
     def get_queryset(self):
+
         course_id = self.request.GET.get('course_id', None)
         if course_id:
             students = Student.objects.filter(courses__id=course_id).order_by('id')
