@@ -77,7 +77,7 @@ class StudentDeleteView(DeleteView):
 
     def delete(self, request, pk):
         student = self.get_object()
-        msg = "Info on %s has been sucessfully deleted." % student.full_name()  #call full_name() from models
+        msg = u"Info on %s has been sucessfully deleted." % student.full_name()  #call full_name() from models
         messages.success(self.request, msg)
         return super(StudentDeleteView, self).delete(request, pk)
 

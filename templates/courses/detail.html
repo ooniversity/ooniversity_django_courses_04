@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Courses{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 
 {% block students_by_course %}?course_id={{ course.id }}{% endblock %}
@@ -55,14 +55,10 @@
       <h3 class="panel-title">Ассистент</h3> 
     </div>
     {% if  course.coach %}
-    <div class="panel-body">
-      
-
+    <div class="panel-body">    
       <p><a href="{% url 'coaches:detail' course.assistant.id %}">
       {{ course.assistant.full_name }}</a>
       <p>{{ course.assistant.description }}</p>
-    
-
     </div>
     {% endif %}
     </div>
@@ -86,11 +82,11 @@
       </thead>
       <tbody>
        </tr>
-        {% for les in lesson %}
+        {% for les in lessons %}
         <tr>
-      <td>{{les.order}}</td>
-      <td>{{les.subject}}</td>
-      <td>{{les.description}}</td>
+      <td>{{ les.order }}</td>
+      <td>{{ les.subject }}</td>
+      <td>{{ les.description }}</td>
     </tr> 
     {% endfor %}
       </tbody>
