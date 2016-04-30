@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 
+{% load staticfiles %}
+
+
 {% block title %}PyBursa - Main{% endblock title %}
 
 
@@ -8,13 +11,23 @@
 
 
 {% block jambotron_content %}
-<div class="jumbotron">
+
+
+<div class="jumbotron header-container">
+  <div class="video-container">
+    <video preload="true" autoplay="No" loop="loop" onloadstart="this.volume=0"  poster="{% static "images/big_logo.png" %}">
+      <source src="{% static "video/header.mp4" %}" type="video/mp4">
+      <source src="{% static "video/header.webm" %}" type="video/webm">
+      <source src="{% static "video/header.ogv" %}" type="video/ogg">
+    </video>
+  </div>
   <h1>PyBursa</h1>
   <h2>Description</h2>
   <p>
     Programming course at the cool languages for those who really want to start creating!
   </p>
 </div>
+
 {% endblock jambotron_content %}
 
 

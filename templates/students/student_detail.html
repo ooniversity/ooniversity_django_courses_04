@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+
+{% block title %}PyBursa - Student infocard{% endblock title %}
+
+
+{% block nav_class_student %}active{% endblock nav_class_student %}
+
+
+{% block jambotron_content %}
+    <div class="jumbotron headerpic">
+      <h1>{{ student.name }} {{ student.surname }}</h1>
+      <h2>Description</h2>
+      <p>
+        Detail information of selected student
+      </p>
+    </div>
+{% endblock jambotron_content %}
+
+
+{% block inline_content %}Our junior infocard{% endblock inline_content %}
+
+
+{% block content %}
+   <table class="my_table">
+    <thead>
+      <tr>
+        <th class="my_fistcolsize my_transparensy07" style="text-align: left">
+          Date of birth</th>
+        <td> {{ student.date_of_birth }} </td>
+      </tr>
+    </thead>
+    <tr>
+        <th class="my_secondcolsize my_transparensy07" style="text-align: left">
+          Address</th>
+        <td> {{ student.address }} </td>
+    </tr>
+    <tr>
+        <th class="my_secondcolsize my_transparensy07" style="text-align: left">
+          Email</th>
+        <td> {{ student.email }} </td>
+    </tr>
+    <tr>
+        <th class="my_secondcolsize my_transparensy07" style="text-align: left">
+          Skype nickname</th>
+        <td> {{ student.skype }} </td>
+    </tr>
+    <tr>
+        <th class="my_secondcolsize my_transparensy07" style="text-align: left">
+          Phone</th>
+        <td> {{ student.phone }} </td>
+    </tr>
+    <tr>
+        <th class="my_secondcolsize my_transparensy07" style="text-align: left">
+          Courses</th>
+        <td>
+            {% for student in student.courses.all %}
+            <a href="{% url 'courses:detail' student.id %}">{{ student }}<br></a>
+            {% endfor %}
+        </td>
+    </tr>
+    <tbody>
+      {% for student in students %}
+      <tr>
+        <td>{{ student.id }}</td>
+        <td>{{ student.surname }}{{student.name}}</td>
+        <td>{{ student.address }}</td>
+        <td>{{ student.skype }}</td>
+        <td>
+            {% for student in student.courses.all %}
+            {{ student }}
+            {% endfor %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+{% endblock content %}
