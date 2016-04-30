@@ -14,11 +14,9 @@
 <div class="row">
   <div class="col-lh-12">
     <h4>Teachers</h4>
+{% if course.coach %}{% include "include/coach_include.html" with title='Coach' coach=course.coach %}{% endif %}
 
-    {% include "include/coach_include.html" with title='Coach' coach=course.coach %}
-
-    {% include "include/coach_include.html" with title='Assistant' coach=course.assistant %}
-
+{% if course.assistant %}{% include "include/coach_include.html" with title='Assistant' coach=course.assistant %}{% endif %}
   </div>
 </div>
 <div class="row">
