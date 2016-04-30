@@ -1,59 +1,56 @@
-# -*- coding: utf-8 -*-
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages
-from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
-from courses.forms import LessonModelForm
-from courses.models import Course
+from courses.models import Course, Lesson
+from courses.forms import CourseModelForm, LessonModelForm
 
-
-class CourseDetailView(DetailView):
-    model = Course
-    template_name = 'courses/detail.html'
-
-
-class CourseCreateView(CreateView):
-    model = Course
-    template_name = 'courses/add.html'
-    success_url = reverse_lazy('index')
-
-    def form_valid(self, form):
-        super_valid = super(CourseCreateView, self).form_valid(form)
-        messages.success(self.request,
-                         u'Курс {} успешно создан..'.format(self.object.name))
-        return super_valid
-
-
-class CourseUpdateView(UpdateView):
-    model = Course
-    template_name = 'courses/edit.html'
-    success_url = '/courses/edit/%(id)d/'
-
-    def form_valid(self, form):
-        messages.success(self.request, u'Данные изменены.')
-        return super(CourseUpdateView, self).form_valid(form)
-
-
-class CourseDeleteView(DeleteView):
-    model = Course
-    template_name = 'courses/remove.html'
-    success_url = reverse_lazy('index')
-
-    def delete(self, request, *args, **kwargs):
-        delete_super = super(CourseDeleteView, self).delete(request, *args, **kwargs)
-        messages.success(self.request,
-                         u'Курс {} был удален.'.format(self.object.name))
-        return delete_super
-
-
-def add_lesson(request, pk):
-    course = get_object_or_404(Course, pk=pk)
+def detail(request, course_id):
+    course_info = get_object_or_404(Course, id=int(course_id))
+    lesson_list = Lesson.objects.filter(course_id=course_id)
+    
+    return render(request, 'courses/detail.html', {'lessons':lesson_list, 'course': course_info})
+ 
+def add(request):
+    if request.method == "POST":
+        form = CourseModelForm(request.POST)
+        if form.is_valid():
+            application = form.save()
+            message =  u"Course %s has been successfully added." % application.name
+            messages.success(request, message)
+            return redirect('/')
+    else:
+        form = CourseModelForm()
+    return render(request, 'courses/add.html', {'form':form})
+ 
+def edit(request, course_id):
+    course = get_object_or_404(Course, id = course_id)
+    if request.method == "POST":
+        form = CourseModelForm(request.POST, instance = course)
+        if form.is_valid():
+            course_form = form.save()
+            messages.success(request, u"The changes have been saved.")
+            return redirect('courses:edit', course_form.id)
+    else:
+        form = CourseModelForm(instance = course)
+    return render(request, 'courses/edit.html', {'form':form})
+ 
+def remove(request, course_id):
+    course = get_object_or_404(Course, id = course_id)
+    if request.method == "POST":
+        message =  u"Course %s has been deleted." % course.name
+        course.delete()
+        messages.success(request, message)
+        return redirect('/')
+    else:
+        return render(request, 'courses/remove.html', {'course':course})
+ 
+def add_lesson(request, course_id):
     if request.method == "POST":
         form = LessonModelForm(request.POST)
         if form.is_valid():
             lesson = form.save()
-            messages.success(request, u'Занятие {} было создано.'.format(lesson.subject))
-            return redirect('courses:detail', lesson.course_id)
+            message =  u"Lesson %s has been successfully added." % lesson.subject
+            messages.success(request, message)
+            return redirect("courses:detail", lesson.course.id)
     else:
-        form = LessonModelForm(initial={'course': course})
-    return render(request, 'courses/add_lesson.html', {'form': form})
+        form = LessonModelForm(initial = {'course':course_id})
+    return render(request, 'courses/add_lesson.html', {'form':form})

@@ -1,16 +1,13 @@
 {% extends "base.html" %}
+{% load static %}
+{% block title %}Добавление данных о новом занятии{% endblock title %}
 
-
-{% block title %}Создание занятия - pyBursa{% endblock %}
-
-
-{% block content %}
-<div class="page-header">
-  <h2>Создание нового занятия</h2>
-</div>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Создать">
-  </form>
-{% endblock content %}
+ 
+ {% block content %}
+    <h1>Создание занятия</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Создать" />
+    </form>
+ {% endblock content %}
