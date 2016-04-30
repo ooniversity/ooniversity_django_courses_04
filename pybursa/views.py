@@ -3,6 +3,13 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from courses.models import Course
 
+#from django.views.generic import TemplateView
+
+#class ContactView(TemplateView):
+#    template_name='contact.html'
+
+    
+
 
 def contact(request):
     print 'Start contact view!'

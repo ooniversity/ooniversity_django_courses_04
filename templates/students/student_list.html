@@ -14,10 +14,13 @@
  {% if messages %}
 <ul class="messages">
     {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    <div class="alert alert-success" role="alert">
+     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    </div>
     {% endfor %}
 </ul>
 {% endif %}
+
 
 <form>
   <button><a href="{% url 'students:add' %}" style=  "text-decoration: none;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить нового студента</a></button>
@@ -38,26 +41,23 @@
             <th></th>
             <th></th>
         </tr>
-        {% for i in students %}
+        {% for i in object_list %}
         <tr>
            <td>{{ forloop.counter }}</td>
            <td><a href="{% url 'students:detail' i.id %}">{{i.surname}} {{ i.name }}</a></td>
            <td>{{ i.address }}</td>
            <td>{{ i.skype }}</td>
            <td> {% for course in i.courses.all %}
-                  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
+                <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
                 {% endfor %}</td>
             <td><button><a href="{% url 'students:edit' i.id %}" style=  "text-decoration: none;"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Изменить</a></button>
             </td>
             <td><button><a href="{% url 'students:remove' i.id %}" style=  "text-decoration: none;"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Удалить</a></button>
             </td>
-</form>
     </tr> 
     {% endfor %}
       </table>   
     </div>
-
-
 
 
 {% endblock content %}
