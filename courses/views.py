@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 
-from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse_lazy, reverse
 
 class CourseDetailView(DetailView):
     model = Course
@@ -83,24 +83,45 @@ class CourseDeleteView(DeleteView):
         context['title'] = 'Course deletion'
         return context
 
-def remove(request, course_id):
-    item = Course.objects.get(id=course_id)
-    if request.method == 'POST':
-        item.delete()
-        messages.success(request, "Course %s has been deleted." % item.name)
-        return redirect('index')
-    return render(request, "courses/remove.html", {'item': item})
+#def remove(request, course_id):
+#    item = Course.objects.get(id=course_id)
+#    if request.method == 'POST':
+#        item.delete()
+#        messages.success(request, "Course %s has been deleted." % item.name)
+#        return redirect('index')
+#    return render(request, "courses/remove.html", {'item': item})
+
+class LessonCreateView(CreateView):
+    model = Lesson
+    template_name = "courses/add_lesson.html"
 
 
-def add_lesson(request, course_id):
-    if request.method == 'POST':
-        form = LessonModelForm(request.POST)
-        if form.is_valid:
-            item = form.save()
-            messages.success(request, "Lesson %s has been successfully added" % item.subject)
-            return redirect("courses:detail", course_id)
-    else:
-        form = LessonModelForm(initial={'news_subscribe':True, 'course': course_id})
-    return render(request, "courses/add_lesson.html", {'form': form})
+    def get_context_data(self, **kwargs):
+        context = super(LessonCreateView, self).get_context_data(**kwargs)
+        context['title'] = "Lesson creation"
+        return context
+
+
+    def form_valid(self, form):
+        item = form.save()
+        messages.success(self.request, u"Lesson %s has been successfully added" % item.subject)
+        return super(LessonCreateView, self).form_valid(form)
+
+
+    def get_success_url(self):
+        #pk = self.kwargs['pk']
+        self.success_url = reverse('courses:detail', kwargs={'pk': self.object.course.id})
+        return self.success_url
+
+#def add_lesson(request, course_id):
+#    if request.method == 'POST':
+#        form = LessonModelForm(request.POST)
+#        if form.is_valid:
+#            item = form.save()
+#            messages.success(request, "Lesson %s has been successfully added" % item.subject)
+#            return redirect("courses:detail", course_id)
+#    else:
+#        form = LessonModelForm(initial={'news_subscribe':True, 'course': course_id})
+#    return render(request, "courses/add_lesson.html", {'form': form})
 
 

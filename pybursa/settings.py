@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -90,3 +91,16 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+
+EMAIL_HOST_USER = 'admin'
+
+EMAIL_HOST_PASSWORD = ''
+
+EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+
+ADMINS = (('Denis Playtika', "nefaktum@gmail.com"), )
+
+DEFAULT_FROM_EMAIL = "nefaktum@gmail.com"
