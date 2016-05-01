@@ -43,5 +43,23 @@
             </tr>
             {% endfor %}
         </table>
+
+        <div class="paginator">          
+            {% if page_obj.has_previous %}
+            <span class="prev-page">
+              <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            </span>
+            {% endif %}
+            <span class="current-page">
+               Page {{ page_obj.number }} of {{ paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+            <span class="next-page">
+              <a href="?page={{ page_obj.next_page_number }}">next</a>
+            </span>
+            {% endif %}
+       </div>
+
     </div>
 {% endblock content %}

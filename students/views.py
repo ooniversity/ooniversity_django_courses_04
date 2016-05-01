@@ -7,6 +7,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
 from django.core.urlresolvers import reverse_lazy
+from django.core.paginator import Paginator
 
 class StudentDetailView(DetailView):
     model = Student
@@ -53,6 +54,7 @@ class StudentDeleteView(DeleteView):
 
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
 
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', None)
