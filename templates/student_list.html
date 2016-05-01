@@ -1,0 +1,142 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Students</title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/starter-template.css' %}" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+         <img id = "brand-image" alt = "Website logo" src = "{% static 'images/logo.png' %}">&nbsp;    	
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          	<!--/.<a class="navbar-brand" href="#">PyBursa</a>
+          		<img id = "brand-image" alt = "Website logo" src = "../static/images/logo.png">-->
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+          	<li><a href="#">PyBursa</a></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'student_list' %}">Students</a></li>
+            <li> <a href="{% url 'results' %}">Equation</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    
+    <div class="course_info">
+        <h2 class="text-center">Студенты курса PyBursa</h2></div>
+        <h5 class="text-center">Ниже представлен список студентов, выпуск май 2016.</h5></div>
+  </div>
+  
+  <div class="container">
+     <div class="table-responsive">
+         <table class="table">
+             <thead>
+                 <tr>
+                     <th>No </th>
+                     <th>Surname </th>
+                     <th>Name</th>
+                     <th>Address</th>
+                     <th>Skype </th>
+                 </tr>
+             </thead>
+             <tbody>
+                <tr>
+                     <td><a href="{% url 'student_detail' %}" title="1">1</a></td>
+                     <td>Persianova</td>
+                     <td>Olena</td>
+                     <td>г.Харьков, ул. Иванова 36, кв. 23</td>
+                     <td>pers.olena</td>
+                 </tr>
+                 <tr>
+                     <td>2</td>
+                    <td>Shulga</td>
+                     <td>Maryna</td>
+                     <td>г.Харьков, ул. Ленина 44, кв. 4</td>
+                     <td>maryna</td>
+                 </tr>
+                 <tr>
+                     <td>3</td>
+                     <td>Polishchuk</td>
+                     <td>Volodymir</td>
+                     <td>г.Харьков, ул. Межлаука 8, кв. 10 </td>
+                     <td>v.polishchuk</td>
+                 </tr>
+                 <tr>
+                     <td>4</td>
+                     <td>Zhlobinskiy</td>
+                     <td>Pavel</td>
+                     <td>г.Харьков, ул. Петренко 12. кв. 15 </td>
+                     <td>z.pavel</td>
+                 </tr>
+                 <tr>
+                     <td>5</td>
+                     <td>Ishchenko</td>
+                     <td>Oleg</td>
+                     <td>г.Харьков, пр. Гагарина 11. кв. 10 </td>
+                     <td>ioleg</td>
+                 </tr>
+                 <tr>
+                     <td>6</td>
+                     <td>Simeyko</td>
+                     <td>Ivan</td>
+                     <td>г.Харьков, пр. Краснова 13. кв. 13 </td>
+                     <td>s.ivan</td>
+                 </tr>
+                 <tr>
+                     <td>7</td>
+                     <td>Kozlov</td>
+                     <td>Pavel</td>
+                     <td>г.Харьков, пр. Ленина 12. кв. 110 </td>
+                     <td>k.pavel</td>
+                 </tr>
+             </tbody>
+         </table>
+ 
+     </div>  
+
+    </div><!-- /.container -->
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">&copy; 2016 PyBursa Company, Inc.</p>
+      </div>
+    </footer>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+  </body>
+</html>
+
+
+
+

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+
+{% block title %}Students list{% endblock title %}
+
+
+{% block nav_students %}active{% endblock nav_students %}
+
+
+{% block content %}
+
+<p><a href="{% url 'students:add' %}" class="btn btn-primary" role="button">
+        <span class="glyphicon glyphicon-plus"></span>Добавить нового студента
+    </a></p>
+    
+<h1>Список студентов</h1>  
+<table class="table">
+        <thead>
+            <tr class="success">
+                <th>#</th>
+                <th>фамилия имя</th>
+                <th>адрес</th>
+                <th>skype</th>
+                <th>курсы</th>
+                <td>изменить/удалить</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stud in students_list %}
+                <tr class="info">
+                    <td>{{forloop.counter}}</td>
+                    <td>
+                        <a href="{% url 'students:detail' stud.id %}">{{ stud.surname }} {{ stud.name }}</a>
+                    </td>
+                    <td>{{stud.address}}</td>
+                    <td>{{stud.skype}}</td>
+                    <td>
+                        {% for course in stud.courses.all %}
+                            <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></p>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a href="{% url 'students:edit' stud.id %}">
+                        <button class="btn btn-primary" type="button">
+                        <span class="glyphicon glyphicon-pencil"></span>Изменить</button></a>
+                        <a href="{% url 'students:remove' stud.id %}">
+                        <button class="btn btn-primary" type="button">
+                        <span class="glyphicon glyphicon-remove"></span> Удалить</button></a>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+ 
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+
+{% block title %}Coach information{% endblock title %}
+
+
+{% load static %}
+
+
+{% block content %}
+
+<h1>{{coach.first_name_field}} {{coach.last_name_field}}</h1>
+  
+<table class="table" >
+    <tbody>
+        <tr class="info">
+            <td>дата рождения</td>
+            <td>{{coach.date_of_birth|date:"d F, Y"}}</td>
+        </tr>
+                <tr class="info">
+            <td>адрес</td>
+            <td>{{coach.address}}</td>
+        </tr>
+                <tr class="info">
+            <td>почта</td>
+            <td>{{coach.user.email}}</td>
+        </tr>
+                <tr class="info">
+            <td>логин skype</td>
+            <td>{{coach.skype}}</td>
+        </tr>
+                <tr class="info">
+            <td>телефон</td>
+            <td>{{coach.phone}}</td>
+        </tr>
+                <tr class="info">
+            <td>курсы учитель</td>
+            <td>{% for course in coach.coach_courses.all %}
+            <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a>
+            студенты курса 
+            <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-user"></span></a>
+            </p>
+            {% endfor %}</td>
+        </tr>
+                <tr class="info">
+            <td>курсы ассистент</td>
+            <td>{% for course in coach.assistant_courses.all %}
+            <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a>
+            студенты курса 
+            <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-user"></span></a>
+            </p>
+            {% endfor %}</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock content %}

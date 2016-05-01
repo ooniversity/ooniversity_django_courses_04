@@ -1,12 +1,91 @@
-img {height:200px}
-div.container {background:gray}
-div.dir {background:white}
-h1.desc {background:red}
-h1.prog {background:green}
-h1.kurs {background:blue}
-img.python2 {width:500px;height:100px}
-h3.director {color:red}
-h3.manager {text-decoration:underline}
-h3.founder {color:yellow}
-h1.organization {line-height: 100%;text-align: center}
-img.python {width:700px;height:275px}
+#brand-image {width:50px; height:50px;margin -5px}
+#geek-girl {width:100px; height:100px}
+div.test {color:black;background:green;width:200;height:200}
+
+
+div.jumbotron{
+padding: 30px 15px;
+margin-bottom: 30px;
+color: inherit;
+background-color: #FFFFFF;
+
+}
+
+body{
+background:#cccccc;
+}
+div.table-responsive{
+background-color: #eccd4a;
+}
+
+div.table-performance{
+background-color:  #aed6f1;
+align:left;
+}
+
+
+div.table-student-info{
+background-color: #eccd4a;
+margin-left: auto;
+margin-right: auto;
+}
+
+h2.text-center{
+text-align: left;
+}
+h5.text-center{
+text-align: left;
+}
+
+p.lead {
+font-size: 120%;
+text-align: left;
+} 
+p {
+text-align: left;
+} 
+
+h1 {
+color:black;
+text-align: center;
+}
+
+h2 {
+color:black;
+text-align: left;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+.navbar-brand {
+  padding: 15px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 7px 14px;
+  width: auto;
+}
+.col-md-4 {
+    width: 33.33333333%;
+    text-align: center;
+
+}
+a.btn-default{
+color:blue;
+}
+
