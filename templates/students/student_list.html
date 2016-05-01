@@ -24,7 +24,11 @@
       {% for student in object_list %}
       <tr>
         <td>{{ forloop.counter }}</td>
-        <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a> <a href="{% url 'students:edit' student.id %}"><span class="glyphicon glyphicon-edit"></span></a> <a href="{% url 'students:remove' student.id %}"><span class="glyphicon glyphicon-remove"></span></a></td>
+        <td>
+        <a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a>
+        <a href="{% url 'students:edit' student.id %}"><span class="glyphicon glyphicon-edit"></span></a>
+        <a href="{% url 'students:remove' student.id %}"><span class="glyphicon glyphicon-remove"></span></a>
+        </td>
         <td>{{ student.address }}</td>
         <td>{{ student.skype }}</td>
         <td>
@@ -39,7 +43,9 @@
   <nav>
     <ul class="pagination">
       {% if page_obj.has_previous %}
-      <li><a href="?{{ course_prefix }}page={{ page_obj.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">&laquo; previous</span></a></li>
+      <li><a href="?{{ course_prefix }}page={{ page_obj.previous_page_number }}" aria-label="Previous">
+      <span aria-hidden="true">&laquo; previous</span>
+      </a></li>
       {% endif %}
       {% for page_num in page_obj.paginator.page_range %}
       <li {% if page_num == page_obj.number %}class="active"{% endif %}>
@@ -47,7 +53,9 @@
       </li>
       {% endfor %}
       {% if page_obj.has_next %}
-      <li><a href="?{{ course_prefix }}page={{ page_obj.next_page_number }}" aria-label="Next"><span aria-hidden="true">next &raquo;</span></a></li>
+      <li><a href="?{{ course_prefix }}page={{ page_obj.next_page_number }}" aria-label="Next">
+      <span aria-hidden="true">next &raquo;</span>
+      </a></li>
       {% endif %}
     </ul>
   </nav>
