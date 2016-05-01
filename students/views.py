@@ -11,6 +11,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 #from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+
 class StudentListView(ListView):
 	model = Student
 	paginate_by = 2
@@ -24,6 +25,8 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
 	model = Student
+	
+
 
 class StudentCreateView(CreateView):
 	model = Student
@@ -56,7 +59,9 @@ class StudentUpdateView(UpdateView):
 
 class StudentDeleteView(DeleteView):
 	model = Student
+
 	success_url = reverse_lazy('students:list_view')
+	
 	def get_context_data(self,**kwargs):
 		context = super(StudentDeleteView, self).get_context_data(**kwargs)
 		context['title'] = u"Student info suppression"
