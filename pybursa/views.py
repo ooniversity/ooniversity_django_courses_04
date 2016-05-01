@@ -1,68 +1,19 @@
-# -*- coding: utf-8 -*-
-from django.shortcuts import render, redirect
-from students.models import Student
+# -*- coding:UTF-8 -*-
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from django.views import generic
 from courses.models import Course
-from forms import StudentModelForm
-from django.contrib import messages
-from django.template import RequestContext
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.core.urlresolvers import reverse_lazy
-#from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+def course_descripts(request):
+    courses = Course.objects.all()
+    return render(request, 'index.html', {'courses': courses} )
 
-class StudentListView(ListView):
-	model = Student
-	paginate_by = 2
+def contact(request):
+	return render(request, 'contact.html')
 
-	def	get_queryset(self):
-		qs =  super(StudentListView, self).get_queryset()
-		course_id =self.request.GET.get('course_id', None)
-		if course_id:
-			qs = qs.filter(courses__id=course_id)
-		return qs	
+def student_list(request):
+	return render(request, 'student_list.html')
 
-class StudentDetailView(DetailView):
-	model = Student
-	
-
-
-class StudentCreateView(CreateView):
-	model = Student
-	success_url = reverse_lazy('students:list_view')
-	form_class = StudentModelForm
-		
-	def get_context_data(self,**kwargs):
-		context = super(StudentCreateView, self).get_context_data(**kwargs)
-		context['title'] = u"Student registration"
-		return context
-
-	def form_valid(self,form):
-		student = form.save()
-		messages.success(self.request, u'Student %s %s has been successfully added.'%(student.name, student.surname))
-		return super(StudentCreateView, self).form_valid(form)	
-
-class StudentUpdateView(UpdateView):
-	model = Student
-	success_url = reverse_lazy('students:list_view')
-
-	def get_context_data(self,**kwargs):
-		context = super(StudentUpdateView, self).get_context_data(**kwargs)
-		context['title'] = u"Student info update"
-		return context
-	
-	def form_valid(self,form):
-		student = form.save()
-		messages.success(self.request, u'Student %s %s has been successfully added.'%(student.name, student.surname))
-		return super(StudentUpdateView, self).form_valid(form)
-
-class StudentDeleteView(DeleteView):
-	model = Student
-
-	success_url = reverse_lazy('students:list_view')
-	
-	def get_context_data(self,**kwargs):
-		context = super(StudentDeleteView, self).get_context_data(**kwargs)
-		context['title'] = u"Student info suppression"
-		return context
+def student_detail(request):
+	return render(request, 'student_detail.html')
