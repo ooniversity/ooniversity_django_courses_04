@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from courses.models import Course, Lesson
 
+
 def index(request):
     course_dict = dict()
     for one_course in Course.objects.all():
@@ -8,7 +9,6 @@ def index(request):
     print (course_dict)
     return render(request, 'index.html', {'course':course_dict})
 
-    
 
 def contact(request):
     return render(request, 'contact.html')
