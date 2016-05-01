@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('courses', '0001_initial'),
+        ('courses', '0005_auto_20160414_0821'),
     ]
 
     operations = [
@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=50)),
                 ('surname', models.CharField(max_length=50)),
                 ('date_of_birth', models.DateField()),
-                ('email', models.EmailField(max_length=75)),
+                ('email', models.EmailField(unique=True, max_length=75)),
                 ('phone', models.CharField(max_length=25)),
                 ('address', models.CharField(max_length=100)),
                 ('skype', models.CharField(max_length=50)),
