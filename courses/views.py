@@ -1,7 +1,15 @@
-from django.shortcuts import get_object_or_404, render,redirect
+# -*- coding: utf-8 -*-
+from django.shortcuts import get_object_or_404, render
+from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
+
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
+
 
 def detail(request, course_id):
     course_info = get_object_or_404(Course, id=int(course_id))
