@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='Feedback',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=25)),
+                ('name', models.CharField(max_length=150)),
                 ('subject', models.CharField(max_length=150)),
                 ('message', models.TextField()),
                 ('from_email', models.EmailField(max_length=75, verbose_name=b'Your Email')),
