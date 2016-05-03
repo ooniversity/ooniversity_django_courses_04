@@ -1,11 +1,9 @@
 # -*- coding: UTF-8 -*-
-from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
 from students.models import Student
-from forms import StudentModelForm
 
 
 class StudentListView(ListView):
@@ -30,7 +28,8 @@ class StudentCreateView(CreateView):
 
     def form_valid(self, form):
         val = super(StudentCreateView, self).form_valid(form)
-        messages.success(self.request, 'Student {} {} has been successfully added.'.format(self.object.name, self.object.surname))
+        messages.success(self.request, 'Student {} {} has been successfully added.'.
+                         format(self.object.name, self.object.surname))
         return val
 
     def get_context_data(self, **kwargs):
