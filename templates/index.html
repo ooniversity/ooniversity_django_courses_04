@@ -37,12 +37,14 @@ Nam ne copiosae delicata, id latine ornatus inciderint vel, eam ad modus inani n
 
     <div class="container">
         <div class="well">
+          <a href="{% url 'courses:add' %}"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Course</button></a>
           <table class="table table-bordered">
           <caption>Available Courses:</caption>
           <thead>
             <tr>
               <th>Course</th>
               <th>Description</th>
+              <th colspan="2">Actions</th>
             </tr>
           </thead>
           <tbody>

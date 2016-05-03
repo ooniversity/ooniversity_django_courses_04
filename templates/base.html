@@ -33,8 +33,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'contact' %}" class="{% block nav_class_contact %}{% endblock %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}{% block nav_link_students_add %}{% endblock %}" class="{% block nav_class_students %}{% endblock %}">Students</a></li>
+            <li class="{% block nav_class_contact %}{% endblock %}"><a href="{% url 'contact' %}">Contacts</a></li>
+            <li class="{% block nav_class_students %}{% endblock %}"><a href="{% url 'students:list_view' %}{% block nav_link_students_add %}{% endblock %}">Students</a></li>
+            <li class="{% block nav_class_feedback %}{% endblock %}"><a href="{% url 'feedback' %}">Feedback</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

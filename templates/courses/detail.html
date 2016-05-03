@@ -24,6 +24,7 @@
         {% endif %}
         <div class="main-container">
           <div>
+            <h2>{{ title }}</h2>
             <h3>{{ course.name }}</h3>
             <span>{{ course.description|truncatechars:32 }}</span>
             <br />
@@ -42,7 +43,7 @@
                 </tr>
               </thead>
               <tbody>
-                {% for lesson in lessons %}
+                {% for lesson in course.lesson_set.all %}
                   <tr>
                     <td>{{ lesson.order }}</td>
                     <td>{{ lesson.subject }}</td>
