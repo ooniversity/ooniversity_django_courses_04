@@ -41,20 +41,21 @@
                   <th>Address</th>
                   <th>Skype</th>
                   <th>Courses</th>
+                  <th colspan="2">Actions</th>
                 </tr>
               </thead>
               <tbody class="text-left">
-                {% for student in students_list %}
+                {% for student in student_list %}
                 <tr>
                     <td>{{ forloop.counter}}</td>
                     <td>
-                      <a href="{% url 'students:detail' student.id %}">{{ student.full_name }}</a>
+                      <a href="{% url 'students:detail' student.id %}">{{ student.name }} {{ student.surname }}</a>
                     </td>
                     <td>{{ student.address }}</td>
                     <td>{{ student.skype }}</td>
                     <td>
-                      {% for course in student.courses %}
-                        <a href="{% url 'courses:detail' course_id=course.id %}">{{ course.name }}</a>
+                      {% for course in student.courses.all %}
+                        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
                         <br />
                       {% endfor %}
                     </td>
