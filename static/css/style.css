@@ -108,15 +108,25 @@ h3.well-sm, h2.Description_title, table.table-condensed{
 
 /*-------------------------Contacts--------------------------------*/
 .organizers {
-  padding: 20px 15px;
+  padding: 10px 5px;
   text-align: center;
 }
 
 .person_level{
-  margin-left: 13%;
+  margin-left: 8%;
   color: #FFFFFF;
 }
 
+.manager_lvl{
+  text-align: center;
+  margin-left: 2%;
+}
+.manager_lvl_ico{
+  margin-left: 36%;
+  margin-top: 2%;
+  margin-bottom: 4%;
+
+}
 .ul_org_items{
   list-style-type:none;
   text-align: left;
@@ -287,22 +297,25 @@ hr.my_hr{
   background-image:linear-gradient(to right,#2F5765, #2F5765, #282828);
   text-align:center;
   /*margin-left: 20%;*/
-  width: 18%;
+  width: 28%;
   /*padding:3px;*/
-  margin-top: 14%;
-  margin-left: -5%;
+  /*margin-top: 14%;*/
+  margin-left: -1%;
+  position: fixed;
+  bottom: 5%;
 }
+
 
 
 .contact_me > h4 >a:hover{
-  color: #FFF;
+  color: #93D5FE;
 }
-.contact_me > h4 >a:visited{
+/*.contact_me > h4 >a:visited{
   color: #6CA3D3;
-}
+}*/
 
 .contact_me > h4 >a{
-  color: #6CA3D3;
+  color: #FFFFFF;
 }
 
 /*a.contact_me{
