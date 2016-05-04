@@ -1,16 +1,16 @@
-<div class="pagination">
-  <span class="step-links">
-        {% if page.has_previous %}
-            <a class="btn btn-primary btn-xs" role="button" 
-                    href="?page={{ page.previous_page_number }}"><< previous</a>
+<ul class="pagination">
+        {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous"><< previous</span></a></li>
+
         {% endif %}
-        <span class="current">
-          <div class="btn btn-primary btn-xs" role="button"> Page {{ page.number }} of {{ page.paginator.num_pages }}
-           </div>
-        </span>
-        {% if page.has_next %}
-            <a class="btn btn-primary btn-xs" role="button" 
-                    href="?page={{ page.next_page_number }}">next >></a>
+        {% for page in page_obj.paginator.page_range %}
+            {% if page_obj.number == page %}
+                <li class="active btn-xs"><a href="?page={{ page }}">{{ page }}<span class="sr-only">(current)</span></a></li>
+            {% else %}
+                <li><a href="?page={{ page }}">{{ page }}<span class="sr-only">(current)</span></a></li>
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" aria-label="Next">next >></span></a></li>
         {% endif %}
-    </span>
-</div>
+</ul>

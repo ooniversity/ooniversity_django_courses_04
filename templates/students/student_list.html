@@ -26,7 +26,7 @@
 	  <th></th>
 	  <th></th>
 	</tr>
-	{% for student in page.object_list %}
+	{% for student in object_list %}
 	<tr>
 	  <td>{{ forloop.counter }}</td>
 	  <td>
@@ -49,5 +49,5 @@
 	{% endfor %}
   </tbody>
 </table>
-{% include "include/pagin_include.html" with page=page %}
+{% include "include/pagin_include.html" with page_obj=page_obj %}
 {% endblock content %}
