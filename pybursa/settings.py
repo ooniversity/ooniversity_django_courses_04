@@ -106,6 +106,10 @@ LOGGING = {
             'handlers':['file_courses', 'file_students'],
             'level':'DEBUG',
         },
+        'students':{
+            'handlers':['file_students'],
+            'level':'DEBUG',
+        },
 
     },
    'handlers':{
