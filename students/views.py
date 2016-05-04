@@ -1,4 +1,5 @@
 # encoding: utf-8
+import logging
 from django.shortcuts import render, redirect
 from students.models import Student
 from courses.models import Course
@@ -9,6 +10,9 @@ from django.template import RequestContext
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+
+logger = logging.getLogger(__name__)
 
 class StudentListView(ListView):
     """ Просмотр списка всех студентов"""
@@ -32,7 +36,7 @@ class StudentListView(ListView):
         if not course_id:
             stud_list = Student.objects.all()
         else:
-            stud_list = Student.objects.filter(courses__id = int(course_id))
+            stud_list = Student.objects.filter(courses__id=int(course_id))
         return stud_list
 
 

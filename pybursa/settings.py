@@ -71,6 +71,26 @@ DATABASES = {
     }
 }
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': "".join(BASE_DIR,'courses_logger'),
+        },
+            'console': {
+            'class': 'logging.StreamHandler',
+    },
+    'loggers': {
+        'pybursa.courses': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+    },
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
