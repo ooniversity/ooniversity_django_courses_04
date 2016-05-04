@@ -1,2 +1,22 @@
 Logger of courses detail view warns you!
 Courses detail view went wrong!
+Logger of courses detail view warns you!
+Courses detail view went wrong!
+Logger of students detail view warns you!
+Students detail view went wrong!
+Logger of courses detail view warns you!
+Courses detail view went wrong!
+Logger of students detail view warns you!
+Students detail view went wrong!
+Logger of courses detail view warns you!
+Courses detail view went wrong!
+Logger of students detail view warns you!
+Students detail view went wrong!
+WARNING Logger of courses detail view warns you!
+ERROR Courses detail view went wrong!
+WARNING Logger of students detail view warns you!
+ERROR Students detail view went wrong!
+WARNING 2016-05-04 21:49:41,488 views CourseDetailView Logger of courses detail view warns you!
+ERROR 2016-05-04 21:49:41,488 views CourseDetailView Courses detail view went wrong!
+WARNING 2016-05-04 21:49:41,490 views StudentDetailView Logger of students detail view warns you!
+ERROR 2016-05-04 21:49:41,490 views StudentDetailView Students detail view went wrong!
