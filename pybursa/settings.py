@@ -99,7 +99,6 @@ EMAIL_USE_TLS = False
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
             'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
@@ -112,14 +111,14 @@ LOGGING = {
         'courses_file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'courses_logger',
-            'formatter': 'simple'
+            'filename': os.path.join(BASE_DIR, 'courses_logger'),
+            'formatter': 'simple',
         },
         'students_file': {
             'level': 'WARNING',
             'class': 'logging.FileHandler',
-            'filename': 'students_logger',
-            'formatter': 'verbose'
+            'filename': os.path.join(BASE_DIR, 'students_logger'),
+            'formatter': 'verbose',
         },
     },
     'loggers': {
