@@ -7,11 +7,13 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+{% load staticfiles %}
+    <link rel="icon" href="{% static 'images/logo.png' %}">
+    <!-- <link rel="icon" href="http://getbootstrap.com/favicon.ico"> -->
 
     <title>{% block title %}PyBursa{% endblock title %}</title>
 
-{% load staticfiles %}
+
 
        <!-- Bootstrap core CSS -->
 
@@ -43,6 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>          
+            <img class="img-brand" alt="Brand" src="{% static 'images/logo_white.png' %}">                 
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">

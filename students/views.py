@@ -9,6 +9,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from students.models import Student
 from students.forms import StudentModelForm
 
+import logging
+logger = logging.getLogger('students')
 
 class StudentListView(ListView):
     model = Student
@@ -25,6 +27,10 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
+    logger.debug('Students detail view has been debugged')
+    logger.info('Logger of students detail view informs you!')
+    logger.warning('Logger of students detail view warns you!')
+    logger.error('Students detail view went wrong!')
 
 
 class StudentCreateView(CreateView):

@@ -11,40 +11,45 @@
 {% block content %}
 
 
-      <div class="main_font">
-        <h1>Contacts PyBursa</h1>        
-        
-        <div class="row">
-          <div class="col-sm-6 col-md-4">
-              <img src="{% static 'images/pasha.jpg' %}" class="img-rounded"/>
-                <h2>Director</h2>
-                <ul class="list-group">
-                  <li>Name: Павел Обод</li>
-                  <li>Skype: azaless</li>
-                  <li>Email: itbursa100@gmail.com</li>
-                  <li>Phone:</li> 
-                </ul>
-          </div>             
-          <div class="col-sm-6 col-md-4">                 
-              <img src="{% static 'images/dasha.jpg'%}" class="img-rounded"/>
-              <h2>Manager</h2>
-              <ul class="list-group">
-                <li>Name: Дария Михалевич</li>
-                <li>Skype: darka.darka.darka.darka.</li>
-                <li>Email: daria.mykhalevych@gmail.com</li>
-                <li>Phone: +38 096 469 15 57</li> 
-              </ul>
-          </div>             
-          <div class="col-sm-6 col-md-4"> 
-              <img src="{% static 'images/pasha.jpg' %}" class="img-rounded"/>
-                <h2>Founder</h2>
-                <ul class="list-group">
-                  <li>Name: Павел Обод</li>
-                  <li>Skype: azaless</li>
-                  <li>Email: itbursa100@gmail.com</li>
-                  <li>Phone:</li> 
-                </ul>
-          </div>
+<div class="main_font">
+  <h1>Contacts PyBursa</h1>
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{% static 'images/logo.png' %}" alt="Director">
+        <div class="caption">
+          <h2>Director</h2>
+          <p>Name: Mr.Director</p>
+          <p>Skype: director_pybursa</p>
+          <p>Email: director@pybursa.com</p> 
+          <p>Phone: </p>    
         </div>
-      </div>   
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{% static 'images/logo.png' %}" alt="Manager">
+        <div class="caption">
+          <h2>Manager</h2>
+          <p>Name: Mrs.Manager</p>
+          <p>Skype: manager_pybursa</p>
+          <p>Email: manager@pybursa.com</p> 
+          <p>Phone: </p>    
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{% static 'images/logo.png' %}" alt="Founder">
+        <div class="caption">
+          <h2>Founder</h2>
+          <p>Name: Mr.Founder</p>
+          <p>Skype: founder_pybursa</p>
+          <p>Email: founder@pybursa.com</p> 
+          <p>Phone: </p>    
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock content %}

@@ -99,4 +99,42 @@ EMAIL_USE_TLS = True
 
 ADMINS = (('Olha', "olshilyaeva@gmail.com"))
 
-DEFAULT_FROM_EMAIL = test@bursa.com
+DEFAULT_FROM_EMAIL = 'test@bursa.com'
+
+LOGGING = {
+    'version': 1,
+    #'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+
+    'handlers': {
+        'file_courses': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'simple',
+            'filename': 'pybursa/courses_logger.log',
+        },
+        'file_students': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'formatter': 'verbose',
+            'filename': 'pybursa/students_logger.log',
+        },       
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['file_courses'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['file_students'],
+            'level': 'DEBUG',
+        }
+    }
+}
