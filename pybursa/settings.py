@@ -97,3 +97,27 @@ EMAIL_HOST = 'localhost'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 1025
 ADMINS = (('admin', 'admin@admin.com'))
+
+LOGGING = {
+    'version':1,
+    'loggers':
+    {
+        'courses':{
+            'handlers':['file_courses', 'file_students'],
+            'level':'DEBUG',
+        },
+
+    },
+   'handlers':{
+        'file_courses':{
+            'level':'DEBUG',
+            'class':'logging.FileHandler',
+            'filename':os.path.join(BASE_DIR, 'courses_logger'),
+        },
+        'file_students':{
+            'level':'WARNING',
+            'class':'logging.FileHandler',
+            'filename':os.path.join(BASE_DIR, 'students_logger'),
+        },
+   },
+}
