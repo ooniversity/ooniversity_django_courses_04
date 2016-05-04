@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
+import logging
 #from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from django.views.generic.list import ListView
@@ -10,6 +11,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from students.models import Student
 from courses.models import Course
 from students.forms import StudentModelForm
+
+logger = logging.getLogger(__name__)
 
 class StudentListView(ListView):
     model = Student
@@ -33,6 +36,10 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
+    logger.debug('Students detail view has been debugged')
+    logger.info('Logger of students detail view informs you!')
+    logger.warning('Logger of students detail view warns you!')
+    logger.error('Students detail view went wrong!')
 
 class StudentCreateView(CreateView):
     model = Student
