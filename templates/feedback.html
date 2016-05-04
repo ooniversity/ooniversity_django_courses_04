@@ -1,10 +1,8 @@
 {% extends "base.html" %}
 
-{% load staticfiles %}
+{% block title %}Feedback{% endblock title %}
 
-{% block title %}PyBursa - Add Course{% endblock title %}
-
-{% block nav_class_main %}active{% endblock %}
+{% block nav_class_feedback %}active{% endblock nav_class_feedback %}
 
 {% block content %}
 <div class="container">
@@ -14,12 +12,11 @@
         <div class="alert alert-success" role="alert">{{ message }}</div>
       {% endfor %}
     {% endif %}
-    <h2>{{ title }}</h2>
-    <h2>Add new course</h2>
+    <h2>Fill in form below:</h2>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <input type="submit" value="Create" />
+      <input type="submit" value="Send" />
     </form>
   </div>
 </div>

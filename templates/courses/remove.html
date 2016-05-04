@@ -9,6 +9,7 @@
 {% block content %}
 <div class="container">
   <div class="well">
+    <h2>{{ title }}</h2>
     <h2>Course {{ name }} will be removed</h2>
     <form method="post">
       {% csrf_token %}
