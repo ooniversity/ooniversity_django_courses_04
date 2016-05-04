@@ -1,12 +1,15 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
+import logging
 
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
+
+logger = logging.getLogger(__name__)
 
 class CourseCreateView(CreateView):
     model = Course
@@ -66,6 +69,10 @@ class CourseDetailView(DetailView):
     model = Course
     template_name = "courses/detail.html"
     context_object_name = "co_urse"
+    logger.debug('Courses detail view has been debugged')
+    logger.info('Logger of courses detail view informs you!')
+    logger.warning('Logger of courses detail view warns you!')
+    logger.error('Courses detail view went wrong!')
 
 class MixinLessonContext(object):
     def get_context_data(self, **kwargs):
