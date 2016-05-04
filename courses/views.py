@@ -7,7 +7,18 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
-from courses_logger import courses_logger
+import logging
+
+logger = logging.getLogger(__name__)
+
+class courses_logger(object):
+    def get_context_data(self, **kwargs):
+        logger.debug('this is DEBUG message - Course: ' + str(self.object))
+        logger.info('this is INFO message - Course: ' + str(self.object))
+        logger.warning('this is WARNING message - Course: ' + str(self.object))
+        logger.error('this is ERROR message - Course: ' + str(self.object))
+        context = super(courses_logger, self).get_context_data(**kwargs)
+        return context
 
 class CourseDetailView(DetailView):
     model = Course
