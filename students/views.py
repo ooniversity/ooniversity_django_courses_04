@@ -1,4 +1,5 @@
 # encoding: utf-8
+import logging
 from django.shortcuts import render, redirect
 from students.models import Student
 from courses.models import Course
@@ -10,20 +11,24 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+
+logger = logging.getLogger(__name__)
+
 class StudentListView(ListView):
     """ Просмотр списка всех студентов"""
     model = Student
+    paginate_by = 2
     
-    def get_paginator(self, queryset, page_size):
-        pag = super(StudentListView,self).get_paginator(queryset, page_size)
-        page = int(self.request.GET.get('page',1))
-        page = page if page < pag.num_pages else pag.num_pages
-        return pag.page(page)
+    #def get_paginator(self, queryset, page_size):
+        #pag = super(StudentListView,self).get_paginator(queryset, page_size)
+        #page = int(self.request.GET.get('page',1))
+        #page = page if page < pag.num_pages else pag.num_pages
+        #return pag.page(page)
        
     def get_context_data(self):
         context = super(StudentListView, self).get_context_data()
         context["course"] = Course.objects.all()
-        context["page"] = self.get_paginator(self.get_queryset(), 2)        
+        #context["page_obj"] = self.get_paginator(self.get_queryset(), 2)        
         return context
 
     def get_queryset(self):
@@ -31,7 +36,7 @@ class StudentListView(ListView):
         if not course_id:
             stud_list = Student.objects.all()
         else:
-            stud_list = Student.objects.filter(courses__id = int(course_id))
+            stud_list = Student.objects.filter(courses__id=int(course_id))
         return stud_list
 
 

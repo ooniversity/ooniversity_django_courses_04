@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'students',
     'coaches',
     'feedbacks',
+    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -69,6 +70,26 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': "".join(BASE_DIR,'courses_logger'),
+        },
+            'console': {
+            'class': 'logging.StreamHandler',
+    },
+    'loggers': {
+        'pybursa.courses': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+    },
 }
 
 # Internationalization
