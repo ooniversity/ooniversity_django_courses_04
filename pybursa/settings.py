@@ -111,13 +111,13 @@ LOGGING = {
         'courses_file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'courses_logger'),
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
             'formatter': 'simple',
         },
         'students_file': {
             'level': 'WARNING',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'students_logger'),
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
             'formatter': 'verbose',
         },
     },
