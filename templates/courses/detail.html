@@ -17,10 +17,14 @@
 
         <div class="jumbotron">
             <h2>Преподаватели</h2>
-
+            
+            {% if co_urse.coach %}
             {% include "include/course_include.html" with block_title="Учитель" instructor=co_urse.coach %}
+            {% endif %}
 
+            {% if co_urse.assistant %}
             {% include "include/course_include.html" with block_title="Ассистент" instructor=co_urse.assistant %}
+            {% endif %}
 
         </div>
         <p><a href="{% url 'courses:add-lesson' co_urse.id %}" class="btn btn-primary" role="button">
