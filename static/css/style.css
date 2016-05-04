@@ -13,8 +13,8 @@ body {
 }
 
 img {
-  height: 137px;
-  width: 130px;
+  height: 100px;
+  width: 100px;
 }
 
 .main_font {
@@ -23,17 +23,15 @@ img {
 }
 
 
-ul.list {list-style-type:circle}
-
-ul.list_result{list-style-type: square}
-
-
 h1{
 text-align: center;
 }
 
-p{
-text-indent: 60px;
+
+
+.img-brand {
+  height: 50px;
+  width: 60px;
+  margin: 0;
+  padding-right: 10px;;
 }
-
-
