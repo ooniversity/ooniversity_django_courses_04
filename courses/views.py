@@ -3,7 +3,10 @@ from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy, reverse
+import logging
 from courses.models import Course, Lesson
+
+logger = logging.getLogger(__name__)
 
 
 class CourseDetailView(DetailView):
@@ -17,6 +20,10 @@ class CourseDetailView(DetailView):
         context["title"] = "Course detail"
         pk = self.kwargs['pk']
         context["lessons"] = Lesson.objects.filter(course_id = pk)
+        logger.debug("Courses detail view has been debugged")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")
         return context
 
 class CourseCreateView(CreateView):

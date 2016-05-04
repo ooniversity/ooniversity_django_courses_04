@@ -103,3 +103,29 @@ EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 ADMINS = (('Natalia', "navka6677@gmail.com"), )
 
 DEFAULT_FROM_EMAIL = "navka6677@gmail.com"
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger'),
+        },
+        'file2': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger'),
+        },
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['file2'],
+            'level': 'DEBUG',
+        },
+    },
+}
