@@ -4,3 +4,5 @@
 # files for logging
 *.log
 *.log~
+courses_logger
+students_logger
