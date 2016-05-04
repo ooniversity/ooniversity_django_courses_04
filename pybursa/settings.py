@@ -106,16 +106,26 @@ DEFAULT_FROM_EMAIL = "navka6677@gmail.com"
 
 LOGGING = {
     'version': 1,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
     'handlers': {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'courses_logger'),
+            'formatter': 'simple'
         },
         'file2': {
             'level': 'WARNING',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'students_logger'),
+            'formatter': 'verbose'
         },
     },
     'loggers': {
@@ -125,7 +135,7 @@ LOGGING = {
         },
         'students': {
             'handlers': ['file2'],
-            'level': 'DEBUG',
+            'level': 'WARNING',
         },
     },
 }
