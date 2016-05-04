@@ -1,4 +1,5 @@
 # encoding: utf-8
+import logging
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 from django.shortcuts import render, redirect
@@ -7,6 +8,10 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import MultipleObjectMixin
+
+
+logger = logging.getLogger(__name__)
+
 
 class MixinAuthor(object):
     """
@@ -33,7 +38,7 @@ class MixinPaginator(MultipleObjectMixin):
         page = int(self.request.GET.get('page',1))
         #проверка допустимого диапазона страниц        
         page = page if page < paginator_obj.num_pages else paginator_obj.num_pages
-        context["page"] = paginator_obj.page(page)
+        context["page_obj"] = paginator_obj.page(page)
         return paginator_obj.page(page)
   
         
@@ -43,8 +48,12 @@ class CourseDetailView(DetailView, MixinPaginator):
     template_name = "courses/detail.html"
     context_object_name = "course"
     success_url = reverse_lazy('index')
-        
+    
     def get_context_data(self, **kwargs):
+        logger.debug("Courses detail view has been debugged")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!") 
+        logger.error("Courses detail view went wrong!")
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         context["title"] = "Course detail"
         pk = self.kwargs['pk']
