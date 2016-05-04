@@ -11,13 +11,14 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-class courses_logger(object):
+class MixinCourseContext(object):
     def get_context_data(self, **kwargs):
-        logger.debug('this is DEBUG message - Course: ' + str(self.object))
-        logger.info('this is INFO message - Course: ' + str(self.object))
-        logger.warning('this is WARNING message - Course: ' + str(self.object))
-        logger.error('this is ERROR message - Course: ' + str(self.object))
-        context = super(courses_logger, self).get_context_data(**kwargs)
+        logger.debug("Courses detail view has been debugged")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")
+        context = super(MixinCourseContext, self).get_context_data(**kwargs)
+        context['courses'] = Course.objects.all()
         return context
 
 class CourseDetailView(DetailView):

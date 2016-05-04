@@ -97,44 +97,21 @@ EMAIL_PORT = 1025
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s:%(funcName)s - %(message)s'
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
+    'loggers': 
+    {
+            'courses': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
         },
     },
-    'handlers': {
+    'handlers': 
+    {
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
         },
-        'courses_h': {
-            'level': 'DEBUG',
+        'file': {
+            'level': 'ERROR',
             'class': 'logging.FileHandler',
-            'filename': 'courses.log',
-            'formatter': 'simple'
-        },
-        'students_h': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'students.log',
-            'formatter': 'verbose'
-        },
-    },
-    'loggers': {
-        'courses': {
-            'handlers': ['courses_h'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'students': {
-            'handlers': ['students_h'],
-            'level': 'WARNING',
-            'propagate': True,
-        },
-    }
-}
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+        }, }, }
