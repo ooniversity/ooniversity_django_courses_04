@@ -97,3 +97,41 @@ ADMINS = (
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
+
+LOGGING = {
+    'version': 1,
+    'loggers':
+        {
+            'courses': {
+                'handlers': ['courses_file'],
+                'level': 'DEBUG'
+            },
+            'students': {
+                'handlers': ['students_file'],
+                'level': 'WARNING'
+            }
+        },
+    'handlers':
+        {
+            'courses_file': {
+                'level': 'DEBUG',
+                'class': 'logging.FileHandler',
+                'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+                'formatter': 'short'
+            },
+            'students_file': {
+                'level': 'WARNING',
+                'class': 'logging.FileHandler',
+                'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+                'formatter': 'detail'
+            }
+        },
+    'formatters': {
+        'detail': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'short': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+}
