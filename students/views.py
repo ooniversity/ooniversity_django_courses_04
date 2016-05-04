@@ -10,7 +10,7 @@ from students.models import Student
 from students.forms import StudentModelForm
 
 import logging
-logger = logging.getLogger('students')
+logger = logging.getLogger('students.views')
 
 class StudentListView(ListView):
     model = Student
@@ -27,10 +27,15 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
-    logger.debug('Students detail view has been debugged')
-    logger.info('Logger of students detail view informs you!')
-    logger.warning('Logger of students detail view warns you!')
-    logger.error('Students detail view went wrong!')
+
+
+    def get_context_data(self, **kwargs):        
+        logger.debug('Students detail view has been debugged')
+        logger.info('Logger of students detail view informs you!')
+        logger.warning('Logger of students detail view warns you!')
+        logger.error('Students detail view went wrong!')
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        return context
 
 
 class StudentCreateView(CreateView):
