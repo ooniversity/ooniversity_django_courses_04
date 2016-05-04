@@ -1,3 +1,5 @@
+import os
+
 """
 Django settings for pybursa project.
 
@@ -99,3 +101,42 @@ EMAIL_PORT = '1025'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ADMINS = (('Bohdan', 'bohdan.volynskyi@gmail.com'), )
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'students': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'courses': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file_students': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger'),
+            'formatter': 'students',
+        },
+        
+        'file_courses': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger'),
+            'formatter': 'courses',
+        },
+    },
+    'loggers': {
+        'students': {
+            'handlers': ['file_students'],
+            'level': 'WARNING',
+        },
+
+        'courses': {
+            'handlers': ['file_courses'],
+            'level': 'DEBUG',
+        },
+    },
+}
