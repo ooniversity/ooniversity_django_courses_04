@@ -74,20 +74,40 @@ DATABASES = {
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
     'handlers': {
-        'file': {
+        'file_courses': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': "".join(BASE_DIR,'courses_logger'),
+            'filename': os.path.join(BASE_DIR,'courses_logger.log'),
+            'formatter': 'simple',
         },
-            'console': {
+        'file_students': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR,'students_logger.log'),
+            'formatter': 'verbose',
+        },
+        'console': {
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
+        },
     },
     'loggers': {
-        'pybursa.courses': {
-            'handlers': ['file'],
+        'courses': {
+            'handlers': ['file_courses'],
             'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['file_students'],
+            'level': 'WARNING',
         },
     },
 }
