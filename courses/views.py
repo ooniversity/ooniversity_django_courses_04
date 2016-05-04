@@ -7,7 +7,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
-
+from courses_logger import courses_logger
 
 class CourseDetailView(DetailView):
     model = Course

@@ -94,3 +94,47 @@ EMAIL_HOST = 'localhost'
 EMAIL_HOST_USER = 'cadet'
 EMAIL_HOST_PASSWORD = 'cadet'
 EMAIL_PORT = 1025
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s:%(funcName)s - %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+        'courses_h': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'courses.log',
+            'formatter': 'simple'
+        },
+        'students_h': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'students.log',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['courses_h'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'students': {
+            'handlers': ['students_h'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+    }
+}
