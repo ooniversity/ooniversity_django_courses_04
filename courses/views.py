@@ -10,6 +10,10 @@ from forms import LessonModelForm
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
+    logger.debug('Courses detail view has been debugged')
+    logger.info('Logger of courses detail view informs you!')
+    logger.warning('Logger of courses detail view warns you!')
+    logger.error('Courses detail view went wrong!')
 
 
 class CourseCreateView(CreateView):
