@@ -11,14 +11,18 @@ logger = logging.getLogger(__name__)
 
 class CourseDetailView(DetailView):
     model = Course
+	template_name = "courses/detail.html"
     context_object_name = 'course'
-	context['page_title'] = u"Course detail"  
-    context["lessons"] = Lesson.objects.filter(course_id = self.object)
-    logger.debug("Courses detail view has been debugged")
-    logger.info("Logger of courses detail view informs you!")
-    logger.warning("Logger of courses detail view warns you!")
-    logger.error("Courses detail view went wrong!")
-    return context
+	
+     def get_context_data(self, **kwargs):
+        logger.debug('Courses detail view has been debugged')
+        logger.info('Logger of courses detail view informs you!')
+        logger.warning('Logger of courses detail view warns you!')
+        logger.error('Courses detail view went wrong!')
+		context = super(CourseDetailView, self).get_context_data(**kwargs)
+        context["title"] = "Course detail"
+        pk = self.kwargs['pk']
+        return context
 
 
 class CourseCreateView(CreateView):
