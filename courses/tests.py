@@ -8,17 +8,6 @@ from django.contrib.auth.models import User
 class CoursesDetailTest(TestCase):
     fixtures = ['coaches']
 
-    def test_create_coach(self):
-        create_coach()
-        response = self.client.get('/')
-        self.assertEqual(response.status_code, 200)
-
-    def test_create_course(self):
-        create_coach()
-        create_course()
-        response = self.client.get('/')
-        self.assertEqual(response.status_code, 200)
-
     def test_create_lesson(self):
         create_full_course()
         response = self.client.get('/')
@@ -65,16 +54,6 @@ class CoursesListTest(TestCase):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
 
-    def test_create_course(self):
-        create_coach()
-        create_course()
-        response = self.client.get('/')
-        self.assertEqual(response.status_code, 200)
-
-    def test_create_lesson(self):
-        create_full_course()
-        response = self.client.get('/')
-        self.assertEqual(response.status_code, 200)
 
     def test_list_content(self):
         create_full_course()
