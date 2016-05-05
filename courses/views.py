@@ -5,11 +5,21 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from courses.forms import LessonModelForm
 from courses.models import Course
+import logging
+logger = logging.getLogger(__name__)
 
 
 class CourseDetailView(DetailView):
     model = Course
-    template_name = 'courses/detail.html'
+    context_object_name = 'course'
+	context['page_title'] = u"Course detail"
+          
+        context["lessons"] = Lesson.objects.filter(course_id = self.object)
+        logger.debug("Courses detail view has been debugged")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")
+        return context
 
 
 class CourseCreateView(CreateView):
