@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'students',
     'coaches',
     'feedbacks',
+    #'debug_toolbar',
 
 )
 
@@ -98,3 +99,40 @@ EMAIL_PORT = '1025'
 
 ADMINS = (('VitaliyKhatrus', 'vitaliy.khatrus@gmail.com'),)
 
+LOGGING = {
+    'version': 1,
+    #'disable_existing_loggers': False,
+    'formatters': {
+        
+        'simple': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file_courses': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger'),
+        },
+
+        'file_students': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger'),
+            'formatter': 'simple',
+        },
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['file_courses'],
+            'level': 'DEBUG',
+        },
+
+        'students': {
+            'handlers': ['file_students'],
+            'level': 'WARNING',
+            
+        },
+    },
+
+}

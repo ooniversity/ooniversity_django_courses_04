@@ -9,6 +9,7 @@ from pybursa.settings import ADMINS
 
 class FeedbackView(CreateView):
     model = Feedback
+    fields = '__all__' # if empty - rise an error "RemovedInDjango18Warning: Calling modelform_factory...'fields' or 'exclude'..." 
     template_name = 'feedback.html'
     success_url = reverse_lazy('feedback')
 
