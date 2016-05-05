@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 
 class CourseDetailView(DetailView):
 	model = Course
+	template_name = 'courses/detail.html'
 	def get_context_data(self, **kwargs):
 		context = super(CourseDetailView, self).get_context_data(**kwargs)
 		template_name = 'courses/detail.html'
