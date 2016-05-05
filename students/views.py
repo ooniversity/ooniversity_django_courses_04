@@ -10,6 +10,9 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+import logging
+logger = logging.getLogger(__name__) # students.views
+
 
 ''' begin Class-based views '''
 
@@ -29,7 +32,15 @@ class StudentListView(ListView):
         return students_list
 
 class StudentDetailView(DetailView):
-    model = Student    
+    model = Student 
+    
+    def get_context_data(self, **kwargs):
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        logger.debug('Students detail view has been debugged')
+        logger.info('Logger of students detail view informs you!')
+        logger.warning('Logger of students detail view warns you!')
+        logger.error('Students detail view went wrong!')
+        return context  
 
 class  StudentCreateView(CreateView):
     model = Student
@@ -39,6 +50,7 @@ class  StudentCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super(StudentCreateView, self).get_context_data(**kwargs)
         context["title"] = "Student registration"
+
         return context
     
     def form_valid(self,form):
@@ -49,6 +61,7 @@ class  StudentCreateView(CreateView):
 class StudentUpdateView(UpdateView):
     model = Student
     success_url = reverse_lazy('students:list_view')
+    fields = '__all__' # if empty - rise an error "RemovedInDjango18Warning: Calling modelform_factory...'fields' or 'exclude'..." 
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)
