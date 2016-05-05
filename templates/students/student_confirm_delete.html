@@ -11,15 +11,9 @@
 
 
 {% block content %}
-  <div class="main">
-    <div class="container">
-      <div class="col-lg-12">
-        <h3>Студент {{ object.name }} {{ object.surname }} будет удален</h3>
-        <form method="post">
-          {% csrf_token %}
-          <input type="submit" class="btn btn-danger" value="Delete">
-        </form>
-      </div>
-    </div>
-  </div>
+    <h1>Студент {{ student.name }} {{ student.surname }} будет удален</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Удалить" />
+    </form>
 {% endblock content %}

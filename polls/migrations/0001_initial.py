@@ -11,28 +11,31 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Course',
+            name='Choice',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=200)),
-                ('short_description', models.CharField(max_length=200)),
-                ('description', models.TextField()),
+                ('choice_text', models.CharField(max_length=200)),
+                ('votes', models.IntegerField(default=0)),
             ],
             options={
             },
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Lesson',
+            name='Question',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('subject', models.CharField(max_length=200)),
-                ('description', models.TextField()),
-                ('order', models.PositiveIntegerField()),
-                ('course', models.ForeignKey(to='courses.Course')),
+                ('question_text', models.CharField(max_length=200)),
+                ('pub_date', models.DateTimeField(verbose_name=b'date published')),
             ],
             options={
             },
             bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='choice',
+            name='question',
+            field=models.ForeignKey(to='polls.Question'),
+            preserve_default=True,
         ),
     ]

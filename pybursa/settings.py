@@ -1,5 +1,5 @@
 """
-Django settings for hello project.
+Django settings for pybursa project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -17,16 +17,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
-SECRET_KEY = 'p0yqa%-slv1e#@dab(-)622@1fd4=by25hn+pp(fi-(6shs6o2'
-
+SECRET_KEY = 'koqglv)7+6rehb)x4i_&aat4v-i6a!+5fwsvchzxsb83x0wow3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['ivanbabaiev.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,13 +36,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'polls',
+    'polls',
     'quadratic',
     'courses',
     'students',
     'coaches',
     'feedbacks',
-
 )
 
 MIDDLEWARE_CLASSES = (
@@ -90,12 +87,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/bootstrap'), )
-
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 ADMINS = (
-        ('admin', "admin@admin.com"))
+        ('admin', "tzd0409@gmail.com"))

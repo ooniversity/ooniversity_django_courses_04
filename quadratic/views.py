@@ -2,30 +2,30 @@
 from django.shortcuts import render
 from quadratic.forms import QuadraticForm
 
-
 def quadratic_results(request):
-    """
-    The solution of the quadratic equation
-    """
-    text = {}
-    if request.GET:
-        form = QuadraticForm(request.GET)
-        if form.is_valid():
-            a = form.cleaned_data['a']
-            b = form.cleaned_data['b']
-            c = form.cleaned_data['c']
-            d = b ** 2 - 4 * a * c
-            if d < 0:
-                result = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
-            elif d == 0:
-                result = "Дискриминант равен нулю, квадратное уравнение имеет один" \
-                         " действительный корень: x1 = x2 = %0.1f" % (-b / 2 * a)
-            else:
-                x1 = (-b + d ** (1/2.0)) / (2 * a)
-                x2 = (-b - d ** (1/2.0)) / (2 * a)
-                result = "Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f" % (x1, x2)
-            text.update(dict(d=str(int(d)), result=str(result)))
-    else:
+    disc = {}
+    text_result = {}
+    if request.GET == {}:
         form = QuadraticForm()
-    text.update(dict(form=form))
-    return render(request, "quadratic/results.html",  text)
+    else:
+        form = QuadraticForm(request.GET)
+        if request.method == "GET":
+            if form.is_valid():
+                data = form.cleaned_data
+                disc['message'] = "Дискриминант: "
+                disc['value'] = data['b']**2 - 4*data['a']*data['c']
+                if disc['value'] < 0:
+                    text_result['message'] = u"Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
+                elif disc['value'] == 0:
+                    x = (-data['b'] + disc['value'] ** (1/2.0)) / 2*data['a']
+                    text_result['message'] = u"Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = "
+                    text_result['value'] = x
+                else:
+                    x1 = (-data['b'] + disc['value'] ** (1/2.0)) / 2*data['a']
+                    x2 = (-data['b'] - disc['value'] ** (1/2.0)) / 2*data['a']
+                    text_result['message'] = u"Квадратное уравнение имеет два действительных корня: " 
+                    text_result['value'] = u"x1 = %.1f, x2 = %.1f" % (x1, x2)
+
+    context = {"disc":disc, "text_result":text_result, "form":form}
+	
+    return render(request,'quadratic/results.html', context)

@@ -11,20 +11,20 @@ class IndexView(generic.ListView):
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
-        """
-        Return questions
-        """
+        """Return the last five published questions."""
         return Question.objects.order_by('-pub_date')[:5]
 
 
 class DetailView(generic.DetailView):
     model = Question
-    template_name = 'polls/student_detail.html'
+    template_name = 'polls/detail.html'
 
 
 class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
+
+
 
 def vote(request, question_id):
     p = get_object_or_404(Question, pk=question_id)
@@ -32,7 +32,7 @@ def vote(request, question_id):
         selected_choice = p.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        return render(request, 'polls/student_detail.html', {
+        return render(request, 'polls/detail.html', {
             'question': p,
             'error_message': "You didn't select a choice.",
         })
@@ -43,3 +43,4 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
+
