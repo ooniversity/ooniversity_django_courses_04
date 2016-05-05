@@ -12,14 +12,13 @@ logger = logging.getLogger(__name__)
 class CourseDetailView(DetailView):
     model = Course
     context_object_name = 'course'
-	context['page_title'] = u"Course detail"
-          
-        context["lessons"] = Lesson.objects.filter(course_id = self.object)
-        logger.debug("Courses detail view has been debugged")
-        logger.info("Logger of courses detail view informs you!")
-        logger.warning("Logger of courses detail view warns you!")
-        logger.error("Courses detail view went wrong!")
-        return context
+	context['page_title'] = u"Course detail"  
+    context["lessons"] = Lesson.objects.filter(course_id = self.object)
+    logger.debug("Courses detail view has been debugged")
+    logger.info("Logger of courses detail view informs you!")
+    logger.warning("Logger of courses detail view warns you!")
+    logger.error("Courses detail view went wrong!")
+    return context
 
 
 class CourseCreateView(CreateView):
@@ -30,7 +29,7 @@ class CourseCreateView(CreateView):
     def form_valid(self, form):
         super_valid = super(CourseCreateView, self).form_valid(form)
         messages.success(self.request,
-                         u'Курс {} успешно создан..'.format(self.object.name))
+           u'Курс {} успешно создан..'.format(self.object.name))
         return super_valid
 
 
