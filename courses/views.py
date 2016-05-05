@@ -24,10 +24,10 @@ class CourseDetailView(DetailView):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         pk = self.kwargs['pk']        
         context["lessons"] = Lesson.objects.filter(course__id = pk)
-        logger.debug("Courses detail view has been debugged")
-        logger.info("Logger of courses detail view informs you!")
-        logger.warning("Logger of courses detail view warns you!")
-        logger.error("Courses detail view went wrong!")
+        logger.debug('Courses detail view has been debugged')
+        logger.info('Logger of courses detail view informs you!')
+        logger.warning('Logger of courses detail view warns you!')
+        logger.error('Courses detail view went wrong!')
         return context
 
 class CourseCreateView(CreateView):
