@@ -97,16 +97,26 @@ EMAIL_PORT = 1025
 
 LOGGING = {
     'version': 1,
+    'formatters': {
+        'format_file': {
+            'format': '%(levelname)s %(message)s'
+        },
+        'format_file2': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+    },
     'handlers': {
     'file': {
         'level': 'DEBUG',
         'class': 'logging.FileHandler',
         'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+        'formatter': 'format_file',
         },
     'file2': {
         'level': 'WARNING',
         'class': 'logging.FileHandler',
         'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+        'formatter': 'format_file2',
         },
     },
 
