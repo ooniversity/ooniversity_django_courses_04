@@ -97,32 +97,28 @@ EMAIL_PORT = 1025
 
 LOGGING = {
     'version': 1,
-    'loggers': 
-    {
-            'courses': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG',
+    'handlers': {
+    'file': {
+        'level': 'DEBUG',
+        'class': 'logging.FileHandler',
+        'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
         },
-            'students': {
-            'handlers': ['console', 'file2'],
+    'file2': {
+        'level': 'WARNING',
+        'class': 'logging.FileHandler',
+        'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+        },
+    },
+
+    'loggers': {
+        'courses': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            },
+        'students': {
+            'handlers': ['file2'],
             'level': 'WARNING',
         },
     },
-    'handlers': 
-    {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
-            },
-        'file2': {
-            'level': 'WARNING',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
-            },
-        },
-        }
+
+}
