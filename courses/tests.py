@@ -1,3 +1,8 @@
 from django.test import TestCase
+from django.test import Client
 
-# Create your tests here.
+class CoursesListTest(TestCase):
+	def test_page(self):
+		client = Client()
+		response = client.get('/')
+		self.assertEqual(response.status_code, 200)
