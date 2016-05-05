@@ -27,12 +27,15 @@ class CoursesListTest(TestCase):
         self.assertTemplateUsed(response, 'index.html')# проверка вызова шаблона
         self.assertContains(response, 'Python') 
 
-    def test_course_template_remove(self):
-        client = Client()
+    def test_course_remove(self):
         course1 = Course.objects.create(name = 'PyBursa', short_description = 'Web development')
         self.assertEqual(Course.objects.all().count(), 1)
         course1.delete()
         self.assertEqual(Course.objects.all().count(), 0)
+
+
+    def test_course_template_remove(self):
+        client = Client()
         response = client.get('/')
         self.assertTemplateUsed(response, 'index.html')# проверка вызова шаблона
 
@@ -85,7 +88,7 @@ class CoursesDetailTest(TestCase):
         self.assertContains(response, 'Vanya')
         self.assertNotContains(response, 'Petya')
 
-    def test_course_template_detail(self):
+    def test_course_detail(self):
         client = Client()
         course1 = Course.objects.create(name = 'PyBursa', short_description = 'Web development')
         response = client.get('/courses/1/')
@@ -93,6 +96,10 @@ class CoursesDetailTest(TestCase):
         self.assertNotContains(response, 'Web')
         self.assertContains(response, 'PyBursa')
 
+    def test_lesson_add_template(self):
+        client = Client()
+        response = client.get('/courses/1/add_lesson/')
+        self.assertTemplateUsed(response, 'courses/add_lesson.html')# проверка вызова шаблона
 
 
 
