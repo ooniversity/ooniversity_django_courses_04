@@ -37,10 +37,11 @@
                   <td>Телефон</td>
                   <td>{{ coach.address }}</td>
                 </tr>
-               
-{% include 'include/instr_courses_include.html' with block_title='Курсы учитель' instructor=courses_coach %}
-               
-{% include 'include/instr_courses_include.html' with block_title='Курсы ассистент' instructor=courses_assistant %}
+
+              
+  {% include 'include/instr_courses_include.html' with block_title='Курсы учитель' instructor=courses_coach %}
+             
+  {% include 'include/instr_courses_include.html' with block_title='Курсы ассистент' instructor=courses_assistant %}
                                        
             </tbody>
           </table>

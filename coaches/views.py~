@@ -4,12 +4,9 @@ from courses.models import Course
 
 
 def detail(request, coaches__id):
-    coaches = Coach.objects.filter(id = coaches__id)
-    courses_coach = Course.objects.filter(coach = coaches__id)
-    courses_assistant = Course.objects.filter(assistant = coaches__id)
-    print courses_coach
-    print courses_assistant 
-   
+    coaches = Coach.objects.filter(id = pk)
+    courses_coach = Course.objects.filter(coach = pk)
+    courses_assistant = Course.objects.filter(assistant = pk)
     return render(request, 'coaches/detail.html', {'coaches':coaches, 'courses_coach':courses_coach, 'courses_assistant':courses_assistant})
 
 
