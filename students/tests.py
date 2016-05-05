@@ -30,16 +30,7 @@ class StudentsListTest(TestCase):
         self.assertContains(response, 'PyBursa')
 #########################################################################################
 
-class StudentDetailTest(TestCase):
-
-    def test_student_template_detail(self):
-        client = Client()
-        student1 = Student.objects.create(name = 'Olha', date_of_birth = '1987-08-06', phone = '002020')
-        response = client.get('/students/1/')
-        self.assertTemplateUsed(response, 'students/student_detail.html')# проверка вызова шаблона
-        self.assertContains(response, '002020')
-
-    def test_student_template_edit(self):
+    def test_student_edit(self):
         client = Client()
         student1 = Student.objects.create(name = 'Olha', date_of_birth = '1987-08-06')
         student1 = Student.objects.update(name = 'Foma')
@@ -56,4 +47,17 @@ class StudentDetailTest(TestCase):
         self.assertEqual(Student.objects.all().count(), 0)
         #response = client.get('/students/')
         #self.assertTemplateUsed(response, 'index.html')# проверка вызова шаблона 
+
+class StudentDetailTest(TestCase):
+
+    def test_student_detail(self):
+        client = Client()
+        student1 = Student.objects.create(name = 'Olha', date_of_birth = '1987-08-06', phone = '002020')
+        response = client.get('/students/1/')
+        self.assertTemplateUsed(response, 'students/student_detail.html')# проверка вызова шаблона
+        self.assertContains(response, '002020')
+
+
+
+
 
