@@ -20,9 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '+cb0s=+8l9^!(bab#3@vk+2-ocbx$f(y-(s075r%nwg0zdzdjc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -92,3 +93,49 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+ADMINS = (
+    ('Margarita', 'vaschenko.margarita44@gmail.com'),
+   
+)
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+            'simple': {
+                'format': '%(levelname)s %(message)s'
+            },
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+            },
+        },
+    'handlers': {
+        'courses_logger': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'simple',
+        },
+        'students_logger': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['courses_logger'],
+            'level': 'DEBUG',
+           
+        },
+        'students': {
+            'handlers': ['students_logger'],
+            'level': 'WARNING',
+            
+        },
+    },
+} 
