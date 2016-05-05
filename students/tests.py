@@ -56,3 +56,4 @@ class StudentDetailTest(TestCase):
         self.assertEqual(Student.objects.all().count(), 0)
         #response = client.get('/students/')
         #self.assertTemplateUsed(response, 'index.html')# проверка вызова шаблона 
+
