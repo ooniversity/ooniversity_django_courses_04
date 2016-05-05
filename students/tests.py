@@ -48,12 +48,7 @@ class StudentsListTest(TestCase):
         response = client.get('/students/')
         self.assertEqual(Student.objects.all().count(), 2)
 
-    def test_404(self):
-
-        client = Client()
-        course1 = Course.objects.create(
-            name = u'Django Base',
-            short_description = u'Django Base Course')
+    def test_pagination(self):
 
         student1 = Student.objects.create(
             name = u'Alex',
@@ -64,9 +59,29 @@ class StudentsListTest(TestCase):
             address = u'Adress',
             skype = u'sk_ype'
             )
-        course1.student_set.add(student1)
-        response = client.get('/students/2/')
-        self.assertEqual(response.status_code, 404)
+
+        student2 = Student.objects.create(
+            name = u'Bob',
+            surname = u'Second',
+            date_of_birth = u'1999-02-10',
+            email = u'bb@bb.bb',
+            phone = 2222,
+            address = u'Adress2',
+            skype = u'sk_ype2'
+            )
+
+        student3 = Student.objects.create(
+            name = u'Carl',
+            surname = u'Third',
+            date_of_birth = u'1999-02-11',
+            email = u'cc@cc.cc',
+            phone = 333,
+            address = u'Adress3',
+            skype = u'sk_ype3'
+            )
+        client = Client()
+        response = client.get('/students/')
+        self.assertQuerysetEqual(response.context['object_list'], Student.objects.all()[:2], ordered = False)
 
     def test_titles(self):
 
