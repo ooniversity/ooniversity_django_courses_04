@@ -79,7 +79,7 @@ class CourseDeleteView(DeleteView):
         return course
 
    
-def add_lesson(request, courses__id):
+def add_lesson(request, pk):
     if request.method == 'POST':
         form = LessonModelForm(request.POST)
         if form.is_valid():
@@ -87,5 +87,5 @@ def add_lesson(request, courses__id):
             messages.success(request, "Lesson %s has been successfully added." %lessons.subject)
             return redirect('courses:detail', lessons.course_id)
     else:
-        form = LessonModelForm(initial={'course':courses__id})
+        form = LessonModelForm(initial={'course':pk})
     return render(request, 'courses/add_lesson.html', {'form':form})
