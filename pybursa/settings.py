@@ -104,8 +104,12 @@ LOGGING = {
     #'disable_existing_loggers': False,
     'formatters': {
         
-        'simple': {
+        'verbose': {
             'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+
+        'simple': {
+            'format': '%(levelname)s %(message)s'
         },
     },
     'handlers': {
@@ -113,13 +117,19 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'courses_logger'),
+            'formatter': 'simple'
         },
 
         'file_students': {
             'level': 'WARNING',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'students_logger'),
-            'formatter': 'simple',
+            'formatter': 'verbose',
+        },
+
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
