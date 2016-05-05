@@ -2,7 +2,6 @@
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
-
 from students.models import Student
 import logging
 logger = logging.getLogger(__name__)
@@ -22,15 +21,15 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
-	def get_context_data(self, **kwargs):
-        logger.debug("Students detail view has been debugged")
-        logger.info("Logger of students detail view informs you!")
-        logger.warning("Logger of students detail view warns you!")
-        logger.error("Students detail view went wrong!")
+    def get_context_data(self, **kwargs):
         context = super(StudentDetailView, self).get_context_data(**kwargs)
-        student = self.get_object()
-        context['title'] = u"Student detail"
-        return context
+        logger.debug('Students detail view has been debugged')
+        logger.info('Logger of students detail view informs you!')
+        logger.warning('Logger of students detail view warns you!')
+        logger.error('Students detail view went wrong!')
+        return context  
+    
+        
 
 
 class StudentCreateView(CreateView):
