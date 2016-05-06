@@ -1,7 +1,10 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, include, url, handler404, handler500 
 from django.contrib import admin, staticfiles
 from pybursa.views import index, contact, student_list, student_detail
 from feedbacks import views
+
+handler404 = 'pybursa.views.my_custom_page_not_found_view'
+handler500 = 'pybursa.views.my_custom_error_view'
 
 urlpatterns = patterns('',
 	url(r'^$', index, name='index'),
