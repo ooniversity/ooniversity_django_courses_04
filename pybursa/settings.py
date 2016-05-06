@@ -117,15 +117,15 @@ LOGGING = {
                                     "formatter": "level_message"
                                    },
                  "students_handler": {
-                                      "level": "DEBUG",
+                                      "level": "WARNING",
                                       "class": "logging.FileHandler",
                                       "filename": os.path.join(BASE_DIR, "students_logger.log"),
                                       "formatter": "full_info"
                                      },
                 },
     "formatters": {
-                  "level_message": {"format": "level: %(levelname)s\nmessage: %(message)s"},
-                  "full_info": {"format": "level: %(levelname)s\ndate_time: %(asctime)s\nmodule_function: %(module)s.%(funcName)s\nmessage: %(message)s\n"}
+                  "level_message": {"format": "%(levelname)s %(message)s"},
+                  "full_info": {"format": "%(levelname)s %(asctime)s %(module)s.%(funcName)s %(message)s\n"}
                  }
     
 }
