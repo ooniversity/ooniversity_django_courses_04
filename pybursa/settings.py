@@ -125,7 +125,7 @@ LOGGING = {
                 },
     "formatters": {
                   "level_message": {"format": "%(levelname)s %(message)s"},
-                  "full_info": {"format": "%(levelname)s %(asctime)s %(module)s.%(funcName)s %(message)s"}
+                  "full_info": {"format": "%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s"}
                  }
     
 }
