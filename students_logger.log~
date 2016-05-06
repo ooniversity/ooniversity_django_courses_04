@@ -1,0 +1,20 @@
+Logger of students detail view warns you!
+Students detail view went wrong!
+Logger of students detail view warns you!
+Students detail view went wrong!
+Logger of students detail view warns you!
+Students detail view went wrong!
+Logger of students detail view warns you!
+Students detail view went wrong!
+Logger of students detail view warns you!
+Students detail view went wrong!
+Logger of students detail view warns you!
+Students detail view went wrong!
+Logger of students detail view warns you!
+Students detail view went wrong!
+WARNING 2016-04-29 11:49:05,427 views StudentDetailView Logger of students detail view warns you!
+ERROR 2016-04-29 11:49:05,428 views StudentDetailView Students detail view went wrong!
+WARNING 2016-04-29 11:49:06,557 views StudentDetailView Logger of students detail view warns you!
+ERROR 2016-04-29 11:49:06,560 views StudentDetailView Students detail view went wrong!
+WARNING 2016-04-29 12:00:01,179 views get_context_data Logger of students detail view warns you!
+ERROR 2016-04-29 12:00:01,184 views get_context_data Students detail view went wrong!
