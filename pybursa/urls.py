@@ -3,6 +3,8 @@ from django.contrib import admin, staticfiles
 from pybursa.views import index, contact, student_list, student_detail
 from feedbacks import views
 
+handler404 = 'pybursa.views.my_custom_page_not_found_view'
+handler500 = 'pybursa.views.my_custom_error_view'
 
 urlpatterns = patterns('',
 	url(r'^$', index, name='index'),
@@ -17,6 +19,3 @@ urlpatterns = patterns('',
     url(r'^coaches/', include('coaches.urls', namespace='coaches')),
     url(r'^feedback/', views.FeedbackView.as_view(), name='feedback'),
 )
-
-handler404 = 'pybursa.views.my_custom_page_not_found_view'
-handler500 = 'pybursa.views.my_custom_error_view'
