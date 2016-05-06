@@ -1,3 +1,5 @@
+
+# -*- coding: utf-8 -*-
 from django.test import TestCase
 from django.test import Client
 from courses.models import Course
@@ -18,3 +20,13 @@ class CoursesListTest(TestCase):
 		course2 = Course.objects.create(name='djabursa', short_description='Stady Djbursa')
 		course3 = Course.objects.create(name='jsbursa', short_description='Stady Jsburs')
 		self.assertEqual(Course.objects.all().count(), 3)
+
+	def test_template(self):
+		client = Client()
+		response = client.get('/')
+		self.assertTemplateUsed(response, 'index.html')
+
+	def test_redir(self):
+		client = Client()
+		response = client.get('/')
+		self.assertEqual(response.status_code, 200)
