@@ -6,6 +6,8 @@ from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from courses.models import Course
 from forms import LessonModelForm
 
+import logging
+logger = logging.getLogger(__name__)
 
 class CourseDetailView(DetailView):
     model = Course

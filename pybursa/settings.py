@@ -21,8 +21,7 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'),]
 SECRET_KEY = '6qrp!7wamtnxb$bw%^qvog-n=_qly&6s*8!9kwy-hxsr8=6-(o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -90,6 +89,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
 ADMINS = (
     ('Valery', 'perepelitsawrk@gmail.com'),
