@@ -26,7 +26,8 @@ class CoursesListTest(TestCase):
 		response = client.get('/')
 		self.assertTemplateUsed(response, 'index.html')
 
-	def test_redir(self):
+	def test_not_template(self):
 		client = Client()
-		response = client.get('/')
-		self.assertEqual(response.status_code, 200)
+		response = client.get('/courses/1/')
+		self.assertTemplateNotUsed(response, 404)
+		
