@@ -96,3 +96,36 @@ EMAIL_PORT = 1025
 ADMINS = (('Arsenii', 'arseniypetrik@gmail.com'), )
 
 DEFAULT_FROM_EMAIL = 'mysite@django.com'
+
+LOGGING = {
+    "version": 1,
+    "loggers": {
+               "courses.views": {
+                                 "handlers": ["couses_handler"],
+                                 "level": "DEBUG"
+                                },
+               "students.views": {
+                                 "handlers": ["students_handler"],
+                                 "level": "WARNING"
+                                },
+                },
+    "handlers": {
+                 "couses_handler": {
+                                    "level": "DEBUG",
+                                    "class": "logging.FileHandler",
+                                    "filename": os.path.join(BASE_DIR, "courses_logger.log"),
+                                    "formatter": "level_message"
+                                   },
+                 "students_handler": {
+                                      "level": "DEBUG",
+                                      "class": "logging.FileHandler",
+                                      "filename": os.path.join(BASE_DIR, "students_logger.log"),
+                                      "formatter": "full_info"
+                                     },
+                },
+    "formatters": {
+                  "level_message": {"format": "level: %(levelname)s\nmessage: %(message)s"},
+                  "full_info": {"format": "level: %(levelname)s\ndate_time: %(asctime)s\nmodule_function: %(module)s.%(funcName)s\nmessage: %(message)s\n"}
+                 }
+    
+}
