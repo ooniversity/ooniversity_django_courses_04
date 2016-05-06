@@ -19,8 +19,12 @@
     </div>
 	<div class="container" id="id2">
 	<h3>Преподаватели</h3>
+{% if course.coach %}
 {% include "include/coach_include.html" with block_title="Учитель" instructor=course.coach %}
+{% endif %}
+{% if course.assistant %}
 {% include "include/coach_include.html" with block_title="Ассистент" instructor=course.assistant %}
+{% endif %}
 	</div>
 	<div class="container" id="id2">
 	<h3>План курса</h3>
@@ -34,7 +38,7 @@
 		  </tr>
 		</thead>
 		<tbody>
-		{% for i in lesson %}
+		{% for i in lessons %}
 		  <tr>
 		    <td>{{ i.subject }}</td>
 		    <td>{{ i.description }}</td>
