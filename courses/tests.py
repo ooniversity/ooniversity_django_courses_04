@@ -5,6 +5,7 @@ from django.test import Client
 from courses.models import Course
 
 class CoursesListTest(TestCase):
+	
 	def test_page(self):
 		client = Client()
 		response = client.get('/')
@@ -30,4 +31,43 @@ class CoursesListTest(TestCase):
 		client = Client()
 		response = client.get('/courses/1/')
 		self.assertTemplateNotUsed(response, 404)
-		
+
+class CoursesDetailTest(TestCase):
+	
+	def test_title(self):
+		client = Client()
+		course1 = Course.objects.create(name='pyursa', description='Stady Pybursa')
+		response = client.get('/courses/1/')
+		self.assertContains(response, 'Courses')
+
+	def test_cours(self):
+		client = Client()
+		course1 = Course.objects.create(name='pyursa', description='Stady Pybursa')
+		response = client.get('/courses/1/')
+		self.assertContains(response, 'PyBursa')
+		self.assertContains(response, 'Stady Pybursa')
+
+	def test_page(self):
+		client = Client()
+		course1 = Course.objects.create(name='pyursa', description='Stady Pybursa')
+		response = client.get('/courses/1/')
+		self.assertEqual(response.status_code, 200)
+
+	def test_not_template(self):
+		client = Client()
+		course1 = Course.objects.create(name='pyursa', description='Stady Pybursa')
+		response = client.get('/courses/2/')
+		self.assertTemplateNotUsed(response, 404)
+
+	def test_redirect(self):
+		client = Client()
+		course1 = Course.objects.create(name='pyursa', description='Stady Pybursa')
+		response = client.get('/courses/1')
+		self.assertEqual(response.status_code, 301)
+
+
+
+
+
+
+	
