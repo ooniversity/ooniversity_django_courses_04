@@ -22,9 +22,9 @@ SECRET_KEY = 'xt13ltqg&cq=a5dked7(6_5i*oyld74bsklh6#vqg9hpye7ub7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -88,6 +88,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
+
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),os.path.join(BASE_DIR, 'quadratic/templates'))
 
@@ -132,3 +134,8 @@ LOGGING = {
         },
     },
 }
+
+#try:
+#    from local_settings import *
+#except ImportError:
+#    print ('Warning! local_settings are not defined!')
