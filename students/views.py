@@ -3,8 +3,11 @@ from django.views.generic import DetailView, ListView, CreateView, UpdateView, D
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 
+from courses.models import Course, Lesson
 from students.models import Student
 
+import logging
+logger = logging.getLogger(__name__)
 
 class StudentListView(ListView):
     model = Student
@@ -26,7 +29,7 @@ class StudentDetailView(DetailView):
         logger.info('Logger of students detail view informs you!')
         logger.warning('Logger of students detail view warns you!')
         logger.error('Students detail view went wrong!')
-        context['courses'] = Course.objects.filter(student__id = self.object.id)
+        context['courses'] = Course.objects.filter(id = self.object.id)
         return context
 
 
