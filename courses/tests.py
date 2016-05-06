@@ -27,14 +27,15 @@ class CoursesListTest(TestCase):
         response = client.get('/')
         self.assertEqual(Course.objects.all().count(), 2)
 
-    def test_404(self):
+    def test_course(self):
 
         client = Client()
         course1 = Course.objects.create(
             name = u'Django Base',
             short_description = u'Django Base Course')
-        response = client.get('/courses/2/')
-        self.assertEqual(response.status_code, 404)
+        response = client.get('/')
+        self.assertContains(response, 'Django Base')
+        self.assertContains(response, 'Django Base Course')
 
     def test_titles(self):
 

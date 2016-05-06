@@ -81,7 +81,7 @@ class StudentsListTest(TestCase):
             )
         client = Client()
         response = client.get('/students/')
-        self.assertQuerysetEqual(response.context['object_list'], Student.objects.all()[:2], ordered = False)
+        self.assertContains(response, 'next')
 
     def test_titles(self):
 
