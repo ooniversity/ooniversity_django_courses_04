@@ -23,11 +23,12 @@ SECRET_KEY = 'p0yqa%-slv1e#@dab(-)622@1fd4=by25hn+pp(fi-(6shs6o2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['ivanbabaiev.pythonanywhere.com']
-
+# ALLOWED_HOSTS = ['ivanbabaiev.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -140,3 +141,8 @@ LOGGING = {
         },
     },
 }
+
+try:
+    from local_settings import *
+except ImportError:
+    print "Warning! local_settings are not defined!"
