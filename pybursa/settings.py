@@ -101,8 +101,7 @@ ADMINS = (('Yevhenii', 'zaika.y.s@gmail.com'),)
 
 LOGGING = {
     'version': 1,
-    'loggers':
-    {
+    'loggers': {
         'courses':{
             'handlers': ['file_course'],
             'level': 'DEBUG',
@@ -112,17 +111,26 @@ LOGGING = {
             'level': 'WARNING',
         },
     },
-    'handlers':
-    {
+    'handlers': {
         'file_course': {
-        'level': 'DEBUG',
-        'class': 'logging.FileHandler',
-        'filename': os.path.join(BASE_DIR, "courses_logger")
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, "courses_logger"),
+            'formatter': 'formatter_course',
         },
         'file_student': {
-        'level': 'WARNING',
-        'class': 'logging.FileHandler',
-        'filename': os.path.join(BASE_DIR, "students_logger")
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, "students_logger"),
+            'formatter': 'formatter_student',
+        },
+    },
+    'formatters': {
+        'formatter_course': {
+            'format': '%(levelname)s %(message)s'
+        },
+        'formatter_student':{
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
         },
     },
 }
