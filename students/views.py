@@ -1,3 +1,5 @@
+import logging
+
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
@@ -10,6 +12,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from students.models import Student
 from courses.models import Course
 from students.forms import StudentModelForm
+
+logger = logging.getLogger(__name__)
 
 
 class StudentListView(ListView):
