@@ -163,7 +163,6 @@ h3.well-sm, h2.Description_title, table.table-condensed{
 }
 
 /*-------------------------student_list--------------------------------*/
-
 .list_name_page {
   padding-top: 5px;
   padding-left: 9%;
@@ -207,14 +206,14 @@ a{
 }
 
 .create_form{
-  margin-top: 5%;
-  margin-left: 10%;
+  margin-top: 1%;
+  margin-left: 30%;
   padding-bottom: 4%;
   background-color: #5797B1;
   width: 40%;
   height: 100%;
   border-radius: 20px;
-  border: 5px solid #2083AB;
+  border: 4px solid #2083AB;
 }
 
 .btn_create{
@@ -337,4 +336,22 @@ hr.my_hr{
   margin-left: 73%;
 }*/
 
-
+/*-------------------------feadback-form--------------------------------*/
+#feadback_message {
+  margin-left: 30%;
+  width: 40%;
+}
+#feadback-form #id_name{
+  margin-left: 10%;
+}
+#feadback-form #id_subject{
+  margin-left: 7.5%;
+}
+#feadback-form #id_message{
+  width: 100%;
+}
+#feadback-form #id_from_email{
+  margin-left: 1.7%;
+}#feadback-form #btn_feedback_send{
+  margin-left: 70%;
+}

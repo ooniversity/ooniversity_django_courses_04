@@ -9,15 +9,17 @@
 
 {% block content %}
 
+<h3 class="course_name">Свяжитесь с нами</h3>
+
 {% if messages %}
-<div class="alert alert-success my_messages">
+<div class="alert alert-success my_messages" id="feadback_message">
     {% for message in messages %}
     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
     {% endfor %}
 </div>
 {% endif %}
 
-<div class="col-lg-12 create_form">
+<div class="col-lg-12 create_form" id="feadback-form">
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
