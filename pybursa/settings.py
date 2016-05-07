@@ -22,9 +22,9 @@ SECRET_KEY = '6*6v+u$ndhs$bw4*v@-)t@kfo^-yni*4e6u-@vemr+bvi$ih(p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -98,3 +98,31 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = '1025'
 
 ADMINS = (('Yevhenii', 'zaika.y.s@gmail.com'),)
+
+LOGGING = {
+    'version': 1,
+    'loggers':
+    {
+        'courses':{
+            'handlers': ['file_course'],
+            'level': 'DEBUG',
+        },
+        'students':{
+            'handlers': ['file_student'],
+            'level': 'WARNING',
+        },
+    },
+    'handlers':
+    {
+        'file_course': {
+        'level': 'DEBUG',
+        'class': 'logging.FileHandler',
+        'filename': os.path.join(BASE_DIR, "courses_logger")
+        },
+        'file_student': {
+        'level': 'WARNING',
+        'class': 'logging.FileHandler',
+        'filename': os.path.join(BASE_DIR, "students_logger")
+        },
+    },
+}

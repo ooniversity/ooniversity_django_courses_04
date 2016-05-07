@@ -7,6 +7,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from students.models import Student
 
+import logging
+logger = logging.getLogger(__name__)
 
 class StudentListView(ListView):
     """
@@ -16,6 +18,10 @@ class StudentListView(ListView):
     paginate_by = 2
 
     def get_context_data(self, **kwargs):
+        logger.debug("Students detail view has been debugged")
+        logger.info("Logger of students detail view informs you!")
+        logger.warning("Logger of students detail view warns you!")
+        logger.error("Students detail view went wrong!")
         context = super(StudentListView, self).get_context_data(**kwargs)
         q = self.request.GET.get('course_id')
         context['input'] = q
