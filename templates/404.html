@@ -1,11 +1,9 @@
-# 404.html
 {% extends "base.html" %}
 
-{% block subtitle %}Страница не найдена{% endblock %}
-{% block meta %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+{% block title %}404{% endblock title %}
 
 {% block content %}
-    <h2>Sorry, page is not found.</h2>
+    <h2>"Sorry, page is not found"</h2>
     <p>Возможно, неправильно указан путь в адресной строке или страница была удалена.</p>
     <p>Возврат на <a href="/">главную страницу</a></p>
 {% endblock %}
