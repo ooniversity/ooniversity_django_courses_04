@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
@@ -13,6 +15,7 @@ from courses.forms import LessonModelForm
 from courses.models import Course
 from courses.models import Lesson
 
+logger = logging.getLogger(__name__)
 
 class CourseDetailView(DetailView):
     model = Course
