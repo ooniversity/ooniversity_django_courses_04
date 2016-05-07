@@ -18,10 +18,6 @@ class StudentListView(ListView):
     paginate_by = 2
 
     def get_context_data(self, **kwargs):
-        logger.debug("Students detail view has been debugged")
-        logger.info("Logger of students detail view informs you!")
-        logger.warning("Logger of students detail view warns you!")
-        logger.error("Students detail view went wrong!")
         context = super(StudentListView, self).get_context_data(**kwargs)
         q = self.request.GET.get('course_id')
         context['input'] = q
@@ -39,6 +35,14 @@ class StudentDetailView(DetailView):
     Class for output info about student
     """
     model = Student
+
+    def get_context_data(self, **kwargs):
+        logger.debug("Students detail view has been debugged")
+        logger.info("Logger of students detail view informs you!")
+        logger.warning("Logger of students detail view warns you!")
+        logger.error("Students detail view went wrong!")
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        return context
 
 
 class StudentCreateView(CreateView):
