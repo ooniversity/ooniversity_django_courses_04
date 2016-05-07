@@ -6,6 +6,8 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
+import logging
+logger = logging.getLogger(__name__)
 
 class CourseDetailView(DetailView):
     model = Course
@@ -13,6 +15,10 @@ class CourseDetailView(DetailView):
     template_name = 'courses/detail.html'
 
     def get_context_data(self, **kwargs):
+        logger.debug("Courses detail view has been debugged")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         context['lesson'] = Lesson.objects.all().filter(course__id=self.kwargs['pk'])
         return context
