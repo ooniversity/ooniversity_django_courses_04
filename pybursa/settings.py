@@ -22,7 +22,7 @@ SECRET_KEY = '6%76m509(3a3(cxkvs=m=$_visai%4j8aaw_y(z9pect-d@y!r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
