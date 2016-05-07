@@ -108,15 +108,25 @@ h3.well-sm, h2.Description_title, table.table-condensed{
 
 /*-------------------------Contacts--------------------------------*/
 .organizers {
-  padding: 20px 15px;
+  padding: 10px 5px;
   text-align: center;
 }
 
 .person_level{
-  margin-left: 13%;
+  margin-left: 8%;
   color: #FFFFFF;
 }
 
+.manager_lvl{
+  text-align: center;
+  margin-left: 2%;
+}
+.manager_lvl_ico{
+  margin-left: 36%;
+  margin-top: 2%;
+  margin-bottom: 4%;
+
+}
 .ul_org_items{
   list-style-type:none;
   text-align: left;
@@ -153,7 +163,6 @@ h3.well-sm, h2.Description_title, table.table-condensed{
 }
 
 /*-------------------------student_list--------------------------------*/
-
 .list_name_page {
   padding-top: 5px;
   padding-left: 9%;
@@ -197,14 +206,14 @@ a{
 }
 
 .create_form{
-  margin-top: 5%;
-  margin-left: 10%;
+  margin-top: 1%;
+  margin-left: 30%;
   padding-bottom: 4%;
   background-color: #5797B1;
   width: 40%;
   height: 100%;
   border-radius: 20px;
-  border: 5px solid #2083AB;
+  border: 4px solid #2083AB;
 }
 
 .btn_create{
@@ -226,6 +235,10 @@ a{
     text-align: center;
 
  /*   width: 100%;*/
+}
+.pag_current_num{
+  font-size: 150%;
+  /*background-color: #007ED6;*/
 }
 
 /*-------------------------student_detail--------------------------------*/
@@ -283,22 +296,25 @@ hr.my_hr{
   background-image:linear-gradient(to right,#2F5765, #2F5765, #282828);
   text-align:center;
   /*margin-left: 20%;*/
-  width: 18%;
+  width: 28%;
   /*padding:3px;*/
-  margin-top: 14%;
-  margin-left: -5%;
+  /*margin-top: 14%;*/
+  margin-left: -3%;
+  position: fixed;
+  bottom: 5%;
 }
+
 
 
 .contact_me > h4 >a:hover{
-  color: #FFF;
+  color: #93D5FE;
 }
-.contact_me > h4 >a:visited{
+/*.contact_me > h4 >a:visited{
   color: #6CA3D3;
-}
+}*/
 
 .contact_me > h4 >a{
-  color: #6CA3D3;
+  color: #FFFFFF;
 }
 
 /*a.contact_me{
@@ -320,4 +336,22 @@ hr.my_hr{
   margin-left: 73%;
 }*/
 
-
+/*-------------------------feadback-form--------------------------------*/
+#feadback_message {
+  margin-left: 30%;
+  width: 40%;
+}
+#feadback-form #id_name{
+  margin-left: 10%;
+}
+#feadback-form #id_subject{
+  margin-left: 7.5%;
+}
+#feadback-form #id_message{
+  width: 100%;
+}
+#feadback-form #id_from_email{
+  margin-left: 1.7%;
+}#feadback-form #btn_feedback_send{
+  margin-left: 70%;
+}

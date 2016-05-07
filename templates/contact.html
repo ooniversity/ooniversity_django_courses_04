@@ -14,35 +14,21 @@
         <div class="row">
           <div class="organizers" >
             <ul class="ul_org_items">
-              <div class="col-sm-4">
-                <h2 class="person_level">Director</h2>
-                <ul class="ul_org_items">
-                  <li><div class="well well-sm"><span class="text-muted">Name: </span>Name Surname</div></li>
-                  <li><div class="well well-sm"><span class="text-muted">Skype: </span>some.login</div></li>
-                  <li><div class="well well-sm"><span class="text-muted">Email: </span>somemail@gmail.com</div></li>
-                  <li><div class="well well-sm"><span class="text-muted">Phone: </span>+38 099 000 00 02</div></li>
-                </ul>
-              </div>
-              <div class="col-sm-4">
-                <h2 class="person_level">Manager</h2>
-                <ul class="ul_org_items">
-                  <li><div class="well well-sm"><span class="text-muted">Name: </span>Дария Михалевич</div></li>
-                  <li><div class="well well-sm"><span class="text-muted">Skype: </span>darka.darka.darka.darka.</div></li>
-                  <li><div class="well well-sm"><span class="text-muted">Email: </span>daria.mykhalevych@gmail.com</div></li>
-                  <li><div class="well well-sm"><span class="text-muted">Phone: </span>+38 096 469 15 57</div></li>
-                </ul>
-              </div>
-              <div class="col-sm-4">
-                <h2 class="person_level">Founder</h2>
-                <ul class="ul_org_items">
-                  <li><div class="well well-sm"><span class="text-muted">Name: </span>Павел Обод</div></li>
-                  <li><div class="well well-sm"><span class="text-muted">Skype: </span>azaless</div></li>
-                  <li><div class="well well-sm"><span class="text-muted">Email: </span>itbursa100@gmail.com</div></li>
-                  <li><div class="well well-sm"><span class="text-muted">Phone: </span>+38 099 000 00 01</div></li>
-                </ul>
-              </div>
+             {% for c in contacts %}
+                <div class="col-sm-4">
+                  <h2 class="person_level manager_lvl">{{ c.lvl }}</h2>
+                  <img src="{% static 'img/anon_logo.jpg' %}" class="img-thumbnail manager_lvl_ico" alt="Cinque Terre"  width="100" height="100">
+                  <ul class="ul_org_items">
+                    <li><div class="well well-sm"><span class="text-muted">Name: </span>{{ c.name }}</div></li>
+                    <li><div class="well well-sm"><span class="text-muted">Skype: </span>{{ c.skype }}</div></li>
+                    <li><div class="well well-sm"><span class="text-muted">Email: </span>{{ c.email }}</div></li>
+                    <li><div class="well well-sm"><span class="text-muted">Phone: </span>{{ c.phone }}</div></li>
+                  </ul>
+               </div>
+             {% endfor %}
             </ul>
           </div>
         </div>
       </div><!-- /.container -->
+  {% include "include/contactme_include.html" %}
 {% endblock content %}

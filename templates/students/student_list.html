@@ -57,7 +57,7 @@
         {% endfor %}
         </tbody>
       </table>
-    </div><!-- /.container -->
+    </div><!-- /.container  -->
 
   {% if is_paginated %}
         <div class="pagination my_pag">
@@ -65,9 +65,13 @@
                 {% if page_obj.has_previous %}
                     <a href="?page={{ page_obj.previous_page_number }}">previous</a>
                 {% endif %}
-                <span class="page-current">
+                <span class="page-current ">
                   {% for i in paginator.page_range %}
-                  <a href="?page={{ i }}">{{ i }}</a>
+                    {% if i == page_obj.number %}
+                      <a class="pag_current_num" href="?page={{ i }}">{{ i }}</a>
+                  {% else %}
+                    <a href="?page={{ i }}">{{ i }}</a>
+                  {% endif %}
                   {% endfor %}
                 </span>
 

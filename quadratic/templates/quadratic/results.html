@@ -1,10 +1,24 @@
-<h3>Квадратное уравнение a*x+b*x+c=0</h3>
+{% extends "base.html" %}
+{% load staticfiles %}
 
-<form method="get">
-  {{ form.as_p }}
-  <input type="submit" value="Решить"/>
-</form>
-{% if not error %}
-  <p>Дискриминант: {{ d }}</p>
-  <p>{{ res_message }}</p>
-{% endif %}
+
+{% block title %}Quadratic - results{% endblock %}
+
+
+{% block nav_class_quadr %}active{% endblock %}
+
+{% block content %}
+
+<h3 class="course_name">Квадратное уравнение a*x+b*x+c=0</h3>
+<div class="col-lg-12 create_form"  id="qudratic-form">
+    <form method="get">
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-success" value="Решить"/>
+    </form>
+    {% if not error %}
+        <br><br><p>Дискриминант: {{ d }}</p>
+        <p>{{ res_message }}</p>
+    {% endif %}
+</div>
+
+{% endblock content %}
