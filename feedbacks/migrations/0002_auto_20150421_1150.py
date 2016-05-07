@@ -15,4 +15,9 @@ class Migration(migrations.Migration):
             old_name='Comment',
             new_name='Feedback',
         ),
+		migrations.AlterField(
+            model_name='feedback',
+            name='message',
+            field=models.TextField(),
+        ),
     ]
