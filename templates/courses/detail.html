@@ -23,12 +23,17 @@
         <h1>{{ course.name }}</h1>
       <p>{{ course.description|truncatechars:32 }}</p>
     </div>
-    
+
+{% if course.coach or course.assistant %}
+
     <div><h4><b>Преподаватели</b></h4></div>
  
-        
+{% endif %}
+
+{% if course.coach %}        
     <div class="well well-sm">
-    	<h5><b>Учитель</b></h5>
+    	
+      <h5><b>Учитель</b></h5>
   </div>
 	   
   <div>
@@ -36,6 +41,9 @@
       <p>{{ course.coach.description }}</p>
   </div>
 
+{% endif %}
+
+{% if course.assistant %}
    <div class="well well-sm">
    <h5><b>Ассистент</b></h5> 
   </div>
@@ -43,7 +51,9 @@
      <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.first_name_field }} {{ course.assistant.last_name_field }}</a>    
       <p>{{ course.assistant.description }}</p>
   </div>   
-    
+
+{% endif %}
+
 <br>
 <a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-plus-sign"></span> Добавить занятие</a>
 <br>
