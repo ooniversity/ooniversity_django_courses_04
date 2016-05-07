@@ -29,6 +29,8 @@ class Lesson(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy('courses:detail', kwargs = {'pk': self.course.id})
-
+    
+    class Meta:
+        ordering = ['order']
 
 
