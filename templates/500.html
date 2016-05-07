@@ -1,0 +1,10 @@
+# 500.html
+{% extends "base.html" %}
+
+{% block subtitle %}Ошибка сервера{% endblock %}
+{% block meta %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+
+{% block content %}
+    <h2>Sorry, internal server error occurred.</h2>
+    <p>Возврат на <a href="/">главную страницу</a></p>
+{% endblock %}

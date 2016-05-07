@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '6%76m509(3a3(cxkvs=m=$_visai%4j8aaw_y(z9pect-d@y!r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
@@ -93,11 +93,19 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
+
 EMAIL_HOST = 'localhost'
 
 EMAIL_PORT = '1025'
 
 ADMINS = (('VitaliyKhatrus', 'vitaliy.khatrus@gmail.com'),)
+
+###local_settings.py
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
 
 LOGGING = {
     'version': 1,

@@ -3,3 +3,4 @@
 *.pyo
 courses_logger.log
 students_logger.log
+local_settings.py
