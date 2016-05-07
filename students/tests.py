@@ -1,5 +1,6 @@
 # encoding: utf-8
 import random
+
 from django.test import TestCase
 from students.models import Student
 from courses.models import Course
