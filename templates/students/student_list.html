@@ -17,25 +17,30 @@
 </div>
 {% endif %}
 
-<div class="container">
+
+  <h2>Список студентов</h2>
+  <br>
     <a href="/students/add/" class="btn btn-success" role="button">
        <span class="glyphicon glyphicon-plus"></span> 
        Добавить нового студента
     </a>
-  <h2>Список студентов</h2>
+    <hr>
    
-    <div class="container">
-        <div class="table-responsive">
-            <table class="table table-striped">
-            <tr>
-              <th>#</th>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
         <th>Фамилия имя</th>
         <th>адрес</th>
         <th>Skype</th>
         <th>курсы</th>
-		<th></th>
-		<th></th>
-            </tr>
+        <th></th>
+        <th></th>
+		  </tr>
+    </thead>
+    <tbody>
         {% for i in object_list %}
       <tr>
         <td>{{ i.id }}</td>
@@ -47,23 +52,23 @@
           {% endfor %}</td>
         <td>
           <button class="btn btn-success" type="button">
-			<span class="glyphicon glyphicon-pencil"></span>
+		       	<span class="glyphicon glyphicon-pencil"></span>
             <a href="{% url 'students:edit' i.id %}">Изменить</a>
           </button>
         </td>
         <td>
           <button class="btn btn-success" type="button">
-			<span class="glyphicon glyphicon-trash"></span>
+			      <span class="glyphicon glyphicon-trash"></span>
             <a href="{% url 'students:remove' i.id %}">Удалить</a>                    
           </button>
         </td>
       </tr> 
       {% endfor %}
-      </table>   
-    </div>
-    </div>
-</div>
-<ul class="pagination">
+    </tbody>
+  </table>   
+ </div>
+
+<ul class="pagination pagination-sm pagination-centered">
           {% if page_obj.has_previous %}
         <li>
               <a href="?{% if request.GET.course_id %}course_id={{ request.GET.course_id }}&{% endif %}page={{ page_obj.previous_page_number }}"><< previous</a>

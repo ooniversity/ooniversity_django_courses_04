@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block title %}Pybursa Course edit{% endblock title %}
+{% block title %}Itbursa {{ title }}{% endblock title %}
 
 
 {% block nav_class_students %}active{% endblock %}
@@ -18,13 +18,16 @@
 {% endif %}
 
 
-<div class="page-header"><h3 class="text-center">{{ title }}</h3></div>
-        <div class="container">
-                <form method="post">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <input type="submit" value="Изменить"/>
-                </form>
-        </div>
-</br>
+  <div class="page-header">
+    <h2 class="text-center">{{ title }}</h2>
+  </div>
+
+  <div class="form-group form-group-lg">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Изменить"/>
+    </form>
+  </div>
+  </br>
 {% endblock content %}

@@ -8,6 +8,7 @@
     <title>{% block title %}ItBursa{% endblock title%}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link href="/static/css/sticky-footer-navbar.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
@@ -28,30 +29,18 @@
             </div>
         </nav>
  
-
-
-
-<!-- Start Content Columns -->
- <div class="row" id="content-columns">
- <div class="col-xs-12" id="content-column">
-
-
-
+<div class="container">
 
  {% block content %}
  {% endblock content %}
 
  </div>
- </div>
- <!-- End Content Columns -->
 
-
-   <hr>
-    <footer class="footer">
-      <div class="my-panel-footer">
-            <p class="my-footer">Pybursa'04 @ 2016 Sergey Povazhniuk </p>
-      </div>
-    </footer>
+<footer class="footer">
+    <div class="my-panel-footer">
+        <p class="my-footer">Pybursa'04 @ 2016 Sergey Povazhniuk </p>
+    </div>
+</footer>
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>

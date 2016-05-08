@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block title %}Pybursa - Студент {% endblock title %}
+{% block title %}ITbursa - Студент {% endblock title %}
 
 
 {% block nav_class_students %}active{% endblock %}
@@ -17,43 +17,39 @@
 </div>
 {% endif %}
 
-<div class="container">
-    <div class="page-header">
-         <h2>{{student.surname}} {{ student.name }}</h2>
-    </div>
-    <div class="row">
-        <div class="col-md-7">
-            <table class="table table-striped">
-                <tr>
+<div class="page-header">
+    <h2>{{student.surname}} {{ student.name }}</h2>
+</div>
+<div class="table-responsive col-md-5">
+  <table class="table table-hover">
+    <tr class="success">
                     <th>дата рождения</th>
                     <th>{{student.date_of_birth}}</th>
-                </tr>
-                <tr>
+    </tr>
+    <tr  class="success">
                     <th>адрес</th>
                     <th>{{student.address}}</th>
-                </tr>
-                <tr>
+    </tr>
+    <tr class="success">
                     <th>почта</th>
                     <th>{{student.email}}</th>
-                </tr>
-                <tr>
+    </tr>
+    <tr  class="success">
                     <th>логин skype</th>
                     <th>{{student.skype}}</th>
-                </tr>
-                <tr>
+    </tr>
+    <tr class="success">
                     <th>телефон</th>
                     <th>{{student.phone}}</th>
-                </tr>
-                <tr>
-                    <th>Курсы</th>
-                        <td> {% for course in student.courses.all %}
-                            <a href={% url 'courses:detail' course.id %}>{{ course.name }}<br></a>
-                            {% endfor %}
-                        </td>
-                </tr>        
-            </table>   
-        </div>
-    </div>
+    </tr>
+    <tr  class="success">
+        <th>Курсы</th>
+            <td> {% for course in student.courses.all %}
+                <a href={% url 'courses:detail' course.id %}>{{ course.name }}<br></a>
+                {% endfor %}
+            </td>
+       </tr>        
+  </table>   
 </div>
     <hr>
 
