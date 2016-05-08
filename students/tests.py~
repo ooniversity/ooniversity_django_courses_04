@@ -84,7 +84,7 @@ class StudentsDetailTests(TestCase):
 		self.assertContains(response, "Student detail")
 
 	def test_contain(self):
-		''' Проверка содержимого cтудента'''
+		''' Проверка содержимого cтудента '''
 		student1 = Student.objects.create(
 							name='Ivan',
 							surname='Ivanov',

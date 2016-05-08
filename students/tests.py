@@ -42,7 +42,7 @@ class StudentsListTest(TestCase):
 		response = client.get('/students/')
 		self.assertEqual(response.status_code, 200)
 
-class StudentsDetailTests(TestCase):
+class StudentsDetailTest(TestCase):
 	''' Проверка на удачную загрузку страницы '''
 	def test_pages(self):		
 		student1 = Student.objects.create(
