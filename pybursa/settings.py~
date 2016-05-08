@@ -20,11 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'w$1q&9ok%s0b!6r5^0xpc07ur+-@x&q%ascpkn9@c=jq&l_pi2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = False
 
 
 # Application definition
@@ -138,6 +138,6 @@ LOGGING = {
 		},
 		'verbose': {
 			'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
-
+		},
 	},
 }
