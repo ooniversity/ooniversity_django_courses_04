@@ -64,3 +64,4 @@ class StudentsDetailTest(TestCase):
     def test_error(self):
         response = client.get('/students/2/')
         self.assertEqual(response.status_code, 404)
+

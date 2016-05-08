@@ -1,3 +1,7 @@
 # python precompiled files:
 *.pyc
 *.pyo
+<<<<<<< HEAD
+=======
+*.log
+>>>>>>> e05535b2ce5819fc610863fdd8a49890a0274de9

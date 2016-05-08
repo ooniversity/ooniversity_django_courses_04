@@ -81,3 +81,4 @@ class CoursesDetailTest(TestCase):
         create_lesson(Course.objects.get(id=1))
         create_lesson(Course.objects.get(id=2))
         self.assertEqual(Lesson.objects.all().filter(course=1).count(), 2)
+
