@@ -9,12 +9,22 @@ from django.views.generic.detail import DetailView
 from django.core.urlresolvers import reverse_lazy
 from django.core.paginator import Paginator
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 class StudentDetailView(DetailView):
     model = Student
-    #student = Student.objects.get(id=student_id)
-#    def get_context_data(self, student_id):
-#        student = Student.objects.get(id=student_id)
-#        return {'student': student}
+    def get_context_data(self, **kwargs):
+        logger.debug("Students detail view has been debugged")
+        logger.info("Logger of students detail view informs you!")
+        logger.warning("Logger of students detail view warns you!")
+        logger.error("Students detail view went wrong!")
+
+        item = self.get_object()
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        context['title'] = u"Student %s detail" % item.full_name()
+        return context
 
 class StudentCreateView(CreateView):
     model = Student

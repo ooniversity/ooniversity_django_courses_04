@@ -104,3 +104,44 @@ EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 ADMINS = (('Denis Playtika', "nefaktum@gmail.com"), )
 
 DEFAULT_FROM_EMAIL = "nefaktum@gmail.com"
+
+
+LOGGING = {
+    'version': 1,
+    'loggers': {
+        'courses': {
+            'level': 'DEBUG',
+            'handlers': ['course_handler'],
+        },
+        'students': {
+            'level': 'WARNING',
+            'handlers': ['student_handler'],
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'course_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'simple',
+        },
+        'student_handler': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'verbose',
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+}
