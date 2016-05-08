@@ -9,6 +9,7 @@ from courses.models import Course, Lesson
 logger = logging.getLogger(__name__)
 
 
+
 class CourseDetailView(DetailView):
     model = Course
     template_name = "courses/detail.html"

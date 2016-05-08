@@ -9,10 +9,10 @@ from students.models import Student
 
 logger = logging.getLogger(__name__)
 
+
 class StudentListView(ListView):
     model = Student
     paginate_by = 2
-
 
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', None)
