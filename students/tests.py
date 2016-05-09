@@ -40,6 +40,12 @@ class StudentsListTest(TestCase):
         response = client.get('/students/')
         self.assertContains(response, 'next >>')
 
+    def test_create_content(self):
+        create_student('Kolya')
+        client = Client()
+        response = client.get('/students/')
+        self.assertContains(response, 'Kolya')
+
 
 class StudentsDetailTest(TestCase):
 
