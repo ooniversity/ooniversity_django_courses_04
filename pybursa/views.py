@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, render_to_response
 from courses.models import Course
 
 # Create your views here.
@@ -18,3 +18,14 @@ def student_list(request):
 
 def student_detail(request):
     return render(request, 'student_detail.html')
+
+def custom_404(request):
+    response = render_to_response('404.html')
+    response.status_code = 404
+    return response
+
+
+def custom_500(request):
+    response = render_to_response('500.html')
+    response.status_code = 500
+    return response
