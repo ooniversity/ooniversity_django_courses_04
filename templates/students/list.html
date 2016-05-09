@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}MyBursa | Student's List{% endblock %}
+{% block students_class_nav %}active{% endblock %}
+
+
+{% block content %}
+ {% if messages %}
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+<button><a href="{% url 'students:add' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true">Add new student</a></button>
+
+<h2 id="header_table">List of students</h2>
+{% include "include/content_include.html" %}
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th>#</th>
+                <th>surname name</th>
+                <th>adress</th>
+                <th>skype</th>
+                <th>courses</th>
+                <th>actions</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% url 'students:detail' student.id %}">{{student.surname}} {{ student.name }}</a></td>
+                <td>{{ student.address }}</td>
+                <td>{{ student.skype }}</td>
+                <td>
+                    {% for course in student.courses.all %}
+                    <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                    {% endfor %}
+                </td>
+		<td>
+		    <button><a href="{% url 'students:edit' student.id %}"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span></a></button>
+            	    <br/>
+            	    <button><a href="{% url 'students:remove' student.id %}"><span class="glyphicon glyphicon-trash" aria-hidden="true">Delete</span></a></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock content %}

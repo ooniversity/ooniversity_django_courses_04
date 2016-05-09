@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}MyBursa | Main{% endblock %}
+{% block index_class_nav %}active{% endblock %}
+
+
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+        <div class="page-header">
+          <h2>MyBursa</h2>
+          <p style="color:black">Our company have a lot of expirience in<br>
+           methods of teaching different programming languages.</p>
+
+{% include "include/content_include.html" %}
+
+          <br/>
+          <button><a href="{% url 'courses:add' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true">Add new course</span></a></button>
+        </div>
+<h3>Our courses!</h3>
+<div class="table-responsive">
+  <table class="table table-hover table-bordered table-striped">
+    <thead>
+    <tr class="info">
+      <th>CourseName</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for course in courses %}   
+    <tr>
+      <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|title }}</a></td>
+      <td> {{ course.short_description }} </td>      
+      <td>
+        <button><a href="{% url 'courses:edit' course.id %}"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span></a></button>
+        <br/>
+        <button><a href="{% url 'courses:remove' course.id %}"><span class="glyphicon glyphicon-trash" aria-hidden="true">Delete</span></a></button>
+        </td>
+    </tr>  
+    {% endfor %}
+    </tbody>
+  </table>   
+</div>
+{% endblock content %}

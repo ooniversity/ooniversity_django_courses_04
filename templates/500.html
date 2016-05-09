@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}MyBursa | Internal Server Error{% endblock %}
+{% block index_class_nav %}active{% endblock %}
+
+
+{% block content %}
+        <div class="page-header">
+          <h2>MyBursa</h2>
+          <p style="color:black">Sorry, internal server error occurred</p>
+
+{% include "include/content_include.html" %}
+
+          <br/>
+          <p>Return to <a href="{% url 'index' %}">main</a> page</p>
+        </div>
+{% endblock content %}

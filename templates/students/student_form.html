@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block students_class_nav %}active{% endblock %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<form method="post">
+{% csrf_token %}
+  {{ form.as_p }}
+  <input name="submit" type="submit" value="Add">
+</form>
+{% endblock content %}

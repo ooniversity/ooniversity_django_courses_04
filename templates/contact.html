@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}MyBursa | Contacts{% endblock %}
+{% block contact_class_nav %}active{% endblock %}
+
+
+{% block content %}
+        <div class="page-header">
+          <h1>MyBursa</h1>
+        </div>
+{% include "include/content_include.html" %}
+
+        <h1>Contacts</h1>
+        <h2>Director</h2>
+        <p><span class="label label-default">Name:</span> <span class="context-value">Michael Jackson</span></p>
+        <p><span class="label label-default">Email:</span> <span class="context-value">michaeljackson@gmail.com</span></p>
+        <p><span class="label label-default">Skype:</span> <span class="context-value">michaeljackson</span></p>
+        <p><span class="label label-default">Phone:</span> <span class="context-value">(055) 555-55-55</span></p>
+
+
+        <h2>Manager</h2>
+        <p><span class="label label-default">Name:</span> <span class="context-value">Michael Jackson</span></p>
+        <p><span class="label label-default">Email:</span> <span class="context-value">michaeljackson@gmail.com</span></p>
+        <p><span class="label label-default">Skype:</span> <span class="context-value">michaeljackson</span></p>
+        <p><span class="label label-default">Phone:</span> <span class="context-value">(055) 555-55-55</span></p>
+
+
+
+        <h2>Founder</h2>
+        <p><span class="label label-default">Name:</span> <span class="context-value">Michael Jackson</span></p>
+        <p><span class="label label-default">Email:</span> <span class="context-value">michaeljackson@gmail.com</span></p>
+        <p><span class="label label-default">Skype:</span> <span class="context-value">michaeljackson</span></p>
+        <p><span class="label label-default">Phone:</span> <span class="context-value">(055) 555-55-55</span></p>
+
+
+        <p><a class="btn btn-primary btn-lg" href="{% url 'index' %}" role="button">Index</a></p>
+{% endblock content %}

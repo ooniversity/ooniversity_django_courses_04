@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}MyBursa | {{ title }}{% endblock %}
+{% block index_class_nav %}active{% endblock %}
+{% block course_students %}?course_id={{ course.id }}{% endblock %}
+
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+{% endif %}
+            <div class="page-header">
+                <h2>{{ course.name }}</h2>
+                <h3>{{ course.description }}</h3>
+            </div>
+{% include "include/content_include.html" %}
+	    <h4>Coaches</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Coach</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.first_name|upper }} {{ course.coach.last_name|upper }}</a></td>
+                    </tr>
+                    <tr><td>{{ course.coach.description|truncatechars:32 }}</td></tr>
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assistant</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.first_name }} {{ course.assistant.last_name }}</a></td></tr>
+                    <tr><td>{{ course.assistant.description }}</td></tr>
+            </table>
+		<h4>Course Plan</h4>
+                <p><button><a href="{% url 'courses:add-lesson' course.id %}"><span class="glyphicon glyphicon-plus" aria-hidden="true">Add new lesson</span></a></button></p>
+            <table>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Topic</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for lesson in lessons %}
+                <tr>
+                    <td>{{lesson.order}}</td>
+                    <td>{{lesson.subject}}</td>
+                    <td>{{lesson.description}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+{% endblock content %}

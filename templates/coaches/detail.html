@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}MyBursa | Coach  Detail{% endblock %}
+{% block index_class_nav %}active{% endblock %}
+
+
+{% block content %}
+
+	<h3>{{ coach.first_name}} {{ coach_detail.last_name }}</h3>
+{% include "include/content_include.html" %}
+        <table class="table">
+            <tbody>
+            <tr>
+                <td class="email_c">Birth Date</td>
+                <td>{{ coach.date_of_birth }}</td>
+            </tr>
+
+            <tr>
+                <td class="email_c">E-mail</td>
+                <td>{{ coach.user.email }}</td>
+            </tr>
+
+            <tr>
+                <td class="email_c">Address</td>
+                <td>{{ coach.address }}</td>
+            </tr>
+           <tr>
+                <td class="email_c">Phone</td>
+                <td>{{ coach.phone }}</td>
+            </tr>
+            <tr>
+                <td class="email_c">skype</td>
+                <td>{{ coach.skype }}</td>
+            </tr>
+ 
+            <tr>
+                <td>Course coach</td>
+                {% for item in course_coach.all %}
+                <td>
+                    <a href="{% url 'courses:detail' item.id %}">{{ item.name }}</a>
+                    Students<a href="{% url 'students:list_view' %}?course_id={{ item.id }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+                </td>
+
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Course assistant</td>
+                {% for item in course_assistant.all %}
+                <td>
+                    <a href="{% url 'coaches:detail' item.id %}">{{ item.name }}</a>
+                    Students<a href="{% url 'students:list_view' %}?course_id={{ item.id }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+                </td>
+
+                {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+{% endblock content %}

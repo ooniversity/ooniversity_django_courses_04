@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MyBursa | Main</title>
+{% load staticfiles %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+
+  </head>
+
+  <body>
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="{% url 'index' %}">Main</a></li>
+              <li><a href="{% url 'contact' %}">Contacts</a></li>
+              <li><a href="{% url 'student_list' %}">Students</a></li>
+              <li><a href="{% url 'results' %}">Equation</a></li>
+            </ul>
+      </nav>
+
+        <div class="page-header">
+          <h2>MyBursa</h2>
+          <p style="color:black">Our company have a lot of expirience in<br>
+           methods of teaching different programming languages.</p>
+        </div>
+<h3>Our courses!</h3>
+<div class="table-responsive">
+  <table class="table table-hover table-bordered table-striped">
+    <thead>
+    <tr class="info">
+      <th> <b>CourseName<b> </th>
+      <th> <b>Description<b> </th>   
+    </tr>
+    </thead>
+    <tbody>
+    {% for course in courses %}   
+    <tr>
+      <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
+      <td> {{ course.short_description }} </td>      
+    </tr>  
+    {% endfor %}
+    </tbody>
+  </table>   
+</div>
+ 
+
+
+        <!-- p><a class="btn btn-primary btn-lg" href="{% url 'contact' %}" role="button">Contacts</a></p -->
+      </div>
+
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>
