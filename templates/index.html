@@ -1,68 +1,52 @@
 {% extends "base.html" %}
 
 
-{% block title %}Главная - pyBursa{% endblock %}
+{% load staticfiles %}
 
 
-{% block nav_index %}active{% endblock %}
+{% block title %}PyBursaMain{% endblock title %}
+
+
+
 
 
 {% block content %}
-
 {% if messages %}
-  {% for message in messages %}
-    <div class="alert alert-success">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      {{ message }}
-    </div>
-  {% endfor %}
+ 
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{% for message in messages %}{{ message }}{% endfor %}</div>
 {% endif %}
-
-<div class="jumbotron">
-  <h1>ooniversity</h1>
-  <p>Мы специализируемся на «модных» языках программирования. Принципиальное наше отличие от других курсов – максимум практики и жесткая система обязательных домашних заданий.</p>
-</div>
-
-<a href="{% url 'courses:add' %}" class="btn btn-primary" role="button">
-  <span class="glyphicon glyphicon-plus"></span>
-  Добавить новый курс
-</a>
-<div class="page-header">
-  <h1>Выбирай на каком курсе ты хочешь учиться!</h1>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Курс</th>
-          <th>Описание</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for course in courses %}
-          <tr>
-            <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
-            <td>{{ course.short_description|truncatechars:70 }}</td>
-            <td>
-              <a href="{% url 'courses:edit' course.id  %}" class="btn btn-primary" role="button">
-                <span class="glyphicon glyphicon-pencil"></span>
-                Изменить
-              </a>
-            </td>
-            <td>
-              <a href="{% url 'courses:remove' course.id  %}" class="btn btn-primary" role="button">
-                <span class="glyphicon glyphicon-remove"></span>
-                Удалить
-              </a>
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+  <div class="jumbotron">
+    <div class="container">
+      <div class="page-header">
+        <h1>ooniversity</h1>
+        <h3>Мы специализируемся на современных языках программирования, которые помогут Вам бытьв тренде разработки сегодня и завтра.<h3>
+     </div>
+    </div>
+  </div> 
+  <h2>Выбирай, на каком курсе хочешь учиться!</h2>
+  <div>
+    <button class="btn"><a href="{% url 'courses:add' %}">Добавить новый курс</a></button>
   </div>
-</div>
-{% endblock content %}
-
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Курс</th>
+        <th>Описание</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if courses %}
+      {% for course in courses %}
+        <tr>
+          <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
+          <td>{{ course.short_description|title }}</td>
+          <td><button class="btn"><a href="{% url 'courses:edit' course.id %}">Редактировать курс</a></button></td>
+          <td><button class="btn"><a href="{% url 'courses:remove' course.id %}">Удалить курс</a></button></td>
+        </tr>
+      {% endfor %}
+      {% endif %}
+     </tbody>
+  </table>
+ 
+{% endblock content %}   

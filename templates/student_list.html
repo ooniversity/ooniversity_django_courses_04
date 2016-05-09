@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Students{% endblock title %}
+
+
+{% block content %}
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Cтуденты PyBursa </h1>
+
+    </div>
+  </div>
+  <div class="panel panel-default">
+ 
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Surname</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Skype</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="{% url 'student_detail' %}">1</a></td>
+        <td>Ivanov</td>
+        <td>Ivan</td>
+        <td>Kharkiv, Lenina st. 12</td>
+        <td>i_ivanov</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Petrov</td>
+        <td>Petr</td>
+        <td>Kyiv, Green st. 5</td>
+        <td>petrov</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Sydorov</td>
+        <td>Oleg</td>
+        <td>Lvov, Shevchenko st. 112</td>
+        <td>o_sydr</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Nikitin</td>
+        <td>Pavel</td>
+        <td>Odessa, Hkolnaya st. 4</td>
+        <td>hate_darth</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Karpov</td>
+        <td>Den</td>
+        <td>Kharkov, 23_august st. 45</td>
+        <td>den_karpov</td>
+      </tr>
+    </tbody>
+  </table>
+  
+{% endblock content %}

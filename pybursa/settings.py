@@ -17,18 +17,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+cb0s=+8l9^!(bab#3@vk+2-ocbx$f(y-(s075r%nwg0zdzdjc'
+SECRET_KEY = 's+d6g=hh($+w(vxk8)efmguo!ab=ef+xg)6ls_@#^k!urglrf7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# -*- coding: utf-8 -*-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,8 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'polls',
     'quadratic',
-    'courses',
     'students',
+    'courses',
     'coaches',
     'feedbacks',
 )
@@ -81,65 +81,60 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
+ 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
-
-ADMINS = (
-    ('Margarita', 'vaschenko.margarita44@gmail.com'),
-   
-)
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
+
+ADMINS = (('Margarita', 'vaschenko.margarita44@gmail.com'), ('Nikolay', 'borovenskiy.nikolay@gmail.com'))
+
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-            'simple': {
-                'format': '%(levelname)s %(message)s'
-            },
-            'verbose': {
-                'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
-            },
+    'loggers': 
+    {
+        'course': {
+            'handlers': ['logging_course'],
+            'level': 'DEBUG',
         },
+        'students': {
+            'handlers': ['logging_students'],
+            'level': 'DEBUG',
+        },
+    },
+
     'handlers': {
-        'courses_logger': {
+        'logging_course': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
             'formatter': 'simple',
+
         },
-        'students_logger': {
+        'logging_students': {
             'level': 'WARNING',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'students_logger.log'),
             'formatter': 'verbose',
-		 },
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
+        },     
     },
-    'loggers': {
-        'courses': {
-            'handlers': ['courses_logger'],
-            'level': 'DEBUG',
-           
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
         },
-        'students': {
-            'handlers': ['students_logger'],
-            'level': 'WARNING',
-            
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        
         },
+
     },
-} 
+
+}
+

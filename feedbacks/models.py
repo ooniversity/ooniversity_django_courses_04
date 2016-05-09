@@ -1,14 +1,14 @@
-# -*- coding: utf-8 -*-
 from django.db import models
-import datetime
 
 
 class Feedback(models.Model):
     name = models.CharField(max_length=50)
+    subject = models.CharField(max_length=255)
+    message = models.CharField(max_length=255)
     from_email = models.EmailField()
-    subject = models.CharField(max_length=50)
-    message = models.TextField()
-    create_date = models.DateTimeField(auto_now_add=datetime.datetime.now())
-
+    create_date = models.DateTimeField(auto_now_add=True)
+    
     def __unicode__(self):
-        return self.from_email
+		return self.name
+    
+    

@@ -1,18 +1,42 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Квадратное уравнение</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quadratic</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/python.ico' %}" type="image/x-icon">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
   </head>
-
   <body>
-    <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
-    <form method="get">
-      {{ form.as_p }}
-      <input type="submit" value="Решить" />
-    </form>
-    {% if not form.errors and d != None %}
-      <p>Дискриминант: {{ d }}</p>
-      <p>{{ result_message }}</p>
-    {% endif %}
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'index' %}">Main</a><li>
+            <li><a href="{% url 'contact' %}">Contacts</a><li>
+            <li><a href="{% url 'students:list' %}">Students</a><li>
+            <li><a href="/">Results</a><li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <p> Квадратное уравнение a*x*x + b*x +c = 0 </p>
+
+    <div>
+      <form method="get">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Решить" />
+      </form>
+      {% if d or d == 0 %}
+        <p>Дискриминант: {{ d }}</p>
+      {% endif %}
+      {% if message %}
+        <p>{{ message }}</p>
+      {% endif %}
+    </div>
   </body>
 </html>
