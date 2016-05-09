@@ -13,4 +13,5 @@ class CoachAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Coach, CoachAdmin)
-# Register your models here.
+
+
