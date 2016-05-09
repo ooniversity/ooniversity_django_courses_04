@@ -7,13 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('students', '0001_initial'),
+        ('coaches', '0001_initial'),
     ]
 
     operations = [
-        migrations.RenameField(
-            model_name='student',
-            old_name='course',
-            new_name='courses',
+        migrations.AlterField(
+            model_name='coach',
+            name='description',
+            field=models.TextField(),
         ),
     ]

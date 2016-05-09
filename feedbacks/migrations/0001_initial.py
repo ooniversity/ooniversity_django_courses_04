@@ -11,14 +11,14 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Comment',
+            name='Feedback',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=50)),
-                ('from_email', models.EmailField(max_length=75)),
-                ('subject', models.CharField(max_length=50)),
+                ('name', models.CharField(max_length=255)),
+                ('subject', models.CharField(max_length=255)),
                 ('message', models.TextField()),
-                ('create_date', models.DateTimeField(auto_now_add=True)),
+                ('from_email', models.EmailField(max_length=75)),
+                ('create_date', models.DateField(auto_now_add=True)),
             ],
             options={
             },
