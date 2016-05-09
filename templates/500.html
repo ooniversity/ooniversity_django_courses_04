@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>{% block title %}{% endblock title %}</title>
+  <title>500 Error</title>
   <!-- Bootstrap -->
   <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -20,34 +20,9 @@
 
   <body>
     <div class="navbar-wrapper">
-      <div class="container">
-      <!-- Static navbar -->
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
 
-           </div>
-
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="{% block nav_active_index %}{% endblock %}"><a href="{% url 'index' %}">Main</a></li>
-              <li class="{% block nav_active_contact %}{% endblock %}"><a href ="{% url 'contact' %}">Contacts</a></li>
-              <li class="{% block nav_active_students %}{% endblock %}"> <a href="{% url 'students:list_view' %}{% block course_students %}{% endblock course_students %}">Students</a></li>
-              <li class="{% block nav_active_qudratic %}{% endblock %}"><a href= "{% url 'quadratic:results' %}">Уравнение</a></li>
-              <li class="{% block nav_active_feedback %}{% endblock %}"><a href= "{% url 'feedback' %}">Обратная связь</a></li>
-            </ul>
-            </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
     <div class="container-fluid">    
-        {% block content %}
-        {% endblock content %}   
+      <h2>Sorry, internal server error occurred</h2>
     </div>
 
       <!-- FOOTER -->
@@ -71,5 +46,6 @@
 
 
    </body>
+
 </html>
 
