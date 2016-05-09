@@ -4,9 +4,9 @@ from django.test import Client
 from students.models import Student
 
 
-def create_student(st_name):
+def create_student(studentname):
     Student.objects.create(
-        name="Petr",
+        name=studentname,
         surname="Petrov",
         date_of_birth="1990-05-05",
         email="PPetrov@mail.ru",
@@ -43,6 +43,12 @@ class StudentsListTest(TestCase):
 
 class StudentsDetailTest(TestCase):
 
+    def test_detail_create(self):
+        create_student("Vasya")
+        client = Client()
+        response = client.get('/students/1/')
+        self.assertContains(response, "Vasya")
+
     def test_detail_statuscode(self):
         for i in ['First', 'Second', 'Third']:
             create_student(i)
@@ -58,11 +64,11 @@ class StudentsDetailTest(TestCase):
         self.assertEqual(response.status_code, 301)
 
     def test_detail_header(self):
-        for i in ['First', 'Second', 'Third']:
+        for i in ['Vasya', 'Petya', 'Lena']:
             create_student(i)
         client = Client()
         response = client.get('/students/1/')
-        self.assertContains(response, 'Petr Petrov')
+        self.assertContains(response, 'Vasya Petrov')
 
     def test_detail_url_active(self):
         for i in ['First', 'Second', 'Third']:
