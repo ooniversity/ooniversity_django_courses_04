@@ -27,10 +27,10 @@ class StudentListView(ListView):
     def get_queryset(self):
         if 'course_id' in self.request.GET:
             student_list = Student.objects.filter(courses=self.request.GET['course_id'])
-         
+            
         else:
             student_list = Student.objects.all()
-           
+            
         return student_list
     
 class StudentCreateView(CreateView):
