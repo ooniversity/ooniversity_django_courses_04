@@ -3,3 +3,5 @@
 *.pyo
 students_logger.log
 courses_logger.log
+pybursa/local_settings.py
+
