@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, include, url, handler404, handler500
 from django.contrib import admin
 
 from pybursa import views
@@ -6,6 +6,9 @@ import polls
 import courses
 import coaches
 import feedbacks
+
+handler404 = 'pybursa.views.server_error_404'
+handler500 = 'pybursa.views.server_error_500'
 
 urlpatterns = patterns('',
     # Examples:
