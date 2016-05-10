@@ -62,7 +62,7 @@ class StudentUpdateView(UpdateView):
 	
 	def form_valid(self,form):
 		student = form.save()
-		messages.success(self.request, u'Student %s %s has been successfully added.'%(student.name, student.surname))
+		messages.success(self.request, u'Info on the student has been sucessfully changed.')
 		return super(StudentUpdateView, self).form_valid(form)
 
 class StudentDeleteView(DeleteView):

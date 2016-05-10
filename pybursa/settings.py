@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'xt13ltqg&cq=a5dked7(6_5i*oyld74bsklh6#vqg9hpye7ub7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = TRUE
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -98,7 +98,10 @@ EMAIL_HOST_USER = 'sergpo'
 EMAIL_HOST_PASSWORD = ''
 
 
-ADMINS = (("Sergey", "sergpo@mailru"),)
+ADMINS = (
+            ("sergpo", "sergnat_ua@mail.ru"),
+            ("Nikolay", "nikolay.borovenskiy@gmail.com"),
+        )
 
 LOGGING = {
     'version': 1,

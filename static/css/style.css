@@ -1,3 +1,18 @@
+html {
+  overflow-y: scroll;
+}
+body {
+    overflow: scroll;
+    overflow-x: hidden;
+        }
+::-webkit-scrollbar{
+  width:0px;   // here actuall it exist but width is 0 so no one can see it 
+  background:transparent;
+} //end of the code here
+// this code for further customization of thumbs
+::-webkit-scrollbar-thumb{
+   background-color: rgba(0,0,0,0);
+}
 .jumbotron {
   padding: 30px 15px;
   margin-bottom: 30px;
@@ -25,7 +40,7 @@
  text-indent: 27px;
 }
 
-h4 {
+h4,h5,h6 {
  text-align: center;
 }
 
@@ -38,11 +53,11 @@ li {
  margin:0 auto;
 }
 
-*.footer {
+/**.footer {
     height: 100px;
     margin: 0;
     padding: 0;
-}
+}*/
 
 .boss {
 font-size: 24px;
@@ -50,9 +65,10 @@ font-weight: bold;
 }
 
 .my-panel-footer{
-	background-color: #333;
+  background-color: #333;
 	padding: 10px 0;
-	text-align:l eft;
+	text-align:left;
+  margin: 0;
 }
 
 .my-footer {
@@ -61,7 +77,27 @@ font-weight: bold;
 	color: #FFF;
 	vertical-align: text-bottom;
 }
+
+tbody > tr > td {
+  vertical-align:middle !important;
+}
+
+tbody > tr > td:first-child {
+  text-align: center;
+  vertical-align: middle;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
 table, td {
+    border: 1px solid rgba(255,255,255,50);
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+/*table, td {
     border: 1px solid rgba(255,255,255,50);
     border-radius: 5px;
     -moz-border-radius: 5px;
@@ -70,8 +106,95 @@ table, td {
 table {
     border-collapse: separate;
     border-spacing: 0;
-}
+}*/
 
 .row {
 	min-height: 600px;
 }
+
+body > .container {
+    padding: 0px 15px 0;
+}
+
+.container {
+  width: 90%;
+}
+.active > a:focus {
+    outline:0;
+}
+.pagination-centered{
+  margin: 10px auto;
+}
+.pagination > li > a:hover{
+  outline:0;
+}
+
+form{
+    width:33%;
+    padding:15px 20px;
+    background:#f5f5f5;
+    background-color:rgba(245,245,245,0.95);
+    border-radius: 10px;
+    box-shadow:0 0 5px rgba(0, 0, 0, 0.4);
+    font-size:1em;
+    color:#444;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select,
+textarea
+{
+    width:100%;
+    max-height:70px;
+    border:1px solid #ccc;
+    margin-bottom:1em;
+    padding:5px 5px;
+    background:white;
+    border-radius: 5px;
+    box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-sizing:border-box;
+}
+input[type="checkbox"]{
+    margin:0 10px 0 0;
+    border:1px dotted #ddd;
+    background:white;
+    box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    color:#ddd;
+}
+input[type="submit"] {
+    width:33%;
+    border:1px solid #ccc;
+    margin-bottom:1em;
+    padding:5px 5px;
+    background: #CCEECC;
+    border-radius: 5px;
+    box-shadow:outset 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-sizing:border-box;
+    -webkit-transition:box-shadow 0.5s;
+}
+input[type="submit"]:hover{
+    background: #BBEEBB;
+}
+input[type="submit"]:focus{
+    outline:0;
+}
+
+}
+.table-hover > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover,
+.table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr:hover > .active,
+.table-hover > tbody > tr.active:hover > th {
+  background-color: rgba(210, 230, 205, 1);
+}
+
+thead > tr > th {
+  background: rgb(254,253,242,1);
+  background: -moz-linear-gradient(top,  rgba(254,253,242,1) 0%,#777 100%);
+  background: -webkit-linear-gradient(top,  rgba(254,253,242,1) 0%,#777 100%);
+  background: linear-gradient(to bottom,  rgba(254,253,242,1) 0%,#777 100%);
+  text-align: center;
+}
+linear-gradient(to bottom, rgba(254,253,242,1) 0%,#777 100%)

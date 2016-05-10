@@ -7,75 +7,91 @@
 
 {% block nav_class_index %}active{% endblock %}
 
-{% block students_list %}{% url 'students:list_view' %}?course_id={{ object.pk }}{% endblock students_list %}
+{% block students_list %}{% url 'students:list_view' %}?course_id={{ course.id }}{% endblock students_list %}
 
 
 {% block content %}
 
 
-{% if messages %}
-	<div class = "alert alert-success" role="alert">
-		{% for message in messages %}
-		{{ message }}
-		{% endfor %}
-	</div>
+{% include "include/messages_include.html" %}
+
+<br>
+
+<div class="page-header">
+    <h1>{{ course.name }}</h1>
+</div>
+<p>{{ course.description}}</p>
+<!--<p>{{ course.description|truncatechars:32 }}</p> -->
+<br>
+
+{% if course.coach %}
+<h1>Преподаватели</h1>
+<table class="table table-hover table-condensed">
+    <thead>
+    <tr>
+        <th><h4>Учитель</h4></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><a href="{% url 'coaches:detail' course.coach.id %}">
+            {{ course.coach.user.first_name }} {{ course.coach.user.last_name }}</a>
+            <br>
+            <br>
+            {{ course.coach.description }}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<table class="table table-hover table-condensed">
+    <thead>
+    <tr>
+        <th><h4>Ассистент</h4></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><a href="{% url 'coaches:detail' course.assistant.id %}">
+            {{ course.assistant.user.first_name }} {{ course.assistant.user.last_name }}</a>
+            <br>
+            <br>
+            {{ course.assistant.description }}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
 {% endif %}
 
-<div class="container">
-	<div class="jumbotron">
-		<h1>{{course.name}}</h1>
-	<p>{{course.description|truncatechars:32}}</p>
-</div>
+<h2>План курса</h2>
+<br>
+<a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-success" role="button">
+	<span class="glyphicon glyphicon-plus"></span> 
+	Добавить новое занятие
+</a>
+</br>
+</br>
+</br>
 
-<div class="jumbotron">
-	<h2>Преподаватели</h2>
-		{% if course.coach %}
-		<div><h4>Учитель</h4>
-			<a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.first_name}} {{course.coach.last_name}}</a>
-		</div>
-			<p>{{course.coach.description}}</p>
-		{% else %}
-			<p>Преподаватель курса пока не определен</p>
-		{% endif %}
-		{% if course.assistant %}
-		<div><h4>Ассистент</h4>
-			<a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name}} {{course.assistant.last_name}}</a>
-		</div>
-			<p>{{course.assistant.description}}</p>
-		{% else %}
-        	<p>Ассистент курса пока не определен</p>
-    	{% endif %}	
-</div>
-
-<div class="container">
-	<h2>План курса</h2>
-</div>
-
-<div class="container">
-	<a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-success" role="button">
-		<span class="glyphicon glyphicon-plus"></span> 
-		Добавить новое занятие
-	</a>
-</div> 
-
-
-<div class="container">
-	<div class="table-responsive">
-		<table class="table table-hover table-condensed">
-			<tr>
-				<th>#</th>
-				<th>Тема</th>
-				<th>Описание</th>
-			</tr>
-				{% for i in lesson %}
-			<tr>
-				<td>{{ i.order }}</td>
-				<td>{{ i.subject }}</td>
-				<td>{{ i.description }}</td>
-			</tr>
-				{% endfor %}
-			</table>
-		</div>
-	</div>
+<div class="table-responsive">
+    <table class="table table-hover table-condensed">
+        <thead>
+        <tr>
+            <th class="text-center wide5">#</th>
+            <th class="text-center wide28">Тема</th>
+            <th class="text-center">Описание</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in lesson %}
+        <tr>
+            <td>{{ i.order }}</td>
+            <td>{{ i.subject }}</td>
+            <td>{{ i.description }}</td>
+        <tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 {% endblock content %}
+
