@@ -9,6 +9,7 @@ from django.core.urlresolvers import reverse_lazy
 import logging
 logger = logging.getLogger(__name__)
 
+
 class CourseDetailView(DetailView):
     model = Course
     context_object_name = 'course'
