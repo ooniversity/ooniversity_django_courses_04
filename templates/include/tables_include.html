@@ -1,3 +1,4 @@
+{% if course.coach %}
 <table class="table">
     <thead>
     <tr>
@@ -16,6 +17,8 @@
     </tr>
 </table>
 </div>
+{% endif %}
+{% if course.assistant %}
 <div>
     <table class="table">
         <thead>
@@ -33,3 +36,4 @@
         </tr>
     </table>
 </div>
+{% endif %}
