@@ -13,13 +13,9 @@
 {% block content %}
 
 
-{% if messages %}
-	<div class = "alert alert-success" role="alert">
-		{% for message in messages %}
-		{{ message }}
-		{% endfor %}
-	</div>
-{% endif %}
+{% include "include/messages_include.html" %}
+
+<br>
 
 <div class="page-header">
     <h1>{{ course.name }}</h1>
@@ -73,7 +69,9 @@
 	<span class="glyphicon glyphicon-plus"></span> 
 	Добавить новое занятие
 </a>
-</br> 
+</br>
+</br>
+</br>
 
 <div class="table-responsive">
     <table class="table table-hover table-condensed">

@@ -13,17 +13,13 @@
 {% block content %}
 
 
-{% if messages %}
-<div class="alert alert-success" role="alert">
-    {% for message in messages %}
-    {{ message }}
-    {% endfor %}  
-</div>
-{% endif %}
+{% include "include/messages_include.html" %}
 
-<div class="page-header">
-	<h2>Форма обратной связи</h2>
-</div>
+<br>
+
+<h2>Форма обратной связи</h2>
+
+<br>
 
 <div class="form-group form-group-lg">
 	<form method="post">

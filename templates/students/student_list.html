@@ -9,14 +9,9 @@
 
 {% block content %}
 
-{% if messages %}
-<div class = "alert alert-success" role="alert">
-   {% for message in messages %}
-      {{ message }}
-   {% endfor %}
-</div>
-{% endif %}
+{% include "include/messages_include.html" %}
 
+<br>
 
   <h2>Список студентов</h2>
   <br>
@@ -51,16 +46,16 @@
           <a href="{% url 'courses:detail' course.id %}">{{ course.name }}<br></a>
           {% endfor %}</td>
         <td>
-          <button class="btn btn-success" type="button">
-		       	<span class="glyphicon glyphicon-pencil"></span>
-            <a href="{% url 'students:edit' i.id %}">Изменить</a>
-          </button>
+            <a href="{% url 'students:edit' i.id %}" class="btn btn-success" type="button">
+              <span class="glyphicon glyphicon-pencil"></span>            
+                Изменить
+            </a>
         </td>
         <td>
-          <button class="btn btn-success" type="button">
-			      <span class="glyphicon glyphicon-trash"></span>
-            <a href="{% url 'students:remove' i.id %}">Удалить</a>                    
-          </button>
+            <a href="{% url 'students:remove' i.id %}" class="btn btn-success" type="button">
+              <span class="glyphicon glyphicon-trash"></span>
+                Удалить
+            </a>
         </td>
       </tr> 
       {% endfor %}
