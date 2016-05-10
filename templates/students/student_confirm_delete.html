@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}DjBursa - {{ title }}{% endblock title %}
+
+{% block student_active %}active{% endblock %}
+
+{% block messages %}
+<div class="row">
+  <div class="col-lg-12">
+    {% if messages %}
+    <div class="alert alert-warning">
+      <ul class="messages">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+        {{ message }}
+        {%endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</div>
+</div>
+{% endblock messages %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-12">
+    <h3>{{ title }}</h3>
+    <form method="post">
+      {% csrf_token %}
+      <p><input type="submit" value="Удалить"></p>
+    </form>
+  </div>
+</div>
+{% endblock content %}
