@@ -6,12 +6,17 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
+import logging
 
+logger = logging.getLogger(__name__)
 
 def detail(request, course_id):
+    logger.debug('Courses detail view has been debugged')
+    logger.info('Logger of courses detail view informs you!')
+    logger.warning('Logger of courses detail view warns you!')
+    logger.error('Courses detail view went wrong!')
     course_info = get_object_or_404(Course, id=int(course_id))
     lesson_list = Lesson.objects.filter(course_id=course_id)
     return render(request, 'courses/detail.html', {'lessons':lesson_list, 'course': course_info})
