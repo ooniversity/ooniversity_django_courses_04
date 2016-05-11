@@ -133,3 +133,4 @@ LOGGING = {
             'formatter': 'verbose'
         },
     },
+}
