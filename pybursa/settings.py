@@ -108,3 +108,38 @@ TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
 "django.core.context_processors.tz",
 "django.core.context_processors.request",
 "django.contrib.messages.context_processors.messages")
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+        },
+    },
+    'handlers': {
+        'courses_logger': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger'),
+        },
+        'students_logger': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger'),
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'courses.views': {
+            'handlers': ['courses_logger'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'students.views': {
+            'handlers': ['students_logger'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+    },
+}
