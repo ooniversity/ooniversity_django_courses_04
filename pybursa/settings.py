@@ -113,21 +113,25 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
+        'course_formatter': {
+            'format': '%(levelname)s %(message)s'
+        },
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
         },
     },
     'handlers': {
         'courses_logger': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'courses_logger'),
+            'filename': os.path.join(BASE_DIR, "courses_logger.log"),
+            'formatter': 'course_formatter',
         },
         'students_logger': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'students_logger'),
-            'formatter': 'verbose'
+            'filename': os.path.join(BASE_DIR, "students_logger.log"),
+            'formatter': 'student_formatter',
         },
     },
     'loggers': {
