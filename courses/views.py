@@ -15,11 +15,19 @@ from courses.forms import LessonModelForm
 from courses.models import Course
 from courses.models import Lesson
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
     context_object_name = 'course'
+
+    logger.debug("Courses detail view has been debugged")
+    logger.info("Logger of courses detail view informs you!")
+    logger.warning("Logger of courses detail view warns you!")
+    logger.error("Courses detail view went wrong!")
 
     def get_context_data(self, **kwargs):
         course_id = self.kwargs['pk']
