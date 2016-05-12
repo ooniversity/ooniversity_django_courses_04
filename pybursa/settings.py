@@ -116,7 +116,7 @@ LOGGING = {
         'course_formatter': {
             'format': '%(levelname)s %(message)s'
         },
-        'verbose': {
+        'student_formatter': {
             'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
         },
     },
