@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+ 
+ <html lang="ru">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <title>{%  block title %}{%  endblock title %}</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel=
+    "stylesheet">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default navbar-static-top">
+      <ul class="nav nav-pills">
+        <li class="{%  block nav_class_index %}{% endblock %}">
+        <a href="{% url 'index' %}">Главная </a></li>
+        <li class="{%  block nav_class_contact %}{% endblock%}">
+        <a href="{% url 'contact' %}">Контакты </a></li>
+        <li class="{%  block nav_class_students %}{% endblock%}">
+        <a href="{% url 'students:list_view' %}{% block get_course %}{% endblock get_course %}">Студенты </a></li>
+        <li class="{%  block nav_class_feedback %}{% endblock%}">
+        <a href="{% url 'feedback' %}">Обратная связь </a></li>
+      </ul>
+    </nav>
+
+    {% if messages %}
+        {% for message in messages %}
+          <div class="container">
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+          </div>  
+        {% endfor %}
+    {% endif %}
+
+  {%  block content %}  
+    
+  {%  endblock content %}  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{%  extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{%  block title %}Contacts{% endblock title %}
+
+
+{%  block nav_class_feedback %}active{% endblock%}
+
+ 
+{%  block content %}
+
+  <div class="page-header">
+        <h2>{{ title }}</h2>
+      </div>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit"  value="Send">
+      </form>
+    </div>
+  
+{%  endblock content %}  
+
+
+
+
+
+
+
+
+
+
