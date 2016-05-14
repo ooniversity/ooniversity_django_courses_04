@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ title }}{% endblock title %}
+{% block title %}Pybursa {{ title }}{% endblock title %}
 {% block nav_class_index %}active{% endblock %}
 {% block students_list %}{% url 'students:list_view' %}?course_id={{ object.pk }}{% endblock students_list %}
 {% block content %}
@@ -19,15 +19,22 @@
 
 <div class="jumbotron">
 	<h2>Преподаватели</h2>
+		{% if course.coach %}
 		<div><h4>Учитель</h4>
 			<a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.first_name}} {{course.coach.last_name}}</a>
 		</div>
 			<p>{{course.coach.description}}</p>
-
+		{% else %}
+			<p>Преподаватель курса пока не определен</p>
+		{% endif %}
+		{% if course.assistant %}
 		<div><h4>Ассистент</h4>
 			<a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.first_name}} {{course.assistant.last_name}}</a>
 		</div>
 			<p>{{course.assistant.description}}</p>
+		{% else %}
+        	<p>Ассистент курса пока не определен</p>
+    	{% endif %}	
 </div>
 
 <div class="container">
