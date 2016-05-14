@@ -14,6 +14,9 @@ from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 
+import logging
+logger = logging.getLogger(__name__)
+
 class StudentListView(ListView):
     model = Student
     #template_name = 'students/list.html'
@@ -34,6 +37,14 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
+
+    def get_context_data(self, **kwargs):
+        logger.debug("Students detail view has been debugged")
+        logger.info("Logger of students detail view informs you!")
+        logger.warning("Logger of students detail view warns you!")
+        logger.error("Students detail view went wrong!")
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        return context
 
 class StudentCreateView(CreateView):
     model = Student
