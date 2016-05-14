@@ -16,10 +16,14 @@ logger = logging.getLogger(__name__)
 
 class CourseDetailView(DetailView):
     model = Course
-    logger.debug("Courses detail view has been debugged")
-    logger.info("Logger of courses detail view informs you!")
-    logger.warning("Logger of courses detail view warns you!")
-    logger.error("Courses detail view went wrong!")
+    
+    def get_context_data(self, **kwargs):
+        logger.debug("Courses detail view has been debugged")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")
+        context = super(CourseDetailView,self).get_context_data(**kwargs)
+        return context
 
 class CourseCreateView(CreateView):
     model = Course
