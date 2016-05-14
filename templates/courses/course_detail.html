@@ -40,7 +40,7 @@
 
   <div class="container"> 
     <table class="table">
-      {% for lesson in lessons %}
+      {% for lesson in course.lesson_set.all %}
         <tr>
           <td>{{lesson.subject}}</td>
           <td>{{lesson.description}}</td>

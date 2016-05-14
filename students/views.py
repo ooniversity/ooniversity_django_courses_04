@@ -10,6 +10,9 @@ from students.models import Student
 from courses.models import Course
 from students.forms import StudentModelForm
 
+import logging
+logger = logging.getLogger(__name__)
+
 class SrudentListView(ListView):
     model = Student
     paginate_by = 2
@@ -29,6 +32,10 @@ class SrudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
+    logger.debug("Students detail view has been debugged")
+    logger.info("Logger of students detail view informs you!")
+    logger.warning("Logger of students detail view warns you!")
+    logger.error("Students detail view went wrong!")
 
 
 

@@ -11,11 +11,15 @@ from django.contrib import messages
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 
+import logging
+logger = logging.getLogger(__name__)
+
 class CourseDetailView(DetailView):
     model = Course
-
-def deteil(request, pk):
-    return render(request, 'courses/detail.html', locals()) 
+    logger.debug("Courses detail view has been debugged")
+    logger.info("Logger of courses detail view informs you!")
+    logger.warning("Logger of courses detail view warns you!")
+    logger.error("Courses detail view went wrong!")
 
 class CourseCreateView(CreateView):
     model = Course
