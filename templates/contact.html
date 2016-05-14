@@ -1,68 +1,63 @@
-{% extends "base.html" %}
+{%  extends "base.html" %}
 
 
 {% load staticfiles %}
 
 
-{% block title %}Contact{% endblock title %}
+{%  block title %}Contacts{% endblock title %}
 
 
-{% block active_contacts %}active{% endblock active_contacts %}
+{%  block nav_class_contact %}active{% endblock%}
+
+ 
+{%  block content %}
 
 
-{% block content %}
-  <div class="container-fluid">
-    <div class="media">
-      <div class="row-fluid">
-        <div class="col-sm-9 col-md-6">
-          <div class="thumbnail">
-            <h3 class="title">Founder</h3>
-            <div class="caption">
-              <div class="img-center">
-                <img class="size-img" src="{% static 'images/pavel_obod.png' %}" alt="Pavel Obod">
-              </div>
-              <div class="thumb-text"><br>
-                Name: Pavel Obod<br>
-                Skype: azaless<br>
-                Email: itbursa100@gmail.com<br>
-                Phone: +38 (096) 469-15-56
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-9 col-md-6">
-          <div class="thumbnail">
-            <h3 class="title">Director</h3>
-            <div class="caption">
-              <div class="img-center">
-                <img class="size-img" src="{% static 'images/aleksej_radchenko.png' %}" alt="Aleksej Radchenko">
-              </div>
-              <div class="thumb-text"><br>
-                Name: Aleksej Radchenko<br>
-                Skype: dixon.che<br>
-                Email: dixon-che@gmail.com<br>
-                Phone: +38 (096) 469-15-58
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-9 col-md-6">
-          <div class="thumbnail">
-            <h3 class="title">Manager</h3>
-            <div class="caption">
-              <div class="img-center">
-                <img class="size-img" src="{% static 'images/daria_mykhalevych.png' %}" alt="Daria Mykhalevych">
-              </div>
-              <div class="thumb-text"><br>
-                Name: Daria Mykhalevych<br>
-                Skype: darka.darka.darka.darka.<br>
-                Email: daria.mykhalevych@gmail.com<br>
-                Phone: +38 (096) 469-15-57
-              </div>
-            </div>
-          </div>
-        </div>
+   <div class="container">     
+      
+         <ul>
+      <li>
+        <h4>Director</h4>
+        <p>
+        Name: Director of the World <br />
+        Skype: director.skype <br />
+        Email: directro@gamil.com <br />
+        Phone: +380500000000 <br />
+        </p>
+      </li>
+
+      <li>
+        <h4>Manager</h4>
+        <p>
+        Name: Manager of the World <br />
+        Skype: manager.skype <br />
+        Email: manager@gamil.com <br />
+        Phone: +380500000001 <br />
+        </p>
+      </li>
+
+      <li>
+        <h4>Founder</h4>
+        <p>
+        Name: Founder of the World <br />
+        Skype: founder.skype <br />
+        Email: founder@gamil.com <br />
+        Phone: +380500000002 <br />
+        </p>
+      </li>
+    </ul>
       </div>
-    </div>
-  </div>
-{% endblock content %}
+    
+
+   </div>
+  {%  endblock content %}  
+
+
+
+
+
+
+
+
+
+

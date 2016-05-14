@@ -1,26 +1,18 @@
-{% extends "base.html" %}
+{%  extends 'base.html' %}
+
+{%  load staticfiles %}
+
+{%  block title %}{{ title }}{%  endblock %}
 
 
-{% load staticfiles %}
+{%  block content %}
+	<h1>{{ title }}</h1>
+	<form method="post">
+		{%  csrf_token %}
+		{{  form.as_p }}
+		<input type="submit" value="Добавть" />
+	</form>
+
+{%  endblock content %}
 
 
-{% block title %}{{ title }}{% endblock title %}
-
-
-{% block active_main %}active{% endblock active_main %}
-
-
-{% block content %}
-  <div class="main">
-    <div class="container">
-      <div class="col-lg-12">
-        <h3>Создание нового курса</h3>
-        <form method="post">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <input type="submit" class="btn btn-success" value="Создать" />
-        </form>
-      </div>
-    </div>
-  </div>
-{% endblock content %}

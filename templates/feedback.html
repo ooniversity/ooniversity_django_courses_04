@@ -1,25 +1,35 @@
-{% extends 'base.html' %}
+{%  extends "base.html" %}
 
 
 {% load staticfiles %}
 
 
-{% block title %}Main{% endblock title %}
+{%  block title %}Contacts{% endblock title %}
 
 
-{% block active_feedback %}active{% endblock active_feedback %}
+{%  block nav_class_feedback %}active{% endblock%}
 
+ 
+{%  block content %}
 
-{% block content %}
-  <div class="container">
-  {% include "include/inc_message.html" %}
-    <div class="page-header">
-      <h2>{{ title }}</h2>
+  <div class="page-header">
+        <h2>{{ title }}</h2>
+      </div>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit"  value="Send">
+      </form>
     </div>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" class="btn btn-success" value="Send">
-    </form>
-  </div>
-{% endblock content %}
+  
+{%  endblock content %}  
+
+
+
+
+
+
+
+
+
+

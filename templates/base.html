@@ -1,60 +1,45 @@
-{% load staticfiles %}
-
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>{% block title %}Main<li><a href="http://127.0.0.1:8000/admin">
-            <span class="glyphicon glyphicon-cog"></span>Admin</a></li>{% endblock title %}</title>
-  <!-- Bootstrap -->
-  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-  <link href="{% static 'css/style.css' %}" rel="stylesheet">
-</head>
+
+ 
+ <html lang="ru">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <title>{%  block title %}{%  endblock title %}</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel=
+    "stylesheet">
+  </head>
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav" >
-            <li role="presentation" class={% block active_main %}{% endblock active_main %}>
-              <a href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span>Main</a></li>
-            <li role="presentation" class={% block active_students %}{% endblock active_students %}>
-              <a href="{% url 'students:list_view' %}{% block course_students %}{% endblock course_students %}">
-              <span class="glyphicon glyphicon-user"></span>Students</a></li>
-            <li role="presentation" class={% block active_contacts %}{% endblock active_contacts %}>
-              <a href="{% url 'contact' %}"><span class="glyphicon glyphicon-link"></span>Contacts</a></li>
-            <li role="presentation" class={% block active_feedback %}{% endblock active_feedback %}>
-              <a href="{% url 'feedback' %}"><span class="glyphicon glyphicon-envelope"></span>Feedback</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li role="presentation" class={% block active_quadratic %}{% endblock active_quadratic %}>
-              <a href="{% url 'quadratic:results' %}">
-              <span class="glyphicon glyphicon-superscript"></span>Quadratic</a></li>
-            <li><a href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-cog"></span>Admin</a></li>
-            <li class="navbar-nav"><a href="http://www.itbursa.com/pybursa.com" target="_blank">
-              <span class="glyphicon glyphicon-education"></span>PyBursa</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+
+    <nav class="navbar navbar-default navbar-static-top">
+      <ul class="nav nav-pills">
+        <li class="{%  block nav_class_index %}{% endblock %}">
+        <a href="{% url 'index' %}">Главная </a></li>
+        <li class="{%  block nav_class_contact %}{% endblock%}">
+        <a href="{% url 'contact' %}">Контакты </a></li>
+        <li class="{%  block nav_class_students %}{% endblock%}">
+        <a href="{% url 'students:list_view' %}{% block get_course %}{% endblock get_course %}">Студенты </a></li>
+        <li class="{%  block nav_class_feedback %}{% endblock%}">
+        <a href="{% url 'feedback' %}">Обратная связь </a></li>
+      </ul>
     </nav>
-    <div class="container-fluid">
-      <div class="jumbotron" style="background:rgba(255,255,255,0.5);">
-        {% block content %}{% endblock content %}
-      </div>
-    </div>
-    <div class="pybursa-logo">
-      <h6>@ 2016 PyBursa</h6>
-    </div>
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-    <script src="{% static 'js/jquery-1.12.2.min.js' %}"></script>
-    <script src="{% static 'js/jquery.backstretch.min.js' %}"></script>
-    <script>
-      {#fon for site#}
-      $.backstretch("{% static 'images/fon.jpg' %}");
-    </script>
+
+    {% if messages %}
+        {% for message in messages %}
+          <div class="container">
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+          </div>  
+        {% endfor %}
+    {% endif %}
+
+  {%  block content %}  
+    
+  {%  endblock content %}  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
   </body>
 </html>

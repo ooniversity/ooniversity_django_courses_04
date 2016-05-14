@@ -1,11 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from coaches.models import Coach
-from courses.models import Course
 
-
-def coaches_detail_view(request, coach_id):
-    coach = Coach.objects.get(id=coach_id)
-    teacher = Course.objects.filter(coach=coach_id)
-    assistant = Course.objects.filter(assistant=coach_id)
-    return render(request, 'coaches/detail.html', {'coach': coach,  'teacher': teacher, 'assistant': assistant})
+def detail(request, coach_id):
+	coach = get_object_or_404(Coach, id=int(coach_id))
+	return render(request, 'coaches/detail.html', locals())
