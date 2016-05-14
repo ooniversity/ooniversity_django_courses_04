@@ -12,6 +12,7 @@ from students.forms import StudentModelForm
 
 class SrudentListView(ListView):
     model = Student
+    paginate_by = 2
     #context_object_name = 'students'
     #template_name = 'students/list_view.html'
 
