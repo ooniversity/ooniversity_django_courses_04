@@ -23,8 +23,8 @@ SECRET_KEY = 'koqglv)7+6rehb)x4i_&aat4v-i6a!+5fwsvchzxsb83x0wow3'
 #DEBUG = True
 DEBUG = False
 
-#TEMPLATE_DEBUG = False
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
+#TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
