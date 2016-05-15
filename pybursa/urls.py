@@ -1,8 +1,10 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, include, url, handler404, handler500
 from django.contrib import admin
 from pybursa import views
 from feedbacks.views import FeedbackView
 
+handler500 = 'pybursa.views.custom_500_server_error'
+handler404 = 'pybursa.views.custom_404_server_error'
 urlpatterns = patterns('',
     url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^admin/', include(admin.site.urls)),
