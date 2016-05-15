@@ -1,6 +1,10 @@
 # python precompiled files:
 *.pyc
 *.pyo
+*.log
+students_logger
+courses_logger
+pybursa/local_settings.py
 
 # IDE files/folders:
 .idea/
