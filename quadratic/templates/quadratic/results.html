@@ -30,7 +30,7 @@
     
     {% if not string %}
     <p class="quadratic">Квадратное уравнение a*x*x + b*x + c = 0</p>
-        <ul>
+        <ul class="quadratic">
             <li>a = {{ a }}</li>
             <i>{{ str_a }}</i>
             <li>b = {{ b }}</li>
@@ -38,6 +38,8 @@
             <li>c = {{ c }}</li>
             <i>{{ str_c }}</i>
         </ul>
+    <p class="quadratic">Дискриминант: {{ discr }}</p>
+    <p class="quadratic">Квадратное уравнение имеет два действительных корня: x1 = , x2 = </p>
     {% else %}
         <p class="quadratic">{{ string }}</p>
         <p class="quadratic">{{ info }}</p>
