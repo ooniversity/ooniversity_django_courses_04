@@ -1,7 +1,5 @@
 {% load staticfiles %}
 
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,7 +37,13 @@
             <i>{{ str_c }}</i>
         </ul>
     <p class="quadratic">Дискриминант: {{ discr }}</p>
-    <p class="quadratic">Квадратное уравнение имеет два действительных корня: x1 = , x2 = </p>
+        {% if discr > 0 %}
+        <p class="quadratic">{{ discr_text }} x1 = {{ x1 }}, x2 = {{ x2 }}</p>
+        {% elif discr < 0 %}
+        <p class="quadratic">{{ discr_text }}</p>
+        {% else %}
+        <p class="quadratic">{{ discr_text }}{{ x }}</p>
+        {% endif %}
     {% else %}
         <p class="quadratic">{{ string }}</p>
         <p class="quadratic">{{ info }}</p>

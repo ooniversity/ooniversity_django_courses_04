@@ -52,17 +52,52 @@ def quadratic_results(request):
         for item in parsed_data:
             if isinstance(item, int):
                 discr = b**2 - 4 * a * c
-
-        context_data = {
-                    'a': a,
-                    'b': b,
-                    'c': c,
-                    'str_a': str_a,
-                    'str_b': str_b,
-                    'str_c': str_c,
-                    'discr': discr,
+                if discr > 0:
+                    x1 = (-b + math.sqrt(discr)) / (2 * a)
+                    x2 = (-b - math.sqrt(discr)) / (2 * a)
+                    discr_text = '''Квадратное уравнение имеет два
+                    действительных корня:'''
+                    context_data = {
+                        'a': a,
+                        'b': b,
+                        'c': c,
+                        'str_a': str_a,
+                        'str_b': str_b,
+                        'str_c': str_c,
+                        'discr': discr,
+                        'discr_text': discr_text,
+                        'x1': x1,
+                        'x2': x2
                     }
-
+                elif discr < 0:
+                    discr_text = '''Дискриминант меньше нуля, квадратное
+                    уравнение не имеет действительных решений.'''
+                    context_data = {
+                        'a': a,
+                        'b': b,
+                        'c': c,
+                        'str_a': str_a,
+                        'str_b': str_b,
+                        'str_c': str_c,
+                        'discr': discr,
+                        'discr_text': discr_text
+                    }
+                else:
+                    x = -b / (2 * a)
+                    x = float(x)
+                    discr_text = '''Дискриминант равен нулю, квадратное
+                    уравнение имеет один действительный корень: x1 = x2 = '''
+                    context_data = {
+                        'a': a,
+                        'b': b,
+                        'c': c,
+                        'str_a': str_a,
+                        'str_b': str_b,
+                        'str_c': str_c,
+                        'discr': discr,
+                        'discr_text': discr_text,
+                        'x': x,
+                        }
         return render(request, 'quadratic/results.html', context_data)
 
     else:
