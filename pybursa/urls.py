@@ -11,6 +11,7 @@ urlpatterns = patterns(
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^polls/', include('polls.urls', namespace="polls")),
+    url(r'^quadratic/', include('quadratic.urls')),
     url(r'^$', views.index, name='index'),
     url(r'^contact/$', views.contact, name='contact'),
     url(r'^student_list/$', views.student_list, name='student_list'),
