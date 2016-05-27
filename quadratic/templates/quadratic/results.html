@@ -36,7 +36,7 @@
             <li>c = {{ c }}</li>
             <i>{{ str_c }}</i>
         </ul>
-    <p class="quadratic">Дискриминант: {{ discr }}</p>
+    <p class="quadratic">{{ discr_title }} {{ discr }}</p>
         {% if discr > 0 %}
         <p class="quadratic">{{ discr_text }} x1 = {{ x1 }}, x2 = {{ x2 }}</p>
         {% elif discr < 0 %}
@@ -48,6 +48,8 @@
         <p class="quadratic">{{ string }}</p>
         <p class="quadratic">{{ info }}</p>
     {% endif %}
+
+    {{ hello }}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
