@@ -15,8 +15,8 @@ def quadratic_results(request):
 
         def validation(x):
 
-            if x == "":
-                valid_data_text = "коэффициент не определен"
+            if x == '':
+                valid_data_text = 'коэффициент не определен'
 
             else:
                 try:
@@ -26,10 +26,10 @@ def quadratic_results(request):
                         valid_data_text = ''
                 except ValueError:
                     x = str(x)
-                    valid_data_text = "коэффициент не целое число"
+                    valid_data_text = 'коэффициент не целое число'
             return x, valid_data_text
 
-        if request.method == "GET":
+        if request.method == 'GET':
             a = request.GET['a']
             b = request.GET['b']
             c = request.GET['c']
@@ -39,12 +39,12 @@ def quadratic_results(request):
             c, c_text = validation(c)
 
             if a == 0:
-                a_text = """коэффициент при первом слагаемом
-                уравнения, не может быть равным нулю"""
+                a_text = '''коэффициент при первом слагаемом
+                уравнения, не может быть равным нулю'''
 
             if len(valid_data) == 3 and a != 0:
-                disc['message'] = "Дискриминант: "
-                disc['value'] = b**2-4*a*c
+                disc['message'] = 'Дискриминант: '
+                disc['value'] = b ** 2 - 4 * a * c
 
                 if disc['value'] < 0:
                     disc_result['message'] = '''Дискриминант меньше нуля, квадратное
@@ -56,7 +56,7 @@ def quadratic_results(request):
                     уравнение имеет один действительный корень: x1 = x2 = '''
                     disc_result['value'] = float(x)
 
-                elif disc['value'] > 0:
+                else:
                     x1 = (-b + math.sqrt(disc['value'])) / (2 * a)
                     x2 = (-b - math.sqrt(disc['value'])) / (2 * a)
                     disc_result['message'] = '''Квадратное уравнение имеет два
@@ -74,7 +74,7 @@ def quadratic_results(request):
 
     else:
         context = {
-            'eq_page': "Квадратное уравнение a*x*x + b*x + c = 0",
+            'eq_page': 'Квадратное уравнение a*x*x + b*x + c = 0',
             'info': '''Для произведения вычислений, добавьте значения
             коэффициентов в строку URL в формате: ?a=1&b=3&c=5'''}
         return render(request, 'quadratic/results.html', context)
