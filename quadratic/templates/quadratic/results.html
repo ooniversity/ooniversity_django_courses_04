@@ -25,31 +25,23 @@
       </div>
     </div>
     </nav>
-    
-    {% if not string %}
-    <p class="quadratic">Квадратное уравнение a*x*x + b*x + c = 0</p>
-        <ul class="quadratic">
-            <li>a = {{ a }}</li>
-            <i>{{ str_a }}</i>
-            <li>b = {{ b }}</li>
-            <i>{{ str_b }}</i>
-            <li>c = {{ c }}</li>
-            <i>{{ str_c }}</i>
-        </ul>
-    <p class="quadratic">{{ discr_title }} {{ discr }}</p>
-        {% if discr > 0 %}
-        <p class="quadratic">{{ discr_text }} x1 = {{ x1 }}, x2 = {{ x2 }}</p>
-        {% elif discr < 0 %}
-        <p class="quadratic">{{ discr_text }}</p>
-        {% else %}
-        <p class="quadratic">{{ discr_text }}{{ x }}</p>
-        {% endif %}
-    {% else %}
-        <p class="quadratic">{{ string }}</p>
-        <p class="quadratic">{{ info }}</p>
-    {% endif %}
 
-    {{ hello }}
+    {% if not eq_page %}
+      <p class="quadratic">Квадратное уравнение a*x*x + b*x + c = 0</p>
+        <ul class="quadratic">
+          <li>a = {{ a }}</li>
+          <i>{{ a_text }}</i>
+          <li>b = {{ b }}</li>
+          <i>{{ b_text }}</i>
+          <li>c = {{ c }}</li>
+          <i>{{ c_text }}</i>
+        </ul>
+      <p class="quadratic">{{ disc.message }}{{ disc.value }}</p>
+      <p class="quadratic">{{ disc_result.message }}{{ disc_result.value }}</p>
+    {% else %}
+      <p class="quadratic">{{ eq_page }}</p>
+      <p class="quadratic">{{ info }}</p>
+    {% endif %}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
