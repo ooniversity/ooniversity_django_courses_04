@@ -1,108 +1,81 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render
 
+from django.shortcuts import render
 import math
 
 
 def quadratic_results(request):
-    req_data = request.GET
 
-    parsed_data = []
+    if request.GET:
 
-    if req_data:
-        a = req_data['a']
-        str_a = ""
-        if a == "":
-            str_a = "коэффициент не определен"
-        else:
-            try:
-                a = int(a)
-            except ValueError:
-                    a = str(a)
-                    str_a = "коэффициент не целое число"
+        disc = {}
+        disc_result = {}
+        valid_data = []
+        valid_data_text = None
+
+        def validation(x):
+
+            if x == '':
+                valid_data_text = 'коэффициент не определен'
+
+            else:
+                try:
+                    x = int(x)
+                    if isinstance(x, int):
+                        valid_data.append(x)
+                        valid_data_text = ''
+                except ValueError:
+                    x = str(x)
+                    valid_data_text = 'коэффициент не целое число'
+            return x, valid_data_text
+
+        if request.method == 'GET':
+            a = request.GET['a']
+            b = request.GET['b']
+            c = request.GET['c']
+
+            a, a_text = validation(a)
+            b, b_text = validation(b)
+            c, c_text = validation(c)
+
             if a == 0:
-                str_a = """коэффициент при первом слагаемом уравнения,
-                    не может быть равным нулю"""
-        parsed_data.append(a)
+                a_text = '''коэффициент при первом слагаемом
+                уравнения, не может быть равным нулю'''
 
-        b = (req_data['b'])
-        str_b = ""
-        if b == "":
-            str_b = "коэффициент не определен"
-        else:
-            try:
-                b = int(b)
-            except ValueError:
-                b = str(b)
-                str_b = "коэффициент не целое число"
-        parsed_data.append(b)
+            if len(valid_data) == 3 and a != 0:
+                disc['message'] = 'Дискриминант: '
+                disc['value'] = b ** 2 - 4 * a * c
 
-        c = (req_data['c'])
-        str_c = ""
-        if c == "":
-            str_c = "коэффициент не определен"
-        else:
-            try:
-                c = int(c)
-            except ValueError:
-                c = str(c)
-                str_c = "коэффициент не целое число"
-        parsed_data.append(c)
+                if disc['value'] < 0:
+                    disc_result['message'] = '''Дискриминант меньше нуля,
+                    квадратное уравнение не имеет действительных решений.'''
 
-        for item in parsed_data:
-            if isinstance(item, int):
-                discr = b**2 - 4 * a * c
-                if discr > 0:
-                    x1 = (-b + math.sqrt(discr)) / (2 * a)
-                    x2 = (-b - math.sqrt(discr)) / (2 * a)
-                    discr_text = '''Квадратное уравнение имеет два
-                    действительных корня:'''
-                    context_data = {
-                        'a': a,
-                        'b': b,
-                        'c': c,
-                        'str_a': str_a,
-                        'str_b': str_b,
-                        'str_c': str_c,
-                        'discr': discr,
-                        'discr_text': discr_text,
-                        'x1': x1,
-                        'x2': x2
-                    }
-                elif discr < 0:
-                    discr_text = '''Дискриминант меньше нуля, квадратное
-                    уравнение не имеет действительных решений.'''
-                    context_data = {
-                        'a': a,
-                        'b': b,
-                        'c': c,
-                        'str_a': str_a,
-                        'str_b': str_b,
-                        'str_c': str_c,
-                        'discr': discr,
-                        'discr_text': discr_text
-                    }
-                else:
+                elif disc['value'] == 0:
                     x = -b / (2 * a)
-                    x = float(x)
-                    discr_text = '''Дискриминант равен нулю, квадратное
-                    уравнение имеет один действительный корень: x1 = x2 = '''
-                    context_data = {
-                        'a': a,
-                        'b': b,
-                        'c': c,
-                        'str_a': str_a,
-                        'str_b': str_b,
-                        'str_c': str_c,
-                        'discr': discr,
-                        'discr_text': discr_text,
-                        'x': x,
-                        }
-        return render(request, 'quadratic/results.html', context_data)
+                    disc_result['message'] = '''Дискриминант равен нулю,
+                    квадратное уравнение имеет один действительный корень:
+                    x1 = x2 = '''
+                    disc_result['value'] = float(x)
+
+                else:
+                    x1 = (-b + math.sqrt(disc['value'])) / (2 * a)
+                    x2 = (-b - math.sqrt(disc['value'])) / (2 * a)
+                    disc_result['message'] = '''Квадратное уравнение имеет два
+                    действительных корня: '''
+                    disc_result['value'] = "x1 = %.1f, x2 = %.1f" % (x1, x2)
+
+        context = {
+            'disc': disc,
+            'disc_result': disc_result,
+            'a': a, 'a_text': a_text,
+            'b': b, 'b_text': b_text,
+            'c': c, 'c_text': c_text}
+
+        return render(request, 'quadratic/results.html', context)
 
     else:
-        context_data = {'string': "Квадратное уравнение a*x*x + b*x + c = 0",
-                        'info': '''Для произведения вычислений,
-                        добавьте значения коэффициентов в строку URL
-                        в формате: ?a=1&b=3&c=5'''}
-        return render(request, 'quadratic/results.html', context_data)
+        context = {
+            'eq_page': 'Квадратное уравнение a*x*x + b*x + c = 0',
+            'info': '''Для произведения вычислений, добавьте значения
+            коэффициентов в строку URL в формате: ?a=1&b=3&c=5'''}
+        return render(request, 'quadratic/results.html', context)
