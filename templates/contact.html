@@ -1,0 +1,77 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+      <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header"><a class="navbar-brand navbar-link" href="http://itbursa.com/">ItBursa </a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url 'index' %}">Main</a></li>
+                        <li><a href="{% url 'contact' %}">Contacts</a></li>
+                        <li><a href="{% url 'student_list' %}">Students</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+      <div class="container">
+          <h2 class="text-center">Основатели курсов</h2>
+      </div>
+
+      <hr>
+    
+      <div class="container">
+        <div class="row">
+            <div class="col-md-4"><img class="img-circle imgCenter" src="{% static 'images/17.jpg' %}" alt="Founder">
+                <ul>
+                   <li><h4 class="boss">Founder</h4></li>
+                   <li><h4><b>Name:</b> Иван Иванов</h4></li>
+                   <li><h4><b>Skype:</b> founder</h4></li>
+                   <li><h4><b>E-mail:</b> founder@gmail.com</h4></li>
+                   <li><h4><b>Phone:</b> +380-555-22-11</h4></li>
+                </ul>
+            </div>
+            <div class="col-md-4"><img class="img-circle imgCenter" src="{% static 'images/18.jpg' %}" alt="Director">
+                <ul>
+                   <li><h4 class="boss">Director</h4></li>
+                   <li><h4><b>Name:</b> Петр Петров</h4></li>
+                   <li><h4><b>Skype:</b> director</h4></li>
+                   <li><h4><b>E-mail:</b> director@gmail.com</h4></li>
+                   <li><h4><b>Phone:</b> +380-555-33-22</h4></li>
+                </ul>
+             </div>
+            <div class="col-md-4"><img class="img-circle imgCenter" src="{% static 'images/19.jpg' %}" alt="Manager">
+                <ul>
+                   <li><h4 class="boss">Manager</h4></li>
+                   <li><h4><b>Name:</b>Семен Семенов</h4></li>
+                   <li><h4><b>Skype:</b> manager</h4></li>
+                   <li><h4><b>E-mail:</b> manager@gmail.com</h4></li>
+                   <li><h4><b>Phone:</b> +380-555-44-33</h4></li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      <hr>
+      <div class="container">
+        <footer class="footer">
+            <p>Copyright @ 20016 Sergpo</p>
+        </footer>
+      </div>
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand navbar-link" href="http://itbursa.com/">ItBursa </a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{% url 'index' %}">Main</a></li>
+                        <li><a href="{% url 'contact' %}">Contacts</a></li>
+                        <li><a href="{% url 'student_list' %}">Students</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+      <div class="container">
+            <h2 class="text-center">Курс PyBursa</h2></div>
+            <h5 class="text-center">Ниже представлен список студентов, выпуск май 2016</h5></div>
+    </div>
+    <hr>
+    
+    <div class="container">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No </th>
+                    <th>Surname </th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Skype </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="{% url 'student_detail' %}" title="1">1</a></td>
+                    <td>Морозов</td>
+                    <td>Павел</td>
+                    <td>г.Харьков, ул. Данилевского 32, кв. 23</td>
+                    <td>morozded</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Гринишак</td>
+                    <td>Виталий</td>
+                    <td>г.Харьков, ул. Ленина 22, кв 4</td>
+                    <td>grinya</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Бельчук</td>
+                    <td>Сергей</td>
+                    <td>г.Харьков, ул. Достоевского 43, кв 56 </td>
+                    <td>billybons</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Назаров</td>
+                    <td>Евгений</td>
+                    <td>г.Харьков, ул. Блюхера 43. кв 115 </td>
+                    <td>krepostnoi</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Иванов</td>
+                    <td>Тарас</td>
+                    <td>г.Харьков, пр. Гагарина 157. кв 64 </td>
+                    <td>itaras</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <hr>
+    <div class="container">
+        <footer class="footer">
+            <p>Copyright @ 20016 Sergpo</p>
+        </footer>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
