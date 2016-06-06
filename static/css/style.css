@@ -29,3 +29,9 @@ th {
     color: #761c19;
 }
 
+/*Detail Page*/
+
+h3 {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}

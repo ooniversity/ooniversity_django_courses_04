@@ -7,7 +7,7 @@ class Course(models.Model):
     description = models.TextField()
 
     def __unicode__(self):
-        return "%s, %s" % (self.name, self.short_description)
+        return self.name
 
 
 class Lesson(models.Model):
