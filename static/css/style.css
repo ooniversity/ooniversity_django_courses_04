@@ -1,0 +1,38 @@
+/*Main Page*/
+.header {
+    margin-bottom: 5px;
+    padding-bottom: 15px;
+    text-align: left;
+    color: #761c19;
+}
+
+.container {
+    background-color: #e7e7e7;
+    width: 90%;
+    margin-bottom: 1%
+}
+
+.table {
+    margin: 0;
+    padding: 0;
+}
+
+th {
+    color: #761c19;
+}
+
+/*Navigation Bar*/
+.nav {
+    font-size: 20px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #761c19;
+}
+
+/*Detail Page*/
+
+h3 {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}

@@ -1,0 +1,14 @@
+# python precompiled files:
+*.pyc
+*.pyo
+bin/
+include/
+Include/
+lib/
+Lib/
+Scripts/
+tcl/
+local/
+*.sublime-project
+*.sublime-workspace
+*.json
