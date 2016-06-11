@@ -8,6 +8,7 @@ lib/
 Lib/
 Scripts/
 tcl/
+lib/
 local/
 *.sublime-project
 *.sublime-workspace
