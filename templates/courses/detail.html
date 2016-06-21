@@ -1,89 +1,42 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Сourse Page</title>
-    <!-- <link href="../static/css/bootstrap.css" rel="stylesheet"> -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <!-- <link href="../static/css/style.css" rel="stylesheet"> -->
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% block title %}Сourse Page{% endblock %}
 
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="{% url 'index' %}">Main</a></li>
-          <li><a href="#">Contacts</a></li>
-          <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
-        </ul>
-      </div>
-    </div>
-    </nav>
+{% block nav %}?course_id={{ course.id }}{% endblock %}
 
-    <div class="container">
-      <h1 class="header">{{ course.name }}</h1>
-        <p>{{ course.description }}</p>
-    </div>
+{% block content %}
+  <div class="container">
+    <h1 class="header">{{ course.name }}</h1>
+      <p>{{ course.description|truncatechars:'32' }}</p>
+  </div>
 
-    <div class="container">
-      <h3 class="header">Teachers</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Coach</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.user.first_name }} {{ course.coach.user.last_name }}</a><br>{{ course.coach.description }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Assistant</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.user.first_name }} {{ course.assistant.user.last_name }}</a><br>{{ course.assistant.description }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="container">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Subject</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <h3 class="header">Course Plan</h3>
-        {% for lesson in lessons %}
-        <tbody>
-          <tr>
-            <td>{{ lesson.order }}</td>
-            <td>{{ lesson.subject }}</td>
-            <td>{{ lesson.description }}</td>
-          </tr>
-        </tbody>
-        {% endfor %}
-      </table>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- <script src="../static/js/bootstrap.js"></script> -->
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-  </body>
-</html>
+  <div class="container">
+    <h3 class="header">Teachers</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Coach</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.user.first_name }} {{ course.coach.user.last_name }}</a><br>{{ course.coach.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Assistant</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.user.first_name }} {{ course.assistant.user.last_name }}</a><br>{{ course.assistant.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  {% include 'include/course_plan_include.html' %}
+{% endblock %}
