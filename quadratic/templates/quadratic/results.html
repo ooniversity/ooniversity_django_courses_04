@@ -26,7 +26,7 @@
     </div>
     </nav>
 
-    {% if not eq_page %}
+<!--     {% if not eq_page %}
       <p class="quadratic">Квадратное уравнение a*x*x + b*x + c = 0</p>
         <ul class="quadratic">
           <li>a = {{ a }}</li>
@@ -41,7 +41,19 @@
     {% else %}
       <p class="quadratic">{{ eq_page }}</p>
       <p class="quadratic">{{ info }}</p>
-    {% endif %}
+    {% endif %} -->
+
+    <p class="quadratic">Квадратное уравнение a*x*x + b*x + c = 0</p>
+    <form method="get">
+      {% for field in form %}
+        <p class="quadratic">{{ field.label }} <span id="value-field">{{ field }}</span></p>
+      {% endfor %}
+      <br>  
+      <input type="submit" name="" value="Calculate" class="quadratic btn btn-primary">
+    </form>
+    <br>
+    <p class="quadratic">{{ disc.message }}{{ disc.value }}</p>
+    <p class="quadratic">{{ disc_result.message }}{{ disc_result.value }}</p>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>

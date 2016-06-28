@@ -119,3 +119,7 @@ img {
     margin-left: 10px;
     font-size: 1.5em;
 }
+
+#value-field {
+    margin: 10px;
+}
