@@ -36,3 +36,37 @@ h3 {
     border-bottom-style: solid;
     border-bottom-width: 1px;
 }
+
+/*Adding nw student page*/
+
+.field-name {
+    display: block;
+    float: left;
+    clear: left;
+}
+
+.field-value {
+    display: block;
+    text-align: left;
+    margin-left: 100px;
+
+}
+
+.field-value input {
+    width: 25%;
+}
+
+.field-value select {
+    width: 25%;
+}
+
+#add-form {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/*Students list page*/
+
+.add-button {
+    margin-bottom: 20px;
+}

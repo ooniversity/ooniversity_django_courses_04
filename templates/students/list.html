@@ -8,8 +8,11 @@
 {% block content %}
   <div class="container">
     <h1 class="header">{{ course.name }} Course Students List</h1>
+        <a href="{% url 'students:add' %}">
+        <button type="button" class="btn btn-primary add-button" aria-label="Left Align">
+        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add new student</button></a>
   </div>
-  
+
   <div class="container">
     <table class="table">
       <thead>
