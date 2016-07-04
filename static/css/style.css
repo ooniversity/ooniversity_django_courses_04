@@ -65,6 +65,14 @@ h3 {
     padding-bottom: 15px;
 }
 
+/*Editing student page*/
+
+#edit-form {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+
 /*Students list page*/
 
 .add-button {
@@ -77,4 +85,18 @@ h3 {
     font-size: 20px;
     color: #FFF;
     background-color: #337ab7; 
+}
+
+/*Students delete page*/
+
+.delete-form {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: block;
+    font-size: 20px;
+    color: #761c19;
+}
+
+#delete-button {
+    margin-bottom: 15px;
 }

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Students Edit Page{% endblock %}
+
+{% block nav_class_students %}active{% endblock %}
+
+{% block content %}
+
+  <div class="container" id="mess-color">
+    {% if messages %}
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  <div class="container">
+    <h1 class="header">Editing student credentials</h1>
+  </div>
+  
+  <div class="container" id="edit-form">
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        <p class="field-name">{{ field.label }}</p> 
+        <p class="field-value">{{ field }}</p>
+      {% endfor %}
+      <input type="submit" name="" value="Make Changes" class="field btn btn-primary">
+    </form>
+  </div>
+{% endblock %}
