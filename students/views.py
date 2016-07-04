@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from .models import Student, Course
 from .forms import StudentModelForm
@@ -25,12 +26,12 @@ def detail(request, student_id):
 def create(request):
     if request.method == 'POST':
         form = StudentModelForm(request.POST)
-        if form.is_valid:
-            form.save()
-            return redirect('students/list.html')
+        if form.is_valid():
+            student = form.save()
+            messages.success(
+                request, "Student %s %s has been successfully added!" %
+                (student.name, student.surname))
+            return redirect('students:list_view')
     else:
         form = StudentModelForm()
-        context = {'form': form}
-        return render(request, 'students/add.html', context)
-
-
+    return render(request, 'students/add.html', {'form': form})
