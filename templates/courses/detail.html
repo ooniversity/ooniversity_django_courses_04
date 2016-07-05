@@ -13,29 +13,38 @@
 
   <div class="container">
     <h3 class="header">Teachers</h3>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Coach</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.user.first_name }} {{ course.coach.user.last_name }}</a><br>{{ course.coach.description }}</td>
-        </tr>
-      </tbody>
-    </table>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Assistant</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.user.first_name }} {{ course.assistant.user.last_name }}</a><br>{{ course.assistant.description }}</td>
-        </tr>
-      </tbody>
-    </table>
+    {% if course.coach.id %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Coach</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.user.first_name }} {{ course.coach.user.last_name }}</a><br>{{ course.coach.description }}</td>
+          </tr>
+        </tbody>
+    {% else %}
+          <p class="message-color">There is no coach for this course!</p>
+      </table>
+    {% endif %}
+
+    {% if course.assistant.id %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Assistant</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.user.first_name }} {{ course.assistant.user.last_name }}</a><br>{{ course.assistant.description }}</td>
+          </tr>
+        </tbody>
+    {% else %}
+          <p class="message-color">There is no assistant for this course!</p>
+      </table>
+    {% endif %}
   </div>
 {% endblock %}

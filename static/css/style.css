@@ -72,14 +72,13 @@ h3 {
     padding-bottom: 15px;
 }
 
-
 /*Students list page*/
 
 .add-button {
     margin-bottom: 20px;
 }
 
-#mess-color {
+.message-color {
     display: block;
     text-align: center;
     font-size: 20px;
@@ -99,4 +98,15 @@ h3 {
 
 #delete-button {
     margin-bottom: 15px;
+}
+
+/*Course add page*/
+
+.add-course-button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.course-value {
+    margin-left: 120px;
 }
