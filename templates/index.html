@@ -23,26 +23,30 @@
   </div>
 
   <div class="container">
-    
-    <a href="{% url 'courses:add' %}">
-    <button type="button" class="btn btn-primary btn-block add-course-button" aria-label="Left Align">
-    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add new course</button></a>
+    <h1 class="header">Courses List</h1>
+        <a href="{% url 'courses:add' %}">
+        <button type="button" class="btn btn-primary add-course-button" aria-label="Left Align">
+        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add new course</button></a>
+  </div>
 
-    <table class="table">
+  <div class="container">
+    <table class="custom-table">
       <thead>
         <tr>
           <th>Course</th>
           <th>Description</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
-      {% for course in courses_list %}
       <tbody>
+        {% for course in courses_list %}
         <tr>
           <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
           <td>{{ course.short_description|title }}</td>
           <td>
             <a href="{% url 'courses:edit' course.id %}">
-            <button type="button" class="btn btn-primary edit-button" aria-label="Left Align">
+            <button type="button" class="btn btn-primary" aria-label="Left Align">
             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button></a>
           </td>
           <td>
@@ -51,8 +55,8 @@
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</button></a>
           </td>
         </tr>
+        {% endfor %}
       </tbody>
-      {% endfor %}
     </table>
   </div>
 {% endblock %}

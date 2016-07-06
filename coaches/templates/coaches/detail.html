@@ -9,41 +9,46 @@
   </div>
   
   <div class="container">
-    <table class="table">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>Personal card</th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
-          <th>Date of birth</th>
-          <th>{{ teacher.date_of_birth|date:'d F,Y' }}</th>
+          <td>Date of birth</td>
+          <td>{{ teacher.date_hf_birth|date:'d F,Y' }}</td>
         </tr>
         <tr>
-          <th>Address</th>
-          <th>{{ teacher.address }}</th>
+          <td>Address</td>
+          <td>{{ teacher.address }}</td>
         </tr>
         <tr>
-          <th>Email</th>
-          <th>{{ teacher.user.email }}</th>
+          <td>Email</td>
+          <td>{{ teacher.user.email }}</td>
         </tr>
         <tr>
-          <th>Skype</th>
-          <th>{{ teacher.skype }}</th>
+          <td>Skype</td>
+          <td>{{ teacher.skype }}</td>
         </tr>
         <tr>
-          <th>Phone</th>
-          <th>{{ teacher.phone }}</th>
+          <td>Phone</td>
+          <td>{{ teacher.phone }}</td>
         </tr>
         <tr>
-          <th>Coach on courses</th>
-          <th>{% for course in teacher.coach_courses.all %}
+          <td>Coach on courses</td>
+          <td>{% for course in teacher.coach_courses.all %}
                   <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> Students in this course <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a><br>
               {% endfor %}
-          </th>
+          </td>
         </tr>
         <tr>
-          <th>Assistant on courses</th>
-          <th>{% for course in teacher.assistant_courses.all %}
+          <td>Assistant on courses</td>
+          <td>{% for course in teacher.assistant_courses.all %}
                   <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> Students in this course <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a><br>
               {% endfor %}
-          </th>
+          </td>
         </tr>
       </tbody>
     </table>

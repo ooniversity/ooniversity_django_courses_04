@@ -19,13 +19,13 @@
     <h1 class="header">{{ course.name }} Course Students List</h1>
       {% if not course %}
         <a href="{% url 'students:add' %}">
-        <button type="button" class="btn btn-primary add-button" aria-label="Left Align">
+        <button type="button" class="btn btn-primary add-student-button" aria-label="Left Align">
         <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add new student</button></a>
       {% endif %}
   </div>
 
   <div class="container">
-    <table class="table">
+    <table class="custom-table">
       <thead>
         <tr>
           <th>#</th>
@@ -33,6 +33,8 @@
           <th>Address</th>
           <th>Skype</th>
           <th>Courses</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       {% if course.id %}

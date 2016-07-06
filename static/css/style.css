@@ -9,16 +9,27 @@
 .container {
     background-color: #e7e7e7;
     width: 90%;
-    margin-bottom: 1%
+    margin-bottom: 1%;
+    overflow-x:auto;
 }
 
-.table {
-    margin: 0;
-    padding: 0;
+/*Tables*/
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    border-top: 1px solid #FFF;
+    padding: 15px 15px 15px 0px;
+    text-align: left;
 }
 
 th {
+    border-collapse: collapse;
     color: #761c19;
+    padding: 15px 15px 15px 0px;
+    text-align: left;
 }
 
 /*Navigation Bar*/
@@ -28,13 +39,6 @@ th {
 
 .navbar-default .navbar-nav > li > a {
     color: #761c19;
-}
-
-/*Detail Page*/
-
-h3 {
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
 }
 
 /*Adding new student page*/
@@ -74,7 +78,7 @@ h3 {
 
 /*Students list page*/
 
-.add-button {
+.add-student-button {
     margin-bottom: 20px;
 }
 
@@ -83,7 +87,7 @@ h3 {
     text-align: center;
     font-size: 20px;
     color: #FFF;
-    background-color: #337ab7; 
+    background-color: #337ab7;
 }
 
 /*Students delete page*/
@@ -103,8 +107,7 @@ h3 {
 /*Course add page*/
 
 .add-course-button {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .course-value {
