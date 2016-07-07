@@ -1,2 +1,2 @@
-ooniversity_django_courses_04
+A simple application for managin courses, students and teachers information.
 
