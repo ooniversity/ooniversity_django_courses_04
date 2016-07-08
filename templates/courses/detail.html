@@ -59,10 +59,11 @@
 
   <div class="container">
   <h3 class="header">Course plan</h3>
-  {% if lessons %}
+  
   <a href="{% url 'courses:add_lesson' course.id %}">
   <button type="button" class="btn btn-primary add-course-button" aria-label="Left Align">
   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add new lesson</button></a>
+  {% if lessons %}
     <table class="custom-table">
       <thead>
         <tr>

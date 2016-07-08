@@ -21,7 +21,7 @@ def add(request):
             messages.success(
                 request, "Course %s has been successfully added!" %
                 course.name)
-        return redirect('index')
+            return redirect('index')
     else:
         form = CourseModelForm()
     return render(request, 'courses/add.html', {'form': form})

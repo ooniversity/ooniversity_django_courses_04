@@ -1,5 +1,9 @@
 *.pyc
 *.pyo
+*.sublime-project
+*.sublime-workspace
+*.json
+*.sqlite3
 bin/
 include/
 Include/
@@ -9,7 +13,4 @@ Scripts/
 tcl/
 lib/
 local/
-*.sublime-project
-*.sublime-workspace
-*.json
 .DS_Store
