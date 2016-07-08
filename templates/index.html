@@ -14,13 +14,7 @@
       </p>
   </div>
 
-  <div class="container message-color">
-    {% if messages %}
-      {% for message in messages %}
-        {{ message }}
-      {% endfor %}
-    {% endif %}
-  </div>
+{% include 'include/message_include.html' %}
 
   <div class="container">
     <h1 class="header">Courses List</h1>
