@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Course Remove Page{% endblock %}
+
+{% block nav_class_index %}active{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="header">Removing course</h1>
+  </div>
+  
+  <div class="container">
+    <form method="post">
+      {% csrf_token %}
+      <span class="delete-form">Course {{ course.name }} will be deleted!</span>
+      <input type="submit" name="" value="Delete Course" class="btn btn-danger" id="delete-button">
+    </form>
+  </div>
+{% endblock %}

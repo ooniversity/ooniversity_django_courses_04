@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Course Edit Page{% endblock %}
+
+{% block nav_class_index %}active{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="header">Adding new course</h1>
+  </div>
+  
+{% include 'inc_html/message_include.html' %}
+
+  <div class="container" id="edit-form">
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        <p class="field-name">{{ field.label }}</p> 
+        <p class="field-value course-value">{{ field }}</p>
+      {% endfor %}
+      <input type="submit" name="" value="Make Changes" class="field btn btn-primary">
+    </form>
+  </div>
+{% endblock %}
+

@@ -1,0 +1,56 @@
+{% extends '../templates/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Teachers Page{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="header">{{ teacher.user.first_name }} {{ teacher.user.last_name }}</h1>
+  </div>
+  
+  <div class="container">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>Personal card</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Date of birth</td>
+          <td>{{ teacher.date_hf_birth|date:'d F,Y' }}</td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>{{ teacher.address }}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{ teacher.user.email }}</td>
+        </tr>
+        <tr>
+          <td>Skype</td>
+          <td>{{ teacher.skype }}</td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td>{{ teacher.phone }}</td>
+        </tr>
+        <tr>
+          <td>Coach on courses</td>
+          <td>{% for course in teacher.coach_courses.all %}
+                  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> Students in this course <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a><br>
+              {% endfor %}
+          </td>
+        </tr>
+        <tr>
+          <td>Assistant on courses</td>
+          <td>{% for course in teacher.assistant_courses.all %}
+                  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> Students in this course <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a><br>
+              {% endfor %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

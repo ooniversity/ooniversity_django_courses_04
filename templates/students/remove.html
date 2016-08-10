@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Students Edit Page{% endblock %}
+
+{% block nav_class_students %}active{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="header">Removing student from the course</h1>
+  </div>
+  
+  <div class="container">
+    <form method="post">
+      {% csrf_token %}
+      <span class="delete-form">Student {{ student.name }} {{ student.surname }} will be deleted!</span>
+      <input type="submit" name="" value="Delete Student" class="btn btn-danger" id="delete-button">
+    </form>
+  </div>
+{% endblock %}

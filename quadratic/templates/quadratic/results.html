@@ -9,7 +9,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>DJ101 - Equation Page</title>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/old_style.css' %}" rel="stylesheet">
 
   </head>
   <body>
@@ -17,7 +17,7 @@
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="{% url 'index' %}">Main</a></li>
+          <li><a href="{% url 'old_index' %}">Main</a></li>
           <li><a href="{% url 'contact' %}">Contacts</a></li>
           <li><a href="{% url 'student_list' %}">Students</a></li>
           <li><a href="{% url 'quadratic_results' %}">Equation</a></li>
@@ -25,29 +25,35 @@
       </div>
     </div>
     </nav>
-    
-    {% if not string %}
-    <p class="quadratic">Квадратное уравнение a*x*x + b*x + c = 0</p>
+
+<!--     {% if not eq_page %}
+      <p class="quadratic">Квадратное уравнение a*x*x + b*x + c = 0</p>
         <ul class="quadratic">
-            <li>a = {{ a }}</li>
-            <i>{{ str_a }}</i>
-            <li>b = {{ b }}</li>
-            <i>{{ str_b }}</i>
-            <li>c = {{ c }}</li>
-            <i>{{ str_c }}</i>
+          <li>a = {{ a }}</li>
+          <i>{{ a_text }}</i>
+          <li>b = {{ b }}</li>
+          <i>{{ b_text }}</i>
+          <li>c = {{ c }}</li>
+          <i>{{ c_text }}</i>
         </ul>
-    <p class="quadratic">Дискриминант: {{ discr }}</p>
-        {% if discr > 0 %}
-        <p class="quadratic">{{ discr_text }} x1 = {{ x1 }}, x2 = {{ x2 }}</p>
-        {% elif discr < 0 %}
-        <p class="quadratic">{{ discr_text }}</p>
-        {% else %}
-        <p class="quadratic">{{ discr_text }}{{ x }}</p>
-        {% endif %}
+      <p class="quadratic">{{ disc.message }}{{ disc.value }}</p>
+      <p class="quadratic">{{ disc_result.message }}{{ disc_result.value }}</p>
     {% else %}
-        <p class="quadratic">{{ string }}</p>
-        <p class="quadratic">{{ info }}</p>
-    {% endif %}
+      <p class="quadratic">{{ eq_page }}</p>
+      <p class="quadratic">{{ info }}</p>
+    {% endif %} -->
+
+    <p class="quadratic">Квадратное уравнение a*x*x + b*x + c = 0</p>
+    <form method="get">
+      {% for field in form %}
+        <p class="quadratic">{{ field.label }} <span id="value-field">{{ field }}</span></p>
+      {% endfor %}
+      <br>  
+      <input type="submit" name="" value="Calculate" class="quadratic btn btn-primary">
+    </form>
+    <br>
+    <p class="quadratic">{{ disc.message }}{{ disc.value }}</p>
+    <p class="quadratic">{{ disc_result.message }}{{ disc_result.value }}</p>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
